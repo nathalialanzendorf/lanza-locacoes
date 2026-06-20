@@ -14,13 +14,13 @@ Skill para **cadastrar um cliente** (motorista/locatário) extraindo dados da **
 ## Uso
 
 - O usuário anexa ou informa caminhos da **CNH** e do **comprovante** (PDF/JPG/PNG).
-- Caminhos padrão comuns no Windows: `%USERPROFILE%\Downloads\CNH-e.pdf`, `residencia.pdf` ou `residencia.jpg` — **sempre confirmar** com `Test-Path` / listagem antes de assumir.
+- **Procurar primeiro** em `documentosRaiz` definido em `config/lanza_paths.json` (padrão: `D:\Dropbox\Aluguel Carros` e subpastas). Depois `%USERPROFILE%\Downloads\` (ex.: `CNH-e.pdf`, `residencia.jpg`) — **sempre confirmar** com `Test-Path` / listagem antes de assumir.
 
 ## Fonte de dados
 
 - **CNH:** dados pessoais + CNH.
 - **Comprovante:** CEP, logradouro, número, complemento, bairro, cidade, UF. Telefone e e-mail: do comprovante se houver; senão **perguntar**.
-- **Destino:** `database/clientes.json` (array `clientes`). Schema em `schemaCliente` no próprio arquivo.
+- **Destino:** `database/clientes.json` (array `clientes`). Schema em `schemaCliente` no próprio arquivo. **`id`** = **uuid** (gerado pelo `merge_cliente.py`); chave natural: **`cpf`**.
 
 ## Campos a extrair da CNH
 

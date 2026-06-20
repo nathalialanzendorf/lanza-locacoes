@@ -5,7 +5,7 @@ Grava UMA despesa em database/despesas.json.
 Uso:
     python gravar_despesa.py <categoria> <valor> <data DD/MM/AAAA> <placa> [descricao]
 
-- Faz match da placa com veiculos.json (veiculoId; null se não cadastrada).
+- Faz match da placa com veiculos.json (veiculoId = uuid do veículo; null se não cadastrada).
 - competencia derivada de <data> (MM/AAAA).
 """
 import json

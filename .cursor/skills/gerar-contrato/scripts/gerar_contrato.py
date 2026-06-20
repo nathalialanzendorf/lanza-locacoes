@@ -21,6 +21,19 @@ from docx.oxml.ns import qn
 
 ROOT = Path(__file__).resolve().parents[4]
 
+
+def _lanza_paths_cfg():
+    cfg = ROOT / "config" / "lanza_paths.json"
+    if cfg.is_file():
+        return json.loads(cfg.read_text(encoding="utf-8"))
+    return {}
+
+
+def _default_contratos_dir():
+    p = _lanza_paths_cfg()
+    return (p.get("contratosDir") or p.get("documentosRaiz") or str(ROOT / "contratos"))
+
+
 # ----------------- valor por extenso (pt-BR / reais) -----------------
 _U = ['zero','um','dois','três','quatro','cinco','seis','sete','oito','nove',
       'dez','onze','doze','treze','quatorze','quinze','dezesseis','dezessete','dezoito','dezenove']
@@ -185,7 +198,9 @@ def gerar(dados):
     if end.get('complemento'): log += f", {end['complemento']}"
 
     mm = veic.get('marcaModelo', '')
-    if veic.get('descricao'): mm += f" ({veic['descricao']})"
+    fm = (veic.get('fipeModelo') or '').strip()
+    if fm:
+        mm += f" ({fm})"
 
     fipe_url = fipe_url_mes_atual(veic.get('fipe', '') or '')
 
@@ -286,7 +301,7 @@ def gerar(dados):
             break
 
     nome_cli = cli['nome'].title()
-    base_dir = dados.get('contratosDir') or str(ROOT / 'contratos')
+    base_dir = dados.get('contratosDir') or _default_contratos_dir()
     pasta = os.path.join(base_dir, f"{dini.strftime('%d.%m.%Y')} - {nome_cli}")
     os.makedirs(pasta, exist_ok=True)
     nome_arq = f"Contrato - {nome_cli}"

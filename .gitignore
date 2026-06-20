@@ -12,3 +12,9 @@ contratos/**/residência.*
 # CRLV / documento do veículo — só local
 veiculos/*
 !veiculos/.gitkeep
+
+# Boletos/comprovantes de seguro — canónico em Dropbox (seguroComprovantesDir)
+despesas/**/Seguro/
+
+# Node (sync CRLV em PDF)
+.cursor/skills/cadastrar-veiculo/scripts/pdf-deps/node_modules/

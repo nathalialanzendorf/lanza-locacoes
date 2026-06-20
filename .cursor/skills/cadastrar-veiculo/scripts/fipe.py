@@ -7,7 +7,7 @@ Subcomandos:
     python fipe.py modelos <marcaCode> [filtro...]
     python fipe.py anos <marcaCode> <modeloCode> [filtro]
     python fipe.py valor <marcaCode> <modeloCode> <anoCode>
-        -> imprime JSON {codigoFipe, price, model, modelYear, fuel, referenceMonth, url}
+        -> imprime JSON {fipeCodigo, fipeModelo, price, modelYear, fuel, referenceMonth, url}
 """
 import json
 import re
@@ -92,9 +92,9 @@ def main():
             f"{d.get('codeFipe')}/{d.get('modelYear')}"
         )
         out = {
-            "codigoFipe": d.get("codeFipe"),
+            "fipeCodigo": d.get("codeFipe"),
+            "fipeModelo": d.get("model"),
             "price": d.get("price"),
-            "model": d.get("model"),
             "modelYear": d.get("modelYear"),
             "fuel": d.get("fuel"),
             "referenceMonth": d.get("referenceMonth"),

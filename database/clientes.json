@@ -1,8 +1,8 @@
 {
-  "descricao": "Clientes (motoristas/locatários) da frota. Armazena dados pessoais, da CNH (carteira de motorista) e endereço. id = uuid.",
-  "atualizadoEm": "2026-06-19",
+  "descricao": "Clientes (motoristas/locatários) da frota. id = uuid. Chave natural: cpf.",
+  "atualizadoEm": "2026-06-20",
   "schemaCliente": {
-    "id": "uuid (gerado automaticamente)",
+    "id": "uuid",
     "nome": "Nome completo",
     "cpf": "000.000.000-00",
     "rg": "Número do RG",
@@ -64,7 +64,7 @@
         "cidade": null,
         "uf": null
       },
-      "id": "3a0d3da9-bbd2-482b-8884-59941a1f47dc"
+      "id": "30f48e6a-0213-4d33-9f39-3e84c4b4c747"
     }
   ]
 }

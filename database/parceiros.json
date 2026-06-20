@@ -1,46 +1,42 @@
 {
-  "descricao": "Proprietários dos veículos da frota: parceiros (tipo=parceiro) e a empresa Lanza Locações (tipo=empresa).",
-  "atualizadoEm": "2026-06-19",
+  "descricao": "Proprietários dos veículos da frota. id = uuid. Chave de negócio: nome (único na prática).",
+  "atualizadoEm": "2026-06-20",
+  "schemaParceiro": {
+    "id": "uuid",
+    "nome": "Nome do parceiro"
+  },
   "parceiros": [
     {
-      "id": "63315588-3c03-4abc-8811-f67489882dfa",
-      "nome": "Maicon",
-      "tipo": "parceiro"
+      "id": "b4332d6c-5097-4f56-a248-11e2b0ca4caf",
+      "nome": "Maicon"
     },
     {
-      "id": "74aa76ab-d25b-43ac-8a3b-5e5f239c8578",
-      "nome": "Regiane",
-      "tipo": "parceiro"
+      "id": "58d972c7-1632-43e8-86a6-bfc182ce60c7",
+      "nome": "Regiane"
     },
     {
-      "id": "9f0d869c-6da0-4a59-8c9d-6b1c3cb475a4",
-      "nome": "Ana",
-      "tipo": "parceiro"
+      "id": "7cf2a9d9-a727-404a-9071-bb541e72fa1e",
+      "nome": "Ana"
     },
     {
-      "id": "6281bb7a-4cad-4bd6-96d0-bcdf2fff108e",
-      "nome": "William",
-      "tipo": "parceiro"
+      "id": "d0636978-b16b-471d-897e-c5286698cb5c",
+      "nome": "William"
     },
     {
-      "id": "1348ef9d-f89f-4f39-b6d4-dab135c1bf63",
-      "nome": "Jhonny",
-      "tipo": "parceiro"
+      "id": "bfa9cfce-2d84-40f6-9208-a353bf71f4fa",
+      "nome": "Jhonny"
     },
     {
-      "id": "b16c5a8b-b136-4bdf-a87b-115b63f4cdcc",
-      "nome": "Luiz Paulo",
-      "tipo": "parceiro"
+      "id": "0fc49e16-dd0d-414a-b014-d77944150905",
+      "nome": "Luiz Paulo"
     },
     {
-      "id": "f2a47f6c-ae0d-46b6-a8ee-bca04810c357",
-      "nome": "Baiano",
-      "tipo": "parceiro"
+      "id": "76b7a2ef-78cf-48c8-977b-cb481dcdd8a6",
+      "nome": "Baiano"
     },
     {
-      "id": "b238116f-8f09-4b82-bbce-922404325e6a",
-      "nome": "Lanza Locações",
-      "tipo": "empresa"
+      "id": "54c2b0fd-90e2-4ef5-8bbb-14c089c17631",
+      "nome": "Felipe"
     }
   ]
 }

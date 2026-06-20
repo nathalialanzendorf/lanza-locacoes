@@ -34,7 +34,7 @@ Argumentos: `<categoria> <valor> <data> <placa> [descricao]`
 
 ## Critério de conclusão
 
-- Registro em `database/despesas.json` com `id` (UUID) e `veiculoId` resolvido ou `null` com aviso.
+- Registro em `database/despesas.json` com `id` (UUID da **despesa**) e `veiculoId` = **uuid** do veículo em `veiculos.json` (ou `null` com aviso).
 
 ## Skills relacionadas
 

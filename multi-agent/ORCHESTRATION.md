@@ -38,7 +38,7 @@ O extrator deve responder **somente** com um JSON válido neste formato (campos 
 
 - Parágrafo único no formato do modelo: `LOCATÁRIO(a): ...` (ver `.cursor/skills/contrato/SKILL.md`).
 - Nome por extenso para rodapé (igual ao da CNH).
-- Sugestão de pasta: `contratos/DD.MM.YYYY - Nome Completo/`.
+- Sugestão de pasta: `D:\Dropbox\Aluguel Carros\DD.MM.YYYY - Nome Completo\` (ver `config/lanza_paths.json` no repo Aworklanza).
 - Não alterar cláusulas de veículos/valores salvo instrução explícita.
 
 ## Saída do agente 3 — Revisor

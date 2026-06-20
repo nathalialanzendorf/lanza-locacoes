@@ -1,6 +1,9 @@
 # -*- coding: utf-8 -*-
 """
-Grava despesas de seguro (extraídas dos boletos) em database/despesas.json.
+Grava despesas de seguro (extraídas dos comprovantes PDF) em database/despesas.json.
+
+Os PDFs são lidos pela skill / agente a partir de seguroComprovantesDir
+(config/lanza_paths.json). veiculoId referencia veiculos.json pelo uuid.
 
 Uso:
     python gravar_despesas.py boletos.json

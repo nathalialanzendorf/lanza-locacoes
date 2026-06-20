@@ -1,0 +1,9 @@
+{
+  "_comentario": "Editar só se mudar de máquina ou pasta. Caminhos no estilo Windows/Dropbox.",
+  "documentosRaiz": "D:/Dropbox/Aluguel Carros",
+  "financeiro": "D:/Dropbox/Aluguel Carros/Financeiro",
+  "prestacaoContasSubpasta": "prestação de contas",
+  "contratosDir": "D:/Dropbox/Aluguel Carros",
+  "despesasRaiz": "D:/Dropbox/Aluguel Carros/Despesas",
+  "seguroComprovantesDir": "D:/Dropbox/Aluguel Carros/Proteção Veicular/Comprovantes/2026"
+}

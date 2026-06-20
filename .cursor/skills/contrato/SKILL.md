@@ -43,13 +43,13 @@ Texto-alvo do locatário (replicar estilo do modelo; ajustar apenas valores):
 
 Detalhes extras e âncoras de substituição: [reference.md](reference.md).
 
-## Pasta de saída (convenção do repositório)
+## Pasta de saída (convenção)
 
-Criar (ou usar) pasta:
+Criar (ou usar) pasta sob **`contratosDir`** em `config/lanza_paths.json` (padrão: `D:\Dropbox\Aluguel Carros`), no formato:
 
-`contratos/DD.MM.YYYY - Nome Completo do Locatário/`
+`D:\Dropbox\Aluguel Carros\DD.MM.YYYY - Nome Completo do Locatário\`
 
-Exemplo existente: `contratos/19.06.2026 - Ceres Beatriz Gonzaga Pereira/`.
+(Em máquinas antigas ou cópias locais pode existir legado em `contratos/` na raiz do repositório Aworklanza.)
 
 Dentro dela:
 

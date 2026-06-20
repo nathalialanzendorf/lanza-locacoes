@@ -1,0 +1,2 @@
+# Ferramentas opcionais do repositório (ex.: sincronizar CRLV em PDF)
+pypdf>=4.0

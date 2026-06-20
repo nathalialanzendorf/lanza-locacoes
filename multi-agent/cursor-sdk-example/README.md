@@ -16,11 +16,11 @@ npm install
 
 ## Uso
 
-No PowerShell (ajuste os caminhos relativos à raiz do repo `worklanza`):
+No PowerShell (use caminhos reais aos PDFs/JPGs da CNH e da residência — padrão do negócio: `D:\Dropbox\Aluguel Carros\...`):
 
 ```bash
 $env:CURSOR_API_KEY = "cursor_..."
-npm run contrato -- "contratos/19.06.2026 - Cliente/CNH.pdf" "contratos/19.06.2026 - Cliente/Residencia.jpg"
+npm run contrato -- "D:/Dropbox/Aluguel Carros/19.06.2026 - Cliente/CNH.pdf" "D:/Dropbox/Aluguel Carros/19.06.2026 - Cliente/Residencia.jpg"
 ```
 
 Ou:

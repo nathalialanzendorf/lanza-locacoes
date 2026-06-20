@@ -10,11 +10,11 @@ description: >-
 
 # Gerar Contrato de Locação de Veículo
 
-Gera **Contrato de Locação** a partir de `templates/Contrato - Modelo v3.docx`, atualizando **cliente**, **veículo**, **valores** e **prazo**. O modelo lista vários veículos na cláusula 1.1; o contrato gerado mantém **somente** o veículo escolhido.
+Gera **Contrato de Locação** a partir de `templates/Contrato - Modelo v3.docx`, atualizando **cliente**, **veículo**, **valores** e **prazo**. O modelo lista vários veículos na cláusula 1.1; o contrato gerado mantém **somente** o veículo escolhido. Na 1.1, o trecho **marca/modelo** do veículo é `marcaModelo` e, se existir `fipeModelo` em `database/veiculos.json` (ou no JSON de entrada), acrescenta-se ` (fipeModelo)` entre parênteses.
 
 ## Cadastro automático (se faltar)
 
-- **Veículo:** se não existir em `database/veiculos.json`, seguir skill **cadastrar-veiculo** com o CRLV (caminho informado pelo usuário; sugerir `%USERPROFILE%\Downloads\CRLV-e.pdf` no Windows se fizer sentido).
+- **Veículo:** se não existir em `database/veiculos.json`, seguir skill **cadastrar-veiculo** com o CRLV (caminho informado pelo usuário; **procurar primeiro** em `D:\Dropbox\Aluguel Carros` conforme `config/lanza_paths.json`, depois `%USERPROFILE%\Downloads\CRLV-e.pdf` se fizer sentido).
 - **Cliente:** se não existir em `database/clientes.json`, seguir skill **cadastrar-cliente** com CNH + comprovante. A **mesma CNH** deve ir em `cnhArquivo` no JSON para copiar como `CNH.pdf` na pasta do contrato.
 
 ## Perguntas (ordem)
@@ -40,23 +40,23 @@ Gera **Contrato de Locação** a partir de `templates/Contrato - Modelo v3.docx`
 
 ## Gerar (script)
 
-Montar `dados.json` e executar (ajustar caminhos à raiz do repositório):
+Montar `dados.json` e executar (JSON de entrada pode ficar em `relatorios/` ou na raiz do repo):
 
 ```bash
-python ".cursor/skills/gerar-contrato/scripts/gerar_contrato.py" "contratos/_dados_tmp.json"
+python ".cursor/skills/gerar-contrato/scripts/gerar_contrato.py" "relatorios/_dados_contrato_tmp.json"
 ```
 
-Exemplo de `dados.json` (use caminhos absolutos ou relativos ao cwd):
+Exemplo de `dados.json` (use caminhos absolutos ou relativos ao cwd). Se **omitir** `contratosDir`, o script usa `config/lanza_paths.json` (`D:\Dropbox\Aluguel Carros` por defeito):
 
 ```json
 {
   "template": "templates/Contrato - Modelo v3.docx",
-  "contratosDir": "contratos",
+  "contratosDir": "D:/Dropbox/Aluguel Carros",
   "cnhArquivo": "C:/Users/.../Downloads/CNH-e.pdf",
   "diaPagamento": "todos os sábados",
   "cliente": { "nome": "...", "cpf": "...",
     "endereco": {"logradouro":"...","numero":"...","complemento":"","bairro":"...","cidade":"...","uf":"SC","cep":"..."} },
-  "veiculo": { "placa":"...","marcaModelo":"...","descricao":"...","chassi":"...","renavam":"...","anoModelo":"...","cor":"...","fipe":"..." },
+  "veiculo": { "placa":"...","marcaModelo":"...","fipeModelo":"...","chassi":"...","renavam":"...","anoModelo":"...","cor":"...","fipe":"..." },
   "prazo":   { "dias": 90, "inicio": "19/06/2026", "hora": "18:00" },
   "valores": { "semana": 650, "caucao": 1500, "diaria": 120 },
   "cnhCategoria": "B",
@@ -64,7 +64,7 @@ Exemplo de `dados.json` (use caminhos absolutos ou relativos ao cwd):
 }
 ```
 
-O script cria `contratos/DD.MM.AAAA - Nome Cliente/` com `.docx`, `.pdf` (Word COM no Windows) e `CNH.pdf` se `cnhArquivo` existir.
+O script cria `DD.MM.AAAA - Nome Cliente/` dentro de `contratosDir` (pasta operacional, p.ex. `D:\Dropbox\Aluguel Carros`) com `.docx`, `.pdf` (Word COM no Windows) e cópia da CNH se `cnhArquivo` existir.
 
 ## Dependências
 

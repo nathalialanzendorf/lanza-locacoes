@@ -13,12 +13,12 @@ Gera o **relatório mensal** por veículo e consolidado por parceiro. Gastos em 
 
 ## Regras fixas
 
-1. **Sempre perguntar o escopo:** um **parceiro**, uma **placa** ou a **frota toda** (apenas veículos de parceiros `tipo=parceiro`; excluir `tipo=empresa` / Lanza frota própria conforme regra do negócio).
-2. **Pré-requisito:** seguro do mês importado (**importar-boletos-seguro**), exceto parceiros sem seguro: **Luiz Paulo, Jhonny, Baiano** (não exigir boleto nem avisar falta para eles).
+1. **Sempre perguntar o escopo:** um **parceiro**, uma **placa** ou a **frota toda**. Por defeito **excluir da prestação** a frota própria do **Felipe** (veículos que lhe estão vinculados em `parceiro-veiculo.json`), salvo se o utilizador pedir para incluir.
+2. **Pré-requisito:** seguro do mês importado (**importar-boletos-seguro** a partir dos PDFs em `seguroComprovantesDir`), exceto parceiros sem seguro: **Luiz Paulo, Jhonny, Baiano** (não exigir boleto nem avisar falta para eles).
 3. **Rastreador fixo:** R$ **50,00** no **dia 10** do mês da competência, se ainda não houver rastreador naquele veículo/mês em `despesas.json`.
 4. **Defaults de ganho:** semanal **R$ 500** e diária **R$ 71,42** (500÷7); sugerir **4 semanas = R$ 2.000**.
 5. **William / PWH-3A45 (Doblo):** ganho mensal fixo **R$ 1.100** (não perguntar semanas).
-6. Veículos **Lanza Locações** (`tipo=empresa`) **não entram** na prestação.
+6. Veículos do **Felipe** (frota própria) **não entram** na prestação para parceiros, salvo instrução em contrário.
 
 ## Competência e período
 
@@ -27,7 +27,7 @@ Gera o **relatório mensal** por veículo e consolidado por parceiro. Gastos em 
 
 ## Locação no período
 
-Para cada veículo, confirmar se ficou locado o mês todo, devolução em data X, ou parado. **Sugestão:** inferir de pastas `contratos/DD.MM.AAAA - cliente` e cláusula 1.2 dos contratos; validar com o usuário.
+Para cada veículo, confirmar se ficou locado o mês todo, devolução em data X, ou parado. **Sugestão:** inferir de pastas `DD.MM.AAAA - cliente` em `contratosDir` (`config/lanza_paths.json`, padrão `D:\Dropbox\Aluguel Carros`) e cláusula 1.2 dos contratos; validar com o usuário.
 
 ## Validação
 
@@ -60,7 +60,7 @@ Exemplo:
 }
 ```
 
-Saída: `prestação de contas/MM.AAAA/<Parceiro>.txt` (na raiz do repositório).
+Saída: `Financeiro/prestação de contas/MM.AAAA/<Parceiro>.txt` por defeito (ver `financeiro` + `prestacaoContasSubpasta` em `config/lanza_paths.json`; se o JSON não existir, cai no legado `prestação de contas/` na raiz do repo).
 
 ## Skills relacionadas
 

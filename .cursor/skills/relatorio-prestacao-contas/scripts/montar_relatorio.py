@@ -13,7 +13,25 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[4]
 DB = ROOT / "database"
-BASE_DIR = ROOT / "prestação de contas"
+
+
+def _lanza_paths_cfg():
+    cfg = ROOT / "config" / "lanza_paths.json"
+    if cfg.is_file():
+        return json.loads(cfg.read_text(encoding="utf-8"))
+    return {}
+
+
+def _prestacao_base_dir():
+    p = _lanza_paths_cfg()
+    fin = p.get("financeiro")
+    if fin:
+        sub = p.get("prestacaoContasSubpasta") or "prestação de contas"
+        return Path(fin) / sub
+    return ROOT / "prestação de contas"
+
+
+BASE_DIR = _prestacao_base_dir()
 
 SEM_SEGURO = {"luiz paulo", "jhonny", "baiano"}
 
