@@ -1,0 +1,46 @@
+{
+  "descricao": "Proprietários dos veículos da frota: parceiros (tipo=parceiro) e a empresa Lanza Locações (tipo=empresa).",
+  "atualizadoEm": "2026-06-19",
+  "parceiros": [
+    {
+      "id": "63315588-3c03-4abc-8811-f67489882dfa",
+      "nome": "Maicon",
+      "tipo": "parceiro"
+    },
+    {
+      "id": "74aa76ab-d25b-43ac-8a3b-5e5f239c8578",
+      "nome": "Regiane",
+      "tipo": "parceiro"
+    },
+    {
+      "id": "9f0d869c-6da0-4a59-8c9d-6b1c3cb475a4",
+      "nome": "Ana",
+      "tipo": "parceiro"
+    },
+    {
+      "id": "6281bb7a-4cad-4bd6-96d0-bcdf2fff108e",
+      "nome": "William",
+      "tipo": "parceiro"
+    },
+    {
+      "id": "1348ef9d-f89f-4f39-b6d4-dab135c1bf63",
+      "nome": "Jhonny",
+      "tipo": "parceiro"
+    },
+    {
+      "id": "b16c5a8b-b136-4bdf-a87b-115b63f4cdcc",
+      "nome": "Luiz Paulo",
+      "tipo": "parceiro"
+    },
+    {
+      "id": "f2a47f6c-ae0d-46b6-a8ee-bca04810c357",
+      "nome": "Baiano",
+      "tipo": "parceiro"
+    },
+    {
+      "id": "b238116f-8f09-4b82-bbce-922404325e6a",
+      "nome": "Lanza Locações",
+      "tipo": "empresa"
+    }
+  ]
+}

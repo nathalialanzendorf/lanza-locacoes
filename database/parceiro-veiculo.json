@@ -1,0 +1,86 @@
+{
+  "descricao": "Vínculo entre veículos e parceiros (donos). veiculoId -> veiculos.json; parceiroId -> parceiros.json.",
+  "atualizadoEm": "2026-06-19",
+  "vinculos": [
+    {
+      "id": "bf04237a-7cf4-4651-8021-b375cc64cdd7",
+      "veiculoId": "86ab49d1-a33d-41b4-a1dc-68287ca529d7",
+      "parceiroId": "63315588-3c03-4abc-8811-f67489882dfa"
+    },
+    {
+      "id": "14b259ea-4f2a-421d-9a0b-79f7f6fda029",
+      "veiculoId": "53ccad85-4464-4c8c-a8a9-d9286402541a",
+      "parceiroId": "63315588-3c03-4abc-8811-f67489882dfa"
+    },
+    {
+      "id": "b8c02895-9e2b-41b9-a761-39a8530542e5",
+      "veiculoId": "6c284d44-607c-477b-93bd-06d10ed0adb6",
+      "parceiroId": "74aa76ab-d25b-43ac-8a3b-5e5f239c8578"
+    },
+    {
+      "id": "d2fa5395-f478-49d3-9558-26018cab3414",
+      "veiculoId": "65d054b6-2080-4310-8e58-b28e7fab8331",
+      "parceiroId": "9f0d869c-6da0-4a59-8c9d-6b1c3cb475a4"
+    },
+    {
+      "id": "fcf9cb17-6b8d-4552-a0c7-e52f84981cc8",
+      "veiculoId": "8ab29400-8b5a-46ff-b91c-6cdd69a14815",
+      "parceiroId": "6281bb7a-4cad-4bd6-96d0-bcdf2fff108e"
+    },
+    {
+      "id": "b5648459-df25-4244-b7b4-ae3fa94a5846",
+      "veiculoId": "627ec1b6-551b-4f3f-8784-347d56340ae1",
+      "parceiroId": "1348ef9d-f89f-4f39-b6d4-dab135c1bf63"
+    },
+    {
+      "id": "6a758114-38cd-4c2e-8b40-0bdbbf74027f",
+      "veiculoId": "fd310675-89d4-4703-a09d-6708c5105b48",
+      "parceiroId": "b16c5a8b-b136-4bdf-a87b-115b63f4cdcc"
+    },
+    {
+      "id": "b6c3beb2-8fef-40eb-96a6-3ca4a0879929",
+      "veiculoId": "fbc72b57-c16d-437f-b790-3c451406b427",
+      "parceiroId": "b16c5a8b-b136-4bdf-a87b-115b63f4cdcc"
+    },
+    {
+      "id": "ced3e5a4-1de4-4d54-b95e-d3b9b28f29fe",
+      "veiculoId": "1d441957-da85-48ff-9c67-9cf2cb8ceee1",
+      "parceiroId": "b16c5a8b-b136-4bdf-a87b-115b63f4cdcc"
+    },
+    {
+      "id": "61fa5585-5c36-45c4-b891-ceed4c3f60c6",
+      "veiculoId": "1193ca39-3c33-4ca6-9359-5f52052c1947",
+      "parceiroId": "f2a47f6c-ae0d-46b6-a8ee-bca04810c357"
+    },
+    {
+      "id": "0f328244-1c96-4ee6-9348-31322bdd1f56",
+      "veiculoId": "77505068-3f2e-4a74-ad04-73ac01e4df92",
+      "parceiroId": "b238116f-8f09-4b82-bbce-922404325e6a"
+    },
+    {
+      "id": "43a15cea-b6b9-45b9-85a2-ab9a44afed6c",
+      "veiculoId": "e6bec3c1-1b08-415e-9fe0-b98a87935be6",
+      "parceiroId": "b238116f-8f09-4b82-bbce-922404325e6a"
+    },
+    {
+      "id": "1fceec3d-e05b-4d28-8224-cf1b2ecd5c18",
+      "veiculoId": "889daa93-0cce-4a84-ab37-3396b534d54a",
+      "parceiroId": "b238116f-8f09-4b82-bbce-922404325e6a"
+    },
+    {
+      "id": "8b9a09e3-2453-4137-87a1-bb867f457db5",
+      "veiculoId": "efb6421b-0d08-4932-9b46-316e6bf11dfe",
+      "parceiroId": "b238116f-8f09-4b82-bbce-922404325e6a"
+    },
+    {
+      "id": "f0e175bd-86ec-49e0-b748-c3267167aa25",
+      "veiculoId": "e3c7f0b1-749a-4d26-b317-af921913914a",
+      "parceiroId": "b238116f-8f09-4b82-bbce-922404325e6a"
+    },
+    {
+      "id": "1124ebfa-7421-4d31-9376-633c387ea5b2",
+      "veiculoId": "38de9bde-2b57-4f1e-898d-02c228920893",
+      "parceiroId": "f2a47f6c-ae0d-46b6-a8ee-bca04810c357"
+    }
+  ]
+}

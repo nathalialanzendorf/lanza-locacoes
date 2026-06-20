@@ -1,0 +1,127 @@
+{
+  "descricao": "Despesas/gastos por veículo (Seguro, Rastreador, Manutenção, etc.). Consumido pela skill /relatorio-prestacao-contas para compor os 'Gastos' de cada veículo.",
+  "atualizadoEm": "2026-06-19",
+  "schemaDespesa": {
+    "id": "uuid (gerado automaticamente)",
+    "veiculoId": "uuid -> database/veiculos.json (null se a placa não estiver cadastrada)",
+    "placa": "Placa do veículo (formato ABC-1D23)",
+    "categoria": "Seguro | Rastreador | Manutenção | Outro",
+    "descricao": "Descrição da despesa",
+    "data": "DD/MM/AAAA (vencimento/competência)",
+    "valor": "número (reais)",
+    "competencia": "MM/AAAA",
+    "origem": "caminho do arquivo de origem (boleto)"
+  },
+  "despesas": [
+    {
+      "id": "7edae84f-3241-4b9a-ba1f-c2d9e623d8ee",
+      "veiculoId": "86ab49d1-a33d-41b4-a1dc-68287ca529d7",
+      "placa": "AVU-6740",
+      "categoria": "Seguro",
+      "descricao": "Seguro",
+      "data": "10/06/2026",
+      "valor": 74.85,
+      "competencia": "06/2026",
+      "origem": "06 Junho/Seguro/AVU6740 - GOL.pdf"
+    },
+    {
+      "id": "50211d73-a87b-4ff8-bab1-7cdd77801378",
+      "veiculoId": "53ccad85-4464-4c8c-a8a9-d9286402541a",
+      "placa": "BBV-6A91",
+      "categoria": "Seguro",
+      "descricao": "Seguro",
+      "data": "10/06/2026",
+      "valor": 112.28,
+      "competencia": "06/2026",
+      "origem": "06 Junho/Seguro/BBV6A91 - GOL.pdf"
+    },
+    {
+      "id": "31e6bf1e-c0f3-4d59-bae9-34a3e534db65",
+      "veiculoId": "889daa93-0cce-4a84-ab37-3396b534d54a",
+      "placa": "FHG-0B73",
+      "categoria": "Seguro",
+      "descricao": "Seguro",
+      "data": "10/06/2026",
+      "valor": 79.84,
+      "competencia": "06/2026",
+      "origem": "06 Junho/Seguro/FHG0B73 - FIESTA SED.pdf"
+    },
+    {
+      "id": "7ce135a1-e9d8-47fd-bb0d-19b0605abdd8",
+      "veiculoId": "6c284d44-607c-477b-93bd-06d10ed0adb6",
+      "placa": "MKV-6268",
+      "categoria": "Seguro",
+      "descricao": "Seguro",
+      "data": "10/06/2026",
+      "valor": 97.31,
+      "competencia": "06/2026",
+      "origem": "06 Junho/Seguro/MKV6268 - HB20.pdf"
+    },
+    {
+      "id": "3bd95a94-da8a-4e52-975c-28a55c143d91",
+      "veiculoId": "65d054b6-2080-4310-8e58-b28e7fab8331",
+      "placa": "MLN-0B87",
+      "categoria": "Seguro",
+      "descricao": "Seguro",
+      "data": "10/06/2026",
+      "valor": 79.84,
+      "competencia": "06/2026",
+      "origem": "06 Junho/Seguro/MLN0B87 - FIESTA.pdf"
+    },
+    {
+      "id": "b7c0f870-67b3-49e0-8988-95617e13bf5e",
+      "veiculoId": "e6bec3c1-1b08-415e-9fe0-b98a87935be6",
+      "placa": "MLW-7I09",
+      "categoria": "Seguro",
+      "descricao": "Seguro",
+      "data": "10/06/2026",
+      "valor": 107.29,
+      "competencia": "06/2026",
+      "origem": "06 Junho/Seguro/MLW7I09 - HB20.pdf"
+    },
+    {
+      "id": "c967f228-228a-4785-ab80-8b2e8e318219",
+      "veiculoId": "e3c7f0b1-749a-4d26-b317-af921913914a",
+      "placa": "OWN-3C59",
+      "categoria": "Seguro",
+      "descricao": "Seguro",
+      "data": "10/06/2026",
+      "valor": 79.84,
+      "competencia": "06/2026",
+      "origem": "06 Junho/Seguro/OWN3C59 - SANDERO.pdf"
+    },
+    {
+      "id": "11ffbe87-c6e8-4d39-a116-46eabc3c5713",
+      "veiculoId": "efb6421b-0d08-4932-9b46-316e6bf11dfe",
+      "placa": "OZC-0B50",
+      "categoria": "Seguro",
+      "descricao": "Seguro",
+      "data": "10/06/2026",
+      "valor": 114.77,
+      "competencia": "06/2026",
+      "origem": "06 Junho/Seguro/OZC0B50 - FOCUS.pdf"
+    },
+    {
+      "id": "6a2218dc-834c-4ebf-83e9-557a005a79b8",
+      "veiculoId": "8ab29400-8b5a-46ff-b91c-6cdd69a14815",
+      "placa": "PWH-3A45",
+      "categoria": "Seguro",
+      "descricao": "Seguro",
+      "data": "10/06/2026",
+      "valor": 124.75,
+      "competencia": "06/2026",
+      "origem": "06 Junho/Seguro/PWH3A45 - DOBLO.pdf"
+    },
+    {
+      "id": "3aa7e5b4-6f22-41bf-b22c-4e1562f4571c",
+      "veiculoId": "77505068-3f2e-4a74-ad04-73ac01e4df92",
+      "placa": "QJB-0I83",
+      "categoria": "Seguro",
+      "descricao": "Seguro",
+      "data": "10/06/2026",
+      "valor": 132.24,
+      "competencia": "06/2026",
+      "origem": "06 Junho/Seguro/QJB0I83 - FOX.pdf"
+    }
+  ]
+}

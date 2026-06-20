@@ -1,0 +1,14 @@
+{
+  "name": "lanza-multi-agent-cursor",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22.13.0"
+  },
+  "scripts": {
+    "contrato": "node orchestrator.mjs"
+  },
+  "dependencies": {
+    "@cursor/sdk": "^1.0.19"
+  }
+}

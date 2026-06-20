@@ -1,0 +1,187 @@
+{
+  "descricao": "Frota de locação de veículos da Nathalia. Fonte canônica consumida pela skill /relatorio-prestacao-contas. Dados extraídos dos contratos de locação (cláusula 1.1).",
+  "atualizadoEm": "2026-06-19",
+  "veiculos": [
+    {
+      "id": "86ab49d1-a33d-41b4-a1dc-68287ca529d7",
+      "placa": "AVU-6740",
+      "marcaModelo": "VW/GOL 1.0",
+      "descricao": "Gol (novo) 1.0 Mi Total Flex 8V 4p",
+      "anoModelo": "2012/2013",
+      "chassi": "9BWAA05U1DT118971",
+      "renavam": "00480715769",
+      "cor": "PRATA",
+      "fipe": "https://veiculos.fipe.org.br?carro/vw-volkswagen/3-2026/005275-2/2013"
+    },
+    {
+      "id": "53ccad85-4464-4c8c-a8a9-d9286402541a",
+      "placa": "BBV-6A91",
+      "marcaModelo": "VW/NOVO GOL TL MBV",
+      "descricao": "Gol Trendline 1.6 T.Flex 8V 5p",
+      "anoModelo": "2017/2018",
+      "chassi": "9BWAB45U1JT080724",
+      "renavam": "01140458539",
+      "cor": "BRANCA",
+      "fipe": "https://veiculos.fipe.org.br?carro/vw-volkswagen/3-2026/005397-0/2018"
+    },
+    {
+      "id": "6c284d44-607c-477b-93bd-06d10ed0adb6",
+      "placa": "MKV-6268",
+      "marcaModelo": "HYUNDAI/HB20 1.0 M",
+      "descricao": "HB20 Comf./C.Plus/C.Style 1.0 Flex 12V",
+      "anoModelo": "2012/2013",
+      "chassi": "9BHBG51CADP036548",
+      "renavam": "00503292486",
+      "cor": "CINZA",
+      "fipe": "https://veiculos.fipe.org.br?carro/hyundai/3-2026/015088-6/2013"
+    },
+    {
+      "id": "65d054b6-2080-4310-8e58-b28e7fab8331",
+      "placa": "MLN-0B87",
+      "marcaModelo": "FORD/FIESTA FLEX",
+      "descricao": "Fiesta 1.6 16V Flex Mec. 5p",
+      "anoModelo": "2013/2014",
+      "chassi": "9BFZF55A8E8053063",
+      "renavam": "00590047108",
+      "cor": "BRANCO",
+      "fipe": "http://veiculos.fipe.org.br?carro/ford/3-2026/003310-3/2014"
+    },
+    {
+      "id": "8ab29400-8b5a-46ff-b91c-6cdd69a14815",
+      "placa": "PWH-3A45",
+      "marcaModelo": "FIAT/DOBLO ESSENCE 1.8",
+      "descricao": "Doblo Essence 1.8 Flex 16V 5p",
+      "anoModelo": "2015/2015",
+      "chassi": "9BD11960SF1129916",
+      "renavam": "01054982748",
+      "cor": "PRATA",
+      "fipe": "http://veiculos.fipe.org.br?carro/fiat/3-2026/001352-8/2015"
+    },
+    {
+      "id": "627ec1b6-551b-4f3f-8784-347d56340ae1",
+      "placa": "IWP-5G63",
+      "marcaModelo": "RENAULT/SANDERO 1.6 Flex",
+      "descricao": "Sandero Expression Hi-Flex 1.6 16V 5p",
+      "anoModelo": "2015/2015",
+      "chassi": "93Y5SRD64FJ791444",
+      "renavam": "01052869600",
+      "cor": "BRANCA",
+      "fipe": "https://veiculos.fipe.org.br/?carro/renault/3-2026/025143-7/2014"
+    },
+    {
+      "id": "fd310675-89d4-4703-a09d-6708c5105b48",
+      "placa": "MLX-2H34",
+      "marcaModelo": "HYUNDAI/HB20 1.0",
+      "descricao": "HB20 Comf./C.Plus/C.Style 1.0 Flex 12V",
+      "anoModelo": "2013/2014",
+      "chassi": "9BHBG51CAEP128235",
+      "renavam": "00557053293",
+      "cor": "BRANCO",
+      "fipe": "https://veiculos.fipe.org.br?carro/hyundai/3-2026/015088-6/2014"
+    },
+    {
+      "id": "fbc72b57-c16d-437f-b790-3c451406b427",
+      "placa": "IXT-7I93",
+      "marcaModelo": "RENAULT/SANDERO 1.0 Flex",
+      "descricao": "Sandero Expression Hi-Flex 1.0 16V 5p",
+      "anoModelo": "2017/2017",
+      "chassi": "93Y5SRF84HJ699432",
+      "renavam": "01113955780",
+      "cor": "PRETA",
+      "fipe": "http://veiculos.fipe.org.br?carro/renault/3-2026/025244-1/2017"
+    },
+    {
+      "id": "1d441957-da85-48ff-9c67-9cf2cb8ceee1",
+      "placa": "RAH-4F54",
+      "marcaModelo": "FIAT/MOBI LIKE",
+      "descricao": "Mobi Like 1.0 Fire Flex 5p",
+      "anoModelo": "2019/2020",
+      "chassi": "9BD341A5XLY6565558",
+      "renavam": "01214476667",
+      "cor": "BRANCA",
+      "fipe": "https://veiculos.fipe.org.br/?carro/renault/3-2026/025244-1",
+      "observacao": "Link Fipe aponta para 'renault' na origem; veículo é Fiat Mobi — verificar."
+    },
+    {
+      "id": "1193ca39-3c33-4ca6-9359-5f52052c1947",
+      "placa": "IYR-8F19",
+      "marcaModelo": "PEUGEOT/2008 STYLE EAT6",
+      "descricao": "Peugeot 2008 Style 1.6 Flex 16V 5p Aut.",
+      "anoModelo": "2018/2019",
+      "chassi": "936CMNFNVKB009870",
+      "renavam": "01161560650",
+      "cor": "BRANCA",
+      "fipe": "http://veiculos.fipe.org.br?carro/peugeot/5-2026/024242-0"
+    },
+    {
+      "id": "77505068-3f2e-4a74-ad04-73ac01e4df92",
+      "placa": "QJB-0I83",
+      "marcaModelo": "VW/FOX CONNECT MB GNV",
+      "descricao": "Fox Connect 1.6 Flex 8V 5p",
+      "anoModelo": "2018/2018",
+      "chassi": "9BWAB45Z4J4036819",
+      "renavam": "01151385473",
+      "cor": "BRANCA",
+      "fipe": "https://veiculos.fipe.org.br?carro/vw-volkswagen/3-2026/005481-0/2018"
+    },
+    {
+      "id": "e6bec3c1-1b08-415e-9fe0-b98a87935be6",
+      "placa": "MLW-7I09",
+      "marcaModelo": "HYUNDAI/HB20 1.0M COMFOR",
+      "descricao": "HB20 Comf./C.Plus/C.Style 1.0 Flex 12V",
+      "anoModelo": "2014/2015",
+      "chassi": "9BHBG51CAFP366988",
+      "renavam": "01029186780",
+      "cor": "BRANCO",
+      "fipe": "https://veiculos.fipe.org.br?carro/hyundai/3-2026/015088-6/2015"
+    },
+    {
+      "id": "889daa93-0cce-4a84-ab37-3396b534d54a",
+      "placa": "FHG-0B73",
+      "marcaModelo": "FORD/FIESTA SEDAN 1.6 GNV",
+      "descricao": "Fiesta Sed. 1.6 8V Flex 4p",
+      "anoModelo": "2012/2013",
+      "chassi": "9BFZF54P7D8410396",
+      "renavam": "00501855688",
+      "cor": "PRATA",
+      "fipe": "http://veiculos.fipe.org.br?carro/ford/3-2026/003289-1/2013"
+    },
+    {
+      "id": "efb6421b-0d08-4932-9b46-316e6bf11dfe",
+      "placa": "OZC-0B50",
+      "marcaModelo": "FORD/FOCUS SE 1.6 SEDAN GNV",
+      "descricao": "Focus Sedan 1.6/1.6 Flex 8V/16V 4p Mec.",
+      "anoModelo": "2013/2014",
+      "chassi": "8AFVZZFFCEJ184032",
+      "renavam": "01004031448",
+      "cor": "PRETA",
+      "fipe": "https://veiculos.fipe.org.br/?carro/ford/3-2026/003404-5/2014"
+    },
+    {
+      "id": "e3c7f0b1-749a-4d26-b317-af921913914a",
+      "placa": "OWN-3C59",
+      "marcaModelo": "RENAULT/SANDERO 1.0 Flex",
+      "descricao": "Sandero Expression Hi-Flex 1.0 16V 5p",
+      "anoModelo": "2013/2014",
+      "chassi": "93YBSR7RHEJ989747",
+      "renavam": "00597756635",
+      "cor": "PRETA",
+      "fipe": "http://veiculos.fipe.org.br?carro/renault/5-2026/025143-7/2014"
+    },
+    {
+      "id": "38de9bde-2b57-4f1e-898d-02c228920893",
+      "placa": "RLA-1G81",
+      "marcaModelo": "PEUGEOT/2008 ALLURE EAT6",
+      "descricao": "Peugeot 2008 Allure 1.6 Flex 16V 5p Aut.",
+      "anoModelo": "2020/2021",
+      "chassi": "936CMNFNVMB501323",
+      "renavam": "01253857455",
+      "cor": "PRETA",
+      "fipe": "https://veiculos.fipe.org.br?carro/peugeot/6-2026/024211-0/2021",
+      "codigoFipe": "024211-0",
+      "modeloFipe": "2008 Allure 1.6 Flex 16V 5p Aut.",
+      "fipeValor": "R$ 63.644,00",
+      "fipeReferencia": "junho de 2026"
+    }
+  ]
+}

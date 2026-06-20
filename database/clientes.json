@@ -1,0 +1,70 @@
+{
+  "descricao": "Clientes (motoristas/locatários) da frota. Armazena dados pessoais, da CNH (carteira de motorista) e endereço. id = uuid.",
+  "atualizadoEm": "2026-06-19",
+  "schemaCliente": {
+    "id": "uuid (gerado automaticamente)",
+    "nome": "Nome completo",
+    "cpf": "000.000.000-00",
+    "rg": "Número do RG",
+    "rgOrgaoExpedidor": "Órgão expedidor / UF do RG",
+    "dataNascimento": "DD/MM/AAAA",
+    "telefone": "(00) 00000-0000",
+    "email": "email@exemplo.com",
+    "cnh": {
+      "numeroRegistro": "Nº de registro da CNH (11 dígitos)",
+      "categoria": "A | B | AB | C | D | E ...",
+      "primeiraHabilitacao": "DD/MM/AAAA",
+      "dataEmissao": "DD/MM/AAAA",
+      "validade": "DD/MM/AAAA",
+      "numeroEspelho": "Nº do espelho / documento de segurança",
+      "orgaoEmissor": "DETRAN",
+      "ufEmissor": "UF (ex.: SP)",
+      "ear": "true/false — Exerce Atividade Remunerada",
+      "observacoes": "Observações da CNH"
+    },
+    "endereco": {
+      "cep": "00000-000",
+      "logradouro": "Rua/Avenida",
+      "numero": "Número",
+      "complemento": "Apto/Bloco (opcional)",
+      "bairro": "Bairro",
+      "cidade": "Cidade",
+      "uf": "UF (ex.: SP)"
+    }
+  },
+  "clientes": [
+    {
+      "nome": "CERES BEATRIZ GONZAGA PEREIRA",
+      "cpf": "654.003.800-34",
+      "rg": "1051879193",
+      "rgOrgaoExpedidor": "SSP/RS",
+      "dataNascimento": "03/03/1974",
+      "localNascimento": "Porto Alegre/RS",
+      "filiacao": "Jadir Albeche Pereira e Vera Beatriz Gonzaga",
+      "telefone": null,
+      "email": null,
+      "cnh": {
+        "numeroRegistro": "06852388310",
+        "categoria": "B",
+        "primeiraHabilitacao": "31/05/2017",
+        "dataEmissao": "24/02/2025",
+        "validade": "23/02/2030",
+        "numeroEspelho": "18560008764",
+        "orgaoEmissor": "DETRAN",
+        "ufEmissor": "SC",
+        "ear": false,
+        "observacoes": null
+      },
+      "endereco": {
+        "cep": null,
+        "logradouro": null,
+        "numero": null,
+        "complemento": null,
+        "bairro": null,
+        "cidade": null,
+        "uf": null
+      },
+      "id": "3a0d3da9-bbd2-482b-8884-59941a1f47dc"
+    }
+  ]
+}
