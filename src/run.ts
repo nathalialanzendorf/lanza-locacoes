@@ -31,6 +31,8 @@ Comandos:
   gravar-cliente-despesa <lote.json> | gravar-cliente-despesa confirmar <autoInfracao> [condutorId]
   sync-infracoes [--placa PLACA] [--dry-run] [--ticket UUID] [--json resposta.json]
   sync-ipva-licenciamento [--placa PLACA] [--dry-run] [--ticket UUID] [--json resposta.json]
+  sync-recebimentos [--dry-run] [--pull-only] [--push-only] [--force-pull] [--motorista KEY]
+  sync-rastreaveis [--dry-run] [--pull-only] [--push-only] [--force-pull]
   renegociar-debitos resumo --motorista <key> --rastreavel <key>
   renegociar-debitos <entrada.json> [--execute]
 `);
@@ -116,13 +118,19 @@ Comandos:
       break;
     case "gravar-cliente-despesa":
     case "gravar-infracao":
-      (await import("./cli/gravarClienteDespesa.js")).main(rest);
+      await (await import("./cli/gravarClienteDespesa.js")).main(rest);
       break;
     case "sync-infracoes":
       await (await import("./cli/syncInfracoes.js")).main(rest);
       break;
     case "sync-ipva-licenciamento":
       await (await import("./cli/syncIpvaLicenciamento.js")).main(rest);
+      break;
+    case "sync-recebimentos":
+      await (await import("./cli/syncRecebimentos.js")).main(rest);
+      break;
+    case "sync-rastreaveis":
+      await (await import("./cli/syncRastreaveis.js")).main(rest);
       break;
     case "renegociar-debitos":
       await (await import("./cli/renegociarDebitos.js")).main(rest);

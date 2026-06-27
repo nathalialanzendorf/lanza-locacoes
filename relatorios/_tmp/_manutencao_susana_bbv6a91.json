@@ -1,0 +1,27 @@
+{
+  "veiculoId": "BBV-6A91",
+  "clienteDespesas": [
+    {
+      "autoInfracao": "MAN-2026-BBV-PORTA-LATERAL",
+      "categoria": "Manutenção",
+      "descricao": "Conserto Gol — batida lateral da porta",
+      "localInfracao": "",
+      "dataAutuacao": "26/06/2026",
+      "valorMulta": 500,
+      "situacao": "A cobrar",
+      "limiteDefesa": "",
+      "origem": "manual"
+    },
+    {
+      "autoInfracao": "MAN-2026-BBV-PARACHOQUE-TRASEIRO",
+      "categoria": "Manutenção",
+      "descricao": "Conserto Gol — parachoque traseiro (orçamento pendente)",
+      "localInfracao": "",
+      "dataAutuacao": "26/06/2026",
+      "valorMulta": 0,
+      "situacao": "Orçamento pendente",
+      "limiteDefesa": "",
+      "origem": "manual"
+    }
+  ]
+}

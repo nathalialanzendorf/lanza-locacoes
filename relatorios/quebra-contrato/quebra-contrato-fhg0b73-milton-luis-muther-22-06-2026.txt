@@ -1,0 +1,82 @@
+=== ENCERRAMENTO DE CONTRATO ===
+
+Cliente: Milton Luis Muther
+Placa: FHG-0B73
+Contrato: D:\Dropbox\Aluguel Carros\Felipe - FORD FIESTA 2012-2013\09.07.2025 - Milton Luis Muther
+Documento: Contrato - Milton Luis Muther v4.docx (4 versões na pasta; só esta usada no acerto)
+Início: 07/01/2026 | Fim previsto: 07/03/2026 (90 dias)
+Encerramento: 22/06/2026 (166 dias de locação)
+
+--- Valores base ---
+Tipo: semanal
+Locação (semanal): R$ 650.00
+Diária (atraso): R$ 120.00
+Caução: R$ 1500.00
+
+--- Infrações de trânsito (não pagas) ---
+  (nenhuma)
+  Subtotal infrações: R$ 0.00
+
+--- Locação semanal em aberto ---
+  Venc. 14/01/2026: R$ 650.00
+  Venc. 21/01/2026: R$ 650.00
+  Venc. 28/01/2026: R$ 650.00
+  Venc. 04/02/2026: R$ 650.00
+  Venc. 11/02/2026: R$ 650.00
+  Venc. 18/02/2026: R$ 650.00
+  Venc. 25/02/2026: R$ 650.00
+  Venc. 04/03/2026: R$ 650.00
+  Venc. 11/03/2026: R$ 650.00
+  Venc. 18/03/2026: R$ 650.00
+  Venc. 25/03/2026: R$ 650.00
+  Venc. 01/04/2026: R$ 650.00
+  Venc. 08/04/2026: R$ 650.00
+  Venc. 15/04/2026: R$ 650.00
+  Venc. 22/04/2026: R$ 650.00
+  Venc. 29/04/2026: R$ 650.00
+  Venc. 06/05/2026: R$ 650.00
+  Venc. 13/05/2026: R$ 650.00
+  Venc. 20/05/2026: R$ 650.00
+  Venc. 27/05/2026: R$ 650.00
+  Venc. 03/06/2026: R$ 650.00
+  Venc. 10/06/2026: R$ 650.00
+  Venc. 17/06/2026: R$ 650.00
+  Subtotal parcelas: R$ 14950.00
+
+--- Diárias por atraso (após vencimento semanal) ---
+  Venc. 14/01/2026: 159 dia(s) × R$ 120.00 = R$ 19080.00
+  Venc. 21/01/2026: 152 dia(s) × R$ 120.00 = R$ 18240.00
+  Venc. 28/01/2026: 145 dia(s) × R$ 120.00 = R$ 17400.00
+  Venc. 04/02/2026: 138 dia(s) × R$ 120.00 = R$ 16560.00
+  Venc. 11/02/2026: 131 dia(s) × R$ 120.00 = R$ 15720.00
+  Venc. 18/02/2026: 124 dia(s) × R$ 120.00 = R$ 14880.00
+  Venc. 25/02/2026: 117 dia(s) × R$ 120.00 = R$ 14040.00
+  Venc. 04/03/2026: 110 dia(s) × R$ 120.00 = R$ 13200.00
+  Venc. 11/03/2026: 103 dia(s) × R$ 120.00 = R$ 12360.00
+  Venc. 18/03/2026: 96 dia(s) × R$ 120.00 = R$ 11520.00
+  Venc. 25/03/2026: 89 dia(s) × R$ 120.00 = R$ 10680.00
+  Venc. 01/04/2026: 82 dia(s) × R$ 120.00 = R$ 9840.00
+  Venc. 08/04/2026: 75 dia(s) × R$ 120.00 = R$ 9000.00
+  Venc. 15/04/2026: 68 dia(s) × R$ 120.00 = R$ 8160.00
+  Venc. 22/04/2026: 61 dia(s) × R$ 120.00 = R$ 7320.00
+  Venc. 29/04/2026: 54 dia(s) × R$ 120.00 = R$ 6480.00
+  Venc. 06/05/2026: 47 dia(s) × R$ 120.00 = R$ 5640.00
+  Venc. 13/05/2026: 40 dia(s) × R$ 120.00 = R$ 4800.00
+  Venc. 20/05/2026: 33 dia(s) × R$ 120.00 = R$ 3960.00
+  Venc. 27/05/2026: 26 dia(s) × R$ 120.00 = R$ 3120.00
+  Venc. 03/06/2026: 19 dia(s) × R$ 120.00 = R$ 2280.00
+  Venc. 10/06/2026: 12 dia(s) × R$ 120.00 = R$ 1440.00
+  Venc. 17/06/2026: 5 dia(s) × R$ 120.00 = R$ 600.00
+  Subtotal diárias: R$ 226320.00
+
+--- Quebra de contrato (retenção caução) ---
+  Dias restantes: 0 / 90 (0.0%)
+  Retenção caução: R$ 0.00
+  Caução a devolver (após retenção): R$ 1500.00
+
+--- Totais ---
+  Total débitos: R$ 241270.00
+  Saldo caução (caução − débitos): R$ -239770.00 (locatário deve complementar)
+
+--- Avisos ---
+  • Renovação: 4 documentos na pasta; cálculo só com o mais recente (v4). Versões anteriores ignoradas.

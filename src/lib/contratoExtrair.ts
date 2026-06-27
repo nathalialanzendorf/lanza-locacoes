@@ -368,7 +368,18 @@ export function extrairContrato(
   }
 
   const prazoDias = extrairPrazoDias(texto) ?? 90;
-  const periodo = extrairPeriodo(texto, inicioPasta, prazoDias);
+  let periodo = extrairPeriodo(texto, inicioPasta, prazoDias);
+  if (opts.paraEncerramento && totalDocumentosContrato > 1 && !periodo.extraidoDoDocx) {
+    for (const alt of docxsOrdenados.slice(1)) {
+      const textoAlt = docxPlainText(path.join(pastaContrato, alt.f));
+      const prazoAlt = extrairPrazoDias(textoAlt) ?? prazoDias;
+      const pAlt = extrairPeriodo(textoAlt, inicioPasta, prazoAlt);
+      if (pAlt.extraidoDoDocx) {
+        periodo = pAlt;
+        break;
+      }
+    }
+  }
   if (opts.paraEncerramento && totalDocumentosContrato > 1 && !periodo.extraidoDoDocx) {
     throw new Error(
       `Há ${totalDocumentosContrato} versões do contrato nesta pasta; o relatório de quebra usa só a mais recente (${path.basename(docx)}). ` +

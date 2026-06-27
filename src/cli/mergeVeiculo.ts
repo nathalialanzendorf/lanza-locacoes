@@ -61,6 +61,7 @@ export async function main(argv: string[]): Promise<void> {
   });
 
   const today = new Date().toISOString().slice(0, 10);
+  novo.atualizadoEm = new Date().toISOString();
   veic.atualizadoEm = today;
   parc.atualizadoEm = today;
   link.atualizadoEm = today;
@@ -70,6 +71,22 @@ export async function main(argv: string[]): Promise<void> {
   console.log(
     `Veiculo ${acao}: ${novo.placa} (id ${novo.id}) -> proprietario ${p.nome}`,
   );
+
+  if (!process.argv.includes("--no-sync-rastreame")) {
+    try {
+      const { findVeiculoById } = await import("../lib/veiculosDb.js");
+      const { replicarVeiculoNoRastreame } = await import("../lib/rastreame/rastreaveisSync.js");
+      const reg = findVeiculoById(String(novo.id));
+      if (reg) {
+        await replicarVeiculoNoRastreame(reg);
+        console.log(`     → replicado no Rastreame (key=${reg.rastreameRastreavelKey ?? "novo"})`);
+      }
+    } catch (e) {
+      console.error(
+        `     [aviso] falha sync Rastreame: ${e instanceof Error ? e.message : String(e)}`,
+      );
+    }
+  }
 
   if (acao === "cadastrado") {
     await syncFipeNovoVeiculo(String(novo.placa || ""));

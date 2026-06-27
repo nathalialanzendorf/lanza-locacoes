@@ -1,0 +1,49 @@
+=== ENCERRAMENTO DE CONTRATO ===
+
+Cliente: Susana da Silva
+Placa: BBV-6A91
+Contrato: D:\Dropbox\Aluguel Carros\Maicon - VW GOL 2017-2018\05.05.2026 - Susana da Silva
+Documento: Contrato - Susana da Silva.docx
+Início: 05/05/2026 | Fim previsto: 03/08/2026 (90 dias)
+Encerramento: 26/06/2026 (52 dias de locação)
+
+--- Valores base ---
+Tipo: semanal
+Locação (semanal): R$ 800.00
+Diária (atraso): R$ 120.00
+Caução: R$ 1500.00
+
+--- Infrações de trânsito (não pagas) ---
+  CRC0883952 | 12/05/2026 17:39 | R$ 130.16 | AUTUAÇÃO NOTIFICADA
+  CRC0890597 | 02/06/2026 20:00 | R$ 293.47 | AUTUAÇÃO NOTIFICADA
+  Subtotal infrações: R$ 423.63
+
+--- Manutenção / avarias (não pagas) ---
+  Conserto Gol — batida lateral da porta | 26/06/2026 | R$ 500.00 | A cobrar
+  Conserto Gol — parachoque traseiro (orçamento pendente) | 26/06/2026 | orçamento pendente | Orçamento pendente
+  Subtotal manutenção: R$ 500.00
+
+--- Locação semanal em aberto ---
+  (nenhuma parcela em aberto)
+  Subtotal parcelas: R$ 0.00
+
+--- Diárias por atraso (após vencimento semanal) ---
+  (nenhuma)
+  Subtotal diárias: R$ 0.00
+
+--- Quebra de contrato (retenção caução) ---
+  Dias restantes: 38 / 90 (42.0%)
+  Retenção caução: R$ 633.33
+  Caução a devolver (após retenção): R$ 866.67
+
+--- Totais ---
+  Total débitos: R$ 1556.96
+  Saldo caução (caução − débitos): R$ -56.96 (locatário deve complementar)
+
+--- Observações ---
+  • Locação semanal: todas pagas (venc. 12/05 a 16/06; 16/06 quitada em 19/06 após troca quarta→sexta).
+  • Semana venc. 23/06 (24/06): isenta — veículo devolvido em 26/06 antes do pagamento (pagava para rodar).
+  • Parachoque traseiro: orçamento pendente — valor será incluído quando definido.
+
+--- Avisos ---
+  • Há manutenção com orçamento pendente (valor zero) — atualizar quando houver orçamento.

@@ -1,0 +1,124 @@
+=== ENCERRAMENTO DE CONTRATO ===
+
+Cliente: Sergio Medeiros Camargo Marcelo
+Placa: QJB-0I83
+Contrato: D:\Dropbox\Aluguel Carros\Felipe - VW FOX 2018-2018\17.08.2025 - Sergio Medeiros Camargo Marcelo
+Documento: Contrato - Sergio Medeiros Camargo Marcelo v2.docx (2 versões na pasta; só esta usada no acerto)
+Início: 17/08/2025 | Fim previsto: 14/02/2025 (90 dias)
+Encerramento: 26/06/2026 (313 dias de locação)
+
+--- Valores base ---
+Tipo: semanal
+Locação (semanal): R$ 750.00
+Diária (atraso): R$ 120.00
+Caução: R$ 1500.00
+
+--- Infrações de trânsito (não pagas) ---
+  (nenhuma)
+  Subtotal infrações: R$ 0.00
+
+--- Locação semanal em aberto ---
+  Venc. 24/08/2025: R$ 750.00
+  Venc. 31/08/2025: R$ 750.00
+  Venc. 07/09/2025: R$ 750.00
+  Venc. 14/09/2025: R$ 750.00
+  Venc. 21/09/2025: R$ 750.00
+  Venc. 28/09/2025: R$ 750.00
+  Venc. 05/10/2025: R$ 750.00
+  Venc. 12/10/2025: R$ 750.00
+  Venc. 19/10/2025: R$ 750.00
+  Venc. 26/10/2025: R$ 750.00
+  Venc. 02/11/2025: R$ 750.00
+  Venc. 09/11/2025: R$ 750.00
+  Venc. 16/11/2025: R$ 750.00
+  Venc. 23/11/2025: R$ 750.00
+  Venc. 30/11/2025: R$ 750.00
+  Venc. 07/12/2025: R$ 750.00
+  Venc. 14/12/2025: R$ 750.00
+  Venc. 21/12/2025: R$ 750.00
+  Venc. 28/12/2025: R$ 750.00
+  Venc. 04/01/2026: R$ 750.00
+  Venc. 11/01/2026: R$ 750.00
+  Venc. 18/01/2026: R$ 750.00
+  Venc. 25/01/2026: R$ 750.00
+  Venc. 01/02/2026: R$ 750.00
+  Venc. 08/02/2026: R$ 750.00
+  Venc. 15/02/2026: R$ 750.00
+  Venc. 22/02/2026: R$ 750.00
+  Venc. 01/03/2026: R$ 750.00
+  Venc. 08/03/2026: R$ 750.00
+  Venc. 15/03/2026: R$ 750.00
+  Venc. 22/03/2026: R$ 750.00
+  Venc. 29/03/2026: R$ 750.00
+  Venc. 05/04/2026: R$ 750.00
+  Venc. 12/04/2026: R$ 750.00
+  Venc. 19/04/2026: R$ 750.00
+  Venc. 26/04/2026: R$ 750.00
+  Venc. 03/05/2026: R$ 750.00
+  Venc. 10/05/2026: R$ 750.00
+  Venc. 17/05/2026: R$ 750.00
+  Venc. 24/05/2026: R$ 750.00
+  Venc. 31/05/2026: R$ 750.00
+  Venc. 07/06/2026: R$ 750.00
+  Venc. 14/06/2026: R$ 750.00
+  Venc. 21/06/2026: R$ 750.00
+  Subtotal parcelas: R$ 33000.00
+
+--- Diárias por atraso (após vencimento semanal) ---
+  Venc. 24/08/2025: 306 dia(s) × R$ 120.00 = R$ 36720.00
+  Venc. 31/08/2025: 299 dia(s) × R$ 120.00 = R$ 35880.00
+  Venc. 07/09/2025: 292 dia(s) × R$ 120.00 = R$ 35040.00
+  Venc. 14/09/2025: 285 dia(s) × R$ 120.00 = R$ 34200.00
+  Venc. 21/09/2025: 278 dia(s) × R$ 120.00 = R$ 33360.00
+  Venc. 28/09/2025: 271 dia(s) × R$ 120.00 = R$ 32520.00
+  Venc. 05/10/2025: 264 dia(s) × R$ 120.00 = R$ 31680.00
+  Venc. 12/10/2025: 257 dia(s) × R$ 120.00 = R$ 30840.00
+  Venc. 19/10/2025: 250 dia(s) × R$ 120.00 = R$ 30000.00
+  Venc. 26/10/2025: 243 dia(s) × R$ 120.00 = R$ 29160.00
+  Venc. 02/11/2025: 236 dia(s) × R$ 120.00 = R$ 28320.00
+  Venc. 09/11/2025: 229 dia(s) × R$ 120.00 = R$ 27480.00
+  Venc. 16/11/2025: 222 dia(s) × R$ 120.00 = R$ 26640.00
+  Venc. 23/11/2025: 215 dia(s) × R$ 120.00 = R$ 25800.00
+  Venc. 30/11/2025: 208 dia(s) × R$ 120.00 = R$ 24960.00
+  Venc. 07/12/2025: 201 dia(s) × R$ 120.00 = R$ 24120.00
+  Venc. 14/12/2025: 194 dia(s) × R$ 120.00 = R$ 23280.00
+  Venc. 21/12/2025: 187 dia(s) × R$ 120.00 = R$ 22440.00
+  Venc. 28/12/2025: 180 dia(s) × R$ 120.00 = R$ 21600.00
+  Venc. 04/01/2026: 173 dia(s) × R$ 120.00 = R$ 20760.00
+  Venc. 11/01/2026: 166 dia(s) × R$ 120.00 = R$ 19920.00
+  Venc. 18/01/2026: 159 dia(s) × R$ 120.00 = R$ 19080.00
+  Venc. 25/01/2026: 152 dia(s) × R$ 120.00 = R$ 18240.00
+  Venc. 01/02/2026: 145 dia(s) × R$ 120.00 = R$ 17400.00
+  Venc. 08/02/2026: 138 dia(s) × R$ 120.00 = R$ 16560.00
+  Venc. 15/02/2026: 131 dia(s) × R$ 120.00 = R$ 15720.00
+  Venc. 22/02/2026: 124 dia(s) × R$ 120.00 = R$ 14880.00
+  Venc. 01/03/2026: 117 dia(s) × R$ 120.00 = R$ 14040.00
+  Venc. 08/03/2026: 110 dia(s) × R$ 120.00 = R$ 13200.00
+  Venc. 15/03/2026: 103 dia(s) × R$ 120.00 = R$ 12360.00
+  Venc. 22/03/2026: 96 dia(s) × R$ 120.00 = R$ 11520.00
+  Venc. 29/03/2026: 89 dia(s) × R$ 120.00 = R$ 10680.00
+  Venc. 05/04/2026: 82 dia(s) × R$ 120.00 = R$ 9840.00
+  Venc. 12/04/2026: 75 dia(s) × R$ 120.00 = R$ 9000.00
+  Venc. 19/04/2026: 68 dia(s) × R$ 120.00 = R$ 8160.00
+  Venc. 26/04/2026: 61 dia(s) × R$ 120.00 = R$ 7320.00
+  Venc. 03/05/2026: 54 dia(s) × R$ 120.00 = R$ 6480.00
+  Venc. 10/05/2026: 47 dia(s) × R$ 120.00 = R$ 5640.00
+  Venc. 17/05/2026: 40 dia(s) × R$ 120.00 = R$ 4800.00
+  Venc. 24/05/2026: 33 dia(s) × R$ 120.00 = R$ 3960.00
+  Venc. 31/05/2026: 26 dia(s) × R$ 120.00 = R$ 3120.00
+  Venc. 07/06/2026: 19 dia(s) × R$ 120.00 = R$ 2280.00
+  Venc. 14/06/2026: 12 dia(s) × R$ 120.00 = R$ 1440.00
+  Venc. 21/06/2026: 5 dia(s) × R$ 120.00 = R$ 600.00
+  Subtotal diárias: R$ 821040.00
+
+--- Quebra de contrato (retenção caução) ---
+  Dias restantes: 0 / 90 (0.0%)
+  Retenção caução: R$ 0.00
+  Caução a devolver (após retenção): R$ 1500.00
+
+--- Totais ---
+  Total débitos: R$ 854040.00
+  Saldo caução (caução − débitos): R$ -852540.00 (locatário deve complementar)
+
+--- Avisos ---
+  • Renovação: 2 documentos na pasta; cálculo só com o mais recente (v2). Versões anteriores ignoradas.

@@ -3,10 +3,15 @@ import path from "node:path";
 
 import {
   confirmarCondutorClienteDespesa,
+  editarClienteDespesa,
+  excluirClienteDespesa,
   gravarClienteDespesa,
+  isSyncRastreameEligible,
   loadClienteDespesasDb,
   type ClienteDespesaInput,
+  type ClienteDespesaPatch,
 } from "../lib/clienteDespesasDb.js";
+import { replicarClienteDespesaNoRastreame } from "../lib/rastreame/recebimentosSync.js";
 import { REPO_ROOT } from "../lib/repoRoot.js";
 
 type LotePayload = {
@@ -17,6 +22,8 @@ type LotePayload = {
   /** @deprecated use clienteDespesas */
   multas?: ClienteDespesaInput[];
   prazoDias?: number;
+  /** Replica no Rastreame após gravar (default true para categorias elegíveis). */
+  syncRastreame?: boolean;
 };
 
 function loadClientesNomes(): Map<string, string> {
@@ -57,8 +64,24 @@ function printResult(
   if (r.aviso) console.log(`     aviso: ${r.aviso}`);
 }
 
-export function main(argv: string[]): void {
+async function maybeSyncRastreame(
+  reg: ReturnType<typeof gravarClienteDespesa>["registro"],
+  sync: boolean,
+): Promise<void> {
+  if (!sync || !isSyncRastreameEligible(reg)) return;
+  try {
+    await replicarClienteDespesaNoRastreame(reg);
+    console.log(`     → replicado no Rastreame (id=${reg.rastreameId ?? "novo"})`);
+  } catch (e) {
+    console.error(
+      `     [aviso] falha sync Rastreame: ${e instanceof Error ? e.message : String(e)}`,
+    );
+  }
+}
+
+export async function main(argv: string[]): Promise<void> {
   const sub = argv[0];
+  const noSync = argv.includes("--no-sync-rastreame");
 
   if (sub === "confirmar") {
     const auto = argv[1];
@@ -76,11 +99,47 @@ export function main(argv: string[]): void {
     return;
   }
 
+  if (sub === "editar") {
+    const idOrAuto = argv[1];
+    const patchPath = argv[2];
+    if (!idOrAuto || !patchPath) {
+      console.error("Uso: gravar-cliente-despesa editar <id|autoInfracao> <patch.json> [--no-sync-rastreame]");
+      process.exit(1);
+    }
+    const patch = JSON.parse(fs.readFileSync(path.resolve(patchPath), "utf8")) as ClienteDespesaPatch;
+    const m = editarClienteDespesa(idOrAuto, patch);
+    if (!m) {
+      console.error("Débito não encontrado:", idOrAuto);
+      process.exit(1);
+    }
+    console.log(`[OK editar] ${m.autoInfracao} | ${m.categoria} | R$ ${m.valorMulta}`);
+    await maybeSyncRastreame(m, !noSync);
+    return;
+  }
+
+  if (sub === "excluir") {
+    const idOrAuto = argv[1];
+    if (!idOrAuto) {
+      console.error("Uso: gravar-cliente-despesa excluir <id|autoInfracao> [--no-sync-rastreame]");
+      process.exit(1);
+    }
+    const m = excluirClienteDespesa(idOrAuto);
+    if (!m) {
+      console.error("Débito não encontrado:", idOrAuto);
+      process.exit(1);
+    }
+    console.log(`[OK excluir] ${m.autoInfracao} (ativo=false)`);
+    await maybeSyncRastreame(m, !noSync);
+    return;
+  }
+
   const jsonPath = path.resolve(sub ?? "");
   if (!fs.existsSync(jsonPath)) {
     console.error(`Ficheiro não encontrado: ${jsonPath}`);
-    console.error("Uso: gravar-cliente-despesa <lote.json>");
+    console.error("Uso: gravar-cliente-despesa <lote.json> [--no-sync-rastreame]");
     console.error("     gravar-cliente-despesa confirmar <autoInfracao> [condutorId]");
+    console.error("     gravar-cliente-despesa editar <id|auto> <patch.json>");
+    console.error("     gravar-cliente-despesa excluir <id|auto>");
     process.exit(1);
   }
 
@@ -91,6 +150,7 @@ export function main(argv: string[]): void {
     process.exit(1);
   }
 
+  const sync = payload.syncRastreame !== false && !noSync;
   const nomes = loadClientesNomes();
   let ok = 0;
   let skip = 0;
@@ -101,7 +161,10 @@ export function main(argv: string[]): void {
     });
     printResult(item.autoInfracao, r, nomes);
     if (r.duplicado) skip++;
-    else ok++;
+    else {
+      ok++;
+      await maybeSyncRastreame(r.registro, sync);
+    }
   }
 
   const db = loadClienteDespesasDb();

@@ -1,6 +1,6 @@
 {
   "descricao": "Débitos a cobrar dos locatários/clientes: infrações, locação, caução, manutenção, lavação, quebra de contrato, estacionamento, pedágio, etc.",
-  "atualizadoEm": "2026-06-26",
+  "atualizadoEm": "2026-06-27",
   "schemaClienteDespesa": {
     "id": "uuid",
     "categoria": "Infração | Locação semanal | Caução | Manutenção | Lavação | Quebra contrato | Estacionamento | Pedágio | Outros",
@@ -922,6 +922,42 @@
       "atualizadoEm": "2026-06-26T16:37:24.825Z",
       "origem": "portal",
       "categoria": "Infração"
+    },
+    {
+      "id": "186a4d79-d2c9-46b8-a241-db2d9f9e10bf",
+      "categoria": "Manutenção",
+      "veiculoId": "BBV-6A91",
+      "autoInfracao": "MAN-2026-BBV-PORTA-LATERAL",
+      "descricao": "Conserto Gol — batida lateral da porta",
+      "localInfracao": "",
+      "dataAutuacao": "26/06/2026",
+      "valorMulta": 500,
+      "situacao": "A cobrar",
+      "limiteDefesa": "",
+      "condutorId": "0eafaf84-8700-4d16-8295-25619305410b",
+      "condutorConfirmado": true,
+      "condutorContrato": null,
+      "cadastradoEm": "2026-06-27T02:41:39.784Z",
+      "atualizadoEm": "2026-06-27T02:41:47.058Z",
+      "origem": "manual"
+    },
+    {
+      "id": "8ab42cd6-e0d8-4a8b-a7e5-f7196380fff5",
+      "categoria": "Manutenção",
+      "veiculoId": "BBV-6A91",
+      "autoInfracao": "MAN-2026-BBV-PARACHOQUE-TRASEIRO",
+      "descricao": "Conserto Gol — parachoque traseiro (orçamento pendente)",
+      "localInfracao": "",
+      "dataAutuacao": "26/06/2026",
+      "valorMulta": 0,
+      "situacao": "Orçamento pendente",
+      "limiteDefesa": "",
+      "condutorId": "0eafaf84-8700-4d16-8295-25619305410b",
+      "condutorConfirmado": true,
+      "condutorContrato": null,
+      "cadastradoEm": "2026-06-27T02:41:39.792Z",
+      "atualizadoEm": "2026-06-27T02:41:54.099Z",
+      "origem": "manual"
     }
   ]
 }

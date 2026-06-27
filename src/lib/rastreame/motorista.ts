@@ -4,6 +4,7 @@
 import fs from "node:fs";
 
 import { RASTREAME_ORIGIN, rastreameJsonHeaders } from "./auth.js";
+import { fetchRastreameWith401Retry } from "./fetchRetry.js";
 
 const MOTORISTA_BASE = `${RASTREAME_ORIGIN}/keek/rest/motorista`;
 
@@ -26,7 +27,7 @@ export type MotoristaRastreame = {
 export type Motorista = MotoristaRastreame;
 
 async function fetchMotoristaList(url: string): Promise<MotoristaRastreame[]> {
-  const r = await fetch(url, {
+  const r = await fetchRastreameWith401Retry(url, {
     headers: await rastreameJsonHeaders(false),
   });
   const raw = await r.text();
@@ -88,7 +89,7 @@ function br2iso(d: string | undefined): string | null {
 
 type Cliente = Record<string, unknown>;
 
-function montarObservacao(c: Cliente): string {
+export function montarObservacaoMotorista(c: Cliente): string {
   const cnh = (c.cnh ?? {}) as Record<string, string>;
   const linhas: string[] = [];
   if (c.cpf) linhas.push(`CPF: ${c.cpf}`);
@@ -122,39 +123,41 @@ function montarObservacao(c: Cliente): string {
   return linhas.join("\n");
 }
 
-export async function postMotorista(clienteJsonPath: string): Promise<void> {
-  const c = JSON.parse(
-    fs.readFileSync(clienteJsonPath, "utf8"),
-  ) as Cliente;
+export function buildMotoristaPayload(c: Cliente): Record<string, unknown> {
   const cnh = (c.cnh ?? {}) as Record<string, string>;
-  const ja = await findMotorista(cnh.numeroRegistro ?? "", String(c.nome ?? ""));
-  if (ja) {
-    console.log(
-      `JA CADASTRADO no rastreame: ${ja.nome} (id ${ja.id}) — nada a fazer.`,
-    );
-    return;
-  }
-  const payload = {
+  return {
     nome: c.nome,
     cnh: cnh.numeroRegistro,
-    categoriaCnh: { key: cnh.categoria },
-    observacao: montarObservacao(c),
+    categoriaCnh: cnh.categoria ? { key: cnh.categoria } : undefined,
+    observacao: montarObservacaoMotorista(c),
     vencimentoCnh: br2iso(cnh.validade),
     vencimentoToxicologico: null,
+    ativo: c.ativo !== false,
   };
-  const r = await fetch(`${MOTORISTA_BASE}/`, {
-    method: "POST",
-    headers: await rastreameJsonHeaders(true),
-    body: JSON.stringify(payload),
-  });
-  const body = await r.text();
-  if (!r.ok) {
-    console.error(`ERRO HTTP ${r.status} ao cadastrar:`, body.slice(0, 300));
-    if (r.status === 401 || r.status === 403) {
-      console.error(">> Token expirado? Atualize RASTREAME_AUTH.");
-    }
-    process.exit(1);
-  }
-  console.log(`CADASTRADO no rastreame [HTTP ${r.status}]: ${payload.nome}`);
-  console.log(body.slice(0, 300));
 }
+
+export async function fetchAllMotoristas(size = 100): Promise<MotoristaRastreame[]> {
+  const all: MotoristaRastreame[] = [];
+  const seen = new Set<string>();
+  let page = 0;
+  for (;;) {
+    const q = new URLSearchParams({ page: String(page), size: String(size) });
+    const r = await fetchRastreameWith401Retry(`${MOTORISTA_BASE}?${q.toString()}`, {
+      headers: await rastreameJsonHeaders(false),
+    });
+    const chunk = await fetchMotoristaListFromResponse(r);
+    for (const m of chunk) {
+      const k = refKeyMotorista(m);
+      if (k && !seen.has(k)) {
+        seen.add(k);
+        all.push(m);
+      }
+    }
+    if (chunk.length < size) break;
+    page++;
+    if (page > 500) break;
+  }
+  return all;
+}
+
+async function fetchMotoristaListFromResponse(r: Response): Pr

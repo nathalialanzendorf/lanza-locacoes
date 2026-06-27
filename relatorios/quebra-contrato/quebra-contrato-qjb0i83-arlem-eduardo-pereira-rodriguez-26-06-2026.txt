@@ -1,0 +1,44 @@
+=== ENCERRAMENTO DE CONTRATO ===
+
+Cliente: Arlem Eduardo Pereira Rodriguez
+Placa: QJB-0I83
+Contrato: D:\Dropbox\Aluguel Carros\Felipe - VW FOX 2018-2018\29.05.2026 - Arlem Eduardo Pereira Rodriguez
+Documento: Contrato -  Arlem Eduardo Pereira Rodriguez v2.docx (2 versões na pasta; só esta usada no acerto)
+Início: 29/05/2026 | Fim previsto: 27/11/2026 (90 dias)
+Encerramento: 26/06/2026 (28 dias de locação)
+
+--- Valores base ---
+Tipo: semanal
+Locação (semanal): R$ 800.00
+Diária (atraso): R$ 150.00
+Caução: R$ 1800.00
+
+--- Infrações de trânsito (não pagas) ---
+  (nenhuma)
+  Subtotal infrações: R$ 0.00
+
+--- Locação semanal em aberto ---
+  Venc. 05/06/2026: R$ 800.00
+  Venc. 12/06/2026: R$ 800.00
+  Venc. 19/06/2026: R$ 800.00
+  Venc. 26/06/2026: R$ 800.00
+  Subtotal parcelas: R$ 3200.00
+
+--- Diárias por atraso (após vencimento semanal) ---
+  Venc. 05/06/2026: 21 dia(s) × R$ 150.00 = R$ 3150.00
+  Venc. 12/06/2026: 14 dia(s) × R$ 150.00 = R$ 2100.00
+  Venc. 19/06/2026: 7 dia(s) × R$ 150.00 = R$ 1050.00
+  Subtotal diárias: R$ 6300.00
+
+--- Quebra de contrato (retenção caução) ---
+  Dias restantes: 62 / 90 (69.0%)
+  Retenção caução: R$ 1240.00
+  Caução a devolver (após retenção): R$ 560.00
+
+--- Totais ---
+  Total débitos: R$ 10740.00
+  Saldo caução (caução − débitos): R$ -8940.00 (locatário deve complementar)
+
+--- Avisos ---
+  • Renovação: 2 documentos na pasta; cálculo só com o mais recente (v2). Versões anteriores ignoradas.
+  • Cliente não encontrado em clientes.json; infrações filtradas só por pasta do contrato.

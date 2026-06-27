@@ -3,7 +3,8 @@
  * A listagem usa parâmetros típicos Spring Data; se falhar, ajustar query
  * conforme o XHR capturado no DevTools na UI de gastos.
  */
-import { RASTREAME_ORIGIN, rastreameJsonHeaders, refreshRastreameToken } from "./auth.js";
+import { RASTREAME_ORIGIN, rastreameJsonHeaders } from "./auth.js";
+import { fetchRastreameWith401Retry } from "./fetchRetry.js";
 
 const GASTO_ROOT = `${RASTREAME_ORIGIN}/keek/rest/gasto`;
 
@@ -23,7 +24,7 @@ export async function fetchGastosList(
     size: String(size),
   });
   const url = `${GASTO_ROOT}?${q.toString()}`;
-  return fetch(url, {
+  return fetchRastreameWith401Retry(url, {
     method: "GET",
     headers: await rastreameJsonHeaders(false),
   });
@@ -31,7 +32,7 @@ export async function fetchGastosList(
 
 /** POST cria gasto; corpo = objeto serializado em JSON. */
 export async function postGasto(body: unknown): Promise<Response> {
-  return fetch(`${GASTO_ROOT}/`, {
+  return fetchRastreameWith401Retry(`${GASTO_ROOT}/`, {
     method: "POST",
     headers: await rastreameJsonHeaders(true),
     body: JSON.stringify(body),
@@ -40,7 +41,7 @@ export async function postGasto(body: unknown): Promise<Response> {
 
 /** PUT atualiza gasto existente. */
 export async function putGasto(id: string | number, body: unknown): Promise<Response> {
-  return fetch(`${GASTO_ROOT}/${id}`, {
+  return fetchRastreameWith401Retry(`${GASTO_ROOT}/${id}`, {
     method: "PUT",
     headers: await rastreameJsonHeaders(true),
     body: JSON.stringify(body),
@@ -58,7 +59,7 @@ export type GastoRecord = Record<string, unknown> & {
 
 /** GET um gasto pelo id (corpo completo para PUT). */
 export async function fetchGastoById(id: string | number): Promise<GastoRecord> {
-  const r = await fetch(`${GASTO_ROOT}/${id}`, {
+  const r = await fetchRastreameWith401Retry(`${GASTO_ROOT}/${id}`, {
     method: "GET",
     headers: await rastreameJsonHeaders(false),
   });
@@ -87,4 +88,15 @@ export async function fetchAllGastos(size = 100): Promise<GastoRecord[]> {
     if (page > 500) break;
   }
   return all;
+}
+
+/** Exclusão lógica no Rastreame (ativo=false). */
+export async function inativarGasto(id: string | number): Promise<void> {
+  const g = await fetchGastoById(id);
+  const body = { ...g, ativo: false };
+  const r = await putGasto(id, body);
+  if (!r.ok) {
+    const t = await r.text();
+    throw new Error(`gasto inativar ${id} HTTP ${r.status}: ${t.slice(0, 300)}`);
+  }
 }

@@ -14,6 +14,7 @@ import {
   type ContratoExtraido,
 } from "./contratoExtrair.js";
 import {
+  isClienteDespesaAtiva,
   isInfracaoTransito,
   loadClienteDespesasDb,
   type ClienteDespesaRegistro,
@@ -60,6 +61,8 @@ export type EncerramentoResult = {
   multas?: ClienteDespesaRegistro[];
   /** @deprecated use totalInfracoes */
   totalMultas?: number;
+  manutencoes: ClienteDespesaRegistro[];
+  totalManutencoes: number;
   parcelasEmAberto: ParcelaAtrasada[];
   totalParcelasEmAberto: number;
   diariasAtraso: DiariaAtraso[];
@@ -101,7 +104,7 @@ function infracaoPaga(m: ClienteDespesaRegistro, pagasAuto: Set<string>): boolea
   return m.paga === true;
 }
 
-function infracaoDoContrato(
+function despesaDoContrato(
   m: ClienteDespesaRegistro,
   contrato: ContratoExtraido,
   clienteId: string | null,
@@ -115,6 +118,16 @@ function infracaoDoContrato(
     if (norm(m.condutorContrato) === norm(contrato.pastaContrato)) return true;
   }
   return false;
+}
+
+/** @deprecated alias */
+function infracaoDoContrato(
+  m: ClienteDespesaRegistro,
+  contrato: ContratoExtraido,
+  clienteId: string | null,
+  incluirTodas: boolean,
+): boolean {
+  return despesaDoContrato(m, contrato, clienteId, incluirTodas);
 }
 
 function calcularVencimentos(
@@ -221,6 +234,7 @@ export function calcularEncerramentoContrato(input: EncerramentoInput): Encerram
   const clienteId = loadClienteId(contrato.cpf, input.condutorId);
   const db = loadClienteDespesasDb();
   const infracoes = db.clienteDespesas.filter((m) => {
+    if (!isClienteDespesaAtiva(m)) return false;
     if (!isInfracaoTransito(m)) return false;
     if (infracaoPaga(m, pagasAutoSet)) return false;
     if (!infracaoDoContrato(m, contrato, clienteId, incluirTodas)) {
@@ -243,8 +257,31 @@ export function calcularEncerramentoContrato(input: EncerramentoInput): Encerram
   }
 
   const totalInfracoes = round2(infracoes.reduce((s, m) => s + m.valorMulta, 0));
+
+  const manutencoes = db.clienteDespesas.filter((m) => {
+    if (!isClienteDespesaAtiva(m)) return false;
+    if ((m.categoria ?? "") !== "Manutenção") return false;
+    if (infracaoPaga(m, pagasAutoSet)) return false;
+    if (!despesaDoContrato(m, contrato, clienteId, incluirTodas)) return false;
+    const da = parseDataBr(m.dataAutuacao);
+    if (!da) return false;
+    return da >= startOfDay(contrato.inicio) && da <= encerramento;
+  });
+  if (manutencoes.some((m) => m.valorMulta <= 0)) {
+    avisos.push(
+      "Há manutenção com orçamento pendente (valor zero) — atualizar quando houver orçamento.",
+    );
+  }
+
+  const totalManutencoes = round2(
+    manutencoes.reduce((s, m) => s + (m.valorMulta > 0 ? m.valorMulta : 0), 0),
+  );
   const totalDebitos = round2(
-    totalInfracoes + totalParcelasEmAberto + totalDiariasAtraso + retencaoCaucao,
+    totalInfracoes +
+      totalManutencoes +
+      totalParcelasEmAberto +
+      totalDiariasAtraso +
+      retencaoCaucao,
   );
   const caucaoDevolver = round2(Math.max(0, contrato.valorCaucao - retencaoCaucao));
   const saldoFinal = round2(contrato.valorCaucao - totalDebitos);
@@ -259,6 +296,8 @@ export function calcularEncerramentoContrato(input: EncerramentoInput): Encerram
     totalInfracoes,
     multas: infracoes,
     totalMultas: totalInfracoes,
+    manutencoes,
+    totalManutencoes,
     parcelasEmAberto,
     totalParcelasEmAberto,
     diariasAtraso,
@@ -302,6 +341,18 @@ export function formatarEncerramentoTexto(r: EncerramentoResult): string {
     }
   }
   lines.push(`  Subtotal infrações: R$ ${r.totalInfracoes.toFixed(2)}`);
+  lines.push("");
+  lines.push("--- Manutenção / avarias (não pagas) ---");
+  if (r.manutencoes.length === 0) {
+    lines.push("  (nenhuma)");
+  } else {
+    for (const m of r.manutencoes) {
+      const valor =
+        m.valorMulta > 0 ? `R$ ${m.valorMulta.toFixed(2)}` : "orçamento pendente";
+      lines.push(`  ${m.descricao} | ${m.dataAutuacao} | ${valor} | ${m.situacao}`);
+    }
+  }
+  lines.push(`  Subtotal manutenção: R$ ${r.totalManutencoes.toFixed(2)}`);
   lines.push("");
   lines.push("--- Locação semanal em aberto ---");
   if (r.parcelasEmAberto.length === 0) {
