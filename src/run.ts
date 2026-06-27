@@ -3,23 +3,26 @@
  * Ponto único de entrada para ferramentas Lanza (TypeScript).
  *
  * Na raiz do repositório (após `npm install`):
- *   npx tsx src/run.ts <comando> [args...]
+ *   npm run lanza -- <comando> [args...]
+ *   .\\scripts\\lanza.ps1 <comando> [args...]
  */
 async function run(): Promise<void> {
   const cmd = process.argv[2];
   const rest = process.argv.slice(3);
 
   if (!cmd || cmd === "-h" || cmd === "--help") {
-    console.log(`Uso: npx tsx src/run.ts <comando> [args...]
+    console.log(`Uso: npm run lanza -- <comando> [args...]
+  (alternativa: .\\scripts\\lanza.ps1 <comando> [args...])
 
 Comandos:
   merge-veiculo <novo.json> <dono>
   merge-cliente <cliente.json>
   gravar-despesa <categoria> <valor> <data> <placa> [descricao]
+  gravar-despesa baixa <placa> <categoria> [competencia] [data] [--desfazer]  (quita/reabre débito p/ lembrete de vencidos)
+  gravar-rastreador [--desde MM/AAAA] [--ate MM/AAAA] [--dry-run]   (alias: sync-rastreador)
   sync-seguro <boletos.json> | sync-seguro --ano 2025 --ano 2026 [--out JSON]
-  sync-rastreador [--desde MM/AAAA] [--ate MM/AAAA] [--dry-run]
   montar-relatorio <entrada.json>
-  rastreame check <cnh> [nome] | rastreame add <cliente.json>
+  rastreame login [--save] | rastreame check <cnh> [nome] | rastreame add <cliente.json>
   rastreame-gastos list [--page 0] [--size 50] | post <corpo.json> | put <id> <corpo.json>
   rastreame-lancar-semanal [--inicio YYYY-MM-DD] [--fim YYYY-MM-DD] [--prazo-dias N] [--execute]
   fipe marca <texto> | fipe modelos <code> [filtros...] | fipe anos ... | fipe valor ...
@@ -28,12 +31,22 @@ Comandos:
   importar-clientes-rastreame [--dry-run]
   importar-clientes-cnh [--raiz DIR] [--dry-run] [--com-rastreame]
   cadastro-contrato gerar | sincronizar | encerrar | excluir  (ver --help)
+  importar-contratos [RAIZ] [--dry-run]   (varre pastas DD.MM.AAAA - Nome)
   relatorio-encerramento-contrato <pasta> --encerramento DD/MM/AAAA | <entrada.json>
+  relatorio-cobrancas <semanal|estacionamento|pedagio|multa> --placa PLACA [--dia N] [--auto AUTO]
   gravar-cliente-despesa <lote.json> | gravar-cliente-despesa confirmar <autoInfracao> [condutorId]
-  sync-infracoes [--placa PLACA] [--dry-run] [--ticket UUID] [--json resposta.json]
-  sync-ipva-licenciamento [--placa PLACA] [--dry-run] [--ticket UUID] [--json resposta.json]
-  sync-recebimentos [--dry-run] [--pull-only] [--push-only] [--force-pull] [--motorista KEY]
-  sync-rastreaveis [--dry-run] [--pull-only] [--push-only] [--force-pull]
+  atribuir-condutores [--placa PLACA] [--dry-run] [--prazo-dias N] [--incluir-pedagios]  (concilia condutor por vigência; sem contrato → Não identificado)
+  sync-detran-sc [--placa PLACA] [--dry-run] [--ticket UUID] [--json resposta.json]  (Infrações, IPVA e Licenciamento DETRAN SC, ufRegistro="SC")
+  detran-sc-solver [--placa PLACA] [--dry-run] [--so-token]  (login + solver de captcha Turnstile em Chrome real; varre a frota SC)
+  sync-detran-rs [--placa PLACA] [--dry-run] [--json resposta.json]  (Infrações, IPVA e Licenciamento DETRAN RS, ufRegistro="RS")
+  sync-infracoes [--placa PLACA] [--dry-run] [--ticket UUID] [--json resposta.json]  (infrações; roteia RS p/ tool detran-rs)
+  sync-ipva-licenciamento [--placa PLACA] [--dry-run] [--ticket UUID] [--json resposta.json]  (IPVA/Lic.; roteia RS p/ tool detran-rs)
+  inicio-locacoes <derivar|listar> [--sobrescrever] [--dry-run]
+  sync-pedagios [--placa PLACA] [--dry-run] [--json resposta.json]
+  pedagio-digital register --placa PLACA [--modelo X] | veiculos | passagens --placa PLACA [--status aberto|pago]
+  sync-gastos-gerais [--dry-run] [--pull-only] [--push-only] [--force-pull] [--motorista KEY]  (alias: sync-recebimentos)
+  sync-manutencao [--placa PLACA] [--categoria CAT] [--dry-run]  (despesa parceiro → tela Manutenção)
+  sync-rastreaveis [--dry-run] [--pull-only] [--push-only] [--force-pull] [--no-fipe]
   sync-motoristas [--dry-run] [--pull-only] [--push-only] [--force-pull]
   renegociar-debitos resumo --motorista <key> --rastreavel <key>
   renegociar-debitos <entrada.json> [--execute]
@@ -57,8 +70,9 @@ Comandos:
     case "sync-seguro":
       await (await import("./cli/syncSeguro.js")).main(rest);
       break;
+    case "gravar-rastreador":
     case "sync-rastreador":
-      (await import("./cli/syncRastreador.js")).main(rest);
+      (await import("./cli/gravarRastreador.js")).main(rest);
       break;
     case "montar-relatorio":
       (await import("./cli/montarRelatorio.js")).main(rest);
@@ -91,17 +105,20 @@ Comandos:
     case "gerar-contrato":
     case "registrar-contrato":
       if (cmd === "registrar-contrato") {
-        (await cadastroContrato()).main(["sincronizar", ...rest]);
+        await (await cadastroContrato()).main(["sincronizar", ...rest]);
       } else {
-        (await cadastroContrato()).main(rest);
+        await (await cadastroContrato()).main(rest);
       }
+      break;
+    case "importar-contratos":
+      await (await import("./cli/importarContratos.js")).main(rest);
       break;
     case "registrar-encerramento-contrato":
       if (rest.length >= 2 && rest.includes("--encerramento")) {
         const pasta = rest.find((a) => !a.startsWith("-")) ?? rest[0]!;
         const idx = rest.indexOf("--encerramento");
         const data = rest[idx + 1]!;
-        (await cadastroContrato()).main([
+        await (await cadastroContrato()).main([
           "encerrar",
           pasta,
           "--data",
@@ -121,6 +138,10 @@ Comandos:
     case "encerrar-contrato":
       (await relatorioEncerramento()).main(rest);
       break;
+    case "relatorio-cobrancas":
+    case "cobrancas":
+      (await import("./cli/relatorioCobrancas.js")).main(rest);
+      break;
     case "gravar-cliente-despesa":
     case "gravar-infracao":
       await (await import("./cli/gravarClienteDespesa.js")).main(rest);
@@ -128,11 +149,46 @@ Comandos:
     case "sync-infracoes":
       await (await import("./cli/syncInfracoes.js")).main(rest);
       break;
+    case "atribuir-condutores":
+      (await import("./cli/atribuirCondutores.js")).main(rest);
+      break;
+    case "inicio-locacoes":
+      await (await import("./cli/inicioLocacoes.js")).main(rest);
+      break;
     case "sync-ipva-licenciamento":
       await (await import("./cli/syncIpvaLicenciamento.js")).main(rest);
       break;
+    case "sync-detran-sc": {
+      // Guarda-chuva SC-only: o mesmo ticket/JSON serve para infrações e IPVA/Lic.
+      // (a resposta-consulta traz tudo). --no-rs evita rodar o RS em duplicado.
+      const scArgs = rest.includes("--no-rs") ? rest : [...rest, "--no-rs"];
+      console.log("== DETRAN SC: infrações ==");
+      await (await import("./cli/syncInfracoes.js")).main(scArgs);
+      console.log("\n== DETRAN SC: IPVA / Licenciamento ==");
+      await (await import("./cli/syncIpvaLicenciamento.js")).main(scArgs);
+      break;
+    }
+    case "sync-detran-rs":
+      await (await import("./cli/syncDetranRs.js")).main(rest);
+      break;
+    case "detran-sc-solver":
+    case "detran-solver":
+      // Solver de captcha (Turnstile) + login: roda num Chrome real via CDP.
+      // Mora em scripts/ porque depende de Chrome/CDP (não é um sync puro).
+      await import("../scripts/detranSolver.js");
+      break;
+    case "sync-pedagios":
+      await (await import("./cli/syncPedagios.js")).main(rest);
+      break;
+    case "pedagio-digital":
+      await (await import("./cli/pedagioDigital.js")).main(rest);
+      break;
+    case "sync-gastos-gerais":
     case "sync-recebimentos":
       await (await import("./cli/syncRecebimentos.js")).main(rest);
+      break;
+    case "sync-manutencao":
+      await (await import("./cli/syncManutencao.js")).main(rest);
       break;
     case "sync-rastreaveis":
       await (await import("./cli/syncRastreaveis.js")).main(rest);

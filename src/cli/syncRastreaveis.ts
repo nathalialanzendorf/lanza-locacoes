@@ -16,9 +16,11 @@ Opções:
   --pull-only    Só importa do Rastreame → veiculos.json
   --push-only    Só exporta veiculos.json → Rastreame
   --force-pull   Sobrescreve local mesmo se editado após última sync
+  --no-fipe      Não resolver FIPE dos veículos novos/sem FIPE após o pull
 
-Por defeito: push (local → Rastreame) e depois pull (Rastreame → local).
-veiculos.json é fonte da verdade; veículo ausente no Rastreame é inativado localmente.
+Por defeito: push (local → Rastreame), pull (Rastreame → local) e FIPE (resolve
+veículos sem FIPE via tool fipe). veiculos.json é fonte da verdade; veículo
+ausente no Rastreame é inativado localmente.
 
 Requer RASTREAME_AUTH ou RASTREAME_LOGIN+RASTREAME_SENHA nas variáveis de ambiente do utilizador.
 `);
@@ -29,12 +31,14 @@ Requer RASTREAME_AUTH ou RASTREAME_LOGIN+RASTREAME_SENHA nas variáveis de ambie
   const pullOnly = argv.includes("--pull-only");
   const pushOnly = argv.includes("--push-only");
   const forcePull = argv.includes("--force-pull");
+  const noFipe = argv.includes("--no-fipe");
 
   const r = await syncRastreaveis({
     dryRun,
     pull: !pushOnly,
     push: !pullOnly,
     forcePull,
+    fipe: !noFipe,
   });
 
   console.log("\n=== Push (local → Rastreame) ===");
@@ -53,6 +57,13 @@ Requer RASTREAME_AUTH ou RASTREAME_LOGIN+RASTREAME_SENHA nas variáveis de ambie
   if (r.pull.erros.length) {
     console.log("Erros pull:");
     for (const e of r.pull.erros) console.log(`  - ${e}`);
+  }
+
+  console.log("\n=== FIPE (veículos novos/sem FIPE) ===");
+  console.log(`atualizados: ${r.fipe.atualizados} | ignorados: ${r.fipe.ignorados}`);
+  if (r.fipe.erros.length) {
+    console.log("Erros FIPE:");
+    for (const e of r.fipe.erros) console.log(`  - ${e}`);
   }
 
   if (r.push.erros.length || r.pull.erros.length) process.exit(1);

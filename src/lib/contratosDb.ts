@@ -44,7 +44,14 @@ export type ContratoVeiculo = {
   fipeValor?: string | null;
 };
 
-export type MotivoEncerramento = "devolvido" | "recuperado";
+/**
+ * Como o veículo saiu da locação:
+ * - `devolvido`: locatário devolveu o veículo.
+ * - `recuperado`: veículo recolhido/recuperado.
+ * - `troca`: troca de veículo — sempre gera um **novo contrato** para o mesmo cliente
+ *   com **outro veículo** (não é quebra; a caução transfere para o novo contrato).
+ */
+export type MotivoEncerramento = "devolvido" | "recuperado" | "troca";
 
 export type ContratoRegistro = {
   id: string;
@@ -65,7 +72,7 @@ export type ContratoRegistro = {
   dataEncerramento?: string | null;
   /** true se encerramento antecipado (quebra de contrato / retenção caução). */
   quebraContrato?: boolean;
-  /** Como o veículo saiu da locação: devolvido pelo locatário ou recuperado. */
+  /** Como o veículo saiu da locação: devolvido, recuperado ou troca (novo contrato com outro veículo). */
   motivoEncerramento?: MotivoEncerramento | null;
   status: "ativo" | "encerrado";
   prazoDias: number;
@@ -104,7 +111,7 @@ const DEFAULT_SCHEMA: Record<string, string> = {
   dataFimPrevista: "DD/MM/AAAA — fim previsto no contrato",
   dataEncerramento: "DD/MM/AAAA — devolução/encerramento real (null se ativo)",
   quebraContrato: "true se houve quebra de contrato (encerramento antes do fim previsto)",
-  motivoEncerramento: "devolvido | recuperado — null se contrato ativo",
+  motivoEncerramento: "devolvido | recuperado | troca — null se contrato ativo (troca = novo contrato com outro veículo)",
   status: "ativo | encerrado",
   prazoDias: "Duração contratual em dias",
   tipoContrato: "semanal | diaria | mensal",
@@ -233,7 +240,7 @@ function resolveCliente(cpf: string | null, nomePasta: string): ContratoCliente 
 
     if (cpf) {
       const key = normCpfDigits(cpf);
-      const c = list.find((x) => normCpfDigits(x.cpf) === key);
+      const c = list.find((x) => x.cpf && normCpfDigits(x.cpf) === key);
       if (c) {
         const xn = normNome(c.nome);
         if (xn === n || xn.includes(n) || n.includes(xn)) return snapshotCliente(c);

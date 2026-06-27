@@ -8,7 +8,9 @@ import { REPO_ROOT } from "./repoRoot.js";
 
 const EXCL_PATH =
   /Modelo v3|compra e venda|contrato-compra|Orçamentos|Modelo antigo|\\Copy\\/i;
-const EXCL_CLOSED = /devolvido|encerrado|entregue|recolhido/i;
+// NOTA: contratos devolvidos/encerrados NÃO são excluídos — para atribuição
+// histórica de infrações, o locatário daquele período é o responsável (a multa
+// é da data em que o contrato estava vigente, mesmo que já tenha sido devolvido).
 
 export type CondutorSugerido = {
   condutorId: string | null;
@@ -78,24 +80,50 @@ function extrairCpfDocx(texto: string): string | null {
   return m ? m[1]!.trim() : null;
 }
 
-function extrairPeriodoDocx(
-  texto: string,
-  inicioPasta: Date,
-  prazoDias: number,
-): { inicio: Date; fim: Date } {
+function addDiasLocal(d: Date, dias: number): Date {
+  const r = new Date(d);
+  r.setDate(r.getDate() + dias);
+  r.setHours(23, 59, 59, 999);
+  return r;
+}
+
+function inicioDoDia(d: Date): Date {
+  const r = new Date(d);
+  r.setHours(0, 0, 0, 0);
+  return r;
+}
+
+/** Início/fim EXPLÍCITOS do texto do contrato (sem fallback). */
+function extrairPeriodoExplicito(texto: string): { inicio: Date | null; fim: Date | null } {
   const t = texto.normalize("NFD").replace(/\p{M}/gu, "");
   const m = t.match(
     /iniciando no dia\s+(\d{2}\/\d{2}\/\d{4})[^e]+e terminando no dia\s+(\d{2}\/\d{2}\/\d{4})/i,
   );
-  if (m) {
-    const ini = parseDataBr(m[1]!);
-    const fim = parseDataBr(m[2]!);
-    if (ini && fim) return { inicio: ini, fim };
+  if (m) return { inicio: parseDataBr(m[1]!), fim: parseDataBr(m[2]!) };
+  return { inicio: null, fim: null };
+}
+
+/**
+ * Data real de fim da posse a partir do nome da pasta, ex.: "(devolvido 18.05)",
+ * "(recuperado 04.05)", "(troca 22.05)". Ano inferido pelo início (vira ano
+ * seguinte se o mês do retorno for anterior ao mês de início).
+ */
+function parseRetornoPasta(nomePasta: string, inicio: Date): Date | null {
+  const m = nomePasta.match(
+    /\((?:devolvido|recuperado|entregue|recolhido|trocad[oa]|troca)\s+(\d{1,2})\.(\d{1,2})(?:\.(\d{2,4}))?\)/i,
+  );
+  if (!m) return null;
+  const dd = Number(m[1]);
+  const mm = Number(m[2]);
+  let yyyy: number;
+  if (m[3]) {
+    const y = Number(m[3]);
+    yyyy = y < 100 ? 2000 + y : y;
+  } else {
+    yyyy = mm >= inicio.getMonth() + 1 ? inicio.getFullYear() : inicio.getFullYear() + 1;
   }
-  const fim = new Date(inicioPasta);
-  fim.setDate(fim.getDate() + prazoDias);
-  fim.setHours(23, 59, 59, 999);
-  return { inicio: inicioPasta, fim };
+  const dt = new Date(yyyy, mm - 1, dd, 23, 59, 59);
+  return Number.isNaN(dt.getTime()) ? null : dt;
 }
 
 function loadClientes(): Cliente[] {
@@ -139,6 +167,16 @@ type ContratoCand = {
   placa: string;
 };
 
+type ContratoColetado = {
+  pastaContrato: string;
+  docx: string;
+  clienteNome: string;
+  inicio: Date;
+  fimExplicito: Date | null;
+  retorno: Date | null;
+  placa: string;
+};
+
 function listarContratosNaData(
   root: string,
   data: Date,
@@ -146,7 +184,7 @@ function listarContratosNaData(
   prazoDias: number,
 ): ContratoCand[] {
   const seen = new Set<string>();
-  const out: ContratoCand[] = [];
+  const coletados: ContratoColetado[] = [];
   const placaNorm = compactPlaca(placaAlvo);
 
   function walk(dir: string): void {
@@ -163,7 +201,7 @@ function listarContratosNaData(
         continue;
       }
       if (!ent.isFile() || !/^Contrato.*\.docx$/i.test(ent.name)) continue;
-      if (EXCL_PATH.test(p) || EXCL_CLOSED.test(p)) continue;
+      if (EXCL_PATH.test(p)) continue;
       const pastaContrato = path.dirname(p);
       if (seen.has(pastaContrato)) continue;
       const nomePasta = path.basename(pastaContrato);
@@ -180,15 +218,53 @@ function listarContratosNaData(
       const placa = extrairPlacaDocx(texto);
       if (!placa || compactPlaca(placa) !== placaNorm) continue;
 
-      const { inicio, fim } = extrairPeriodoDocx(texto, inicioPasta, prazoDias);
-      if (data < inicio || data > fim) continue;
-
       seen.add(pastaContrato);
-      out.push({ pastaContrato, docx: p, clienteNome: cliente, inicio, fim, placa });
+      const explicito = extrairPeriodoExplicito(texto);
+      const inicio = explicito.inicio ?? inicioPasta;
+      coletados.push({
+        pastaContrato,
+        docx: p,
+        clienteNome: cliente,
+        inicio,
+        fimExplicito: explicito.fim,
+        retorno: parseRetornoPasta(nomePasta, inicio),
+        placa,
+      });
     }
   }
 
   walk(root);
+
+  // Fim efetivo de cada contrato = MENOR entre (devolução na pasta, início do
+  // próximo contrato da placa, fim explícito do docx). Sem nenhum desses, usa
+  // início + prazoDias. Assim cada locatário responde só pelo período em que
+  // realmente teve o carro (inclui contratos já devolvidos).
+  coletados.sort((a, b) => a.inicio.getTime() - b.inicio.getTime());
+  const out: ContratoCand[] = [];
+  for (let i = 0; i < coletados.length; i++) {
+    const c = coletados[i]!;
+    const next = coletados[i + 1];
+    const limites: number[] = [];
+    if (c.retorno) limites.push(c.retorno.getTime());
+    if (next) limites.push(next.inicio.getTime());
+    if (c.fimExplicito) limites.push(c.fimExplicito.getTime());
+    let fim =
+      limites.length > 0
+        ? new Date(Math.min(...limites))
+        : addDiasLocal(c.inicio, prazoDias);
+    if (fim.getTime() < c.inicio.getTime()) fim = addDiasLocal(c.inicio, prazoDias);
+
+    if (data >= inicioDoDia(c.inicio) && data <= fim) {
+      out.push({
+        pastaContrato: c.pastaContrato,
+        docx: c.docx,
+        clienteNome: c.clienteNome,
+        inicio: c.inicio,
+        fim,
+        placa: c.placa,
+      });
+    }
+  }
   out.sort((a, b) => b.inicio.getTime() - a.inicio.getTime());
   return out;
 }

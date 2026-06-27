@@ -15,10 +15,9 @@ import { motoristaToCliente } from "./mapMotoristaCliente.js";
 import { refKey } from "./placaRastreavel.js";
 import {
   buildMotoristaPayload,
-  fetchAllMotoristas,
+  fetchAllMotoristasDetailed,
   fetchMotoristaByKey,
   findMotorista,
-  inativarMotorista,
   postMotoristaPayload,
   putMotorista,
   type MotoristaRastreame,
@@ -44,7 +43,7 @@ export async function pullMotoristasFromRastreame(
   opts: SyncMotoristasOpts = {},
 ): Promise<SyncMotoristasResult["pull"]> {
   const result = { novos: 0, atualizados: 0, inativados: 0, ignorados: 0, erros: [] as string[] };
-  const motoristas = await fetchAllMotoristas();
+  const motoristas = await fetchAllMotoristasDetailed();
   const keysPresentes = new Set(motoristas.map(motoristaKey).filter(Boolean));
 
   for (const m of motoristas) {
@@ -105,21 +104,11 @@ export async function pullMotoristasFromRastreame(
 async function pushOneCliente(
   c: ClienteRegistro,
   ctx: { dryRun: boolean },
-): Promise<"criado" | "atualizado" | "inativado" | "ignorado" | "erro"> {
-  if (c.ativo === false) {
-    if (!c.rastreameMotoristaKey) return "ignorado";
-    if (ctx.dryRun) {
-      console.log(`[push dry-run] inativar Rastreame key=${c.rastreameMotoristaKey} (${c.nome})`);
-      return "inativado";
-    }
-    try {
-      await inativarMotorista(c.rastreameMotoristaKey);
-      marcarClienteRastreameSyncOk(c.id, c.rastreameMotoristaKey, c.rastreameMotoristaId ?? undefined);
-      return "inativado";
-    } catch {
-      return "erro";
-    }
-  }
+): Promise<"criado" | "atualizado" | "ignorado"> {
+  // Nunca enviamos inativação ao Rastreame: se está inativo no database local,
+  // não fazemos push. O pull continua atualizando o registo local a partir do
+  // Rastreame (ver regra "Inativação só local" em .cursor/rules/lanza-tools.mdc).
+  if (c.ativo === false) return "ignorado";
 
   if (!isSyncRastreameEligible(c)) return "ignorado";
 
@@ -183,21 +172,15 @@ export async function pushMotoristasToRastreame(
   };
 
   const db = loadClientesDb();
-  const candidatos = db.clientes.filter(
-    (c) => isSyncRastreameEligible(c) || c.ativo === false,
-  );
+  // Só clientes ativos entram no push; inativos nunca são enviados ao Rastreame.
+  const candidatos = db.clientes.filter((c) => c.ativo !== false && isSyncRastreameEligible(c));
 
   for (const c of candidatos) {
-    if (!isSyncRastreameEligible(c) && c.ativo !== false) continue;
     try {
       const acao = await pushOneCliente(c, { dryRun: opts.dryRun ?? false });
       if (acao === "criado") result.criados++;
       else if (acao === "atualizado") result.atualizados++;
-      else if (acao === "inativado") result.inativados++;
-      else if (acao === "ignorado") result.ignorados++;
-      else if (acao === "erro") {
-        result.erros.push(`${c.nome}: falha ao inativar no Rastreame`);
-      }
+      else result.ignorados++;
     } catch (e) {
       result.erros.push(`${c.nome}: ${e instanceof Error ? e.message : String(e)}`);
     }

@@ -5,6 +5,7 @@ import { loadParceiroDespesasDb } from "../lib/parceiroDespesasDb.js";
 import { rastreadorValorFixo } from "../lib/rastreadorFixo.js";
 import { prestacaoContasBaseDir } from "../lib/lanzaPaths.js";
 import { REPO_ROOT } from "../lib/repoRoot.js";
+import { RELATORIOS_TMP_DIR } from "../lib/relatoriosPaths.js";
 
 const DB = path.join(REPO_ROOT, "database");
 
@@ -37,6 +38,22 @@ function anoCurto(am: string): string {
   return parts[parts.length - 1] || "";
 }
 
+/** DD/MM/AAAA -> AAAAMMDD; MM/AAAA -> AAAAMM01; senão 0 (data sortável/comparável). */
+function dataToNum(d: string): number {
+  const full = String(d ?? "").trim().match(/^(\d{2})\/(\d{2})\/(\d{4})/);
+  if (full) return Number(`${full[3]}${full[2]}${full[1]}`);
+  const comp = String(d ?? "").trim().match(/^(\d{2})\/(\d{4})/);
+  if (comp) return Number(`${comp[2]}${comp[1]}01`);
+  return 0;
+}
+
+function temBaixa(d: Record<string, unknown>): boolean {
+  return Boolean(String((d as { baixa?: unknown }).baixa ?? "").trim());
+}
+
+/** Categorias que reaparecem como lembrete enquanto vencidas e sem baixa. */
+const PENDENCIA_CATS = new Set(["ipva", "licenciamento"]);
+
 type Inp = {
   competencia: string;
   competenciasDespesas?: string[];
@@ -57,6 +74,8 @@ export function main(argv: string[]): void {
   const compsDesp = inp.competenciasDespesas ?? [comp];
   const periodo = inp.periodo ?? {};
   const rotulo = inp.rotulo;
+  // Início do período: limite para considerar um débito "já vencido" (lembrete).
+  const periodoInicioNum = dataToNum(periodo.inicio ?? `01/${mmComp}/${aaaaComp}`);
 
   const rastValor = Number(inp.rastreadorValor ?? rastreadorValorFixo(comp));
   const rastDia = Number(inp.rastreadorDia ?? 10);
@@ -105,12 +124,39 @@ export function main(argv: string[]): void {
   fs.mkdirSync(outDir, { recursive: true });
   const arquivosGerados: [string, string][] = [];
 
+  // Acumulador de dados estruturados (sidecar JSON) — alimenta o canvas.
+  type GastoDados = { data: string; categoria: string; descricao: string; valor: number };
+  type VeiculoDados = {
+    placa: string;
+    modelo: string;
+    ano: string;
+    particular: boolean;
+    gastos: GastoDados[];
+    subtotalGastos: number;
+    ganho: { valor: number; descricao: string };
+    devidoMesAnterior: number;
+    descontoManutencao: { valor: number; descricao: string };
+    totalDescontos: number;
+    total: number;
+    pendencias: GastoDados[];
+    totalPendencias: number;
+  };
+  type ParceiroDados = {
+    parceiro: string;
+    arquivoTxt: string;
+    veiculos: VeiculoDados[];
+    consolidado: { totalDescontos: number; totalGanhos: number; totalLiquido: number };
+    avisos: string[];
+  };
+  const dadosParceiros: ParceiroDados[] = [];
+
   for (const [parceiro, itens] of porParceiro) {
     const linhas: string[] = [];
     let tg = 0;
     let tga = 0;
     let tt = 0;
     const avisosParc: string[] = [];
+    const veiculosDados: VeiculoDados[] = [];
     const temSeguro = !SEM_SEGURO.has(parceiro.toLowerCase().trim());
 
     for (const [item, v] of itens) {
@@ -131,7 +177,11 @@ export function main(argv: string[]): void {
         avisosParc.push(`  ⚠️ ${vPlaca}: SEGURO de ${comp} não importado.`);
       }
 
-      if (!gastos.some((d) => String(d.categoria ?? "").toLowerCase() === "rastreador")) {
+      const particular = (v as { particular?: boolean }).particular === true;
+      if (
+        !particular &&
+        !gastos.some((d) => String(d.categoria ?? "").toLowerCase() === "rastreador")
+      ) {
         gastos.push({
           data: `${String(rastDia).padStart(2, "0")}/${mmComp}/${aaaaComp}`,
           categoria: "Rastreador",
@@ -155,54 +205,130 @@ export function main(argv: string[]): void {
       const modelo = modeloCurto(String(v.marcaModelo ?? ""));
       const ano = anoCurto(String(v.anoModelo ?? ""));
       const L: string[] = [
-        `*${vPlaca} - ${modelo} ${ano} (${parceiro})*`,
+        `🚗 *${vPlaca} — ${modelo} ${ano}* (${parceiro})`,
         "",
+        "📋 *Gastos*",
       ];
       for (const d of gastos) {
-        L.push(
-          `\t${d.data}\t${d.descricao}\tR$ ${brl(Number(d.valor))}`,
-        );
+        L.push(`• ${d.data} — ${d.descricao} — R$ ${brl(Number(d.valor))}`);
       }
-      L.push("", `Total: R$ ${brl(soma)}`, "");
-      L.push(`Desconto mês anterior: R$ ${brl(devido)}`);
-      let dm = `Desconto manutenção: R$ ${brl(dval)}`;
-      if (desc.descricao) dm += ` (${desc.descricao})`;
-      L.push(dm);
+      L.push(`💰 Subtotal gastos: R$ ${brl(soma)}`, "");
       L.push(
-        "",
-        `Total Ganho: R$ ${brl(gval)}` +
+        `💵 Ganho: R$ ${brl(gval)}` +
           (ganho.descricao ? ` (${ganho.descricao})` : ""),
       );
-      L.push(`Total Descontos: R$ ${brl(totalDescontos)}`);
-      L.push("", `*TOTAL: R$ ${brl(total)}*`);
+      L.push(`➖ Desconto mês anterior: R$ ${brl(devido)}`);
+      let dm = `🔧 Desconto manutenção: R$ ${brl(dval)}`;
+      if (desc.descricao) dm += ` (${desc.descricao})`;
+      L.push(dm);
+      L.push(`➖ Total descontos: R$ ${brl(totalDescontos)}`);
+      L.push("", `✅ *TOTAL: R$ ${brl(total)}*`);
+
+      // Lembrete: IPVA/Licenciamento já vencidos (compet. anterior) e ainda sem
+      // baixa. Apenas informativo — NÃO entra no total (o saldo real flui por
+      // "Devido mês anterior").
+      const pendBrutas = despesas
+        .filter(
+          (d) =>
+            PENDENCIA_CATS.has(String(d.categoria ?? "").toLowerCase()) &&
+            norm(String(d.placa ?? "")) === norm(vPlaca) &&
+            !compsDesp.includes(String(d.competencia)) &&
+            !temBaixa(d) &&
+            dataToNum(String(d.data ?? "")) > 0 &&
+            dataToNum(String(d.data ?? "")) < periodoInicioNum,
+        )
+        .sort((a, b) => dataToNum(String(a.data ?? "")) - dataToNum(String(b.data ?? "")));
+
+      // Dedupe IPVA: cota única e parcelas são a MESMA dívida. Se houver cota
+      // única no ano, descartar as parcelas daquele ano (evita lembrete/total
+      // em duplicidade).
+      const ipvaAno = (d: Record<string, unknown>): string =>
+        String(d.descricao ?? "").match(/(\d{4})/)?.[1] ??
+        anoCurto(String(d.competencia ?? ""));
+      const ehCotaUnica = (d: Record<string, unknown>): boolean =>
+        /cota\s*[uú]nica/i.test(String(d.descricao ?? ""));
+      const ehIpva = (d: Record<string, unknown>): boolean =>
+        String(d.categoria ?? "").toLowerCase() === "ipva";
+      const anosComCotaUnica = new Set(
+        pendBrutas.filter((d) => ehIpva(d) && ehCotaUnica(d)).map(ipvaAno),
+      );
+      const pendencias = pendBrutas.filter(
+        (d) => !(ehIpva(d) && !ehCotaUnica(d) && anosComCotaUnica.has(ipvaAno(d))),
+      );
+
+      if (pendencias.length) {
+        const somaPend = pendencias.reduce((s, d) => s + Number(d.valor), 0);
+        L.push("", "⚠️ *Pendências vencidas (lembrete — ainda sem baixa)*");
+        for (const d of pendencias) {
+          L.push(
+            `• ${d.data} — ${d.descricao} — R$ ${brl(Number(d.valor))} (venc. ${d.competencia})`,
+          );
+        }
+        L.push(`🔔 Total pendente (não somado): R$ ${brl(somaPend)}`);
+      }
+
       linhas.push(L.join("\n"));
+
+      const totalPendencias = pendencias.reduce((s, d) => s + Number(d.valor), 0);
+      veiculosDados.push({
+        placa: vPlaca,
+        modelo,
+        ano,
+        particular,
+        gastos: gastos.map((d) => ({
+          data: String(d.data ?? ""),
+          categoria: String(d.categoria ?? ""),
+          descricao: String(d.descricao ?? ""),
+          valor: Number(d.valor) || 0,
+        })),
+        subtotalGastos: soma,
+        ganho: { valor: gval, descricao: String(ganho.descricao ?? "") },
+        devidoMesAnterior: devido,
+        descontoManutencao: { valor: dval, descricao: String(desc.descricao ?? "") },
+        totalDescontos,
+        total,
+        pendencias: pendencias.map((d) => ({
+          data: String(d.data ?? ""),
+          categoria: String(d.categoria ?? ""),
+          descricao: String(d.descricao ?? ""),
+          valor: Number(d.valor) || 0,
+        })),
+        totalPendencias,
+      });
+
       tg += totalDescontos;
       tga += gval;
       tt += total;
     }
 
     linhas.push(
-      `=== CONSOLIDADO ${parceiro.toUpperCase()} — ${comp} ===\n` +
-        `TOTAL Descontos:\tR$ ${brl(tg)}\n` +
-        `TOTAL Ganhos:\t\tR$ ${brl(tga)}\n` +
-        `TOTAL líquido:\t\tR$ ${brl(tt)}`,
+      `━━━━━━━━━━━━━━━━━━━━\n` +
+        `📊 *CONSOLIDADO ${parceiro.toUpperCase()} — ${comp}*\n` +
+        `➖ Total descontos: R$ ${brl(tg)}\n` +
+        `💵 Total ganhos: R$ ${brl(tga)}\n` +
+        `✅ *Total líquido: R$ ${brl(tt)}*`,
     );
 
     const cab: string[] = [];
-    const compTxt =
+    const periodoTxt =
       periodo.inicio && periodo.fim
-        ? ` (Competência ${periodo.inicio} a ${periodo.fim})`
+        ? `🗓️ Competência: ${periodo.inicio} a ${periodo.fim}`
         : "";
-    if (rotulo) {
-      cab.push(rotulo + compTxt);
-    } else if (compTxt) {
-      cab.push("Relatório" + compTxt);
-    }
+    const titulo = rotulo ?? (periodoTxt ? "Relatório de prestação de contas" : "");
+    if (titulo) cab.push(`📄 *${titulo}*`);
+    if (periodoTxt) cab.push(periodoTxt);
     const corpo = linhas.join("\n\n\n");
     const texto = (cab.length ? cab.join("\n") + "\n\n\n" : "") + corpo + "\n";
     const saida = path.join(outDir, `${parceiro}.txt`);
     fs.writeFileSync(saida, texto, "utf8");
     arquivosGerados.push([parceiro, saida]);
+    dadosParceiros.push({
+      parceiro,
+      arquivoTxt: saida,
+      veiculos: veiculosDados,
+      consolidado: { totalDescontos: tg, totalGanhos: tga, totalLiquido: tt },
+      avisos: avisosParc.map((a) => a.trim()),
+    });
     console.log(texto);
     if (avisosParc.length) {
       for (const a of avisosParc) console.log(a);
@@ -214,4 +340,28 @@ export function main(argv: string[]): void {
     console.log(`  ${p}: ${s}`);
   }
   for (const a of avisosGlobais) console.log(a);
+
+  // JSON de dados estruturados (sidecar) — alimenta o canvas. Gravado no repo
+  // (relatorios/_tmp), não na pasta compartilhada de prestação de contas.
+  fs.mkdirSync(RELATORIOS_TMP_DIR, { recursive: true });
+  const dadosPath = path.join(RELATORIOS_TMP_DIR, `prestacao-${mmComp}-${aaaaComp}.json`);
+  fs.writeFileSync(
+    dadosPath,
+    JSON.stringify(
+      {
+        competencia: comp,
+        rotulo: rotulo ?? null,
+        periodo,
+        rastreadorValor: rastValor,
+        rastreadorDia: rastDia,
+        geradoEm: new Date().toISOString(),
+        parceiros: dadosParceiros,
+        avisos: avisosGlobais,
+      },
+      null,
+      2,
+    ),
+    "utf8",
+  );
+  console.log(`\n[dados p/ canvas]\n  ${dadosPath}`);
 }

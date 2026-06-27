@@ -17,9 +17,11 @@ export type MotoristaRastreame = {
   key?: string | number;
   nome?: string;
   cnh?: string;
+  cpf?: string | null;
   observacao?: string;
-  categoriaCnh?: { key?: string; value?: string };
+  categoriaCnh?: { key?: string; value?: string } | null;
   vencimentoCnh?: string;
+  contato?: { fixo?: string | null; celular?: string | null; email?: string | null } | null;
   ativo?: boolean;
 };
 
@@ -89,51 +91,38 @@ function br2iso(d: string | undefined): string | null {
 
 type Cliente = Record<string, unknown>;
 
-export function montarObservacaoMotorista(c: Cliente): string {
-  const cnh = (c.cnh ?? {}) as Record<string, string>;
-  const linhas: string[] = [];
-  if (c.cpf) linhas.push(`CPF: ${c.cpf}`);
-  if (c.rg) {
-    let s = `RG: ${c.rg}`;
-    if (c.rgOrgaoExpedidor) s += ` ${c.rgOrgaoExpedidor}`;
-    linhas.push(s);
-  }
-  if (c.dataNascimento) {
-    let s = `Nascimento: ${c.dataNascimento}`;
-    if (c.localNascimento) s += ` - ${c.localNascimento}`;
-    linhas.push(s);
-  }
-  if (cnh.primeiraHabilitacao) {
-    linhas.push(`1a Habilitacao: ${cnh.primeiraHabilitacao}`);
-  }
-  if (cnh.dataEmissao) linhas.push(`Emissao CNH: ${cnh.dataEmissao}`);
-  if (cnh.numeroEspelho) linhas.push(`Espelho: ${cnh.numeroEspelho}`);
-  if (cnh.orgaoEmissor || cnh.ufEmissor) {
-    linhas.push(
-      `Orgao emissor: ${cnh.orgaoEmissor ?? ""}/${cnh.ufEmissor ?? ""}`,
-    );
-  }
-  if (c.filiacao) linhas.push(`Filiacao: ${c.filiacao}`);
-  if (c.telefone) linhas.push(`Telefone: ${c.telefone}`);
-  const end = (c.endereco ?? {}) as Record<string, string>;
-  if (Object.values(end).some(Boolean)) {
-    const e = `${end.logradouro ?? ""}, ${end.numero ?? ""} ${end.bairro ?? ""} - ${end.cidade ?? ""}/${end.uf ?? ""} ${end.cep ?? ""}`;
-    linhas.push("Endereco: " + e.replace(/\s+/g, " ").trim());
-  }
-  return linhas.join("\n");
+/** Contato nativo do Rastreame a partir dos campos da database. */
+function buildContato(
+  c: Cliente,
+): { fixo: null; celular: string | null; email: string | null } | undefined {
+  const celular = digits(c.telefone as string) || null;
+  const email = (c.email as string | undefined) ?? null;
+  if (!celular && !email) return undefined;
+  return { fixo: null, celular, email };
 }
 
+/**
+ * Payload do motorista no Rastreame — APENAS campos nativos.
+ *
+ * O campo `observacao` NÃO é usado: dados que o Rastreame não tem nativamente
+ * (endereço, RG, filiação, nascimento, espelho/órgão emissor) ficam só na
+ * database cliente. Campos nulos/ausentes são omitidos para não sobrescrever
+ * valores existentes no Rastreame durante o PUT.
+ */
 export function buildMotoristaPayload(c: Cliente): Record<string, unknown> {
   const cnh = (c.cnh ?? {}) as Record<string, string>;
-  return {
+  const payload: Record<string, unknown> = {
     nome: c.nome,
-    cnh: cnh.numeroRegistro,
-    categoriaCnh: cnh.categoria ? { key: cnh.categoria } : undefined,
-    observacao: montarObservacaoMotorista(c),
-    vencimentoCnh: br2iso(cnh.validade),
-    vencimentoToxicologico: null,
     ativo: c.ativo !== false,
   };
+  if (cnh.numeroRegistro) payload.cnh = digits(cnh.numeroRegistro);
+  if (c.cpf) payload.cpf = digits(c.cpf as string);
+  if (cnh.categoria) payload.categoriaCnh = { key: cnh.categoria };
+  const venc = br2iso(cnh.validade);
+  if (venc) payload.vencimentoCnh = venc;
+  const contato = buildContato(c);
+  if (contato) payload.contato = contato;
+  return payload;
 }
 
 export async function fetchAllMotoristas(size = 100): Promise<MotoristaRastreame[]> {
@@ -158,6 +147,26 @@ export async function fetchAllMotoristas(size = 100): Promise<MotoristaRastreame
     if (page > 500) break;
   }
   return all;
+}
+
+/**
+ * Lista todos os motoristas e busca o DETALHE de cada um.
+ * A listagem (`fetchAllMotoristas`) só traz campos de resumo (id, nome, celular,
+ * ativo); CNH, CPF, observação e contato completo só vêm no GET por id.
+ */
+export async function fetchAllMotoristasDetailed(): Promise<MotoristaRastreame[]> {
+  const lista = await fetchAllMotoristas();
+  const out: MotoristaRastreame[] = [];
+  for (const item of lista) {
+    const key = refKeyMotorista(item);
+    if (!key) continue;
+    try {
+      out.push(await fetchMotoristaByKey(key));
+    } catch {
+      out.push(item);
+    }
+  }
+  return out;
 }
 
 async function fetchMotoristaListFromResponse(r: Response): Promise<MotoristaRastreame[]> {

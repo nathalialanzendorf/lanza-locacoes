@@ -1,0 +1,237 @@
+{
+  "placa": "RYC7C32",
+  "renavam": 1345723536,
+  "proprietarioAtual": "JOSE FELIPE BARRETO RODRIGUES",
+  "proprietarioAnterior": "K***** P****** V******* L***",
+  "principalCondutor": "",
+  "cor": "Cinza",
+  "marcaModelo": "VW/NIVUS HL TSI",
+  "anoFabricacao": 2023,
+  "anoModelo": 2023,
+  "motivoBaixa": "Em circulação",
+  "exercicioLicenciamento": 2025,
+  "licenciado": "2025 em 08/09/2025 através do Registro de Veículo (CRV)",
+  "municipio": "TUBARAO",
+  "uf": "SC",
+  "debitos": [
+    {
+      "idDebito": 647793430,
+      "descricaoClasse": "IPVA (Cota Unica) 2026",
+      "dataVencimentoOriginal": "2026-02-28",
+      "valorAtualizado": 2931.17,
+      "linhaDigitavel": "85610000029-3  31170024836-3  74026001345-4  72353618053-9",
+      "emiteGuia": 1,
+      "exercicio": 2026,
+      "dareSat": 1,
+      "vencido": true
+    }
+  ],
+  "infracoes": [
+    {
+      "idAutoInfracao": 75461780,
+      "numeroAuto": "P0dxg0018r",
+      "descricao": "DIRIGIR VEICULO SEGURANDO TELEFONE CELULAR",
+      "dataHoraAutuacao": "2026-06-03T10:44:20",
+      "localInfracao": "AVENIDA PATRICIO LIMA, HUMAITA - TUBARAO - SANTA CATARINA, 88704-410, BRASIL - TUBARAO/SC",
+      "complemento": "Cruzamento com Rua Expedicionário José Pedro Coelho.",
+      "valor": 293.47,
+      "situacao": "Autuação notificada",
+      "status": "Em aberto",
+      "senha": "9FBC3584",
+      "protocolo": "8072.7633.P0dxg0018r",
+      "dataLimiteDefesa": "2026-08-07",
+      "prazoDefesaExpirado": false
+    }
+  ],
+  "historicoInfracoes": [
+    {
+      "idAutoInfracao": 69199568,
+      "numeroAuto": "J003891652",
+      "descricao": "TRANS EM VELOC SUP À MÁX PERMITIDA EM MAIS DE 20% ATE 50%   ",
+      "dataHoraAutuacao": "2025-09-06T14:47:00",
+      "localInfracao": "SC - BR 101 - KM 304.00 - D - LAGUNA/SC",
+      "valor": 195.23,
+      "situacao": "Penalidade notificada",
+      "status": "Paga",
+      "protocolo": "100.7463.J003891652",
+      "dataLimiteDefesa": "2025-11-14",
+      "prazoDefesaExpirado": true
+    },
+    {
+      "idAutoInfracao": 69199655,
+      "numeroAuto": "J003893752",
+      "descricao": "TRANSITAR EM VEL SUPERIOR À MÁXIMA PERMITIDA EM ATÉ 20%",
+      "dataHoraAutuacao": "2025-09-06T16:36:00",
+      "localInfracao": "SC - BR 101 - KM 324.90 - D - CAPIVARI DE BAIXO/SC",
+      "valor": 130.16,
+      "situacao": "Penalidade notificada",
+      "status": "Paga",
+      "protocolo": "100.7455.J003893752",
+      "dataLimiteDefesa": "2025-11-14",
+      "prazoDefesaExpirado": true
+    }
+  ],
+  "dividaAtiva": [],
+  "dataAtualizacao": "2026-06-28T21:18:33",
+  "dataAquisicao": "2025-08-30",
+  "pendente": false,
+  "tipo": "Automovel",
+  "categoria": "Particular",
+  "carroceria": "Nao Aplicavel",
+  "especie": "Passageiro",
+  "placaAnterior": "RYC7C32",
+  "lugares": 5,
+  "combustivel": "Alcool-Gasol",
+  "restricaoVenda": "Alienação Fiduciária em favor de B**** V********* S*",
+  "informacoesPendentesSng": [],
+  "processos": [
+    {
+      "numeroProcesso": "1066349/2025",
+      "interessadoDocumento": "277*******3",
+      "dataHoraInicio": "2025-09-08T09:00:00",
+      "dataHoraFim": "2025-09-08T17:42:00",
+      "situacao": "Encerrado",
+      "servicos": [
+        {
+          "servico": "Renave Saída Estoque",
+          "dataHoraExecucao": "2025-09-08T09:00:09.533"
+        },
+        {
+          "servico": "Transferência de Propriedade",
+          "dataHoraExecucao": "2025-09-08T09:00:09.533"
+        },
+        {
+          "servico": "Alienação Fiduciária",
+          "dataHoraExecucao": "2025-09-08T09:00:09.533"
+        },
+        {
+          "servico": "Geração de guia de pagamento",
+          "dataHoraExecucao": "2025-09-08T09:00:09.58"
+        },
+        {
+          "servico": "Auditoria",
+          "dataHoraExecucao": "2025-09-08T17:42:29.236"
+        },
+        {
+          "servico": "Emissão de CRV/CRLVe",
+          "dataHoraExecucao": "2025-09-08T17:52:01.226"
+        }
+      ]
+    },
+    {
+      "numeroProcesso": "1015030/2025",
+      "interessadoDocumento": "165**********0",
+      "dataHoraInicio": "2025-08-27T10:27:00",
+      "dataHoraFim": "2025-08-27T10:28:00",
+      "situacao": "Encerrado",
+      "servicos": [
+        {
+          "servico": "Renave Transferência",
+          "dataHoraExecucao": "2025-08-27T10:27:41.676"
+        },
+        {
+          "servico": "Transferência de Domicílio",
+          "dataHoraExecucao": "2025-08-27T10:27:41.676"
+        },
+        {
+          "servico": "Transferência de Propriedade",
+          "dataHoraExecucao": "2025-08-27T10:27:41.676"
+        },
+        {
+          "servico": "Geração de guia de pagamento",
+          "dataHoraExecucao": "2025-08-27T10:27:41.703"
+        },
+        {
+          "servico": "Auditoria",
+          "dataHoraExecucao": "2025-08-27T10:28:20.266"
+        },
+        {
+          "servico": "Emissão de CRV/CRLV eletrônico",
+          "dataHoraExecucao": "2025-08-27T11:34:55.476"
+        }
+      ]
+    },
+    {
+      "numeroProcesso": "774707/2025",
+      "interessadoDocumento": "418*******0",
+      "dataHoraInicio": "2025-07-07T11:17:00",
+      "dataHoraFim": "2025-07-09T08:48:00",
+      "situacao": "Encerrado",
+      "servicos": [
+        {
+          "servico": "Renave Entrada Estoque",
+          "dataHoraExecucao": "2025-07-07T11:17:21.68"
+        },
+        {
+          "servico": "Transferência de Domicílio",
+          "dataHoraExecucao": "2025-07-07T11:17:21.68"
+        },
+        {
+          "servico": "Baixa de Alienação Fiduciária",
+          "dataHoraExecucao": "2025-07-07T11:17:21.68"
+        },
+        {
+          "servico": "Transferência de Propriedade",
+          "dataHoraExecucao": "2025-07-07T11:17:21.68"
+        },
+        {
+          "servico": "Geração de guia de pagamento",
+          "dataHoraExecucao": "2025-07-07T11:17:21.726"
+        },
+        {
+          "servico": "Auditoria",
+          "dataHoraExecucao": "2025-07-09T08:48:14.126"
+        },
+        {
+          "servico": "Emissão de CRV/CRLV eletrônico",
+          "dataHoraExecucao": "2025-07-09T08:48:37.97"
+        }
+      ]
+    },
+    {
+      "numeroProcesso": "440873/2023",
+      "interessadoDocumento": "448*******0",
+      "dataHoraInicio": "2023-05-03T17:20:00",
+      "dataHoraFim": "2023-05-03T17:44:00",
+      "situacao": "Encerrado",
+      "servicos": [
+        {
+          "servico": "Primeiro Emplacamento",
+          "dataHoraExecucao": "2023-05-03T17:20:41.353",
+          "emitenteNFNome": "K***** P****** V******* L***",
+          "emitenteNFDocumento": "086**********9",
+          "dataEmissaoNF": "2023-04-29",
+          "valorNF": 146990
+        },
+        {
+          "servico": "Alienação Fiduciária",
+          "dataHoraExecucao": "2023-05-03T17:20:41.356"
+        },
+        {
+          "servico": "Geração de guia de pagamento",
+          "dataHoraExecucao": "2023-05-03T17:20:41.41"
+        },
+        {
+          "servico": "Auditoria",
+          "dataHoraExecucao": "2023-05-03T17:44:01.94"
+        },
+        {
+          "servico": "Autorização Nova PIV",
+          "dataHoraExecucao": "2023-05-03T17:44:01.94"
+        },
+        {
+          "servico": "Emissão de CRV/CRLVe",
+          "dataHoraExecucao": "2023-05-03T17:44:58.823"
+        }
+      ]
+    }
+  ],
+  "editaisCedo": [],
+  "ipvasNotificados": [],
+  "recursosInfracao": [],
+  "avisos": [],
+  "csvGnvVencido": false,
+  "origemDados": "Cadastro",
+  "hash": "81a4e742d8da6be5c485b7110620b579",
+  "token": "642c661f-7a36-4eea-ba59-5f1f47977a22"
+}

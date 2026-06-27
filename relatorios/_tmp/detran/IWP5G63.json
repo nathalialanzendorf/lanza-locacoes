@@ -1,0 +1,536 @@
+{
+  "placa": "IWP5G63",
+  "renavam": 1052869600,
+  "proprietarioAtual": "L*** P**** D* O*******",
+  "proprietarioAnterior": "A** P**** D* S****",
+  "principalCondutor": "A**** E****** P****** R********",
+  "cor": "Branca",
+  "marcaModelo": "RENAULT/SANDERO EXPR 16",
+  "anoFabricacao": 2015,
+  "anoModelo": 2015,
+  "motivoBaixa": "Em circulação",
+  "exercicioLicenciamento": 2026,
+  "licenciado": "2026 em 26/02/2026 através do Registro de Veículo (CRV)",
+  "municipio": "CAPIVARI DE BAIXO",
+  "uf": "SC",
+  "debitos": [
+    {
+      "idDebito": 673858808,
+      "descricaoClasse": "TUBARAO-008072-Z000021201-5541",
+      "dataVencimentoOriginal": "2026-05-12",
+      "valorAtualizado": 197.18,
+      "linhaDigitavel": "00190.00009  02838.969166  73858.808170  2  14930000019718",
+      "emiteGuia": 1,
+      "exercicio": 2025,
+      "dareSat": 0,
+      "vencido": true
+    },
+    {
+      "idDebito": 676142585,
+      "descricaoClasse": "CRICIUM-008787-P0drq000lm-6041",
+      "dataVencimentoOriginal": "2026-08-26",
+      "valorAtualizado": 195.23,
+      "linhaDigitavel": "00190.00009  03021.606169  76142.585173  8  15500000011714",
+      "emiteGuia": 1,
+      "exercicio": 2026,
+      "dareSat": 0,
+      "vencido": false
+    }
+  ],
+  "infracoes": [
+    {
+      "idAutoInfracao": 71124596,
+      "numeroAuto": "Z000021201",
+      "descricao": "ESTAC EM DESACOR C/ REGULAMENTAÇÃO - ESTACIONAMENTO ROTATIVO",
+      "dataHoraAutuacao": "2025-12-10T16:54:57",
+      "localInfracao": "AV. MARCOLINO M. CABRAL, NUMERO 917 - TUBARAO/SC",
+      "valor": 195.23,
+      "situacao": "Penalidade notificada",
+      "status": "Em aberto",
+      "protocolo": "8072.5541.Z000021201",
+      "dataLimiteDefesa": "2026-02-24",
+      "prazoDefesaExpirado": true
+    },
+    {
+      "idAutoInfracao": 74869687,
+      "numeroAuto": "J008087450",
+      "descricao": "TRANSITAR EM VEL SUPERIOR À MÁXIMA PERMITIDA EM ATÉ 20%",
+      "dataHoraAutuacao": "2026-04-10T05:23:00",
+      "localInfracao": "SC - BR 101 - KM 432.50 - C - SOMBRIO/SC",
+      "valor": 130.16,
+      "situacao": "Autuação notificada",
+      "status": "Em aberto",
+      "protocolo": "100.7455.J008087450",
+      "dataLimiteDefesa": "2026-06-19",
+      "prazoDefesaExpirado": true
+    },
+    {
+      "idAutoInfracao": 75577140,
+      "numeroAuto": "P0drq000lm",
+      "descricao": "EXEC OPER DE CONVERSAO A ESQ EM LOCAL PROIBIDO PELA SINALIZ",
+      "dataHoraAutuacao": "2026-06-09T10:57:32",
+      "localInfracao": "RUA NIBELE UGGIONI, VILA FLORESTA I - CRICIUMA - SANTA CATARINA, 88818-500, BR - CRICIUMA/SC",
+      "complemento": "Próximo Dudu Automóveis ",
+      "valor": 195.23,
+      "situacao": "Autuação notificada",
+      "status": "Em aberto",
+      "protocolo": "8787.6041.P0drq000lm",
+      "dataLimiteDefesa": "2026-08-14",
+      "prazoDefesaExpirado": false
+    }
+  ],
+  "historicoInfracoes": [
+    {
+      "idAutoInfracao": 32426061,
+      "numeroAuto": "E014614302",
+      "descricao": "TRANSITAR EM VEL SUPERIOR À MÁXIMA PERMITIDA EM ATÉ 20%",
+      "dataHoraAutuacao": "2016-12-18T00:48:00",
+      "localInfracao": "P01-628B/ERS-240 KM 2,000/FAIX - SAO LEOPOLDO/RS",
+      "valor": 130.16,
+      "situacao": "Penalidade notificada",
+      "status": "Paga",
+      "protocolo": "121200.7455.E014614302",
+      "dataLimiteDefesa": "2017-03-02",
+      "prazoDefesaExpirado": true
+    },
+    {
+      "idAutoInfracao": 33146605,
+      "numeroAuto": "E032159086",
+      "descricao": "TRANSITAR EM VEL SUPERIOR À MÁXIMA PERMITIDA EM ATÉ 20%",
+      "dataHoraAutuacao": "2017-02-05T18:15:00",
+      "localInfracao": "BR-101 KM 23.670 - TRES CACHOEIRAS/RS",
+      "valor": 130.16,
+      "situacao": "Penalidade notificada",
+      "status": "Paga",
+      "protocolo": "300.7455.E032159086",
+      "dataLimiteDefesa": "2017-04-10",
+      "prazoDefesaExpirado": true
+    },
+    {
+      "idAutoInfracao": 34929873,
+      "numeroAuto": "PSL0348591",
+      "descricao": "DEIXAR O CONDUTOR DE USAR O CINTO SEGURANÇA ",
+      "dataHoraAutuacao": "2017-07-06T12:33:00",
+      "localInfracao": "PRIMEIRO DE MARCO, 848 - SAO LEOPOLDO/RS",
+      "valor": 195.23,
+      "situacao": "Penalidade notificada",
+      "status": "Paga",
+      "protocolo": "288770.5185.PSL0348591",
+      "dataLimiteDefesa": "2017-10-13",
+      "prazoDefesaExpirado": true
+    },
+    {
+      "idAutoInfracao": 36314243,
+      "numeroAuto": "S005208302",
+      "descricao": "TRANSITAR EM VEL SUPERIOR À MÁXIMA PERMITIDA EM ATÉ 20%",
+      "dataHoraAutuacao": "2017-10-28T00:07:00",
+      "localInfracao": "BR101 KM 326,65 - CAPIVARI DE BAIXO/SC",
+      "valor": 130.16,
+      "situacao": "Penalidade notificada",
+      "status": "Paga",
+      "protocolo": "300.7455.S005208302",
+      "dataLimiteDefesa": "2017-12-21",
+      "prazoDefesaExpirado": true
+    },
+    {
+      "idAutoInfracao": 37812457,
+      "numeroAuto": "S007406525",
+      "descricao": "TRANSITAR EM VEL SUPERIOR À MÁXIMA PERMITIDA EM ATÉ 20%",
+      "dataHoraAutuacao": "2018-03-09T20:28:00",
+      "localInfracao": "BR101 KM 86,5 - OSORIO/RS",
+      "valor": 130.16,
+      "situacao": "Penalidade notificada",
+      "status": "Paga",
+      "protocolo": "300.7455.S007406525",
+      "dataLimiteDefesa": "2018-05-03",
+      "prazoDefesaExpirado": true
+    },
+    {
+      "idAutoInfracao": 37812480,
+      "numeroAuto": "S007406649",
+      "descricao": "TRANSITAR EM VEL SUPERIOR À MÁXIMA PERMITIDA EM ATÉ 20%",
+      "dataHoraAutuacao": "2018-03-09T21:07:00",
+      "localInfracao": "BR101 KM 23,7 - TRES CACHOEIRAS/RS",
+      "valor": 130.16,
+      "situacao": "Penalidade notificada",
+      "status": "Paga",
+      "protocolo": "300.7455.S007406649",
+      "dataLimiteDefesa": "2018-05-03",
+      "prazoDefesaExpirado": true
+    },
+    {
+      "idAutoInfracao": 39184196,
+      "numeroAuto": "E017099682",
+      "descricao": "TRANSITAR EM VEL SUPERIOR À MÁXIMA PERMITIDA EM ATÉ 20%",
+      "dataHoraAutuacao": "2018-07-18T08:31:00",
+      "localInfracao": "AV MAUA PX ESQ RUA DOS ADVENTI - SAO LEOPOLDO/RS",
+      "valor": 130.16,
+      "situacao": "Penalidade notificada",
+      "status": "Paga",
+      "protocolo": "288770.7455.E017099682",
+      "dataLimiteDefesa": "2018-09-28",
+      "prazoDefesaExpirado": true
+    },
+    {
+      "idAutoInfracao": 39766916,
+      "numeroAuto": "S010382111",
+      "descricao": "TRANS EM VELOC SUP À MÁX PERMITIDA EM MAIS DE 20% ATE 50%   ",
+      "dataHoraAutuacao": "2018-09-06T21:55:00",
+      "localInfracao": "BR101 KM 23,7 - TRES CACHOEIRAS/RS",
+      "valor": 195.23,
+      "situacao": "Penalidade notificada",
+      "status": "Paga",
+      "protocolo": "300.7463.S010382111",
+      "dataLimiteDefesa": "2018-11-08",
+      "prazoDefesaExpirado": true
+    },
+    {
+      "idAutoInfracao": 47103772,
+      "numeroAuto": "8779C44094",
+      "descricao": "TRANSITAR EM VEL SUPERIOR À MÁXIMA PERMITIDA EM ATÉ 20%",
+      "dataHoraAutuacao": "2020-12-18T16:41:58",
+      "localInfracao": "ROD. C370 KM 2.850 SENTIDO BR101 - SC370 - TUBARAO/SC",
+      "valor": 130.16,
+      "situacao": "Penalidade notificada",
+      "status": "Paga",
+      "protocolo": "8779.7455.8779C44094",
+      "dataLimiteDefesa": "2021-02-12",
+      "prazoDefesaExpirado": true
+    },
+    {
+      "idAutoInfracao": 48074286,
+      "numeroAuto": "0001031983",
+      "descricao": "TRANS EM VELOC SUP À MÁX PERMITIDA EM MAIS DE 20% ATE 50%   ",
+      "dataHoraAutuacao": "2021-02-11T10:54:53",
+      "localInfracao": "ROD. OTAVIO DASSOLER - PROX. CERAMICA CASAGRANDE - LINHA CABRAL - CRICIUMA/SC",
+      "valor": 195.23,
+      "situacao": "Penalidade notificada",
+      "status": "Paga",
+      "protocolo": "8788.7463.0001031983",
+      "dataLimiteDefesa": "2021-08-16",
+      "prazoDefesaExpirado": true
+    },
+    {
+      "idAutoInfracao": 50926270,
+      "numeroAuto": "P04DV001SS",
+      "descricao": "DEIXAR O CONDUTOR DE USAR O CINTO SEGURANÇA ",
+      "dataHoraAutuacao": "2021-10-30T15:16:01",
+      "localInfracao": "CRUZAMENTO DA AVENIDA MACHADO DE ASSIS COM A RUA JOÃO GOULART - CAPIVARI DE BAIXO/SC",
+      "complemento": "                                                                                ",
+      "valor": 195.23,
+      "situacao": "Penalidade notificada",
+      "status": "Paga",
+      "protocolo": "8136.5185.P04DV001SS",
+      "dataLimiteDefesa": "2021-12-14",
+      "prazoDefesaExpirado": true
+    },
+    {
+      "idAutoInfracao": 52689737,
+      "numeroAuto": "8779E65998",
+      "descricao": "TRANSITAR EM VEL SUPERIOR À MÁXIMA PERMITIDA EM ATÉ 20%",
+      "dataHoraAutuacao": "2022-03-31T14:32:13",
+      "localInfracao": "ROD. C370 KM 0.800 SENTIDO BR101 - SC370 - TUBARAO/SC",
+      "valor": 130.16,
+      "situacao": "Penalidade notificada",
+      "status": "Paga",
+      "protocolo": "8779.7455.8779E65998",
+      "dataLimiteDefesa": "2022-06-10",
+      "prazoDefesaExpirado": true
+    },
+    {
+      "idAutoInfracao": 52998579,
+      "numeroAuto": "P06ZN002Q3",
+      "descricao": "DIRIGIR VEICULO UTILIZANDO-SE DE TELEFONE CELULAR",
+      "dataHoraAutuacao": "2022-04-12T10:20:56",
+      "localInfracao": "RUA 20 DE MAIO - MORRO DA FUMACA/SC",
+      "complemento": "PRÓXIMO AO LOJÃO DO MAZO                                                        ",
+      "valor": 130.16,
+      "situacao": "Penalidade notificada",
+      "status": "Paga",
+      "protocolo": "8248.7366.P06ZN002Q3",
+      "dataLimiteDefesa": "2022-06-17",
+      "prazoDefesaExpirado": true
+    },
+    {
+      "idAutoInfracao": 55166228,
+      "numeroAuto": "8779F62077",
+      "descricao": "TRANSITAR EM VEL SUPERIOR À MÁXIMA PERMITIDA EM ATÉ 20%",
+      "dataHoraAutuacao": "2022-11-24T14:22:09",
+      "localInfracao": "ROD. C370 KM 2.500 SENTIDO BR101 - SC370 - TUBARAO/SC",
+      "valor": 130.16,
+      "situacao": "Penalidade notificada",
+      "status": "Paga",
+      "protocolo": "8779.7455.8779F62077",
+      "dataLimiteDefesa": "2023-02-06",
+      "prazoDefesaExpirado": true
+    },
+    {
+      "idAutoInfracao": 62728579,
+      "numeroAuto": "R788674463",
+      "descricao": "TRANSITAR EM VEL SUPERIOR À MÁXIMA PERMITIDA EM ATÉ 20%",
+      "dataHoraAutuacao": "2024-06-27T12:57:00",
+      "localInfracao": "BR-101 KM-304 UF-SC - LAGUNA/SC",
+      "valor": 130.16,
+      "situacao": "Penalidade notificada",
+      "status": "Justificada",
+      "protocolo": "100.7455.R788674463",
+      "dataLimiteDefesa": "2024-09-15",
+      "prazoDefesaExpirado": true
+    },
+    {
+      "idAutoInfracao": 67204526,
+      "numeroAuto": "P0C7K00050",
+      "descricao": "DEIXAR O CONDUTOR DE USAR O CINTO SEGURANÇA ",
+      "dataHoraAutuacao": "2025-05-11T16:59:01",
+      "localInfracao": "RUA JOÃO ERNESTO RAMOS PRÓXIMO À RÓTULA. - CAPIVARI DE BAIXO/SC",
+      "complemento": "                                                                                ",
+      "valor": 195.23,
+      "situacao": "Penalidade notificada",
+      "status": "Paga",
+      "protocolo": "8136.5185.P0C7K00050",
+      "dataLimiteDefesa": "2025-07-15",
+      "prazoDefesaExpirado": true
+    },
+    {
+      "idAutoInfracao": 69836411,
+      "numeroAuto": "Z000019477",
+      "descricao": "ESTAC EM DESACOR C/ REGULAMENTAÇÃO - ESTACIONAMENTO ROTATIVO",
+      "dataHoraAutuacao": "2025-10-21T16:39:09",
+      "localInfracao": "AV. MARCOLINO M. CABRAL, NUMERO 830 - TUBARAO/SC",
+      "valor": 195.23,
+      "situacao": "Penalidade notificada",
+      "status": "Paga",
+      "protocolo": "8072.5541.Z000019477",
+      "dataLimiteDefesa": "2026-01-06",
+      "prazoDefesaExpirado": true
+    }
+  ],
+  "dividaAtiva": [],
+  "dataAtualizacao": "2026-06-28T21:17:33",
+  "dataAquisicao": "2026-01-29",
+  "pendente": false,
+  "tipo": "Automovel",
+  "categoria": "Particular",
+  "carroceria": "Nao Aplicavel",
+  "especie": "Passageiro",
+  "placaAnterior": "IWP5663/SP",
+  "lugares": 5,
+  "combustivel": "Alcool-Gasol",
+  "restricaoVenda": "Sem gravame",
+  "informacoesPendentesSng": [],
+  "processos": [
+    {
+      "numeroProcesso": "208004/2026",
+      "interessadoDocumento": "669*******9",
+      "dataHoraInicio": "2026-02-25T15:30:00",
+      "dataHoraFim": "2026-02-26T10:02:00",
+      "situacao": "Encerrado",
+      "servicos": [
+        {
+          "servico": "Baixa de Alienação Fiduciária",
+          "dataHoraExecucao": "2026-02-25T15:30:39.16"
+        },
+        {
+          "servico": "Transferência de Propriedade",
+          "dataHoraExecucao": "2026-02-25T15:30:39.16"
+        },
+        {
+          "servico": "Geração de guia de pagamento",
+          "dataHoraExecucao": "2026-02-25T15:30:39.216"
+        },
+        {
+          "servico": "Auditoria",
+          "dataHoraExecucao": "2026-02-26T10:02:52.873"
+        },
+        {
+          "servico": "Emissão de CRV/CRLVe",
+          "dataHoraExecucao": "2026-02-26T10:04:25.95"
+        }
+      ]
+    },
+    {
+      "numeroProcesso": "1160977/2020",
+      "interessadoDocumento": "024*******7",
+      "dataHoraInicio": "2020-11-18T17:05:00",
+      "dataHoraFim": "2020-11-20T16:51:00",
+      "situacao": "Encerrado",
+      "servicos": [
+        {
+          "servico": "Transferência de Domicílio",
+          "dataHoraExecucao": "2020-11-18T17:05:35.07"
+        },
+        {
+          "servico": "Transferência de Propriedade",
+          "dataHoraExecucao": "2020-11-18T17:05:35.07"
+        },
+        {
+          "servico": "Alienação Fiduciária",
+          "dataHoraExecucao": "2020-11-18T17:05:35.07"
+        },
+        {
+          "servico": "Geração de guia de pagamento",
+          "dataHoraExecucao": "2020-11-18T17:05:35.163"
+        },
+        {
+          "servico": "Auditoria",
+          "dataHoraExecucao": "2020-11-20T16:51:40.42"
+        },
+        {
+          "servico": "Emissão CRV(1ª via)",
+          "dataHoraExecucao": "2020-11-23T09:08:55.936"
+        }
+      ]
+    },
+    {
+      "numeroProcesso": "808462/2020",
+      "interessadoDocumento": "179*******0",
+      "dataHoraInicio": "2020-09-02T15:51:00",
+      "dataHoraFim": "2020-09-08T18:35:00",
+      "situacao": "Encerrado",
+      "servicos": [
+        {
+          "servico": "Transferência de Domicílio",
+          "dataHoraExecucao": "2020-09-02T15:51:47.686"
+        },
+        {
+          "servico": "Transferência de Propriedade",
+          "dataHoraExecucao": "2020-09-02T15:51:47.686"
+        },
+        {
+          "servico": "Geração de guia de pagamento",
+          "dataHoraExecucao": "2020-09-02T15:51:47.89"
+        },
+        {
+          "servico": "Conversão Nova PIV",
+          "dataHoraExecucao": "2020-09-02T15:51:47.686"
+        },
+        {
+          "servico": "Auditoria",
+          "dataHoraExecucao": "2020-09-08T18:35:16.773"
+        },
+        {
+          "servico": "Autorização Nova PIV",
+          "dataHoraExecucao": "2020-09-08T18:35:16.773"
+        },
+        {
+          "servico": "Emissão CRV(1ª via)",
+          "dataHoraExecucao": "2020-09-08T18:45:47.243"
+        }
+      ]
+    },
+    {
+      "numeroProcesso": "1102874/2015",
+      "interessadoDocumento": "547*******7",
+      "dataHoraInicio": "2015-12-14T14:58:00",
+      "dataHoraFim": "2015-12-15T14:01:00",
+      "situacao": "Encerrado",
+      "servicos": [
+        {
+          "servico": "Transferência de Propriedade",
+          "dataHoraExecucao": "2015-12-14T14:58:06.733"
+        },
+        {
+          "servico": "Vistoria",
+          "dataHoraExecucao": "2015-12-14T17:59:06.646"
+        },
+        {
+          "servico": "Geração de guia de pagamento",
+          "dataHoraExecucao": "2015-12-14T14:58:06.81"
+        },
+        {
+          "servico": "Auditoria",
+          "dataHoraExecucao": "2015-12-15T14:01:21.086"
+        },
+        {
+          "servico": "Emissão CRV(1ª via)",
+          "dataHoraExecucao": "2015-12-15T14:09:52.453"
+        }
+      ]
+    },
+    {
+      "numeroProcesso": "952678/2015",
+      "interessadoDocumento": "626*******2",
+      "dataHoraInicio": "2015-10-29T18:01:00",
+      "dataHoraFim": "2015-11-03T15:33:00",
+      "situacao": "Encerrado",
+      "servicos": [
+        {
+          "servico": "Trânsferência outra UF",
+          "dataHoraExecucao": "2015-10-29T18:01:12.503"
+        },
+        {
+          "servico": "Transferência de Propriedade",
+          "dataHoraExecucao": "2015-10-29T18:01:12.503"
+        },
+        {
+          "servico": "Geração de guia de pagamento",
+          "dataHoraExecucao": "2015-10-29T18:01:12.533"
+        },
+        {
+          "servico": "Vistoria",
+          "dataHoraExecucao": "2015-11-03T15:23:22.06"
+        },
+        {
+          "servico": "Auditoria",
+          "dataHoraExecucao": "2015-11-03T15:33:55.776"
+        },
+        {
+          "servico": "Emissão CRV(1ª via)",
+          "dataHoraExecucao": "2015-11-03T15:44:10.496"
+        }
+      ]
+    }
+  ],
+  "editaisCedo": [
+    {
+      "numeroEdital": "333/2022",
+      "numeroAuto": "P06ZN002Q3",
+      "tipo": "Penalidade",
+      "dataPublicacaoDOE": "2022-07-26",
+      "hash": "898bbfa1605095ca1e854936b90c95be"
+    },
+    {
+      "numeroEdital": "628/2025",
+      "numeroAuto": "P0C7K00050",
+      "tipo": "Autuação",
+      "dataPublicacaoDOE": "2025-06-06",
+      "hash": "0846469922f38c1d5d37d30e412db4de"
+    },
+    {
+      "numeroEdital": "653/2025",
+      "numeroAuto": "P0C7K00050",
+      "tipo": "Penalidade",
+      "dataPublicacaoDOE": "2025-08-26",
+      "hash": "01ce3f384ff078da84dced16c89d11c7"
+    }
+  ],
+  "ipvasNotificados": [],
+  "recursosInfracao": [
+    {
+      "numeroProcesso": 1099,
+      "anoProcesso": 2026,
+      "dataDefesa": "2026-06-26",
+      "codigoInstancia": 9,
+      "instancia": "Indicação Condutor",
+      "numeroAuto": "drq000lm",
+      "tipoAuto": "P0",
+      "orgaoAuto": 8787,
+      "descricaoAuto": "CRICIUMA-008787-P0drq000lm-6041-2",
+      "descricaoInfracao": "EXEC OPER DE CONVERSAO A ESQ EM LOCAL PROIBIDO PELA SINALIZ",
+      "cidadeAuto": "CRICIUMA",
+      "dataHoraAuto": "2026-06-09T10:57:32",
+      "nomeLocal": "RUA NIBELE UGGIONI, VILA FLORESTA I - CRICIUMA - SANTA CATARINA, 88818-500, BR",
+      "complemento": "Próximo Dudu Automóveis",
+      "resultadoRecurso": "",
+      "resultadoIndicacao": "DEFERIDO em 26/06/2026",
+      "motivoResultadoInfracao": "",
+      "motivoResultadoIndicacao": "",
+      "informacaoRequerente": "Proprietário"
+    }
+  ],
+  "avisos": [],
+  "csvGnvVencido": false,
+  "origemDados": "Cadastro",
+  "hash": "b94eebbedabf248c4b4b1a9c880659ea",
+  "token": "a4bec16a-f191-4281-b210-41a71dd18dc7"
+}

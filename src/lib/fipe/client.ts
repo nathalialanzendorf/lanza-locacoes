@@ -1,3 +1,7 @@
+/**
+ * Cliente HTTP da API FIPE (parallelum) — camada de baixo nível.
+ * Tabela FIPE de carros: https://fipe.parallelum.com.br
+ */
 import https from "node:https";
 
 export const API_HOST = "fipe.parallelum.com.br";
@@ -34,3 +38,16 @@ export function fipeGet<T = unknown>(path: string): Promise<T> {
       .on("error", reject);
   });
 }
+
+export type FipeMarca = { code: string; name: string };
+export type FipeModelo = { code: string; name: string };
+export type FipeAno = { code: string; name: string };
+export type FipeValor = {
+  brand?: string;
+  codeFipe?: string;
+  model?: string;
+  price?: string;
+  modelYear?: string;
+  fuel?: string;
+  referenceMonth?: string;
+};

@@ -9,6 +9,36 @@ description: >-
 
 Skill para **cadastrar, editar e excluir** recebimentos de locação no **Rastreame** (Gastos Gerais).
 
+## Tags no `info` — fonte única (despesa de cliente)
+
+> **Esta seção é a fonte única da regra da tag `ATRASADO` para despesa de cliente.**
+> Outras skills/docs que criam, dão baixa ou listam despesa de cliente (ex.: `sync-pedagios`,
+> `sync-infracoes`, tool `.cursor/tools/rastreame/`) **referenciam aqui**, sem repetir a regra.
+
+- **`ATRASADO`** — incluída **por padrão** ao lançar uma despesa de cliente **em aberto**
+  no Gastos Gerais (ex.: `ATRASADO Pagamento semanal - Sábado 27`). Ao **dar baixa/quitar**,
+  remover `ATRASADO` do `info` (ver "Pagamento integral/parcial" abaixo).
+- **`[NEGOCIADO X]`** — tag de renegociação; a regra completa é da skill **`renegociar-debitos`**
+  (fonte única dessa tag). ⚠️ Ao aplicar `[NEGOCIADO X]`, **remover `ATRASADO`** — o débito
+  deixou de estar em atraso (passou a negociado); não manter as duas juntas. Ex.:
+  `ATRASADO Pagamento semanal - Sábado 27` → `[NEGOCIADO 2] Pagamento semanal - Sábado 27`.
+
+> Reutilização: ao **dar baixa** num pagamento, esta skill já **cria automaticamente a
+> próxima despesa** de cliente — que nasce com `ATRASADO` por padrão, conforme a regra acima.
+
+## ⚠️ Regra: gravar no database **e** enviar ao Rastreame (obrigatório)
+
+**Sempre** que o operador pedir um cadastro de **despesa do cliente**, o fluxo é **duas
+etapas, ambas obrigatórias**:
+
+1. **Salvar** no `database/cliente-despesas.json`.
+2. **Enviar ao Rastreame** (push) — despesa de cliente vai para **Gastos Gerais** via
+   `sync-gastos-gerais --push-only` (ou `gravar-cliente-despesa`, que já espelha por defeito).
+
+Não deixar a despesa **só local**. Se faltar token do Rastreame, **pedir as credenciais**
+(ver tool `.cursor/tools/rastreame/`) e concluir o push — o cadastro só está completo quando
+espelhado no Rastreame.
+
 ## Operações
 
 | Operação | Como |
@@ -18,6 +48,39 @@ Skill para **cadastrar, editar e excluir** recebimentos de locação no **Rastre
 | **Excluir** | Via UI Rastreame ou API conforme `.cursor/tools/rastreame/` |
 
 **Listagem (UI):** [Gastos — listagem](https://rastreame.com.br/#/gastos/list)
+
+## Formato ao listar despesas do cliente (obrigatório)
+
+> Terminologia: referir-se **sempre** a estes lançamentos como **"despesas do cliente"**
+> (não "pendências" nem "débitos do cliente").
+
+**Sempre** que o operador pedir as **despesas do cliente** (dados de `cliente-despesas.json`),
+retornar uma tabela com **exatamente estas colunas, nesta ordem** (iguais ao cadastro de
+Gastos Gerais do Rastreame):
+
+| Rastreável | Data | Descrição | Motorista | Tipo | Total |
+|---|---|---|---|---|---|
+
+- **Rastreável:** rótulo do veículo (`rastreameLabel` de `veiculos.json`, ex.: `OZC-0B50 - OZC0B50 - FOCUS (Felipe)`).
+- **Data:** `DD/MM/AAAA` (data do lançamento / autuação).
+- **Descrição:** texto do `info` / descrição.
+- **Motorista:** nome do condutor.
+- **Tipo:** tipo do Rastreame conforme o de-para abaixo.
+- **Total:** valor em `R$`.
+
+Fechar com a linha de **Total** somando as despesas.
+
+### De-para do **Tipo** (Gastos Gerais do Rastreame)
+
+A coluna **Tipo** segue este mapeamento (categoria interna → Tipo no Rastreame):
+
+| Tipo (Rastreame) | O que é | Categoria interna |
+|---|---|---|
+| **DOCUMENTACAO** | Renegociações | `Renegociação` |
+| **OUTROS** | Cobrança semanal e caução | `Locação semanal`, `Caução` |
+| **PEDAGIO** | Pedágio e estacionamento rotativo | `Pedágio`, `Estacionamento` |
+| **MULTA** | Infrações | `Infração` |
+| **ALIMENTACAO** | Manutenção de responsabilidade do cliente (troca de óleo, troca de pneu, acionamento de franquia, lavação) | `Manutenção` |
 
 ## Autenticação e execução no site
 
@@ -30,7 +93,7 @@ Skill para **cadastrar, editar e excluir** recebimentos de locação no **Rastre
 - **Novo:** `POST` `https://rastreame.com.br/keek/rest/gasto/` com JSON no corpo.
 - **Atualizar:** `PUT` `https://rastreame.com.br/keek/rest/gasto/{id}` com corpo que inclua `id` e campos a manter/atualizar (espelhar o que o site envia no Network).
 - Headers mínimos (como no site): `Content-Type: application/json`, `x-r2f-auth: <token>`, `x-r2f-ns: null`, `Referer`/`Origin` em `https://rastreame.com.br/`.
-- **`tipo`:** sempre **`OUTROS`** (`"tipo":{"key":"OUTROS","value":"Outros","ativo":true}` no PUT completo; no POST mínimo costuma bastar `"tipo":{"key":"OUTROS"}`).
+- **`tipo`:** conforme o **de-para** acima (`OUTROS` para semanal/caução, `DOCUMENTACAO` para renegociação, `MULTA` para infração, `PEDAGIO` para pedágio/estacionamento, `ALIMENTACAO` para manutenção do cliente). Ex.: `"tipo":{"key":"OUTROS","value":"Outros","ativo":true}` no PUT completo; no POST mínimo costuma bastar `"tipo":{"key":"OUTROS"}`.
 - **`rastreavel`** e **`motorista`:** usar `key` (e `value` quando o PUT exigir espelho do registo) conforme capturado no DevTools ao editar um gasto existente na UI — os `key` são identificadores internos do Rastreame.
 - **`data`:** ISO 8601 como o site envia (ex.: `2026-06-20T02:59:00.000Z`). Para **23:59** no fuso acordado (ex. Recife), calcular o instante correto em UTC ou **copiar o padrão** de um gasto de teste gravado na UI e reproduzir a mesma conversão.
 
@@ -46,6 +109,8 @@ Detalhe de campos e exemplos de corpo: ver `reference.md` nesta pasta.
 4. **Se já existir** um gasto com esse **`info`** (e mesmo motorista/rastreável): **não** criar outro com `POST`; em vez disso, **editar o existente** (`PUT`) se for correção de valor/data, ou **abortar** e alinhar com o operador se for erro de dados.
 
 Isto aplica-se a: lançamentos de **segunda** (`ATRASADO - Pagamento semanal - …`), **novo registo após pagamento parcial**, **fatura da semana**, e qualquer outro `POST` ao abrigo desta skill.
+
+> Tags `ATRASADO` / `[NEGOCIADO X]`: ver seção **"Tags no `info` — fonte única"** no topo desta skill.
 
 ## Segunda-feira — lançamentos automáticos (em atraso)
 

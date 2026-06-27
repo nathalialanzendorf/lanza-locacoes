@@ -33,6 +33,40 @@ function nowIso(): string {
   return new Date().toISOString();
 }
 
+function isEmptyVal(v: unknown): boolean {
+  if (v == null || v === "") return true;
+  if (typeof v === "object" && !Array.isArray(v)) {
+    return Object.values(v as Record<string, unknown>).every(isEmptyVal);
+  }
+  return false;
+}
+
+/**
+ * Mescla `extra` em `base` sem destruir valores locais já preenchidos:
+ * só preenche lacunas (campos locais vazios) e recursa em objetos (cnh, endereco).
+ */
+function fillGaps(
+  base: Record<string, unknown>,
+  extra: Record<string, unknown>,
+): Record<string, unknown> {
+  const out: Record<string, unknown> = { ...base };
+  for (const [k, v] of Object.entries(extra)) {
+    if (v == null || v === "") continue;
+    const cur = out[k];
+    if (cur == null || cur === "") {
+      out[k] = v;
+    } else if (
+      typeof cur === "object" &&
+      !Array.isArray(cur) &&
+      typeof v === "object" &&
+      !Array.isArray(v)
+    ) {
+      out[k] = fillGaps(cur as Record<string, unknown>, v as Record<string, unknown>);
+    }
+  }
+  return out;
+}
+
 export function loadClientesDb(): ClientesDb {
   if (!fs.existsSync(DB_CLIENTES)) {
     return { descricao: DEFAULT_DESCRICAO, clientes: [] };
@@ -60,6 +94,18 @@ export function findClienteByCpf(cpf: string): ClienteRegistro | null {
   return (
     loadClientesDb().clientes.find((c) => c.cpf && normCpfKey(String(c.cpf)) === key) ?? null
   );
+}
+
+/** Nome normalizado para comparação: sem acentos, sem parênteses, maiúsculas. */
+export function normNomeKey(nome: string | null | undefined): string {
+  return String(nome ?? "")
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/\([^)]*\)/g, " ")
+    .replace(/[^A-Za-z\s]/g, " ")
+    .toUpperCase()
+    .replace(/\s+/g, " ")
+    .trim();
 }
 
 export function findClienteByRastreameKey(key: string | number): ClienteRegistro | null {
@@ -156,15 +202,23 @@ export type UpsertClienteResult = {
   aviso: string | null;
 };
 
-export function upsertClienteFromRastreame(input: UpsertMotoristaInput): UpsertClienteResult {
+export function upsertClienteFromRastreame(rawInput: UpsertMotoristaInput): UpsertClienteResult {
   const db = loadClientesDb();
   const ts = nowIso();
-  const idx = findClienteIndex({
+  // `force` é uma flag de controlo — não deve ser persistida no registo.
+  const { force, ...input } = rawInput;
+  let idx = findClienteIndex({
     id: input.id ?? "",
     cpf: input.cpf,
     rastreameMotoristaKey: input.rastreameMotoristaKey,
     cnh: input.cnh,
   });
+  // Fallback por nome normalizado: evita duplicar quem já existe localmente mas
+  // não casou por CPF/CNH (ex.: CPF com dígito trocado, ou registo local sem CNH).
+  if (idx < 0 && input.nome) {
+    const nk = normNomeKey(input.nome);
+    if (nk) idx = db.clientes.findIndex((c) => normNomeKey(c.nome) === nk);
+  }
 
   if (idx < 0) {
     const registro: ClienteRegistro = {
@@ -185,7 +239,7 @@ export function upsertClienteFromRastreame(input: UpsertMotoristaInput): UpsertC
 
   const existente = db.clientes[idx]!;
   if (
-    !input.force &&
+    !force &&
     existente.atualizadoEm &&
     existente.rastreameSyncEm &&
     existente.atualizadoEm > existente.rastreameSyncEm
@@ -197,25 +251,29 @@ export function upsertClienteFromRastreame(input: UpsertMotoristaInput): UpsertC
     };
   }
 
-  const merged: ClienteRegistro = {
-    ...existente,
-    ...input,
-    id: existente.id,
-    rastreameMotoristaKey: input.rastreameMotoristaKey,
-    rastreameMotoristaId: input.rastreameMotoristaId ?? existente.rastreameMotoristaId ?? null,
-    rastreameSyncEm: ts,
-    ativo: input.ativo !== false,
-  };
+  let merged: ClienteRegistro;
+  if (force) {
+    // Rastreame sobrescreve (espelho exato), preservando subcampos locais ausentes no Rastreame.
+    merged = { ...existente, ...input } as ClienteRegistro;
+    if (input.cnh && typeof input.cnh === "object") {
+      merged.cnh = { ...(existente.cnh as object), ...(input.cnh as object) };
+    }
+    if (input.endereco && typeof input.endereco === "object") {
+      merged.endereco = { ...(existente.endereco as object), ...(input.endereco as object) };
+    }
+  } else {
+    // Padrão não-destrutivo: só preenche lacunas locais, mantém dados locais mais ricos
+    // (CNH completa de scan, endereço) — o Rastreame não tem esses campos.
+    merged = fillGaps(existente, input as Record<string, unknown>) as ClienteRegistro;
+  }
 
+  merged.id = existente.id;
+  merged.rastreameMotoristaKey = input.rastreameMotoristaKey;
+  merged.rastreameMotoristaId = input.rastreameMotoristaId ?? existente.rastreameMotoristaId ?? null;
+  merged.rastreameSyncEm = ts;
+  merged.ativo = input.ativo !== false;
   if (input.nome && (!existente.nome || existente.origemImportacao === "rastreame")) {
     merged.nome = String(input.nome).trim();
-  }
-  if (input.cpf && !existente.cpf) merged.cpf = input.cpf;
-  if (input.cnh && typeof input.cnh === "object") {
-    merged.cnh = { ...(existente.cnh as object), ...(input.cnh as object) };
-  }
-  if (input.endereco && typeof input.endereco === "object") {
-    merged.endereco = { ...(existente.endereco as object), ...(input.endereco as object) };
   }
 
   const changed = JSON.stringify(existente) !== JSON.stringify(merged);

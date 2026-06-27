@@ -2,14 +2,15 @@
  * Sincroniza Gastos Gerais (Rastreame) ↔ database/cliente-despesas.json.
  *
  * Uso:
- *   npx tsx src/run.ts sync-recebimentos [--dry-run] [--pull-only] [--push-only] [--force-pull] [--motorista KEY]
+ *   npx tsx src/run.ts sync-gastos-gerais [--dry-run] [--pull-only] [--push-only] [--force-pull] [--motorista KEY]
+ *   (alias: sync-recebimentos)
  */
 import { syncRecebimentos } from "../lib/rastreame/recebimentosSync.js";
 
 export async function main(argv: string[]): Promise<void> {
   if (argv.includes("-h") || argv.includes("--help")) {
     console.log(`Uso:
-  sync-recebimentos [opções]
+  sync-gastos-gerais [opções]   (alias: sync-recebimentos)
 
 Opções:
   --dry-run        Simula sem gravar local nem chamar POST/PUT no Rastreame

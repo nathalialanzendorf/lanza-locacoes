@@ -23,17 +23,23 @@ export type SyncVeiculoResult = {
   semAlteracao: number;
   historico: number;
   debitosIgnoradosProprietario: number;
+  /** Infrações sem data de autuação (precisam de revisão manual). */
+  revisarManual: number;
   avisos: string[];
 };
 
 function loadVeiculosFrota(placaFiltro?: string): VeiculoFrota[] {
   const p = path.join(REPO_ROOT, "database", "veiculos.json");
   const j = JSON.parse(fs.readFileSync(p, "utf8")) as {
-    veiculos?: { placa?: string; renavam?: string }[];
+    veiculos?: { placa?: string; renavam?: string; ativo?: boolean; ufRegistro?: string }[];
   };
   const filtro = placaFiltro ? formatPlacaHyphen(placaFiltro) : null;
 
   return (j.veiculos ?? [])
+    // Sync atualiza apenas veículos ATIVOS (sync-veiculo/cliente é que tratam inativos).
+    .filter((v) => v.ativo !== false)
+    // DETRAN SC só tem dados de veículos registrados em SC — pular outras UFs.
+    .filter((v) => !v.ufRegistro || v.ufRegistro.toUpperCase() === "SC")
     .filter((v) => v.placa && v.renavam)
     .filter((v) => !filtro || formatPlacaHyphen(v.placa!) === filtro)
     .map((v) => ({ placa: v.placa!, renavam: String(v.renavam!) }));
@@ -57,7 +63,7 @@ function aplicarMulta(
         situacao: m.situacao,
         limiteDefesa: m.limiteDefesa,
         condutorId: null,
-        condutorConfirmado: false,
+        condutorConfirmado: m.quitadaDetran === true,
         condutorContrato: null,
         quitadaDetran: m.quitadaDetran,
         cadastradoEm: "",
@@ -90,9 +96,9 @@ function aplicarMulta(
 export async function sincronizarMultasVeiculoDetranSc(
   placa: string,
   renavam: string,
-  opts?: { dryRun?: boolean; prazoDias?: number },
+  opts?: { dryRun?: boolean; prazoDias?: number; captcha?: string },
 ): Promise<SyncVeiculoResult> {
-  const raw = await consultarVeiculoDetranSc(placa, renavam);
+  const raw = await consultarVeiculoDetranSc(placa, renavam, { captcha: opts?.captcha });
   return processarRespostaDetranSc(placa, raw, opts);
 }
 
@@ -120,6 +126,7 @@ export function processarRespostaDetranSc(
     semAlteracao: 0,
     historico: 0,
     debitosIgnoradosProprietario,
+    revisarManual: 0,
     avisos: [],
   };
 
@@ -130,6 +137,7 @@ export function processarRespostaDetranSc(
     if (!r) continue;
 
     if (m.quitadaDetran) result.historico++;
+    if (r.registro.revisarManual) result.revisarManual++;
 
     if (r.acao === "novo") result.novos++;
     else if (r.acao === "atualizado") result.atualizados++;
@@ -175,6 +183,7 @@ export async function sincronizarMultasFrotaDetranSc(opts?: {
         semAlteracao: 0,
         historico: 0,
         debitosIgnoradosProprietario: 0,
+        revisarManual: 0,
         avisos: [e instanceof Error ? e.message : String(e)],
       });
     }

@@ -1,0 +1,13 @@
+{
+  "nome": "Juliano Foizer Silveira",
+  "cpf": "120.357.249-29",
+  "endereco": {
+    "cep": "88820-092",
+    "logradouro": "Rua 15 de Novembro",
+    "numero": "398",
+    "complemento": "Ed. das Alamedas - Apto 103",
+    "bairro": "Centro",
+    "cidade": "Içara",
+    "uf": "SC"
+  }
+}

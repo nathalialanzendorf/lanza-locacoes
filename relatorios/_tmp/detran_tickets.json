@@ -1,0 +1,91 @@
+{
+  "auth": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxOTUzMTMwIiwiaWF0IjoxNzgyNjY4NDU0LCJjcGYiOiIwNzA3MzY2OTUwMCIsImV4cCI6MTc4MjY4NjQ1NCwicm9sZXMiOiJST0xFX0FHRU5EQU1FTlRPLFJPTEVfSEFCSUxJVEFDQU8sUk9MRV9WRUlDVUxPIn0.4cP6VOYboW5gvv0WDIx0HE81gOV0_r4TLIQlJhZpVsDSy4C1olUuCUHyWfe0Tr6jKEr5V5spDr-y2In5DiYCvQ",
+  "empresa": "5071090",
+  "appVersion": "2026-06-26-1612",
+  "tickets": [
+    {
+      "placa": "QJB0I83",
+      "ticket": "19b8c0fd-2cbf-4b39-9319-77c39c838681"
+    },
+    {
+      "placa": "FHG0B73",
+      "ticket": "5960fa4c-9226-43a7-8fea-6ffc344a3a32"
+    },
+    {
+      "placa": "OZC0B50",
+      "ticket": "76d0ff99-3a52-442d-8dbd-5918236f5221"
+    },
+    {
+      "placa": "OWN3C59",
+      "ticket": "ecebb093-f293-479c-a4d6-e05f9e3a923a"
+    },
+    {
+      "placa": "ICZ2H47",
+      "ticket": "416f658b-e781-4987-8c50-ecbeed5232c8"
+    },
+    {
+      "placa": "IOK3H21",
+      "ticket": "9d049ec0-17f7-460d-9271-07cf478d1dd3"
+    },
+    {
+      "placa": "QJB0I83",
+      "ticket": "1c18293d-3cf2-4b6b-8744-8d669b3215d2"
+    },
+    {
+      "placa": "MLW7I09",
+      "ticket": "9f2b13ff-4d63-4664-83e3-075f9e29d937"
+    },
+    {
+      "placa": "PWH3A45",
+      "ticket": "fe7087fb-de9f-44f1-bfd2-97cfb8dc80d1"
+    },
+    {
+      "placa": "BBV6A91",
+      "ticket": "2b9994b2-3c23-4a40-a788-60eb63a653f3"
+    },
+    {
+      "placa": "AVU6740",
+      "ticket": "035eaa45-7c9f-4ba9-a22b-e0d5961ef4cb"
+    },
+    {
+      "placa": "MLN0B87",
+      "ticket": "b6f5d36a-6696-47a0-9a7b-53fe881559dc"
+    },
+    {
+      "placa": "MKV6268",
+      "ticket": "caea9910-d732-4682-a490-6047e2f86ddb"
+    },
+    {
+      "placa": "MLX2H34",
+      "ticket": "06b8fdc0-a522-443e-8692-eaedb47216a5"
+    },
+    {
+      "placa": "IWP5G63",
+      "ticket": "06e4c7b9-a59d-4347-bba8-735433098e36"
+    },
+    {
+      "placa": "IXT7I93",
+      "ticket": "b351192f-01d2-48a3-9056-75b46710df08"
+    },
+    {
+      "placa": "RAH4F54",
+      "ticket": "180ace68-638e-4c6e-a893-fc690c7466b1"
+    },
+    {
+      "placa": "IYR8F19",
+      "ticket": "b1c128c5-7512-4e7a-97e3-cc9e490904a9"
+    },
+    {
+      "placa": "RYC7C32",
+      "ticket": "0b1f808f-b1ba-4b19-8542-10d64a07642a"
+    },
+    {
+      "placa": "MLW7I09",
+      "ticket": "329b24c1-68f6-40c0-b65e-7bf59acd5495"
+    },
+    {
+      "placa": "RLA1G81",
+      "ticket": "b2795eb1-8a4b-481c-9920-288c2a4fe782"
+    }
+  ]
+}

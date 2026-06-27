@@ -23,7 +23,8 @@ function parseValor(v: unknown): number {
 }
 
 function textoDebito(d: DetranScDebito): string {
-  return [d.classe, d.descricao, d.tipo, (d as Record<string, unknown>).nome]
+  const o = d as Record<string, unknown>;
+  return [d.classe, d.descricao, d.tipo, o.nome, o.descricaoClasse]
     .filter(Boolean)
     .join(" ")
     .normalize("NFD")
@@ -45,13 +46,26 @@ export function isDebitoLicenciamento(d: DetranScDebito): boolean {
 function parseExercicio(d: DetranScDebito): string {
   const ex = pickStr(d as Record<string, unknown>, ["exercicio", "anoExercicio"]);
   if (ex) return ex.replace(/\D/g, "").slice(0, 4) || ex;
-  const classe = String(d.classe ?? "");
+  const classe = String(d.classe ?? (d as Record<string, unknown>).descricaoClasse ?? "");
   const m = classe.match(/(20\d{2})/);
   return m?.[1] ?? "";
 }
 
+/** Converte data ISO (YYYY-MM-DD) para o formato local DD/MM/AAAA. */
+function paraDataBr(s: string): string {
+  const iso = s.match(/^(\d{4})-(\d{2})-(\d{2})/);
+  if (iso) return `${iso[3]}/${iso[2]}/${iso[1]}`;
+  return s;
+}
+
 function parseVencimento(d: DetranScDebito): string {
-  return pickStr(d as Record<string, unknown>, ["vencimento", "dataVencimento", "data"]);
+  const v = pickStr(d as Record<string, unknown>, [
+    "vencimento",
+    "dataVencimento",
+    "dataVencimentoOriginal",
+    "data",
+  ]);
+  return v ? paraDataBr(v) : "";
 }
 
 export type DetranDespesaNormalizada = {
@@ -69,7 +83,8 @@ function normalizarDebitoDespesa(
   d: DetranScDebito,
   categoria: "IPVA" | "Licenciamento",
 ): DetranDespesaNormalizada | null {
-  const valor = parseValor(d.valorAtual ?? d.valor);
+  const o = d as Record<string, unknown>;
+  const valor = parseValor(o.valorAtualizado ?? d.valorAtual ?? d.valor);
   if (valor <= 0) return null;
 
   const exercicio = parseExercicio(d);
@@ -77,13 +92,16 @@ function normalizarDebitoDespesa(
   if (!data) return null;
 
   const placaKey = placa.replace(/[^A-Z0-9]/gi, "").toUpperCase();
-  const numeroNet = pickStr(d as Record<string, unknown>, ["numeroDetranNET", "numero"]);
+  const numeroNet = pickStr(o, ["numeroDetranNET", "idDebito", "numero"]);
   const origemSuffix = numeroNet || exercicio || data.replace(/\D/g, "");
   const origem = `detran-sc/debitos/${placaKey}/${categoria}/${origemSuffix}`;
 
   const descricaoBase =
-    pickStr(d as Record<string, unknown>, ["classe", "descricao", "tipo"]) || categoria;
-  const descricao = exercicio ? `${descricaoBase} (${exercicio})` : descricaoBase;
+    pickStr(o, ["descricaoClasse", "classe", "descricao", "tipo"]) || categoria;
+  const descricao =
+    exercicio && !descricaoBase.includes(exercicio)
+      ? `${descricaoBase} (${exercicio})`
+      : descricaoBase;
 
   const competenciaMatch = data.match(/^\d{2}\/(\d{2})\/(\d{4})/);
   const competencia = competenciaMatch

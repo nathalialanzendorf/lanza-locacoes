@@ -12,11 +12,13 @@ Sincroniza **Gastos Gerais** (tipo `OUTROS`) do Rastreame com `database/cliente-
 
 ## CLI
 
+> Comando: **`sync-gastos-gerais`** (alias legado: `sync-recebimentos`). O nome da skill permanece `sync-recebimentos`.
+
 ```bash
-npx tsx src/run.ts sync-recebimentos
-npx tsx src/run.ts sync-recebimentos --dry-run
-npx tsx src/run.ts sync-recebimentos --pull-only
-npx tsx src/run.ts sync-recebimentos --push-only
+npx tsx src/run.ts sync-gastos-gerais
+npx tsx src/run.ts sync-gastos-gerais --dry-run
+npx tsx src/run.ts sync-gastos-gerais --pull-only
+npx tsx src/run.ts sync-gastos-gerais --push-only
 ```
 
 ## Idempotência

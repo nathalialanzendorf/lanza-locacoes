@@ -1,0 +1,326 @@
+{
+  "placa": "IXT7I93",
+  "renavam": 1113955780,
+  "proprietarioAtual": "J**** H******** A********",
+  "proprietarioAnterior": "V***** C****** T*****",
+  "principalCondutor": "T**** A****** D* S**** P******",
+  "cor": "Preta",
+  "marcaModelo": "RENAULT/SANDERO EXPR 10",
+  "anoFabricacao": 2017,
+  "anoModelo": 2017,
+  "motivoBaixa": "Em circulação",
+  "exercicioLicenciamento": 2026,
+  "licenciado": "2026 em 09/03/2026 através do Registro de Veículo (CRV)",
+  "municipio": "CAPIVARI DE BAIXO",
+  "uf": "SC",
+  "debitos": [],
+  "infracoes": [
+    {
+      "idAutoInfracao": 74635393,
+      "numeroAuto": "P0cc2001o0",
+      "descricao": "PARAR EM LOCAL/HORÁRIO PROIBIDO ESPECIFICAM PELA SINALIZACAO",
+      "dataHoraAutuacao": "2026-04-16T07:57:46",
+      "localInfracao": "RUA PADRE BERNARDO FREUSER, CENTRO - TUBARAO - SANTA CATARINA, 88705-701, BRASI - TUBARAO/SC",
+      "valor": 130.16,
+      "situacao": "Autuação notificada",
+      "status": "Em aberto",
+      "protocolo": "8072.5665.P0cc2001o0",
+      "dataLimiteDefesa": "2026-06-19",
+      "prazoDefesaExpirado": true
+    },
+    {
+      "idAutoInfracao": 75350459,
+      "numeroAuto": "P0exe000ri",
+      "descricao": "DIRIGIR VEICULO MANUSEANDO TELEFONE CELULAR",
+      "dataHoraAutuacao": "2026-05-27T08:09:55",
+      "localInfracao": "AVENIDA MARCOLINO MARTINS CABRAL, CENTRO - TUBARAO - SANTA CATARINA, 88701-970, - TUBARAO/SC",
+      "valor": 293.47,
+      "situacao": "Autuação notificada",
+      "status": "Em aberto",
+      "protocolo": "8072.7633.P0exe000ri",
+      "dataLimiteDefesa": "2026-07-31",
+      "prazoDefesaExpirado": false
+    },
+    {
+      "idAutoInfracao": 75350464,
+      "numeroAuto": "P0exe000rn",
+      "descricao": "DIRIGIR VEICULO MANUSEANDO TELEFONE CELULAR",
+      "dataHoraAutuacao": "2026-05-27T08:30:11",
+      "localInfracao": "AVENIDA MARCOLINO MARTINS CABRAL, CENTRO - TUBARAO - SANTA CATARINA, 88701-970, - TUBARAO/SC",
+      "valor": 293.47,
+      "situacao": "Autuação notificada",
+      "status": "Em aberto",
+      "protocolo": "8072.7633.P0exe000rn",
+      "dataLimiteDefesa": "2026-07-31",
+      "prazoDefesaExpirado": false
+    }
+  ],
+  "historicoInfracoes": [
+    {
+      "idAutoInfracao": 53198766,
+      "numeroAuto": "8779E89706",
+      "descricao": "TRANSITAR EM VEL SUPERIOR À MÁXIMA PERMITIDA EM ATÉ 20%",
+      "dataHoraAutuacao": "2022-05-17T15:15:38",
+      "localInfracao": "ROD. SC370 KM 151.800 SENTIDO GRAVATAL - BRACO DO NORTE - BRACO DO NORTE/SC",
+      "valor": 130.16,
+      "situacao": "Penalidade notificada",
+      "status": "Advertida",
+      "protocolo": "8779.7455.8779E89706",
+      "dataLimiteDefesa": "2022-07-04",
+      "prazoDefesaExpirado": true
+    },
+    {
+      "idAutoInfracao": 53985375,
+      "numeroAuto": "P094M00083",
+      "descricao": "ESTACIONAR NA CONTRAMÃO DE DIREÇÃO ",
+      "dataHoraAutuacao": "2022-07-31T15:05:33",
+      "localInfracao": "RUA ARINIO CARGNIN - GRAVATAL/SC",
+      "complemento": "                                                                                ",
+      "valor": 130.16,
+      "situacao": "Penalidade notificada",
+      "status": "Paga",
+      "protocolo": "8246.5525.P094M00083",
+      "dataLimiteDefesa": "2022-10-03",
+      "prazoDefesaExpirado": true
+    },
+    {
+      "idAutoInfracao": 55961243,
+      "numeroAuto": "8779F83039",
+      "descricao": "TRANSITAR EM VEL SUPERIOR À MÁXIMA PERMITIDA EM ATÉ 20%",
+      "dataHoraAutuacao": "2023-02-05T15:37:37",
+      "localInfracao": "ROD. C370 KM 0.800 SENTIDO BR101 - SC370 - TUBARAO/SC",
+      "valor": 130.16,
+      "situacao": "Penalidade notificada",
+      "status": "Paga",
+      "protocolo": "8779.7455.8779F83039",
+      "dataLimiteDefesa": "2023-03-27",
+      "prazoDefesaExpirado": true
+    },
+    {
+      "idAutoInfracao": 63088986,
+      "numeroAuto": "P0B890006U",
+      "descricao": "ESTAC EM DESACOR C/ REGULAMENT ESPECIFICADA PELA SINALIZACAO",
+      "dataHoraAutuacao": "2024-08-17T09:37:08",
+      "localInfracao": "RUA JULIO A. DE OLIVEIRA - GRAVATAL/SC",
+      "complemento": "PRÓXIMO A IGREJA DE TERMAS                                                      ",
+      "valor": 195.23,
+      "situacao": "Penalidade notificada",
+      "status": "Paga",
+      "protocolo": "8246.5541.P0B890006U",
+      "dataLimiteDefesa": "2024-10-21",
+      "prazoDefesaExpirado": true
+    },
+    {
+      "idAutoInfracao": 64532375,
+      "numeroAuto": "E028808345",
+      "descricao": "TRANS EM VELOC SUP À MÁX PERMITIDA EM MAIS DE 20% ATE 50%   ",
+      "dataHoraAutuacao": "2024-11-09T19:28:00",
+      "localInfracao": "ERS-389 KM 55,850/SENTIDO OSORIO - ARROIO DO SAL/RS",
+      "valor": 195.23,
+      "situacao": "Penalidade notificada",
+      "status": "Paga",
+      "protocolo": "121200.7463.E028808345",
+      "dataLimiteDefesa": "2025-01-27",
+      "prazoDefesaExpirado": true
+    },
+    {
+      "idAutoInfracao": 74389179,
+      "numeroAuto": "P0cc2001ce",
+      "descricao": "PARAR NO PASSEIO",
+      "dataHoraAutuacao": "2026-04-02T14:30:03",
+      "localInfracao": "RUA VIDAL RAMOS, CENTRO - TUBARAO - SANTA CATARINA, 88701-160, BRASIL - TUBARAO/SC",
+      "valor": 88.38,
+      "situacao": "Penalidade notificada",
+      "status": "Advertida",
+      "protocolo": "8072.5622.P0cc2001ce",
+      "dataLimiteDefesa": "2026-06-05",
+      "prazoDefesaExpirado": true
+    }
+  ],
+  "dividaAtiva": [],
+  "dataAtualizacao": "2026-06-28T21:17:43",
+  "dataAquisicao": "2026-02-23",
+  "pendente": false,
+  "tipo": "Automovel",
+  "categoria": "Particular",
+  "carroceria": "Nao Aplicavel",
+  "especie": "Passageiro",
+  "placaAnterior": "IXT7I93/SP",
+  "lugares": 5,
+  "combustivel": "Alcool-Gasol",
+  "restricaoVenda": "Sem gravame",
+  "informacoesPendentesSng": [],
+  "processos": [
+    {
+      "numeroProcesso": "257715/2026",
+      "interessadoDocumento": "031*******2",
+      "dataHoraInicio": "2026-03-09T09:44:00",
+      "dataHoraFim": "2026-03-09T14:12:00",
+      "situacao": "Encerrado",
+      "servicos": [
+        {
+          "servico": "Transferência de Domicílio",
+          "dataHoraExecucao": "2026-03-09T09:44:47.323"
+        },
+        {
+          "servico": "Transferência de Propriedade",
+          "dataHoraExecucao": "2026-03-09T09:44:47.323"
+        },
+        {
+          "servico": "Geração de guia de pagamento",
+          "dataHoraExecucao": "2026-03-09T09:44:47.373"
+        },
+        {
+          "servico": "Auditoria",
+          "dataHoraExecucao": "2026-03-09T14:12:32.7"
+        },
+        {
+          "servico": "Emissão de CRV/CRLVe",
+          "dataHoraExecucao": "2026-03-09T14:13:31.133"
+        }
+      ]
+    },
+    {
+      "numeroProcesso": "1401005/2025",
+      "interessadoDocumento": "415*******7",
+      "dataHoraInicio": "2025-11-17T11:29:00",
+      "dataHoraFim": "2025-11-18T10:37:00",
+      "situacao": "Encerrado",
+      "servicos": [
+        {
+          "servico": "Baixa de Alienação Fiduciária",
+          "dataHoraExecucao": "2025-11-17T11:29:31.583"
+        },
+        {
+          "servico": "Transferência de Propriedade",
+          "dataHoraExecucao": "2025-11-17T11:29:31.583"
+        },
+        {
+          "servico": "Geração de guia de pagamento",
+          "dataHoraExecucao": "2025-11-17T11:29:31.62"
+        },
+        {
+          "servico": "Auditoria",
+          "dataHoraExecucao": "2025-11-18T10:37:07.42"
+        },
+        {
+          "servico": "Emissão de CRV/CRLVe",
+          "dataHoraExecucao": "2025-11-18T10:41:23.53"
+        }
+      ]
+    },
+    {
+      "numeroProcesso": "404168/2021",
+      "interessadoDocumento": "790*******4",
+      "dataHoraInicio": "2021-04-16T11:01:00",
+      "dataHoraFim": "2021-04-22T16:27:00",
+      "situacao": "Encerrado",
+      "servicos": [
+        {
+          "servico": "Transferência de Domicílio",
+          "dataHoraExecucao": "2021-04-16T11:01:09.36"
+        },
+        {
+          "servico": "Transferência de Propriedade",
+          "dataHoraExecucao": "2021-04-16T11:01:09.36"
+        },
+        {
+          "servico": "Alienação Fiduciária",
+          "dataHoraExecucao": "2021-04-16T11:01:09.36"
+        },
+        {
+          "servico": "Geração de guia de pagamento",
+          "dataHoraExecucao": "2021-04-16T11:01:09.42"
+        },
+        {
+          "servico": "Auditoria",
+          "dataHoraExecucao": "2021-04-22T16:27:05.306"
+        },
+        {
+          "servico": "Emissão de CRV/CRLVe",
+          "dataHoraExecucao": "2021-04-23T09:04:01.106"
+        }
+      ]
+    },
+    {
+      "numeroProcesso": "314364/2021",
+      "interessadoDocumento": "000*******2",
+      "dataHoraInicio": "2021-03-25T10:47:00",
+      "dataHoraFim": "2021-03-26T16:00:00",
+      "situacao": "Encerrado",
+      "servicos": [
+        {
+          "servico": "Trânsferência outra UF",
+          "dataHoraExecucao": "2021-03-25T10:47:43.52"
+        },
+        {
+          "servico": "Transferência de Propriedade",
+          "dataHoraExecucao": "2021-03-25T10:47:43.52"
+        },
+        {
+          "servico": "Geração de guia de pagamento",
+          "dataHoraExecucao": "2021-03-25T10:47:43.57"
+        },
+        {
+          "servico": "Auditoria",
+          "dataHoraExecucao": "2021-03-26T16:00:04.446"
+        },
+        {
+          "servico": "Emissão de CRV/CRLVe",
+          "dataHoraExecucao": "2021-03-26T16:22:51.76"
+        }
+      ]
+    }
+  ],
+  "editaisCedo": [
+    {
+      "numeroEdital": "342/2022",
+      "numeroAuto": "P094M00083",
+      "tipo": "Autuação",
+      "dataPublicacaoDOE": "2022-08-25",
+      "hash": "aeee8a321e505729180642437c0947f5"
+    },
+    {
+      "numeroEdital": "365/2022",
+      "numeroAuto": "P094M00083",
+      "tipo": "Penalidade",
+      "dataPublicacaoDOE": "2022-11-08",
+      "hash": "9338189e21e7b8e6ee70866e83fba35f"
+    },
+    {
+      "numeroEdital": "556/2024",
+      "numeroAuto": "P0B890006U",
+      "tipo": "Autuação",
+      "dataPublicacaoDOE": "2024-09-10",
+      "hash": "eb209e664ca0025425b68925c1571d9e"
+    },
+    {
+      "numeroEdital": "581/2024",
+      "numeroAuto": "P0B890006U",
+      "tipo": "Penalidade",
+      "dataPublicacaoDOE": "2024-12-03",
+      "hash": "87e8d2973aef3a90764783967ceaba26"
+    },
+    {
+      "numeroEdital": "738/2026",
+      "numeroAuto": "P0exe000ri",
+      "tipo": "Autuação",
+      "dataPublicacaoDOE": "2026-06-23",
+      "hash": "6c8ea659853cc1ef4b33f230a95388db"
+    },
+    {
+      "numeroEdital": "738/2026",
+      "numeroAuto": "P0exe000rn",
+      "tipo": "Autuação",
+      "dataPublicacaoDOE": "2026-06-23",
+      "hash": "6c8ea659853cc1ef4b33f230a95388db"
+    }
+  ],
+  "ipvasNotificados": [],
+  "recursosInfracao": [],
+  "avisos": [],
+  "csvGnvVencido": false,
+  "origemDados": "Cadastro",
+  "hash": "68a80ec45b46d9fc6e8fe2c8e49863f5",
+  "token": "58bb8bf0-9944-4ea3-bf46-4a6779d520d4"
+}

@@ -1,0 +1,7 @@
+✅ *Pagamento confirmado* — {PLACA}
+
+Olá, {NOME}! Tudo certo — confirmamos o recebimento da sua *parcela semanal*. Obrigado! 🙌
+
+Se o veículo estiver bloqueado, o comando de *liberação será enviado em instantes*.
+
+Conte com a gente! 🚗

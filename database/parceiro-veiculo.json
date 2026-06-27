@@ -1,6 +1,6 @@
 {
   "descricao": "Vínculo veículo–parceiro. id = uuid. veiculoId -> veiculos.json; parceiroId -> parceiros.json.",
-  "atualizadoEm": "2026-06-20",
+  "atualizadoEm": "2026-06-27",
   "vinculos": [
     {
       "id": "f499833d-de1d-4a63-9e01-3e997ef5b18c",
@@ -81,6 +81,16 @@
       "id": "31cf0269-4c18-4a30-802f-d554c7750359",
       "veiculoId": "c83e65be-1516-42b2-a94a-95de4ab204ab",
       "parceiroId": "76b7a2ef-78cf-48c8-977b-cb481dcdd8a6"
+    },
+    {
+      "id": "8adaa80c-a4c3-498a-9f41-2cd00e99f4e5",
+      "veiculoId": "33a5dec8-0460-49e6-ac97-be8da45e52f8",
+      "parceiroId": "7cf2a9d9-a727-404a-9071-bb541e72fa1e"
+    },
+    {
+      "id": "6a2265c2-67cc-43a1-b828-45918de08c07",
+      "veiculoId": "46949d70-4607-4cc3-b6c2-d1c0b63f0333",
+      "parceiroId": "54c2b0fd-90e2-4ef5-8bbb-14c089c17631"
     }
   ]
 }

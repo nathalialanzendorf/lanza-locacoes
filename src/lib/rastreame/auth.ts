@@ -33,9 +33,11 @@ export async function refreshRastreameToken(): Promise<string | null> {
 }
 
 export async function loginRastreame(): Promise<string | null> {
-  const lg = process.env.RASTREAME_LOGIN;
+  const lg = process.env.RASTREAME_LOGIN?.trim();
   const sn = process.env.RASTREAME_SENHA;
   if (!lg || !sn) return null;
+  // Esquema do site (confirmado por captura do request real): o separador é a
+  // entidade HTML literal `&#58;`, não `:`. authorization = base64("login&#58;senha&#58;origin").
   const authz = Buffer.from(
     `${lg}&#58;${sn}&#58;${RASTREAME_ORIGIN}`,
     "utf8",

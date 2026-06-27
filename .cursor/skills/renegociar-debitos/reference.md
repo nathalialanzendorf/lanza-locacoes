@@ -57,8 +57,12 @@ GET /keek/rest/gasto/{id}
 Alterar apenas `info`:
 
 ```
-[NEGOCIADO {X}] {info original}
+[NEGOCIADO {X}] {info original sem ATRASADO}
 ```
+
+> ⚠️ **Ao incluir `[NEGOCIADO X]`, remover a tag `ATRASADO`** do `info`.
+> Ex.: `ATRASADO Pagamento semanal - Sábado 27` → `[NEGOCIADO 2] Pagamento semanal - Sábado 27`.
+> Implementado em `infoMarcadaNegociada` / `removerTagAtrasado` (`src/lib/rastreame/renegociacao.ts`).
 
 Corpo: espelhar resposta do GET, com `info` atualizado (incluir `id`, `dataCriacao`, `lockKey`, etc.).
 

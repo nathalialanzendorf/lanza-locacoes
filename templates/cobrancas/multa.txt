@@ -1,0 +1,12 @@
+🚦 *Notificação de infração* — {PLACA}
+
+Olá, {NOME}! Recebemos uma notificação de infração referente ao seu {MODELO_COR}:
+
+🚨 *Infração:* {DESCRICAO}
+🗓️ *Data/hora:* {DATA} às {HORA}
+📍 *Local:* {LOCAL}
+💰 *Valor:* R$ {VALOR}
+
+Conforme o contrato de locação, a *responsabilidade financeira* e a *indicação de condutor* (pontuação) são do locatário.
+
+Podemos agendar a regularização para quando? Assim você evita cobranças adicionais. 🙂

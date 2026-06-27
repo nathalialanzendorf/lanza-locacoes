@@ -42,6 +42,13 @@ export type VeiculoDb = {
   cor?: string;
   fipe?: string;
   fipeValor?: string;
+  /**
+   * Pasta do veículo em "Aluguel Carros" onde ficam os contratos (ex.:
+   * "Felipe - FORD FOCUS 2013-2014"). Aceita nome relativo (resolvido sob
+   * defaultContratosDir()) ou caminho absoluto. Quando presente, os contratos
+   * são gerados DENTRO desta pasta.
+   */
+  pastaVeiculo?: string;
 };
 
 export type MontarContratoDbInput = {
@@ -83,8 +90,8 @@ function normNome(s: string): string {
     .trim();
 }
 
-function normCpfDigits(cpf: string): string {
-  return cpf.replace(/\D/g, "");
+function normCpfDigits(cpf: string | null | undefined): string {
+  return (cpf ?? "").replace(/\D/g, "");
 }
 
 function strField(v: unknown): string {
@@ -154,6 +161,20 @@ export function findVeiculoDb(placa: string): VeiculoDb {
   return v;
 }
 
+/**
+ * Resolve o diretório onde o contrato será gerado.
+ * Prioridade: --contratos-dir explícito > pastaVeiculo do veículo > raiz padrão.
+ * `pastaVeiculo` pode ser nome relativo (sob a raiz) ou caminho absoluto.
+ */
+export function resolverContratosDir(veiculo: VeiculoDb, contratosDirInput?: string): string {
+  if (contratosDirInput && contratosDirInput.trim()) return contratosDirInput;
+  const pasta = strField(veiculo.pastaVeiculo);
+  if (pasta) {
+    return path.isAbsolute(pasta) ? pasta : path.join(defaultContratosDir(), pasta);
+  }
+  return defaultContratosDir();
+}
+
 export function periodoParaDias(periodo?: string, dias?: number): number {
   if (dias != null && Number.isFinite(dias) && dias > 0) return Math.round(dias);
   if (!periodo) return 90;
@@ -205,7 +226,7 @@ export function montarDadosContratoFromDb(input: MontarContratoDbInput): GerarCo
 
   return {
     template: input.template ?? DEFAULT_TEMPLATE,
-    contratosDir: input.contratosDir ?? defaultContratosDir(),
+    contratosDir: resolverContratosDir(veiculo, input.contratosDir),
     cnhArquivo: input.cnhArquivo,
     diaPagamento: input.diaPagamento ?? "todos os sábados",
     cliente: {

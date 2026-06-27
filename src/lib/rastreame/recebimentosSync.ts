@@ -1,5 +1,5 @@
 /**
- * Sincronização bidirecional: Gastos Gerais (Rastreame, tipo OUTROS) ↔ cliente-despesas.json.
+ * Sincronização bidirecional: Gastos Gerais (Rastreame, todos os tipos) ↔ cliente-despesas.json.
  * A base local é fonte da verdade; alterações locais replicam no Rastreame.
  */
 import fs from "node:fs";
@@ -24,8 +24,13 @@ import {
   type GastoRecord,
 } from "./gasto.js";
 import { gastoDuplicado } from "./gastoDup.js";
+import {
+  isCategoriaInfracao,
+  stripAtrasado,
+  tituloInfracaoBase,
+} from "../infracaoTitulo.js";
 import { listMotoristas, type MotoristaRastreame } from "./motorista.js";
-import { extrairPlacaDeRastreavel, refKey } from "./placaRastreavel.js";
+import { extrairPlacaDeRastreavel, rastreavelTexto, refKey } from "./placaRastreavel.js";
 import { listRastreaveis, type Rastreavel } from "./rastreavel.js";
 
 export type SyncRecebimentosOpts = {
@@ -84,9 +89,9 @@ function loadClientes(): ClienteDb[] {
   }
 }
 
-function isGastoOutros(g: GastoRecord): boolean {
+function tipoFromGasto(g: GastoRecord): string | null {
   const tipo = (g.tipo as { key?: string } | undefined)?.key ?? "";
-  return tipo.toUpperCase() === "OUTROS";
+  return tipo ? tipo.toUpperCase() : null;
 }
 
 function isGastoAtivo(g: GastoRecord): boolean {
@@ -102,7 +107,30 @@ export function categoriaFromInfo(info: string): string {
   if (/estacion/.test(t)) return "Estacionamento";
   if (/ped[aá]gio/.test(t)) return "Pedágio";
   if (/quebra|encerramento|rescis/.test(t)) return "Quebra contrato";
+  if (/negocia/.test(t)) return "Renegociação";
   return "Outros";
+}
+
+/**
+ * Categoria a partir do tipo do gasto no Rastreame:
+ *   OUTROS → cobrança semanal / caução (detalhe pelo texto)
+ *   DOCUMENTACAO → renegociação
+ *   MULTA → multa (infração)
+ *   PEDAGIO → pedágio
+ */
+export function categoriaFromGasto(tipo: string | null, info: string): string {
+  switch ((tipo ?? "").toUpperCase()) {
+    case "MULTA":
+    case "MULTAS":
+      return "Infração";
+    case "DOCUMENTACAO":
+      return "Renegociação";
+    case "PEDAGIO":
+      return "Pedágio";
+    case "OUTROS":
+    default:
+      return categoriaFromInfo(info);
+  }
 }
 
 export function isGastoEmAberto(info: string): boolean {
@@ -147,7 +175,7 @@ function resolveCondutorId(
 
 function resolveRastreavelKey(placa: string, rastreaveis: Rastreavel[]): string | null {
   for (const r of rastreaveis) {
-    const p = extrairPlacaDeRastreavel(String(r.value ?? ""));
+    const p = extrairPlacaDeRastreavel(rastreavelTexto(r));
     if (p && placasIguais(p, placa)) return refKey(r);
   }
   return null;
@@ -175,6 +203,14 @@ function resolveMotoristaKey(
 }
 
 function infoParaRastreame(reg: ClienteDespesaRegistro): string {
+  // Infração: título curto (`Multa {tipo} - {data}`) + tag ATRASADO quando em aberto.
+  if (isCategoriaInfracao(reg.categoria)) {
+    const base = stripAtrasado(
+      reg.titulo?.trim() || tituloInfracaoBase(reg.descricao, reg.dataAutuacao),
+    );
+    return reg.paga === true ? base : `ATRASADO ${base}`;
+  }
+
   let info = String(reg.descricao ?? "").trim();
   const emAberto =
     reg.paga !== true && (reg.situacao === "Em aberto" || isGastoEmAberto(info));
@@ -203,12 +239,15 @@ function gastoToUpsertInput(
   const info = String(g.info ?? "").trim();
   const emAberto = isGastoEmAberto(info);
   const motoristaNome = String((g.motorista as { value?: string } | undefined)?.value ?? "");
+  const tipo = tipoFromGasto(g);
 
+  const categoria = categoriaFromGasto(tipo, info);
   return {
     rastreameId: id,
     veiculoId: placa,
-    categoria: categoriaFromInfo(info),
+    categoria,
     descricao: info,
+    titulo: isCategoriaInfracao(categoria) ? stripAtrasado(info) : undefined,
     dataAutuacao: isoToBr(g.data as string | undefined),
     valorMulta: Math.round(Number(g.total ?? 0) * 100) / 100,
     situacao: situacaoFromGasto(info, emAberto),
@@ -217,6 +256,7 @@ function gastoToUpsertInput(
     rastreameMotoristaKey: motoristaKey || null,
     rastreameRastreavelKey: rastreavelKey || null,
     rastreameDataIso: g.data ? String(g.data) : null,
+    rastreameTipo: tipo,
   };
 }
 
@@ -228,7 +268,6 @@ export async function pullRecebimentosFromRastreame(
   const motoristas = await listMotoristas();
   const gastos = await fetchAllGastos();
   const filtrados = gastos.filter((g) => {
-    if (!isGastoOutros(g)) return false;
     if (opts.motoristaKey && refKey(g.motorista) !== opts.motoristaKey) return false;
     return true;
   });
@@ -341,7 +380,7 @@ async function pushOneRegistro(
     const body = {
       total,
       info,
-      tipo: { key: "OUTROS" },
+      tipo: { key: reg.rastreameTipo ?? "OUTROS" },
       rastreavel: { key: rastreavelKey },
       motorista: { key: motoristaKey },
       data: dataIso,

@@ -23,9 +23,24 @@ Defina `DETRAN_SC_AUTH` e `DETRAN_SC_EMPRESA` nas variáveis de ambiente do util
 
 Token expira (~5 h). **Nunca** versionar no Git.
 
+**Captcha** (Cloudflare Turnstile): o `requisitar-consulta` exige um token `c` no modo
+`execute` com o `action` certo (`consulta_dossie_veiculo`) — o backend valida o action.
+
+- **Automático (solver) — varredura 100% da frota**: `npx tsx scripts/detranSolver.ts`
+  dirige um **Chrome real via CDP** (não detectado pelo Turnstile). Único passo manual: o
+  **login gov.br** (a sessão persiste no perfil dedicado). O solver então **carrega o
+  Turnstile sozinho**, mina um token `c` fresco por placa (sitekey+action conhecidos),
+  consulta e ingere infrações + IPVA/licenciamento de toda a frota SC ativa. Ver
+  [reference.md](reference.md) → "Solver".
+- **Manual**: sem captcha, `requisitar-consulta` só devolve ticket se já houver consulta
+  **pendente** para a placa (ex.: logo após consultar no portal) — senão `Captcha inválido`.
+
 ## Resumo rápido
 
 ```bash
+# Varredura automática da frota (só com o login gov.br aberto)
+npx tsx scripts/detranSolver.ts [--placa PLACA] [--dry-run]
+
 # Infrações (locatário)
 npx tsx src/run.ts sync-infracoes [--placa PLACA] [--dry-run]
 
@@ -46,6 +61,8 @@ Relatórios de lote: `relatorios/sync/_sync_infracoes.json`, `relatorios/sync/_s
 ## Código
 
 `src/lib/detranSc/` — `auth.ts`, `consulta.ts`, `mapInfracoes.ts`, `mapDebitosProprietario.ts`, `syncVeiculo.ts`, `syncDespesasVeiculo.ts`
+
+Solver (Chrome real/CDP): `scripts/detranSolver.ts` + `scripts/detranBrowserHook.ts`
 
 ## Skills que usam esta tool
 

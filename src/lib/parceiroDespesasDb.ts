@@ -23,6 +23,18 @@ export type ParceiroDespesaRegistro = {
   valor: number;
   competencia: string;
   origem: string;
+  /** id da Manutenção espelhada no Rastreame (despesa de parceiro → tela Manutenção). */
+  rastreameManutencaoId?: string | number | null;
+  /** Instante (ISO) do último push para o Rastreame. */
+  rastreameSyncEm?: string | null;
+  /** Hash do conteúdo enviado ao Rastreame (evita PUT desnecessário). */
+  rastreameHash?: string | null;
+  /**
+   * Data da **baixa** (DD/MM/AAAA) — débito pago/quitado/resolvido. Enquanto
+   * vazio (`null`/ausente), uma despesa vencida (ex.: IPVA, Licenciamento) segue
+   * aparecendo como pendência/lembrete no relatório de prestação de contas.
+   */
+  baixa?: string | null;
 };
 
 export type ParceiroDespesaInput = {
@@ -60,6 +72,9 @@ const DEFAULT_SCHEMA: Record<string, string> = {
   valor: "número (reais)",
   competencia: "MM/AAAA",
   origem: "manual | detran-sc | caminho boleto | ...",
+  rastreameManutencaoId: "id da Manutenção espelhada no Rastreame (null se ainda não enviada)",
+  rastreameSyncEm: "ISO do último push para o Rastreame (tela Manutenção)",
+  baixa: "DD/MM/AAAA da quitação (null/ausente = em aberto; vencida vira pendência no relatório)",
 };
 
 const DEFAULT_DESCRICAO =
@@ -243,6 +258,11 @@ function findMatchingIndices(
       indices.push(i);
       return;
     }
+    // A chave de negócio (placa|competência|categoria) reconcilia entradas
+    // manuais com as de sync. Não deve fundir dois débitos DISTINTOS vindos de
+    // sync (origens únicas por idDebito) — ex.: IPVA cota única e 1ª parcela
+    // caem na mesma competência/categoria mas são alternativas a coexistir.
+    if (opts.origem !== "manual" && d.origem !== "manual") return;
     const dKey = chaveNegocioParceiroDespesa(
       d.placa,
       d.competencia,
@@ -338,4 +358,75 @@ export function gravarParceiroDespesaManual(
 /** @deprecated use gravarParceiroDespesaManual */
 export function gravarDespesaManual(input: ParceiroDespesaInput): GravarParceiroDespesaResult {
   return gravarParceiroDespesaManual(input);
+}
+
+export type MarcarBaixaSeletor = {
+  /** id da despesa (precedência sobre placa/categoria/competência). */
+  id?: string;
+  placa?: string;
+  categoria?: string;
+  competencia?: string;
+};
+
+export type MarcarBaixaResult = {
+  atualizados: ParceiroDespesaRegistro[];
+  semAlteracao: ParceiroDespesaRegistro[];
+};
+
+/**
+ * Dá (ou desfaz) **baixa** numa ou mais despesas de parceiro. Localiza por `id`
+ * ou por `placa`+`categoria`(+`competencia`). `data` vazio → quita com hoje;
+ * `desfazer:true` → reabre o débito (baixa = null). Idempotente.
+ */
+export function marcarBaixaParceiroDespesa(
+  seletor: MarcarBaixaSeletor,
+  opts: { data?: string; desfazer?: boolean } = {},
+): MarcarBaixaResult {
+  const db = loadParceiroDespesasDb();
+  const placaKey = seletor.placa ? compactPlaca(seletor.placa) : null;
+  const catKey = seletor.categoria ? seletor.categoria.trim().toLowerCase() : null;
+  const compKey = seletor.competencia ? seletor.competencia.trim() : null;
+
+  const alvos = db.parceiroDespesas.filter((d) => {
+    if (seletor.id) return d.id === seletor.id;
+    if (placaKey && compactPlaca(d.placa) !== placaKey) return false;
+    if (catKey && String(d.categoria).trim().toLowerCase() !== catKey) return false;
+    if (compKey && String(d.competencia).trim() !== compKey) return false;
+    return Boolean(placaKey || catKey || compKey);
+  });
+
+  const novoValor = opts.desfazer
+    ? null
+    : (opts.data?.trim() || new Date().toLocaleDateString("pt-BR"));
+
+  const atualizados: ParceiroDespesaRegistro[] = [];
+  const semAlteracao: ParceiroDespesaRegistro[] = [];
+  for (const reg of alvos) {
+    const atual = reg.baixa ?? null;
+    if (atual === novoValor) {
+      semAlteracao.push(reg);
+      continue;
+    }
+    reg.baixa = novoValor;
+    atualizados.push(reg);
+  }
+  if (atualizados.length) saveParceiroDespesasDb(db);
+  return { atualizados, semAlteracao };
+}
+
+/**
+ * Marca o espelho no Rastreame (tela Manutenção) de uma despesa de parceiro.
+ * Grava `rastreameManutencaoId`, `rastreameHash` e `rastreameSyncEm`.
+ */
+export function marcarParceiroDespesaRastreameSync(
+  id: string,
+  fields: { manutencaoId?: string | number | null; hash?: string | null },
+): void {
+  const db = loadParceiroDespesasDb();
+  const reg = db.parceiroDespesas.find((d) => d.id === id);
+  if (!reg) return;
+  if (fields.manutencaoId !== undefined) reg.rastreameManutencaoId = fields.manutencaoId;
+  if (fields.hash !== undefined) reg.rastreameHash = fields.hash;
+  reg.rastreameSyncEm = new Date().toISOString();
+  saveParceiroDespesasDb(db);
 }

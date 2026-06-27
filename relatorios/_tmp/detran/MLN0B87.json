@@ -1,0 +1,780 @@
+{
+  "placa": "MLN0B87",
+  "renavam": 590047108,
+  "proprietarioAtual": "J******* D* S**** L***",
+  "proprietarioAnterior": "C******* T******** D* L*** M****",
+  "principalCondutor": "",
+  "cor": "Branca",
+  "marcaModelo": "FORD/FIESTA FLEX",
+  "anoFabricacao": 2013,
+  "anoModelo": 2014,
+  "motivoBaixa": "Em circulação",
+  "exercicioLicenciamento": 2025,
+  "licenciado": "2025 CRLV Digital",
+  "municipio": "NAVEGANTES",
+  "uf": "SC",
+  "debitos": [
+    {
+      "idDebito": 675116964,
+      "descricaoClasse": "UF:RD-000100-J005307158-7455",
+      "dataVencimentoOriginal": "2026-09-11",
+      "valorAtualizado": 130.16,
+      "linhaDigitavel": "00190.00009  03644.643169  75116.964174  2  15660000010413",
+      "emiteGuia": 1,
+      "exercicio": 2025,
+      "dareSat": 0,
+      "vencido": false
+    },
+    {
+      "idDebito": 660934758,
+      "descricaoClasse": "IPVA (Cota Unica) 2026",
+      "dataVencimentoOriginal": "2026-07-31",
+      "valorAtualizado": 539.98,
+      "linhaDigitavel": "85630000005-1  39980024822-7  10026000590-3  04710818053-1",
+      "emiteGuia": 1,
+      "exercicio": 2026,
+      "dareSat": 1,
+      "vencido": false
+    },
+    {
+      "idDebito": 660934759,
+      "descricaoClasse": "IPVA (1a. Cota) 2026",
+      "dataVencimentoOriginal": "2026-07-10",
+      "valorAtualizado": 179.99,
+      "linhaDigitavel": "85660000001-7  79990024822-7  10126000590-1  04710818053-1",
+      "emiteGuia": 1,
+      "exercicio": 2026,
+      "dareSat": 1,
+      "vencido": false
+    },
+    {
+      "idDebito": 660934760,
+      "descricaoClasse": "IPVA (2a. Cota) 2026",
+      "dataVencimentoOriginal": "2026-08-10",
+      "valorAtualizado": 179.99,
+      "linhaDigitavel": "85650000001-8  79990024822-7  10226000590-9  04710818053-1",
+      "emiteGuia": 3,
+      "motivoNaoEmissaoGuia": "1ª Cota não quitada",
+      "exercicio": 2026,
+      "dareSat": 0,
+      "vencido": false
+    },
+    {
+      "idDebito": 675990438,
+      "descricaoClasse": "TUBARAO-008072-P0cc20016c-5665",
+      "dataVencimentoOriginal": "2026-08-21",
+      "valorAtualizado": 130.16,
+      "linhaDigitavel": "00190.00009  02838.969166  75990.438170  9  15450000010413",
+      "emiteGuia": 1,
+      "exercicio": 2026,
+      "dareSat": 0,
+      "vencido": false
+    },
+    {
+      "idDebito": 660934761,
+      "descricaoClasse": "IPVA (3a. Cota) 2026",
+      "dataVencimentoOriginal": "2026-09-10",
+      "valorAtualizado": 180,
+      "linhaDigitavel": "85690000001-4  80000024822-2  10326000590-7  04710818053-1",
+      "emiteGuia": 3,
+      "motivoNaoEmissaoGuia": "2ª Cota não quitada",
+      "exercicio": 2026,
+      "dareSat": 0,
+      "vencido": false
+    },
+    {
+      "idDebito": 660934757,
+      "descricaoClasse": "Licenciamento Anual 2026",
+      "dataVencimentoOriginal": "2026-09-30",
+      "valorAtualizado": 149.37,
+      "linhaDigitavel": "85660000001-7  49370024700-7  06609347570-6  00260021353-8",
+      "emiteGuia": 1,
+      "exercicio": 2026,
+      "dareSat": 1,
+      "vencido": false
+    }
+  ],
+  "infracoes": [
+    {
+      "idAutoInfracao": 46035460,
+      "numeroAuto": "P016S002ZX",
+      "descricao": "PARAR NAS MARCAS DE CANALIZACACAO",
+      "dataHoraAutuacao": "2020-09-14T17:07:15",
+      "localInfracao": "AV SANTOS DUMONT - NAVEGANTES/SC",
+      "complemento": "PRÓXIMO AO FEIRÃO DE MÓVEIS                                                     ",
+      "valor": 88.38,
+      "situacao": "Autuação notificada",
+      "status": "Em aberto",
+      "protocolo": "8272.5622.P016S002ZX",
+      "dataLimiteDefesa": "2021-03-01",
+      "prazoDefesaExpirado": true
+    },
+    {
+      "idAutoInfracao": 46126416,
+      "numeroAuto": "P016S0032R",
+      "descricao": "PARAR NAS MARCAS DE CANALIZACACAO",
+      "dataHoraAutuacao": "2020-09-23T14:14:45",
+      "localInfracao": "AV SANTOS DUMONT - NAVEGANTES/SC",
+      "complemento": "PRÓXIMO AO FEIRÃO DE MÓVEIS                                                     ",
+      "valor": 88.38,
+      "situacao": "Autuação notificada",
+      "status": "Em aberto",
+      "protocolo": "8272.5622.P016S0032R",
+      "dataLimiteDefesa": "2021-03-01",
+      "prazoDefesaExpirado": true
+    },
+    {
+      "idAutoInfracao": 71196778,
+      "numeroAuto": "J005307158",
+      "descricao": "TRANSITAR EM VEL SUPERIOR À MÁXIMA PERMITIDA EM ATÉ 20%",
+      "dataHoraAutuacao": "2025-12-05T17:06:00",
+      "localInfracao": "SC - BR 101 - KM 157.87 - C - PORTO BELO/SC",
+      "valor": 130.16,
+      "situacao": "Penalidade notificada",
+      "status": "Em aberto",
+      "protocolo": "100.7455.J005307158",
+      "dataLimiteDefesa": "2026-02-13",
+      "prazoDefesaExpirado": true
+    },
+    {
+      "idAutoInfracao": 74359008,
+      "numeroAuto": "P0cc20016c",
+      "descricao": "PARAR EM LOCAL/HORÁRIO PROIBIDO ESPECIFICAM PELA SINALIZACAO",
+      "dataHoraAutuacao": "2026-03-30T09:40:08",
+      "localInfracao": "AVENIDA MARCOLINO MARTINS CABRAL, CENTRO - TUBARAO - SANTA CATARINA, 88701-050, - TUBARAO/SC",
+      "valor": 130.16,
+      "situacao": "Penalidade notificada",
+      "status": "Em aberto",
+      "protocolo": "8072.5665.P0cc20016c",
+      "dataLimiteDefesa": "2026-06-05",
+      "prazoDefesaExpirado": true
+    }
+  ],
+  "historicoInfracoes": [
+    {
+      "idAutoInfracao": 21815939,
+      "numeroAuto": "54483339E ",
+      "descricao": "ESTAC EM DESACOR C/ REGULAMENTAÇÃO - ESTACIONAMENTO ROTATIVO",
+      "dataHoraAutuacao": "2013-12-23T17:30:00",
+      "localInfracao": "RUA 906 NR. 161 - BALNEARIO CAMBORIU/SC",
+      "complemento": "",
+      "valor": 53.2,
+      "situacao": "Penalidade notificada",
+      "status": "Paga",
+      "protocolo": "8044.5541.54483339E ",
+      "dataLimiteDefesa": "2014-02-20",
+      "prazoDefesaExpirado": true
+    },
+    {
+      "idAutoInfracao": 22285815,
+      "numeroAuto": "54497851E ",
+      "descricao": "ESTAC EM DESACOR C/ REGULAMENTAÇÃO - ESTACIONAMENTO ROTATIVO",
+      "dataHoraAutuacao": "2014-02-25T15:11:00",
+      "localInfracao": "R 1500 N 315 - BALNEARIO CAMBORIU/SC",
+      "complemento": "",
+      "valor": 53.2,
+      "situacao": "Penalidade notificada",
+      "status": "Paga",
+      "protocolo": "8798.5541.54497851E ",
+      "dataLimiteDefesa": "2014-03-31",
+      "prazoDefesaExpirado": true
+    },
+    {
+      "idAutoInfracao": 22424409,
+      "numeroAuto": "8797016267",
+      "descricao": "TRANSITAR EM VEL SUPERIOR À MÁXIMA PERMITIDA EM ATÉ 20%",
+      "dataHoraAutuacao": "2014-03-01T04:57:00",
+      "localInfracao": "AV. BRASIL, N  3480, SENTIDO CENTRO/BARRA SUL, FAIXA 1 - BALNEARIO CAMBORIU/SC",
+      "valor": 85.12,
+      "situacao": "Penalidade notificada",
+      "status": "Paga",
+      "protocolo": "8797.7455.8797016267",
+      "dataLimiteDefesa": "2014-04-22",
+      "prazoDefesaExpirado": true
+    },
+    {
+      "idAutoInfracao": 23953842,
+      "numeroAuto": "8797252345",
+      "descricao": "TRANSITAR EM VEL SUPERIOR À MÁXIMA PERMITIDA EM ATÉ 20%",
+      "dataHoraAutuacao": "2014-09-06T05:00:52",
+      "localInfracao": "AV. NORMANDO TEDESCO, 1223, SENT. CENTRO/BARRA SUL , FAIXA 1 - BALNEARIO CAMBORIU/SC",
+      "valor": 85.12,
+      "situacao": "Penalidade notificada",
+      "status": "Paga",
+      "protocolo": "8797.7455.8797252345",
+      "dataLimiteDefesa": "2014-10-20",
+      "prazoDefesaExpirado": true
+    },
+    {
+      "idAutoInfracao": 24099731,
+      "numeroAuto": "8797269385",
+      "descricao": "TRANSITAR EM VEL SUPERIOR À MÁXIMA PERMITIDA EM ATÉ 20%",
+      "dataHoraAutuacao": "2014-09-18T22:03:16",
+      "localInfracao": "AV. NORMANDO TEDESCO, 1223, SENT. CENTRO/BARRA SUL , FAIXA 1 - BALNEARIO CAMBORIU/SC",
+      "valor": 85.12,
+      "situacao": "Penalidade notificada",
+      "status": "Paga",
+      "protocolo": "8797.7455.8797269385",
+      "dataLimiteDefesa": "2014-11-03",
+      "prazoDefesaExpirado": true
+    },
+    {
+      "idAutoInfracao": 24513091,
+      "numeroAuto": "8749453332",
+      "descricao": "PARAR SOBRE FAIXA DE PEDESTRE MUDANÇA SINAL LUMINOSO-ELETRON",
+      "dataHoraAutuacao": "2014-10-22T23:57:32",
+      "localInfracao": "AV. VER. ABRAHAO JOAO FRANCISCO / AV. CEL. MARCOS KONDER - SENTIDO: O/L - ITAJAI/SC",
+      "valor": 85.12,
+      "situacao": "Penalidade notificada",
+      "status": "Paga",
+      "protocolo": "8749.5673.8749453332",
+      "dataLimiteDefesa": "2014-12-17",
+      "prazoDefesaExpirado": true
+    },
+    {
+      "idAutoInfracao": 27252440,
+      "numeroAuto": "R287057275",
+      "descricao": "TRANSITAR EM VEL SUPERIOR À MÁXIMA PERMITIDA EM ATÉ 20%",
+      "dataHoraAutuacao": "2015-07-22T15:46:00",
+      "localInfracao": "BR-101 KM-105 UF-SC - PENHA/SC",
+      "valor": 85.13,
+      "situacao": "Penalidade notificada",
+      "status": "Paga",
+      "protocolo": "100.7455.R287057275",
+      "dataLimiteDefesa": "2015-09-28",
+      "prazoDefesaExpirado": true
+    },
+    {
+      "idAutoInfracao": 27226212,
+      "numeroAuto": "54663798E ",
+      "descricao": "DIRIGIR VEICULO UTILIZANDO-SE DE TELEFONE CELULAR ",
+      "dataHoraAutuacao": "2015-08-06T18:00:00",
+      "localInfracao": "RUA 1500 - BALNEARIO CAMBORIU/SC",
+      "complemento": "ESQUINA COM RUA 1532",
+      "valor": 85.13,
+      "situacao": "Penalidade notificada",
+      "status": "Paga",
+      "protocolo": "8798.7366.54663798E ",
+      "dataLimiteDefesa": "2015-09-16",
+      "prazoDefesaExpirado": true
+    },
+    {
+      "idAutoInfracao": 29687348,
+      "numeroAuto": "E254120334",
+      "descricao": "TRANSITAR COM O VEICULO EM ACOSTAMENTOS ",
+      "dataHoraAutuacao": "2016-03-11T15:22:00",
+      "localInfracao": "BR-470 KM-9 UF-SC - NAVEGANTES/SC",
+      "valor": 574.62,
+      "situacao": "Penalidade notificada",
+      "status": "Paga",
+      "protocolo": "100.5819.E254120334",
+      "dataLimiteDefesa": "2016-05-14",
+      "prazoDefesaExpirado": true
+    },
+    {
+      "idAutoInfracao": 32252062,
+      "numeroAuto": "R334991382",
+      "descricao": "TRANSITAR EM VEL SUPERIOR À MÁXIMA PERMITIDA EM ATÉ 20%",
+      "dataHoraAutuacao": "2016-11-18T09:30:00",
+      "localInfracao": "BR-101 KM-116 UF-SC - ITAJAI/SC",
+      "valor": 130.16,
+      "situacao": "Penalidade notificada",
+      "status": "Paga",
+      "protocolo": "100.7455.R334991382",
+      "dataLimiteDefesa": "2017-01-26",
+      "prazoDefesaExpirado": true
+    },
+    {
+      "idAutoInfracao": 32586105,
+      "numeroAuto": "0001002997",
+      "descricao": "TRANSITAR EM VEL SUPERIOR À MÁXIMA PERMITIDA EM ATÉ 20%",
+      "dataHoraAutuacao": "2016-12-27T20:00:50",
+      "localInfracao": "AV. NORMANDO TEDESCO, 1223, SENT. CENTRO/BARRA SUL , FAIXA 1 - BALNEARIO CAMBORIU/SC",
+      "valor": 130.16,
+      "situacao": "Penalidade notificada",
+      "status": "Paga",
+      "protocolo": "8797.7455.0001002997",
+      "dataLimiteDefesa": "2017-02-16",
+      "prazoDefesaExpirado": true
+    },
+    {
+      "idAutoInfracao": 34828511,
+      "numeroAuto": "0001147405",
+      "descricao": "TRANSITAR EM VEL SUPERIOR À MÁXIMA PERMITIDA EM ATÉ 20%",
+      "dataHoraAutuacao": "2017-06-19T16:35:10",
+      "localInfracao": "AVENIDA 5  AVENIDA, ESQ. RUA APIUNA, SENT. SUL/NORTE, FAIXA 1 - BALNEARIO CAMBORIU/SC",
+      "valor": 130.16,
+      "situacao": "Penalidade notificada",
+      "status": "Paga",
+      "protocolo": "8797.7455.0001147405",
+      "dataLimiteDefesa": "2017-09-27",
+      "prazoDefesaExpirado": true
+    },
+    {
+      "idAutoInfracao": 35495510,
+      "numeroAuto": "0001189117",
+      "descricao": "AVANÇAR SINAL VERMELHO DO SEMAFORO - FISCALIZACAO ELETRONICA",
+      "dataHoraAutuacao": "2017-08-16T14:59:54",
+      "localInfracao": "AVENIDA 5  AVENIDA, ESQ. RUA DOM HENRIQUE, SENT. NORTE/SUL, FAIXA 2 - BALNEARIO CAMBORIU/SC",
+      "valor": 293.47,
+      "situacao": "Penalidade notificada",
+      "status": "Paga",
+      "protocolo": "8797.6050.0001189117",
+      "dataLimiteDefesa": "2017-10-02",
+      "prazoDefesaExpirado": true
+    },
+    {
+      "idAutoInfracao": 44030046,
+      "numeroAuto": "T202313301",
+      "descricao": "EM MOVIMENTO DE DIA,DEIXAR DE MANTER ACESA LUZ BAIXA NAS ROD",
+      "dataHoraAutuacao": "2019-12-21T10:15:00",
+      "localInfracao": "BR-101 KM-346 UF-SC - JAGUARUNA/SC",
+      "valor": 130.16,
+      "situacao": "Penalidade notificada",
+      "status": "Paga",
+      "protocolo": "100.7242.T202313301",
+      "dataLimiteDefesa": "2020-03-09",
+      "prazoDefesaExpirado": true
+    },
+    {
+      "idAutoInfracao": 44013859,
+      "numeroAuto": "0001701286",
+      "descricao": "AVANÇAR SINAL VERMELHO DO SEMAFORO - FISCALIZACAO ELETRONICA",
+      "dataHoraAutuacao": "2019-12-24T21:41:47",
+      "localInfracao": "AVENIDA DO ESTADO X INDONESIA  BAIRRO - CENTRO, FX01 - BALNEARIO CAMBORIU/SC",
+      "valor": 293.47,
+      "situacao": "Penalidade notificada",
+      "status": "Paga",
+      "protocolo": "8797.6050.0001701286",
+      "dataLimiteDefesa": "2020-03-02",
+      "prazoDefesaExpirado": true
+    },
+    {
+      "idAutoInfracao": 44270119,
+      "numeroAuto": "8749A96054",
+      "descricao": "PARAR SOBRE FAIXA DE PEDESTRE MUDANÇA SINAL LUMINOSO-ELETRON",
+      "dataHoraAutuacao": "2020-01-24T21:20:09",
+      "localInfracao": "RUA ESTEFANO JOSE VANOLLI/RUA MANOEL FRANCISCO COELHO - FX: 1 - SENTIDO: N/S - ITAJAI/SC",
+      "valor": 130.16,
+      "situacao": "Penalidade notificada",
+      "status": "Paga",
+      "protocolo": "8749.5673.8749A96054",
+      "dataLimiteDefesa": "2020-09-02",
+      "prazoDefesaExpirado": true
+    },
+    {
+      "idAutoInfracao": 45528180,
+      "numeroAuto": "T469110097",
+      "descricao": "EM MOVIMENTO DE DIA,DEIXAR DE MANTER ACESA LUZ BAIXA NAS ROD",
+      "dataHoraAutuacao": "2020-06-26T11:16:00",
+      "localInfracao": "BR-101 KM-105 UF-SC - PENHA/SC",
+      "valor": 130.16,
+      "situacao": "Penalidade notificada",
+      "status": "Paga",
+      "protocolo": "100.7242.T469110097",
+      "dataLimiteDefesa": "2020-10-13",
+      "prazoDefesaExpirado": true
+    },
+    {
+      "idAutoInfracao": 45590715,
+      "numeroAuto": "8805168063",
+      "descricao": "TRANSITAR EM VEL SUPERIOR À MÁXIMA PERMITIDA EM ATÉ 20%",
+      "dataHoraAutuacao": "2020-07-12T13:19:22",
+      "localInfracao": "RUA MARQUES DE OLINDA, PROX. 2841 - SENTIDO N/S - JOINVILLE/SC",
+      "valor": 130.16,
+      "situacao": "Penalidade notificada",
+      "status": "Paga",
+      "protocolo": "8805.7455.8805168063",
+      "dataLimiteDefesa": "2021-03-01",
+      "prazoDefesaExpirado": true
+    },
+    {
+      "idAutoInfracao": 48484513,
+      "numeroAuto": "C019009333",
+      "descricao": "EM MOVIMENTO DE DIA,DEIXAR DE MANTER ACESA LUZ BAIXA NAS ROD",
+      "dataHoraAutuacao": "2021-03-23T15:57:00",
+      "localInfracao": "SC406/20.1/BARRA DA LAGOA  - ENTR. ACESSO PRAIA DA JOAQUINA - FLORIANOPOLIS/SC",
+      "complemento": "Praia Mole                                                                      ",
+      "valor": 130.16,
+      "situacao": "Penalidade notificada",
+      "status": "Paga",
+      "protocolo": "8785.7242.C019009333",
+      "dataLimiteDefesa": "2021-05-27",
+      "prazoDefesaExpirado": true
+    },
+    {
+      "idAutoInfracao": 49311316,
+      "numeroAuto": "8749C03851",
+      "descricao": "AVANÇAR SINAL VERM, EXC OND. PERM LIVR CONV A DIR - Fisc Ele",
+      "dataHoraAutuacao": "2021-06-02T22:10:14",
+      "localInfracao": "RUA DR. REINALDO SCHMITHAUSEN / AV. PRES. CASTELO BRANCO - ITAJAI/SC",
+      "valor": 293.47,
+      "situacao": "Penalidade notificada",
+      "status": "Paga",
+      "protocolo": "8749.6050.8749C03851",
+      "dataLimiteDefesa": "2021-08-09",
+      "prazoDefesaExpirado": true
+    },
+    {
+      "idAutoInfracao": 51390391,
+      "numeroAuto": "T553938157",
+      "descricao": "COND VEÍCULO REGISTRADO Q NAO ESTEJA DEVIDAMENTE LICENCIADO",
+      "dataHoraAutuacao": "2021-11-22T08:27:00",
+      "localInfracao": "BR-101 KM-114 UF-SC - ITAJAI/SC",
+      "valor": 293.47,
+      "situacao": "Penalidade notificada",
+      "status": "Paga",
+      "protocolo": "100.6599.T553938157",
+      "dataLimiteDefesa": "2022-02-10",
+      "prazoDefesaExpirado": true
+    },
+    {
+      "idAutoInfracao": 53328694,
+      "numeroAuto": "P08R80019D",
+      "descricao": "ESTACIONAR NA CONTRAMÃO DE DIREÇÃO ",
+      "dataHoraAutuacao": "2022-05-29T14:58:14",
+      "localInfracao": "RUA VEREADOR JOSÉ OLÍMPIO MIANES, NOSSA SENHORA DAS GRAÇAS - NAVEGANTES - SANTA - NAVEGANTES/SC",
+      "complemento": "                                                                                ",
+      "valor": 130.16,
+      "situacao": "Penalidade notificada",
+      "status": "Paga",
+      "protocolo": "8272.5525.P08R80019D",
+      "dataLimiteDefesa": "2022-07-18",
+      "prazoDefesaExpirado": true
+    },
+    {
+      "idAutoInfracao": 55207533,
+      "numeroAuto": "P09O9000GX",
+      "descricao": "DEIXAR O PASSAGEIRO DE USAR O CINTO SEGURANÇA ",
+      "dataHoraAutuacao": "2022-11-28T11:15:58",
+      "localInfracao": "RUA OSMAR GAYA, 1297, CENTRO - NAVEGANTES - SANTA CATARINA, 88375-000, BRASIL - NAVEGANTES/SC",
+      "complemento": "EM FRENTE AO AEROPORTO DE NAVEGANTES                                            ",
+      "valor": 195.23,
+      "situacao": "Penalidade notificada",
+      "status": "Paga",
+      "protocolo": "8272.5185.P09O9000GX",
+      "dataLimiteDefesa": "2023-02-03",
+      "prazoDefesaExpirado": true
+    },
+    {
+      "idAutoInfracao": 67498162,
+      "numeroAuto": "P0CA1000LF",
+      "descricao": "DIRIGIR VEICULO MANUSEANDO TELEFONE CELULAR",
+      "dataHoraAutuacao": "2025-05-31T15:25:28",
+      "localInfracao": "AVENIDA PATRÍCIO LIMA, HUMAITÁ - TUBARÃO - SANTA CATARINA, BRASIL - TUBARAO/SC",
+      "complemento": "CRUZAMENTO COM A RUA EXPEDICIONÁRIO JOSÉ PEDRO COELHO.                          ",
+      "valor": 293.47,
+      "situacao": "Penalidade notificada",
+      "status": "Paga",
+      "protocolo": "8072.7633.P0CA1000LF",
+      "dataLimiteDefesa": "2025-08-04",
+      "prazoDefesaExpirado": true
+    },
+    {
+      "idAutoInfracao": 68226432,
+      "numeroAuto": "P0CBO000BO",
+      "descricao": "COND VEICULO EM MAU ESTADO DE CONSERVACAO, COMPROM SEGURANCA",
+      "dataHoraAutuacao": "2025-07-14T15:48:39",
+      "localInfracao": "RUA LAURO MÜLLER, VILA MOEMA - TUBARÃO - SANTA CATARINA, BRASIL - TUBARAO/SC",
+      "complemento": "AO LADO DA CLÍNICA DE RINS                                                      ",
+      "valor": 195.23,
+      "situacao": "Penalidade notificada",
+      "status": "Paga",
+      "protocolo": "8072.6726.P0CBO000BO",
+      "dataLimiteDefesa": "2025-09-23",
+      "prazoDefesaExpirado": true
+    },
+    {
+      "idAutoInfracao": 68677248,
+      "numeroAuto": "P0CBN000CL",
+      "descricao": "DESOBEDECER ORDENS EMANADAS DA AUTORID DE TRÂNSITO OU AGENTE",
+      "dataHoraAutuacao": "2025-08-21T14:30:25",
+      "localInfracao": "RUA SÃO JOÃO, 1061, SÃO JOÃO MARGEM ESQUERDA - TUBARÃO - SANTA CATARINA, BRASIL - TUBARAO/SC",
+      "complemento": "5BPM                                                                            ",
+      "valor": 195.23,
+      "situacao": "Penalidade notificada",
+      "status": "Paga",
+      "protocolo": "8072.5835.P0CBN000CL",
+      "dataLimiteDefesa": "2025-10-27",
+      "prazoDefesaExpirado": true
+    },
+    {
+      "idAutoInfracao": 68910504,
+      "numeroAuto": "8779I37319",
+      "descricao": "TRANSITAR EM VEL SUPERIOR À MÁXIMA PERMITIDA EM ATÉ 20%",
+      "dataHoraAutuacao": "2025-09-06T14:45:36",
+      "localInfracao": "ROD. C370 KM 2.500 DECRESCENTE - TUBARAO/SC",
+      "valor": 130.16,
+      "situacao": "Penalidade notificada",
+      "status": "Paga",
+      "protocolo": "8779.7455.8779I37319",
+      "dataLimiteDefesa": "2025-10-27",
+      "prazoDefesaExpirado": true
+    },
+    {
+      "idAutoInfracao": 71007830,
+      "numeroAuto": "P0det0005p",
+      "descricao": "ESTAC EM LOCAL/HORÁRIO PROIBIDO ESPECIFICAMENTE PELA SINALIZ",
+      "dataHoraAutuacao": "2025-12-17T11:30:38",
+      "localInfracao": "AVENIDA MARCOLINO MARTINS CABRAL, CENTRO - TUBARAO - SANTA CATARINA, 88701-000, - TUBARAO/SC",
+      "valor": 130.16,
+      "situacao": "Penalidade notificada",
+      "status": "Paga",
+      "protocolo": "8072.5550.P0det0005p",
+      "dataLimiteDefesa": "2026-02-20",
+      "prazoDefesaExpirado": true
+    },
+    {
+      "idAutoInfracao": 71008146,
+      "numeroAuto": "P0det0005w",
+      "descricao": "ESTAC EM LOCAL/HORÁRIO PROIBIDO ESPECIFICAMENTE PELA SINALIZ",
+      "dataHoraAutuacao": "2025-12-17T13:07:26",
+      "localInfracao": "AVENIDA MARCOLINO MARTINS CABRAL, CENTRO - TUBARAO - SANTA CATARINA, 88701-000, - TUBARAO/SC",
+      "valor": 130.16,
+      "situacao": "Penalidade notificada",
+      "status": "Paga",
+      "protocolo": "8072.5550.P0det0005w",
+      "dataLimiteDefesa": "2026-02-20",
+      "prazoDefesaExpirado": true
+    },
+    {
+      "idAutoInfracao": 71396872,
+      "numeroAuto": "C251001171",
+      "descricao": "EM MOVIM DE DIA, DEIX DE MANT ACESA LUZ BAIXA SOB CHuv, nebl",
+      "dataHoraAutuacao": "2025-12-29T14:38:59",
+      "localInfracao": "SC370/ KM: 173.75 / ENTR. CONTORNO RODOVIARIO DE TUBARAO - TUBARAO (ENTR. BR-101 - TUBARAO/SC",
+      "complemento": "Loja Exclusiva.",
+      "valor": 130.16,
+      "situacao": "Penalidade notificada",
+      "status": "Paga",
+      "protocolo": "8785.7242.C251001171",
+      "dataLimiteDefesa": "2026-02-18",
+      "prazoDefesaExpirado": true
+    }
+  ],
+  "dividaAtiva": [],
+  "dataAtualizacao": "2026-06-28T21:17:26",
+  "dataAquisicao": "2019-11-13",
+  "pendente": false,
+  "tipo": "Automovel",
+  "categoria": "Particular",
+  "carroceria": "Nao Aplicavel",
+  "especie": "Passageiro",
+  "placaAnterior": "MLN0187",
+  "lugares": 5,
+  "combustivel": "Alcool-Gasol",
+  "restricaoVenda": "Alienação Fiduciária em favor de B**** D******* S***",
+  "informacoesPendentesSng": [
+    "Registro de Baixa de Alienação Fiduciária informado por B**** A* J* R***** S* em 13/11/2025 às 16h01min para J******* D* S**** L***"
+  ],
+  "restricoes": "Intenção de Venda para A** C****** P****** L********* (Data de Inclusão: 07/01/2026)",
+  "processos": [
+    {
+      "numeroProcesso": "893394/2022",
+      "interessadoDocumento": "871*******3",
+      "dataHoraInicio": "2022-09-01T08:48:00",
+      "dataHoraFim": "2022-09-01T09:40:00",
+      "situacao": "Encerrado",
+      "servicos": [
+        {
+          "servico": "Geração de guia de pagamento",
+          "dataHoraExecucao": "2022-09-01T08:48:05.926"
+        },
+        {
+          "servico": "Auditoria",
+          "dataHoraExecucao": "2022-09-01T09:40:20.57"
+        },
+        {
+          "servico": "Autorização Nova PIV",
+          "dataHoraExecucao": "2022-09-01T09:40:20.57"
+        },
+        {
+          "servico": "Emissão de CRV/CRLVe",
+          "dataHoraExecucao": "2022-09-01T09:46:12.206"
+        },
+        {
+          "servico": "Conversão Nova PIV",
+          "dataHoraExecucao": "2022-09-01T08:48:05.91"
+        }
+      ]
+    },
+    {
+      "numeroProcesso": "1305271/2019",
+      "interessadoDocumento": "048*******0",
+      "dataHoraInicio": "2019-12-09T17:09:00",
+      "dataHoraFim": "2019-12-09T19:47:00",
+      "situacao": "Encerrado",
+      "servicos": [
+        {
+          "servico": "Transferência de Domicílio",
+          "dataHoraExecucao": "2019-12-09T17:09:58.106"
+        },
+        {
+          "servico": "Baixa de Alienação Fiduciária",
+          "dataHoraExecucao": "2019-12-09T17:09:58.106"
+        },
+        {
+          "servico": "Transferência de Propriedade",
+          "dataHoraExecucao": "2019-12-09T17:09:58.106"
+        },
+        {
+          "servico": "Alienação Fiduciária",
+          "dataHoraExecucao": "2019-12-09T17:09:58.106"
+        },
+        {
+          "servico": "Geração de guia de pagamento",
+          "dataHoraExecucao": "2019-12-09T17:09:58.123"
+        },
+        {
+          "servico": "Auditoria",
+          "dataHoraExecucao": "2019-12-09T19:47:39.013"
+        },
+        {
+          "servico": "Emissão CRV(1ª via)",
+          "dataHoraExecucao": "2019-12-09T20:29:57.3"
+        }
+      ]
+    },
+    {
+      "numeroProcesso": "1067692/2019",
+      "interessadoDocumento": "074*******9",
+      "dataHoraInicio": "2019-10-15T15:36:00",
+      "dataHoraFim": "2019-10-21T15:22:00",
+      "situacao": "Encerrado",
+      "servicos": [
+        {
+          "servico": "Geração de guia de pagamento",
+          "dataHoraExecucao": "2019-10-15T15:36:46.166"
+        },
+        {
+          "servico": "Auditoria",
+          "dataHoraExecucao": "2019-10-21T15:22:25.566"
+        },
+        {
+          "servico": "Emissão CRV(2ª via)",
+          "dataHoraExecucao": "2019-10-21T16:13:10.206"
+        }
+      ]
+    },
+    {
+      "numeroProcesso": "1038398/2013",
+      "interessadoDocumento": "309*******7",
+      "dataHoraInicio": "2013-11-18T14:37:00",
+      "dataHoraFim": "2013-11-19T09:48:00",
+      "situacao": "Encerrado",
+      "servicos": [
+        {
+          "servico": "Primeiro Emplacamento",
+          "dataHoraExecucao": "2013-11-18T14:37:46.126",
+          "emitenteNFNome": "G**** C******* D* A********* E P**** L***",
+          "emitenteNFDocumento": "016**********2",
+          "dataEmissaoNF": "2013-11-18",
+          "valorNF": 30000
+        },
+        {
+          "servico": "Alienação Fiduciária",
+          "dataHoraExecucao": "2013-11-18T14:37:46.126"
+        },
+        {
+          "servico": "Geração de guia de pagamento",
+          "dataHoraExecucao": "2013-11-18T14:37:46.22"
+        },
+        {
+          "servico": "Auditoria",
+          "dataHoraExecucao": "2013-11-19T09:48:12.856"
+        },
+        {
+          "servico": "Emissão CRV(1ª via)",
+          "dataHoraExecucao": "2013-11-19T10:00:04.783"
+        }
+      ]
+    }
+  ],
+  "editaisCedo": [
+    {
+      "numeroEdital": "378/2022",
+      "numeroAuto": "P09O9000GX",
+      "tipo": "Autuação",
+      "dataPublicacaoDOE": "2022-12-29",
+      "hash": "24f976ea48df72c405f32127c6d01c15"
+    },
+    {
+      "numeroEdital": "401/2023",
+      "numeroAuto": "P09O9000GX",
+      "tipo": "Penalidade",
+      "dataPublicacaoDOE": "2023-03-14",
+      "hash": "907fa606a901fef462d93bb1104e9cf9"
+    },
+    {
+      "numeroEdital": "634/2025",
+      "numeroAuto": "P0CA1000LF",
+      "tipo": "Autuação",
+      "dataPublicacaoDOE": "2025-07-01",
+      "hash": "889ff18d3822de2c1c0e7fa970249166"
+    },
+    {
+      "numeroEdital": "648/2025",
+      "numeroAuto": "P0CBO000BO",
+      "tipo": "Autuação",
+      "dataPublicacaoDOE": "2025-08-13",
+      "hash": "2a61768a6dca9b15771f366d70a69875"
+    },
+    {
+      "numeroEdital": "658/2025",
+      "numeroAuto": "P0CBN000CL",
+      "tipo": "Autuação",
+      "dataPublicacaoDOE": "2025-09-16",
+      "hash": "b5f2b678de52423b809bf6b6808bc27c"
+    },
+    {
+      "numeroEdital": "659/2025",
+      "numeroAuto": "P0CA1000LF",
+      "tipo": "Penalidade",
+      "dataPublicacaoDOE": "2025-09-16",
+      "hash": "809a466b6a8dff40975651e00e1ca8db"
+    },
+    {
+      "numeroEdital": "675/2025",
+      "numeroAuto": "P0CBO000BO",
+      "tipo": "Penalidade",
+      "dataPublicacaoDOE": "2025-11-11",
+      "hash": "15f46635189fcd240d56e447b1822bfc"
+    },
+    {
+      "numeroEdital": "681/2025",
+      "numeroAuto": "P0CBN000CL",
+      "tipo": "Penalidade",
+      "dataPublicacaoDOE": "2025-12-02",
+      "hash": "a3480667b84ca34766674e2d374f2f69"
+    }
+  ],
+  "ipvasNotificados": [],
+  "recursosInfracao": [
+    {
+      "numeroProcesso": 626,
+      "anoProcesso": 2014,
+      "dataDefesa": "2014-03-26",
+      "codigoInstancia": 9,
+      "instancia": "Indicação Condutor",
+      "numeroAuto": "497851E",
+      "tipoAuto": "54",
+      "orgaoAuto": 8798,
+      "descricaoAuto": "BAL CAMBORIU-008798-54497851E-5541-2",
+      "descricaoInfracao": "ESTAC EM DESACOR C/ REGULAMENTAÇÃO - ESTACIONAMENTO ROTATIVO",
+      "cidadeAuto": "BALNEARIO CAMBORIU",
+      "dataHoraAuto": "2014-02-25T15:11:00",
+      "nomeLocal": "R 1500 N 315",
+      "complemento": "",
+      "resultadoRecurso": "",
+      "resultadoIndicacao": "DEFERIDO em 27/03/2014",
+      "motivoResultadoInfracao": "",
+      "motivoResultadoIndicacao": "",
+      "informacaoRequerente": "Proprietário"
+    }
+  ],
+  "avisos": [],
+  "csvGnvVencido": false,
+  "origemDados": "Cadastro",
+  "hash": "ac1d462dfe37f9127ce57c1da8e9f0a3",
+  "token": "319efc11-073a-4660-b10c-7524b49b7da5"
+}

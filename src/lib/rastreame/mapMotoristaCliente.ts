@@ -1,5 +1,14 @@
 /**
  * Converte motorista Rastreame → registro de database/clientes.json.
+ *
+ * REGRA: o campo `observacao` do Rastreame NÃO é usado (nem lido nem escrito).
+ * Só são importados os campos NATIVOS do motorista:
+ *   - nome, cpf, cnh (número), categoriaCnh.key, vencimentoCnh (ISO),
+ *     contato.{celular,fixo,email}
+ *
+ * Os demais campos que o Rastreame não tem (endereço, RG, filiação, nascimento,
+ * espelho/órgão emissor, 1ª habilitação) ficam APENAS na database cliente e são
+ * preservados no merge (não-destrutivo) — ver `upsertClienteFromRastreame`.
  */
 import type { MotoristaRastreame } from "./motorista.js";
 
@@ -17,148 +26,47 @@ function isoToBr(iso: string | undefined | null): string | null {
   return m ? `${m[3]}/${m[2]}/${m[1]}` : null;
 }
 
-function formatCpf(digits: string): string | null {
-  const d = digits.replace(/\D/g, "");
+function formatCpf(value: string | null | undefined): string | null {
+  const d = String(value ?? "").replace(/\D/g, "");
   if (d.length !== 11) return null;
   return `${d.slice(0, 3)}.${d.slice(3, 6)}.${d.slice(6, 9)}-${d.slice(9)}`;
 }
 
-/** Extrai campos gravados em `observacao` pelo postMotorista (montarObservacao). */
-export function parseObservacaoRastreame(obs: string): Partial<ClienteImportado> {
-  const out: Partial<ClienteImportado> = { endereco: {} };
-  const end = out.endereco as Record<string, string | null>;
-
-  for (const raw of obs.split("\n")) {
-    const line = raw.trim();
-    if (!line) continue;
-
-    const cpfM = line.match(/^CPF:\s*(.+)$/i);
-    if (cpfM) {
-      const fmt = formatCpf(cpfM[1]!);
-      if (fmt) out.cpf = fmt;
-      continue;
-    }
-
-    const rgM = line.match(/^RG:\s*(.+)$/i);
-    if (rgM) {
-      const parts = rgM[1]!.trim().split(/\s+/);
-      out.rg = parts[0];
-      if (parts.length > 1) out.rgOrgaoExpedidor = parts.slice(1).join(" ");
-      continue;
-    }
-
-    const nascM = line.match(/^Nascimento:\s*(.+)$/i);
-    if (nascM) {
-      const [data, local] = nascM[1]!.split(" - ").map((s) => s.trim());
-      out.dataNascimento = data;
-      if (local) out.localNascimento = local;
-      continue;
-    }
-
-    if (/^1a Habilitacao:/i.test(line)) {
-      if (!out.cnh) out.cnh = {};
-      (out.cnh as Record<string, string>).primeiraHabilitacao = line.replace(/^1a Habilitacao:\s*/i, "");
-      continue;
-    }
-    if (/^Emissao CNH:/i.test(line)) {
-      if (!out.cnh) out.cnh = {};
-      (out.cnh as Record<string, string>).dataEmissao = line.replace(/^Emissao CNH:\s*/i, "");
-      continue;
-    }
-    if (/^Espelho:/i.test(line)) {
-      if (!out.cnh) out.cnh = {};
-      (out.cnh as Record<string, string>).numeroEspelho = line.replace(/^Espelho:\s*/i, "");
-      continue;
-    }
-    if (/^Orgao emissor:/i.test(line)) {
-      const rest = line.replace(/^Orgao emissor:\s*/i, "");
-      const [org, uf] = rest.split("/");
-      if (!out.cnh) out.cnh = {};
-      const cnh = out.cnh as Record<string, string>;
-      cnh.orgaoEmissor = org?.trim() ?? "";
-      cnh.ufEmissor = uf?.trim() ?? "";
-      continue;
-    }
-    if (/^Filiacao:/i.test(line)) {
-      out.filiacao = line.replace(/^Filiacao:\s*/i, "");
-      continue;
-    }
-    if (/^Telefone:/i.test(line)) {
-      out.telefone = line.replace(/^Telefone:\s*/i, "");
-      continue;
-    }
-
-    const endM = line.match(/^Endereco:\s*(.+)$/i);
-    if (endM) {
-      const rest = endM[1]!.trim();
-      const dash = rest.lastIndexOf(" - ");
-      if (dash >= 0) {
-        const antes = rest.slice(0, dash);
-        const depois = rest.slice(dash + 3);
-        const slash = depois.lastIndexOf("/");
-        if (slash >= 0) {
-          end.cidade = depois.slice(0, slash).trim();
-          const ufCep = depois.slice(slash + 1).trim().split(/\s+/);
-          end.uf = ufCep[0] ?? null;
-          end.cep = ufCep[1] ?? null;
-        }
-        const commaParts = antes.split(",");
-        end.logradouro = commaParts[0]?.trim() ?? null;
-        if (commaParts.length > 1) {
-          const numBairro = commaParts.slice(1).join(",").trim().split(/\s+/);
-          end.numero = numBairro[0] ?? null;
-          end.bairro = numBairro.slice(1).join(" ") || null;
-        }
-      }
-    }
-  }
-
-  if (Object.values(end).every((v) => !v)) delete out.endereco;
-  return out;
+function formatTelefone(value: string | null | undefined): string | null {
+  const d = String(value ?? "").replace(/\D/g, "");
+  if (d.length === 11) return `(${d.slice(0, 2)}) ${d.slice(2, 7)}-${d.slice(7)}`;
+  if (d.length === 10) return `(${d.slice(0, 2)}) ${d.slice(2, 6)}-${d.slice(6)}`;
+  return d || null;
 }
 
 export function motoristaToCliente(m: MotoristaRastreame): ClienteImportado | null {
   const nome = (m.nome ?? "").trim();
   if (!nome) return null;
 
-  const parsed = parseObservacaoRastreame(m.observacao ?? "");
+  const cpf = formatCpf(m.cpf ?? undefined);
   const cnhNum = String(m.cnh ?? "").replace(/\D/g, "");
-  const categoria =
-    m.categoriaCnh?.key ?? m.categoriaCnh?.value ?? (parsed.cnh as Record<string, string> | undefined)?.categoria;
+  const categoria = m.categoriaCnh?.key ?? m.categoriaCnh?.value;
   const validade = isoToBr(m.vencimentoCnh);
+  const telefone = formatTelefone(m.contato?.celular ?? m.contato?.fixo ?? null);
+  const email = m.contato?.email ?? null;
+
+  const cnh: Record<string, unknown> = {};
+  if (cnhNum) cnh.numeroRegistro = cnhNum;
+  if (categoria) cnh.categoria = categoria;
+  if (validade) cnh.validade = validade;
 
   const cliente: ClienteImportado = {
     nome,
-    cpf: parsed.cpf,
-    rg: parsed.rg,
-    rgOrgaoExpedidor: parsed.rgOrgaoExpedidor,
-    dataNascimento: parsed.dataNascimento,
-    localNascimento: parsed.localNascimento,
-    filiacao: parsed.filiacao,
-    telefone: parsed.telefone ?? null,
-    email: null,
-    endereco: parsed.endereco ?? {
-      cep: null,
-      logradouro: null,
-      numero: null,
-      complemento: null,
-      bairro: null,
-      cidade: null,
-      uf: null,
-    },
-    cnh: {
-      numeroRegistro: cnhNum || undefined,
-      categoria: categoria ?? undefined,
-      validade: validade ?? undefined,
-      ...((parsed.cnh ?? {}) as Record<string, unknown>),
-    },
-    rastreameMotoristaKey: m.key != null ? String(m.key) : undefined,
+    telefone,
+    email,
+    rastreameMotoristaKey:
+      m.key != null ? String(m.key) : m.id != null ? String(m.id) : undefined,
     rastreameMotoristaId: m.id,
     origemImportacao: "rastreame",
   };
+  if (cpf) cliente.cpf = cpf;
+  if (Object.keys(cnh).length) cliente.cnh = cnh;
 
-  if (!cliente.cpf && !cnhNum) return null;
-  if (!cliente.cpf) delete cliente.cpf;
   return cliente;
 }
 

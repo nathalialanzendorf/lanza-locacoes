@@ -32,6 +32,7 @@ Skill para **cadastrar, editar e excluir** veículos em `database/veiculos.json`
 | `chassi` | Chassi |
 | `renavam` | RENAVAM |
 | `cor` | Cor |
+| `ufRegistro` | **UF da placa** (ex.: `SC`, `RS`). Define qual DETRAN consultar: SC/ausente → `sync-infracoes`/`sync-ipva-licenciamento`; `RS` → `sync-detran-rs`. Gravar quando a placa for de fora de SC. |
 | `fipe` / `fipeCodigo` / `fipeModelo` / `fipeValor` / `fipeReferencia` | Via API (comando `fipe`). No contrato: `marcaModelo` + ` (fipeModelo)` quando preenchido. |
 
 ## Ferramentas TypeScript (`src/` na raiz do repo)
@@ -43,6 +44,8 @@ npx tsx src/run.ts <subcomando> ...
 ```
 
 ## Fipe (API)
+
+Consulta FIPE isolada na **tool `fipe`** (`.cursor/tools/fipe/`, código em `src/lib/fipe/`) — reutilizável por esta skill e por outras. CLI:
 
 ```bash
 npx tsx src/run.ts fipe marca "peugeot"
@@ -58,7 +61,7 @@ npx tsx src/run.ts atualizar-fipe-veiculos
 npx tsx src/run.ts atualizar-fipe-veiculos --placa ABC1D23
 ```
 
-O script escolhe marca/modelo/ano com base em **`marcaModelo`**, **`anoModelo`** e **`fipeModelo`** (texto auxiliar). Ajustes manuais por placa ficam em **`EXTRAS_BY_PLACA`** em `src/cli/atualizarFipeVeiculos.ts`. Em caso de divergência com o veículo real, corrija o registro no JSON ou refine os extras e rode de novo.
+O script escolhe marca/modelo/ano com base em **`marcaModelo`**, **`anoModelo`** e **`fipeModelo`** (texto auxiliar). Ajustes manuais por placa ficam em **`EXTRAS_BY_PLACA`** em `src/lib/fipe/resolverVeiculo.ts`. Em caso de divergência com o veículo real, corrija o registro no JSON ou refine os extras e rode de novo.
 
 ### Sincronizar dados do CRLV (PDF nas pastas)
 
@@ -78,6 +81,18 @@ CRLV **escaneado** (imagem) pode não ter texto extraível; nesse caso use OCR o
 
 Perguntar: parceiro existente (`database/parceiros.json`, **`id`** uuid) ou nome novo (gera `id` uuid automaticamente).
 
+## Veículo particular (regra Nivus / ICZ-2H47)
+
+Carro **particular do proprietário** (não é de locação) recebe `"particular": true` no registro. Cadastrar com `merge-veiculo … --no-sync-rastreame` (não cria rastreável no Rastreame).
+
+**PODE ter (rastreado normalmente):** seguro, pedágio, IPVA, estacionamento rotativo, licenciamento, infrações e **tabela FIPE**. Entra nos syncs DETRAN — basta `ativo: true` + `renavam`. Por UF: SC/ausente → `sync-infracoes`/`sync-ipva-licenciamento`; `ufRegistro="RS"` → `sync-detran-rs` (tool `.cursor/tools/detran-rs/`).
+
+**NÃO tem / NÃO entra:**
+- **Rastreador** (não paga taxa mensal `sync-rastreador`) → logo **sem registro no Rastreame** (`isSyncRastreameEligible` retorna false).
+- **Despesas/cobranças de locação** → `relatorio-cobrancas` recusa gerar cobrança de locatário para placa particular.
+- **Prestação de contas** → `montar-relatorio` pula veículos particulares.
+- **Quebra/encerramento de contrato** → `calcularEncerramentoContrato` recusa placa particular.
+
 ## Gravar
 
 Montar objeto `veiculo` (sem `id`) + nome do proprietário em JSON temporário, depois:
@@ -87,6 +102,26 @@ npx tsx src/run.ts merge-veiculo caminho/veiculo_tmp.json "Nome do Proprietario"
 ```
 
 O script deduplica por **placa**, atualiza `parceiros.json` se necessário e recria o vínculo em `parceiro-veiculo.json`. **Em veículo novo** (`cadastrado`, não atualização por placa), após gravar, chama automaticamente a sincronização FIPE (`atualizar-fipe-veiculos --placa …`) no mesmo processo para preencher/atualizar `fipe`, `fipeCodigo`, `fipeModelo`, `fipeValor` e `fipeReferencia`. Se a API falhar, aparece aviso no console; corrija dados ou `EXTRAS_BY_PLACA` e rode `atualizar-fipe-veiculos` manualmente.
+
+### Cadastrar placa no Pedágio Digital (veículo novo)
+
+Em **veículo novo**, cadastrar também a placa no **pedagiodigital.com** (tool `pedagio-digital`, ver `.cursor/tools/pedagio-digital/`) para depois sincronizar passagens via skill **sync-pedagios**:
+
+```bash
+npx tsx src/run.ts pedagio-digital register --placa ABC1D23
+```
+
+O portal só guarda o campo `modelo`, então a tool o **compõe** com modelo+marca+ano+cor (ex.: `"GOL 1.0 VOLKSWAGEN 2013 PRATA"`), lidos de `veiculos.json`. Overrides: `--modelo` (texto literal), `--marca`, `--ano`, `--cor`. Requer `PEDAGIO_DIGITAL_COOKIE` e `PEDAGIO_DIGITAL_CSRF` (variáveis de ambiente do utilizador).
+
+### Excluir placa do Pedágio Digital (ao inativar veículo)
+
+Sempre que um veículo for **inativado** (`ativo: false` em `veiculos.json`), **excluir** a placa do pedagiodigital.com — não cobramos pedágio de veículo fora de locação:
+
+```bash
+npx tsx src/run.ts pedagio-digital delete --placa ABC1D23
+```
+
+Idempotente (se a placa não estiver no portal, sai OK sem fazer nada). Use `--dry-run` para conferir o id antes de excluir.
 
 ## Idempotência
 
@@ -103,3 +138,4 @@ O script deduplica por **placa**, atualiza `parceiros.json` se necessário e rec
 ## Skills relacionadas
 
 - **cadastro-cliente**, **cadastro-contrato**
+- **sync-pedagios** — após cadastrar a placa no Pedágio Digital, sincroniza passagens em aberto.

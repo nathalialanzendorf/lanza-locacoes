@@ -1,0 +1,71 @@
+{
+  "placa": "ICZ2H47",
+  "renavam": 570311675,
+  "proprietarioAtual": "A** C****** P****** L*********",
+  "proprietarioAnterior": "G******** A****** S*****",
+  "principalCondutor": "",
+  "cor": "Azul",
+  "marcaModelo": "VW/BAJA BUGG",
+  "anoFabricacao": 1966,
+  "anoModelo": 1966,
+  "motivoBaixa": "Em circulação",
+  "exercicioLicenciamento": 2026,
+  "licenciado": "2026 em 20/03/2026 através do Registro de Veículo (CRV)",
+  "municipio": "TUBARAO",
+  "uf": "SC",
+  "debitos": [],
+  "infracoes": [],
+  "historicoInfracoes": [],
+  "dividaAtiva": [],
+  "dataAtualizacao": "2026-06-28T21:18:27",
+  "dataAquisicao": "2026-02-18",
+  "pendente": false,
+  "tipo": "Automovel",
+  "categoria": "Particular",
+  "carroceria": "Buggy",
+  "especie": "Passageiro",
+  "placaAnterior": "ICZ2H47/RS",
+  "lugares": 5,
+  "combustivel": "Gasolina",
+  "restricaoVenda": "Sem gravame",
+  "informacoesPendentesSng": [],
+  "processos": [
+    {
+      "numeroProcesso": "261817/2026",
+      "interessadoDocumento": "022*******0",
+      "dataHoraInicio": "2026-03-09T16:31:00",
+      "dataHoraFim": "2026-03-20T14:13:00",
+      "situacao": "Encerrado",
+      "servicos": [
+        {
+          "servico": "Trânsferência outra UF",
+          "dataHoraExecucao": "2026-03-09T16:31:39.096"
+        },
+        {
+          "servico": "Transferência de Propriedade",
+          "dataHoraExecucao": "2026-03-09T16:31:39.096"
+        },
+        {
+          "servico": "Geração de guia de pagamento",
+          "dataHoraExecucao": "2026-03-09T16:31:39.16"
+        },
+        {
+          "servico": "Auditoria",
+          "dataHoraExecucao": "2026-03-20T14:13:36.353"
+        },
+        {
+          "servico": "Emissão de CRV/CRLVe",
+          "dataHoraExecucao": "2026-03-20T14:14:04.496"
+        }
+      ]
+    }
+  ],
+  "editaisCedo": [],
+  "ipvasNotificados": [],
+  "recursosInfracao": [],
+  "avisos": [],
+  "csvGnvVencido": false,
+  "origemDados": "Cadastro",
+  "hash": "aee810388146bf5ce1066d2466b3a78d",
+  "token": "a0d97c3b-fab8-4c04-ad28-78a8f0443c87"
+}

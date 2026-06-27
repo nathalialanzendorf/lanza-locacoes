@@ -21,3 +21,6 @@ despesas/**/Seguro/
 
 # Credenciais locais (Rastreame, etc.)
 .env
+
+# Cache local (perfil do Chrome do Playwright + sessão capturada do pedágio)
+.cache/

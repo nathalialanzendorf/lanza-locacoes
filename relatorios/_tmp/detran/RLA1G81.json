@@ -1,0 +1,299 @@
+{
+  "placa": "RLA1G81",
+  "renavam": 1253857455,
+  "proprietarioAtual": "V******** S**** M*****",
+  "proprietarioAnterior": "A*** D* S**** D* B**",
+  "principalCondutor": "C******** D* R****",
+  "cor": "Preta",
+  "marcaModelo": "PEUGEOT/2008 ALLURE EAT6",
+  "anoFabricacao": 2020,
+  "anoModelo": 2021,
+  "motivoBaixa": "Em circulação",
+  "exercicioLicenciamento": 2026,
+  "licenciado": "2026 CRLV Digital",
+  "municipio": "LAGUNA",
+  "uf": "SC",
+  "debitos": [
+    {
+      "idDebito": 643067013,
+      "descricaoClasse": "UF:RD-000100-J002722271-7455",
+      "dataVencimentoOriginal": "2026-04-22",
+      "valorAtualizado": 132.85,
+      "linhaDigitavel": "00190.00009  03644.643169  43067.013177  1  14930000013285",
+      "emiteGuia": 1,
+      "exercicio": 2025,
+      "dareSat": 0,
+      "vencido": true
+    }
+  ],
+  "infracoes": [
+    {
+      "idAutoInfracao": 68362701,
+      "numeroAuto": "J002722271",
+      "descricao": "TRANSITAR EM VEL SUPERIOR À MÁXIMA PERMITIDA EM ATÉ 20%",
+      "dataHoraAutuacao": "2025-07-11T17:11:00",
+      "localInfracao": "SC - BR 101 - KM 324.90 - D - CAPIVARI DE BAIXO/SC",
+      "valor": 130.16,
+      "situacao": "Penalidade notificada",
+      "status": "Em aberto",
+      "protocolo": "100.7455.J002722271",
+      "dataLimiteDefesa": "2025-09-19",
+      "prazoDefesaExpirado": true
+    },
+    {
+      "idAutoInfracao": 75240252,
+      "numeroAuto": "J008489516",
+      "descricao": "TRANSITAR EM VEL SUPERIOR À MÁXIMA PERMITIDA EM ATÉ 20%",
+      "dataHoraAutuacao": "2026-05-15T09:40:00",
+      "localInfracao": "RS - BR 101 - KM 15.50 - C - DOM PEDRO DE ALCANTARA/RS",
+      "valor": 130.16,
+      "situacao": "Autuação notificada",
+      "status": "Em aberto",
+      "protocolo": "100.7455.J008489516",
+      "dataLimiteDefesa": "2026-07-10",
+      "prazoDefesaExpirado": false
+    }
+  ],
+  "historicoInfracoes": [
+    {
+      "idAutoInfracao": 51527955,
+      "numeroAuto": "8779E20475",
+      "descricao": "TRANSITAR EM VEL SUPERIOR À MÁXIMA PERMITIDA EM ATÉ 20%",
+      "dataHoraAutuacao": "2021-12-22T16:56:57",
+      "localInfracao": "ROD. C370 KM 0.800 SENTIDO BR101 - SC370 - TUBARAO/SC",
+      "valor": 130.16,
+      "situacao": "Penalidade notificada",
+      "status": "Advertida",
+      "protocolo": "8779.7455.8779E20475",
+      "dataLimiteDefesa": "2022-02-17",
+      "prazoDefesaExpirado": true
+    },
+    {
+      "idAutoInfracao": 58654714,
+      "numeroAuto": "R668241322",
+      "descricao": "TRANSITAR EM VEL SUPERIOR À MÁXIMA PERMITIDA EM ATÉ 20%",
+      "dataHoraAutuacao": "2023-07-25T20:21:00",
+      "localInfracao": "BR-101 KM-287 UF-SC - IMBITUBA/SC",
+      "valor": 130.16,
+      "situacao": "Penalidade notificada",
+      "status": "Cancelada",
+      "protocolo": "100.7455.R668241322",
+      "dataLimiteDefesa": "2023-10-20",
+      "prazoDefesaExpirado": true
+    },
+    {
+      "idAutoInfracao": 65742089,
+      "numeroAuto": "J000722467",
+      "descricao": "TRANSITAR EM VEL SUPERIOR À MÁXIMA PERMITIDA EM ATÉ 20%",
+      "dataHoraAutuacao": "2025-01-19T00:52:00",
+      "localInfracao": "SC - BR 101 - KM 325.40 - D - CAPIVARI DE BAIXO/SC",
+      "valor": 130.16,
+      "situacao": "Penalidade notificada",
+      "status": "Justificada",
+      "protocolo": "100.7455.J000722467",
+      "dataLimiteDefesa": "2025-03-28",
+      "prazoDefesaExpirado": true
+    },
+    {
+      "idAutoInfracao": 66624328,
+      "numeroAuto": "N001727766",
+      "descricao": "CONDUZIR O VEÍCULO COM QQ UMA DAS PLACAS SEM LEGIBILID/VISIB",
+      "dataHoraAutuacao": "2025-04-01T16:18:00",
+      "localInfracao": "SC - BR 101 - KM 333.00 - D - TUBARAO/SC",
+      "valor": 293.47,
+      "situacao": "Penalidade notificada",
+      "status": "Paga",
+      "protocolo": "100.6602.N001727766",
+      "dataLimiteDefesa": "2025-05-27",
+      "prazoDefesaExpirado": true
+    }
+  ],
+  "dividaAtiva": [],
+  "dataAtualizacao": "2026-06-28T20:31:45",
+  "dataAquisicao": "2022-08-29",
+  "pendente": false,
+  "tipo": "Automovel",
+  "categoria": "Particular",
+  "carroceria": "Nao Aplicavel",
+  "especie": "Passageiro",
+  "placaAnterior": "RLA1G81",
+  "lugares": 5,
+  "combustivel": "Alcool-Gasol",
+  "restricaoVenda": "Alienação Fiduciária em favor de S******** S******** D* C******* F************ E I***********",
+  "informacoesPendentesSng": [],
+  "processos": [
+    {
+      "numeroProcesso": "892143/2022",
+      "interessadoDocumento": "224*******5",
+      "dataHoraInicio": "2022-08-31T16:40:00",
+      "dataHoraFim": "2022-09-01T08:49:00",
+      "situacao": "Encerrado",
+      "servicos": [
+        {
+          "servico": "Baixa de Alienação Fiduciária",
+          "dataHoraExecucao": "2022-08-31T16:40:17.18"
+        },
+        {
+          "servico": "Transferência de Propriedade",
+          "dataHoraExecucao": "2022-08-31T16:40:17.18"
+        },
+        {
+          "servico": "Alienação Fiduciária",
+          "dataHoraExecucao": "2022-08-31T16:40:17.18"
+        },
+        {
+          "servico": "Geração de guia de pagamento",
+          "dataHoraExecucao": "2022-08-31T16:40:17.203"
+        },
+        {
+          "servico": "Auditoria",
+          "dataHoraExecucao": "2022-09-01T08:49:52.176"
+        },
+        {
+          "servico": "Emissão de CRV/CRLVe",
+          "dataHoraExecucao": "2022-09-01T08:54:36.81"
+        }
+      ]
+    },
+    {
+      "numeroProcesso": "1060625/2021",
+      "interessadoDocumento": "224*******5",
+      "dataHoraInicio": "2021-09-15T10:11:00",
+      "dataHoraFim": "2021-09-15T13:23:00",
+      "situacao": "Encerrado",
+      "servicos": [
+        {
+          "servico": "Transferência de Domicílio",
+          "dataHoraExecucao": "2021-09-15T10:11:57.576"
+        },
+        {
+          "servico": "Baixa de Alienação Fiduciária",
+          "dataHoraExecucao": "2021-09-15T10:11:57.576"
+        },
+        {
+          "servico": "Transferência de Propriedade",
+          "dataHoraExecucao": "2021-09-15T10:11:57.576"
+        },
+        {
+          "servico": "Alienação Fiduciária",
+          "dataHoraExecucao": "2021-09-15T10:11:57.576"
+        },
+        {
+          "servico": "Geração de guia de pagamento",
+          "dataHoraExecucao": "2021-09-15T10:11:57.606"
+        },
+        {
+          "servico": "Auditoria",
+          "dataHoraExecucao": "2021-09-15T13:23:59.303"
+        },
+        {
+          "servico": "Emissão de CRV/CRLVe",
+          "dataHoraExecucao": "2021-09-15T13:38:58.3"
+        }
+      ]
+    },
+    {
+      "numeroProcesso": "719946/2021",
+      "interessadoDocumento": "015*******4",
+      "dataHoraInicio": "2021-06-29T15:17:00",
+      "dataHoraFim": "2021-07-01T08:46:00",
+      "situacao": "Encerrado",
+      "servicos": [
+        {
+          "servico": "Transferência de Domicílio",
+          "dataHoraExecucao": "2021-06-29T15:17:59.91"
+        },
+        {
+          "servico": "Baixa de Alienação Fiduciária",
+          "dataHoraExecucao": "2021-06-29T15:17:59.91"
+        },
+        {
+          "servico": "Transferência de Propriedade",
+          "dataHoraExecucao": "2021-06-29T15:17:59.91"
+        },
+        {
+          "servico": "Alienação Fiduciária",
+          "dataHoraExecucao": "2021-06-29T15:17:59.91"
+        },
+        {
+          "servico": "Geração de guia de pagamento",
+          "dataHoraExecucao": "2021-06-29T15:18:00.473"
+        },
+        {
+          "servico": "Auditoria",
+          "dataHoraExecucao": "2021-07-01T08:46:23.916"
+        },
+        {
+          "servico": "Emissão de CRV/CRLVe",
+          "dataHoraExecucao": "2021-07-01T09:04:31.663"
+        }
+      ]
+    },
+    {
+      "numeroProcesso": "109423/2021",
+      "interessadoDocumento": "399*******2",
+      "dataHoraInicio": "2021-02-03T14:33:00",
+      "dataHoraFim": "2021-02-03T15:51:00",
+      "situacao": "Encerrado",
+      "servicos": [
+        {
+          "servico": "Primeiro Emplacamento",
+          "dataHoraExecucao": "2021-02-03T14:33:13.65",
+          "emitenteNFNome": "V** C** P****** C******* D* V******* L***",
+          "emitenteNFDocumento": "341**********6",
+          "dataEmissaoNF": "2021-01-29",
+          "valorNF": 85500
+        },
+        {
+          "servico": "Alienação Fiduciária",
+          "dataHoraExecucao": "2021-02-03T14:33:13.65"
+        },
+        {
+          "servico": "Geração de guia de pagamento",
+          "dataHoraExecucao": "2021-02-03T14:33:13.7"
+        },
+        {
+          "servico": "Auditoria",
+          "dataHoraExecucao": "2021-02-03T15:51:58.486"
+        },
+        {
+          "servico": "Autorização Nova PIV",
+          "dataHoraExecucao": "2021-02-03T15:51:58.486"
+        },
+        {
+          "servico": "Emissão de CRV/CRLVe",
+          "dataHoraExecucao": "2021-02-03T15:55:13.633"
+        }
+      ]
+    }
+  ],
+  "editaisCedo": [],
+  "ipvasNotificados": [],
+  "recursosInfracao": [
+    {
+      "numeroProcesso": 19172,
+      "anoProcesso": 2023,
+      "dataDefesa": "2023-10-20",
+      "codigoInstancia": 9,
+      "instancia": "Indicação Condutor",
+      "numeroAuto": "68241322",
+      "tipoAuto": "R6",
+      "orgaoAuto": 100,
+      "descricaoAuto": "UF:RD-000100-R668241322-7455-0",
+      "descricaoInfracao": "TRANSITAR EM VEL SUPERIOR À MÁXIMA PERMITIDA EM ATÉ 20%",
+      "cidadeAuto": "IMBITUBA",
+      "dataHoraAuto": "2023-07-25T20:21:00",
+      "nomeLocal": "BR-101 KM-287 UF-SC",
+      "resultadoRecurso": "",
+      "resultadoIndicacao": "DEFERIDO em 10/01/2024",
+      "motivoResultadoInfracao": "",
+      "motivoResultadoIndicacao": "",
+      "informacaoRequerente": "Proprietário"
+    }
+  ],
+  "avisos": [],
+  "csvGnvVencido": false,
+  "origemDados": "Cadastro",
+  "hash": "7127cc00f2bf5f2819a7dd13c3c8f565",
+  "token": "8db8a71d-05b9-4759-9ad5-f092d643fe78"
+}

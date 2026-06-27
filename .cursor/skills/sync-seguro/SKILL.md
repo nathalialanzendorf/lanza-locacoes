@@ -63,6 +63,17 @@ Formato do JSON (array):
 - Dois PDFs do **mesmo veículo/mês** colapsam num único registo (mantém o canónico).
 - Ver também [`_idempotencia.md`](../_idempotencia.md).
 
+## Espelhar no Rastreame (tela Manutenção)
+
+Como toda despesa de parceiro, o seguro é espelhado na tela **Manutenção** do Rastreame:
+
+```bash
+npx tsx src/run.ts sync-manutencao --categoria Seguro --dry-run
+npx tsx src/run.ts sync-manutencao --categoria Seguro
+```
+
+Idempotente (guarda `rastreameManutencaoId` em `parceiro-despesas.json`); o rastreável é resolvido pela placa. Ver tool **`.cursor/tools/rastreame/`**.
+
 ## Critério de conclusão
 
 - Um registo por veículo sem duplicar jpg+pdf.

@@ -1,19 +1,20 @@
 /**
- * Lança rastreador fixo mensal em parceiro-despesas.json (todos os veículos cadastrados).
+ * Lança o rastreador fixo mensal em parceiro-despesas.json (todos os veículos cadastrados).
+ * Faz parte da skill cadastro-despesa — grava só localmente (não é um sync).
  *
- * Regra: R$ 50,00 — vencimento dia 10. Idempotente.
+ * Regra: R$ 50,00 — vencimento dia 10. Idempotente (placa + competência).
  */
 import {
   competenciaAtual,
   RASTREADOR_DIA_PADRAO,
   RASTREADOR_VALOR_PADRAO,
-  syncRastreadorFixo,
+  lancarRastreadorFixo,
 } from "../lib/rastreadorFixo.js";
 
 export function main(argv: string[]): void {
   if (argv.includes("-h") || argv.includes("--help")) {
     console.log(`Uso:
-  sync-rastreador [--desde MM/AAAA] [--ate MM/AAAA] [--dry-run]
+  gravar-rastreador [--desde MM/AAAA] [--ate MM/AAAA] [--dry-run]   (alias: sync-rastreador)
 
 Regra fixa (todos os veículos em veiculos.json):
   valor: R$ ${RASTREADOR_VALOR_PADRAO.toFixed(2)} por mês
@@ -36,7 +37,7 @@ Por defeito: --desde 01/2026 --ate ${competenciaAtual()}
     else if (a === "--dry-run") dryRun = true;
   }
 
-  const r = syncRastreadorFixo({ desde, ate, dryRun });
+  const r = lancarRastreadorFixo({ desde, ate, dryRun });
   const prefix = dryRun ? "[dry-run] " : "";
   console.log(
     `${prefix}Rastreador: ${r.veiculos} veículo(s) × ${r.competencias.length} mês(es) (${desde} → ${ate})`,

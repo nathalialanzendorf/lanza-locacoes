@@ -10,7 +10,12 @@ const RASTREAVEL_BASE = `${RASTREAME_ORIGIN}/keek/rest/rastreavel`;
 export type Rastreavel = {
   id?: string | number;
   key?: string | number;
+  /** Referência embutida em gastos ("PLACA - COMPACT - MODELO (dono)"). */
   value?: string;
+  /** Placa, na listagem/detalhe de rastreável. */
+  identificador?: string;
+  /** Descrição ("COMPACT - MODELO ANO (dono)"), na listagem/detalhe. */
+  descricao?: string;
   ativo?: boolean;
   [key: string]: unknown;
 };

@@ -38,6 +38,8 @@ Campos frequentemente alterados no fluxo desta skill:
 - `data` — data/hora do vencimento ou do pagamento conforme o caso.
 - `info` — título/descrição; remover `ATRASADO` quando o pagamento for registado como quitado no sentido operacional.
 
+> Tags `ATRASADO` / `[NEGOCIADO X]`: regra na **`SKILL.md`** desta pasta (seção "Tags no `info` — fonte única") e em **`renegociar-debitos`** para `[NEGOCIADO X]`.
+
 Exemplo ilustrativo (dados inventados):
 
 ```json

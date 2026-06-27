@@ -48,8 +48,10 @@ export type SalvarRelatorioEncerramentoOpts = {
   relatoriosDir?: string;
   /** Sobrescreve caminho do .txt (documento para o cliente). */
   outTxt?: string | null;
-  /** Opcional: grava JSON só se pedido (ex. rascunho em relatorios/_tmp/). */
+  /** Sobrescreve caminho do JSON de dados (default: mesmo base do .txt + .json). */
   outJson?: string | null;
+  /** Desliga a gravação do JSON de dados (que alimenta o canvas). */
+  semJson?: boolean;
 };
 
 export function salvarRelatorioEncerramento(
@@ -68,8 +70,12 @@ export function salvarRelatorioEncerramento(
   fs.writeFileSync(txtPath, texto, "utf8");
 
   const out: { txt: string; json?: string } = { txt: txtPath };
-  if (opts.outJson) {
-    const jsonPath = path.resolve(opts.outJson);
+  // JSON de dados estruturados (sidecar) — alimenta o canvas. Por padrão grava
+  // ao lado do .txt (mesma base + .json); --no-salvar/semJson desliga.
+  if (!opts.semJson) {
+    const jsonPath = opts.outJson
+      ? path.resolve(opts.outJson)
+      : txtPath.replace(/\.txt$/i, ".json");
     fs.mkdirSync(path.dirname(jsonPath), { recursive: true });
     fs.writeFileSync(jsonPath, JSON.stringify(result, null, 2), "utf8");
     out.json = jsonPath;

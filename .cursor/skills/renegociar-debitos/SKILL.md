@@ -18,6 +18,29 @@ Skill para **renegociar débitos em aberto** de um locatário no **Rastreame** (
 
 **Listagem (UI):** [Gastos — listagem](https://rastreame.com.br/#/gastos/list)
 
+## Formato ao listar despesas do cliente (obrigatório)
+
+> Terminologia: referir-se **sempre** a estes lançamentos como **"despesas do cliente"**
+> (não "pendências" nem "débitos do cliente").
+
+**Sempre** que listar as **despesas do cliente**, usar uma tabela com **exatamente estas
+colunas, nesta ordem** (iguais ao cadastro de Gastos Gerais do Rastreame):
+
+| Rastreável | Data | Descrição | Motorista | Tipo | Total |
+|---|---|---|---|---|---|
+
+`Rastreável` = `rastreameLabel` do veículo. Fechar com linha de **Total**.
+
+De-para do **Tipo** (Gastos Gerais do Rastreame):
+
+| Tipo (Rastreame) | O que é | Categoria interna |
+|---|---|---|
+| **DOCUMENTACAO** | Renegociações | `Renegociação` |
+| **OUTROS** | Cobrança semanal e caução | `Locação semanal`, `Caução` |
+| **PEDAGIO** | Pedágio e estacionamento rotativo | `Pedágio`, `Estacionamento` |
+| **MULTA** | Infrações | `Infração` |
+| **ALIMENTACAO** | Manutenção de responsabilidade do cliente (troca de óleo/pneu, acionamento de franquia, lavação) | `Manutenção` |
+
 ## Autenticação e execução no site
 
 - **Nunca** colar tokens JWT, cookies ou `curl` com sessão no repositório.
@@ -79,11 +102,16 @@ npx tsx src/run.ts renegociar-debitos relatorios/_renegociacao_<cliente>.json --
 
 | Campo | Regra |
 |-------|--------|
-| **`info`** | Prefixar **`[NEGOCIADO X]`** + espaço + texto original. Se já começar com `[NEGOCIADO`, não duplicar. |
+| **`info`** | Prefixar **`[NEGOCIADO X]`** + espaço + texto original **sem a tag `ATRASADO`**. Se já começar com `[NEGOCIADO`, não duplicar. |
 | **Corpo** | **GET** do gasto por id → alterar só `info` → **PUT** corpo completo (como a UI). |
 | **`tipo`** | Manter o tipo original do débito (não alterar para DOCUMENTACAO). |
 
-Exemplo: `ATRASADO - Pagamento semanal - Segunda 22` → `[NEGOCIADO 1] ATRASADO - Pagamento semanal - Segunda 22`
+> ⚠️ **Regra: `[NEGOCIADO X]` remove `ATRASADO`.** Sempre que aplicar a tag
+> `[NEGOCIADO X]`, **remover a tag `ATRASADO`** do `info` (o débito deixou de estar
+> em atraso — passou a negociado). Implementado em `infoMarcadaNegociada` /
+> `removerTagAtrasado` (`src/lib/rastreame/renegociacao.ts`).
+
+Exemplo: `ATRASADO Pagamento semanal - Segunda 22` → `[NEGOCIADO 1] Pagamento semanal - Segunda 22`
 
 ### Novas parcelas (`POST`)
 

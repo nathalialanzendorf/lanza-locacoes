@@ -1,0 +1,514 @@
+{
+  "placa": "MLW7809",
+  "renavam": 1029186780,
+  "proprietarioAtual": "J***** L****** E******",
+  "proprietarioAnterior": "M**** A****** L******",
+  "principalCondutor": "",
+  "cor": "Branca",
+  "marcaModelo": "HYUNDAI/HB20 1.0M COMFOR",
+  "anoFabricacao": 2014,
+  "anoModelo": 2015,
+  "motivoBaixa": "Em circulação",
+  "exercicioLicenciamento": 2025,
+  "licenciado": "2025 CRLV Digital",
+  "municipio": "BRACO DO NORTE",
+  "uf": "SC",
+  "debitos": [
+    {
+      "idDebito": 643072876,
+      "descricaoClasse": "UF:RD-000100-J002807177-7455",
+      "dataVencimentoOriginal": "2026-04-24",
+      "valorAtualizado": 132.85,
+      "linhaDigitavel": "00190.00009  03644.643169  43072.876170  3  14930000013285",
+      "emiteGuia": 1,
+      "exercicio": 2025,
+      "dareSat": 0,
+      "vencido": true
+    },
+    {
+      "idDebito": 672256852,
+      "descricaoClasse": "UF:RD-000100-J002969750-7463",
+      "dataVencimentoOriginal": "2026-05-04",
+      "valorAtualizado": 197.18,
+      "linhaDigitavel": "00190.00009  03644.643169  72256.852178  5  14930000019718",
+      "emiteGuia": 1,
+      "exercicio": 2025,
+      "dareSat": 0,
+      "vencido": true
+    },
+    {
+      "idDebito": 674839304,
+      "descricaoClasse": "CRICIUM-008788-CRC0824305-7455",
+      "dataVencimentoOriginal": "2026-06-29",
+      "valorAtualizado": 130.16,
+      "linhaDigitavel": "00190.00009  03021.606169  74839.304172  5  14920000010413",
+      "emiteGuia": 1,
+      "exercicio": 2026,
+      "dareSat": 0,
+      "vencido": false
+    },
+    {
+      "idDebito": 676110672,
+      "descricaoClasse": "CRICIUM-008788-CRC0850575-7455",
+      "dataVencimentoOriginal": "2026-08-25",
+      "valorAtualizado": 130.16,
+      "linhaDigitavel": "00190.00009  03021.606169  76110.672177  9  15490000010413",
+      "emiteGuia": 1,
+      "exercicio": 2026,
+      "dareSat": 0,
+      "vencido": false
+    },
+    {
+      "idDebito": 656593059,
+      "descricaoClasse": "IPVA (Cota Unica) 2026",
+      "dataVencimentoOriginal": "2026-09-30",
+      "valorAtualizado": 684.88,
+      "linhaDigitavel": "85600000006-2  84880024805-8  35026001029-2  18678018053-2",
+      "emiteGuia": 1,
+      "exercicio": 2026,
+      "dareSat": 1,
+      "vencido": false
+    },
+    {
+      "idDebito": 656593060,
+      "descricaoClasse": "IPVA (1a. Cota) 2026",
+      "dataVencimentoOriginal": "2026-09-10",
+      "valorAtualizado": 228.29,
+      "linhaDigitavel": "85640000002-7  28290024805-9  35126001029-0  18678018053-2",
+      "emiteGuia": 1,
+      "exercicio": 2026,
+      "dareSat": 1,
+      "vencido": false
+    },
+    {
+      "idDebito": 656593061,
+      "descricaoClasse": "IPVA (2a. Cota) 2026",
+      "dataVencimentoOriginal": "2026-10-10",
+      "valorAtualizado": 228.29,
+      "linhaDigitavel": "85630000002-8  28290024805-9  35226001029-8  18678018053-2",
+      "emiteGuia": 3,
+      "motivoNaoEmissaoGuia": "1ª Cota não quitada",
+      "exercicio": 2026,
+      "dareSat": 0,
+      "vencido": false
+    },
+    {
+      "idDebito": 656593062,
+      "descricaoClasse": "IPVA (3a. Cota) 2026",
+      "dataVencimentoOriginal": "2026-11-10",
+      "valorAtualizado": 228.3,
+      "linhaDigitavel": "85690000002-2  28300024805-6  35326001029-6  18678018053-2",
+      "emiteGuia": 3,
+      "motivoNaoEmissaoGuia": "2ª Cota não quitada",
+      "exercicio": 2026,
+      "dareSat": 0,
+      "vencido": false
+    },
+    {
+      "idDebito": 656593058,
+      "descricaoClasse": "Licenciamento Anual 2026",
+      "dataVencimentoOriginal": "2026-11-30",
+      "valorAtualizado": 149.37,
+      "linhaDigitavel": "85690000001-4  49370024700-7  06565930580-2  00260021353-8",
+      "emiteGuia": 1,
+      "exercicio": 2026,
+      "dareSat": 1,
+      "vencido": false
+    }
+  ],
+  "infracoes": [
+    {
+      "idAutoInfracao": 65295768,
+      "numeroAuto": "0000556415",
+      "descricao": "AVANÇAR SINAL VERM, EXC OND. PERM LIVR CONV A DIR - Fisc Ele",
+      "dataHoraAutuacao": "2025-01-05T02:50:58",
+      "localInfracao": "AV. OSVALDO REIS 839,  ITAJAÍ - SC - ITAJAI/SC",
+      "complemento": "                                                                                ",
+      "valor": 293.47,
+      "situacao": "Autuação notificada",
+      "status": "Em aberto",
+      "protocolo": "8749.6050.0000556415",
+      "dataLimiteDefesa": "2025-03-21",
+      "prazoDefesaExpirado": true
+    },
+    {
+      "idAutoInfracao": 68543087,
+      "numeroAuto": "J002969750",
+      "descricao": "TRANS EM VELOC SUP À MÁX PERMITIDA EM MAIS DE 20% ATE 50%   ",
+      "dataHoraAutuacao": "2025-07-23T17:22:00",
+      "localInfracao": "SC - BR 101 - KM 363.40 - C - SANGAO/SC",
+      "valor": 195.23,
+      "situacao": "Penalidade notificada",
+      "status": "Em aberto",
+      "protocolo": "100.7463.J002969750",
+      "dataLimiteDefesa": "2025-10-01",
+      "prazoDefesaExpirado": true
+    },
+    {
+      "idAutoInfracao": 68431171,
+      "numeroAuto": "J002807177",
+      "descricao": "TRANSITAR EM VEL SUPERIOR À MÁXIMA PERMITIDA EM ATÉ 20%",
+      "dataHoraAutuacao": "2025-07-24T00:21:00",
+      "localInfracao": "RS - BR 290 - KM 70.90 - C - GRAVATAI/RS",
+      "valor": 130.16,
+      "situacao": "Penalidade notificada",
+      "status": "Em aberto",
+      "protocolo": "100.7455.J002807177",
+      "dataLimiteDefesa": "2025-09-23",
+      "prazoDefesaExpirado": true
+    },
+    {
+      "idAutoInfracao": 73497248,
+      "numeroAuto": "CRC0824305",
+      "descricao": "TRANSITAR EM VEL SUPERIOR À MÁXIMA PERMITIDA EM ATÉ 20%",
+      "dataHoraAutuacao": "2026-01-28T08:57:31",
+      "localInfracao": "ROD. OTAVIO DASSOLER, PROXIMO A CRIPLAST EMBALAGENS - CRICIUMA/SC",
+      "valor": 130.16,
+      "situacao": "Penalidade notificada",
+      "status": "Em aberto",
+      "protocolo": "8788.7455.CRC0824305",
+      "dataLimiteDefesa": "2026-04-13",
+      "prazoDefesaExpirado": true
+    },
+    {
+      "idAutoInfracao": 74425632,
+      "numeroAuto": "CRC0850575",
+      "descricao": "TRANSITAR EM VEL SUPERIOR À MÁXIMA PERMITIDA EM ATÉ 20%",
+      "dataHoraAutuacao": "2026-03-29T01:08:34",
+      "localInfracao": "AVENIDA UNIVERSITARIA N  967 E 1860 - CRICIUMA/SC",
+      "valor": 130.16,
+      "situacao": "Penalidade notificada",
+      "status": "Em aberto",
+      "protocolo": "8788.7455.CRC0850575",
+      "dataLimiteDefesa": "2026-06-08",
+      "prazoDefesaExpirado": true
+    },
+    {
+      "idAutoInfracao": 74528228,
+      "numeroAuto": "CRC0862752",
+      "descricao": "TRANSITAR EM VEL SUPERIOR À MÁXIMA PERMITIDA EM ATÉ 20%",
+      "dataHoraAutuacao": "2026-04-03T06:25:30",
+      "localInfracao": "AVENIDA GABRIEL ZANETTE, PROX GALDINO TRENTO - CRICIUMA/SC",
+      "valor": 130.16,
+      "situacao": "Autuação notificada",
+      "status": "Em aberto",
+      "protocolo": "8788.7455.CRC0862752",
+      "dataLimiteDefesa": "2026-06-15",
+      "prazoDefesaExpirado": true
+    }
+  ],
+  "historicoInfracoes": [
+    {
+      "idAutoInfracao": 26786442,
+      "numeroAuto": "E019903210",
+      "descricao": "TRANSITAR EM VEL SUPERIOR À MÁXIMA PERMITIDA EM ATÉ 20%",
+      "dataHoraAutuacao": "2015-06-06T11:32:00",
+      "localInfracao": "BR-101 KM 353.510 - JAGUARUNA/SC",
+      "valor": 85.13,
+      "situacao": "Penalidade notificada",
+      "status": "Paga",
+      "protocolo": "300.7455.E019903210",
+      "dataLimiteDefesa": "2016-02-09",
+      "prazoDefesaExpirado": true
+    },
+    {
+      "idAutoInfracao": 28519106,
+      "numeroAuto": "E023090061",
+      "descricao": "TRANSITAR EM VEL SUPERIOR À MÁXIMA PERMITIDA EM ATÉ 20%",
+      "dataHoraAutuacao": "2015-11-19T12:29:00",
+      "localInfracao": "BR-101 KM 336.160 - TUBARAO/SC",
+      "valor": 85.13,
+      "situacao": "Penalidade notificada",
+      "status": "Paga",
+      "protocolo": "300.7455.E023090061",
+      "dataLimiteDefesa": "2016-01-12",
+      "prazoDefesaExpirado": true
+    },
+    {
+      "idAutoInfracao": 37401383,
+      "numeroAuto": "8788522109",
+      "descricao": "TRANSITAR EM VEL SUPERIOR À MÁXIMA PERMITIDA EM ATÉ 20%",
+      "dataHoraAutuacao": "2018-02-17T23:17:59",
+      "localInfracao": "ROD. OTAVIO DASSOLER,PX. AO SISO S HALL,SENTIDO SC443/LINHA BATISTA - CRICIUMA/SC",
+      "valor": 130.16,
+      "situacao": "Penalidade notificada",
+      "status": "Paga",
+      "protocolo": "8788.7455.8788522109",
+      "dataLimiteDefesa": "2018-03-29",
+      "prazoDefesaExpirado": true
+    },
+    {
+      "idAutoInfracao": 47965129,
+      "numeroAuto": "P03G40010N",
+      "descricao": "DEIXAR O CONDUTOR DE USAR O CINTO SEGURANÇA ",
+      "dataHoraAutuacao": "2021-02-07T13:26:56",
+      "localInfracao": "AVENIDA SUL - IMBITUBA/SC",
+      "complemento": "AO LADO DO ESTACIONAMENTO DA BARRA                                              ",
+      "valor": 195.23,
+      "situacao": "Penalidade notificada",
+      "status": "Paga",
+      "protocolo": "8436.5185.P03G40010N",
+      "dataLimiteDefesa": "2021-03-30",
+      "prazoDefesaExpirado": true
+    },
+    {
+      "idAutoInfracao": 53405761,
+      "numeroAuto": "C114000297",
+      "descricao": "DEIXAR O CONDUTOR DE USAR O CINTO SEGURANÇA ",
+      "dataHoraAutuacao": "2022-06-03T20:43:00",
+      "localInfracao": "SC370/146.5/GRAVATAL (ENTR. SC-435) - ENTR. SC-108 (P/ SÃO LUDGERO) - BRACO DO NORTE/SC",
+      "complemento": "De fronte ao Rafael Automóveis.                                                 ",
+      "valor": 195.23,
+      "situacao": "Penalidade notificada",
+      "status": "Paga",
+      "protocolo": "8785.5185.C114000297",
+      "dataLimiteDefesa": "2022-07-25",
+      "prazoDefesaExpirado": true
+    },
+    {
+      "idAutoInfracao": 53883837,
+      "numeroAuto": "55075965W ",
+      "descricao": "DEIXAR DE EFETUAR REG DO VEIC EM 30 DIAS QDO FOR TRANSF PROP",
+      "dataHoraAutuacao": "2022-07-25T09:30:01.487",
+      "localInfracao": "RUA 22 DE OUTUBRO, 19 - BRACO DO NORTE/SC",
+      "valor": 130.16,
+      "situacao": "Penalidade notificada",
+      "status": "Paga",
+      "protocolo": "8786.6920.55075965W ",
+      "dataLimiteDefesa": "2022-09-26",
+      "prazoDefesaExpirado": true
+    },
+    {
+      "idAutoInfracao": 60101747,
+      "numeroAuto": "P06YU001BY",
+      "descricao": "DIRIGIR VEICULO C/ CNH/PPD/ACC C/ SUSP DO DIREITO DE DIRIGIR",
+      "dataHoraAutuacao": "2024-01-08T19:33:11",
+      "localInfracao": "RUA PRESIDENTE GETÚLIO VARGAS - GRAO PARA/SC",
+      "complemento": "                                                                                ",
+      "valor": 880.4,
+      "situacao": "Penalidade notificada",
+      "status": "Paga",
+      "protocolo": "8328.5029.P06YU001BY",
+      "dataLimiteDefesa": "2024-03-18",
+      "prazoDefesaExpirado": true
+    },
+    {
+      "idAutoInfracao": 60101748,
+      "numeroAuto": "P06YU001BZ",
+      "descricao": "COND VEÍCULO REGISTRADO Q NAO ESTEJA DEVIDAMENTE LICENCIADO",
+      "dataHoraAutuacao": "2024-01-08T19:49:12",
+      "localInfracao": "RUA PRESIDENTE GETÚLIO VARGAS - GRAO PARA/SC",
+      "complemento": "                                                                                ",
+      "valor": 293.47,
+      "situacao": "Penalidade notificada",
+      "status": "Paga",
+      "protocolo": "8328.6599.P06YU001BZ",
+      "dataLimiteDefesa": "2024-03-18",
+      "prazoDefesaExpirado": true
+    },
+    {
+      "idAutoInfracao": 60349510,
+      "numeroAuto": "P0ACT0006C",
+      "descricao": "ESTACIONAR NA CONTRAMÃO DE DIREÇÃO ",
+      "dataHoraAutuacao": "2024-01-26T09:31:31",
+      "localInfracao": "RODOVIA JOÃO ALFREDO ROSA (TBR-070), GUARDA MARGEM ESQUERDA - TUBARÃO - SANTA CA - TUBARAO/SC",
+      "complemento": "                                                                                ",
+      "valor": 130.16,
+      "situacao": "Penalidade notificada",
+      "status": "Paga",
+      "protocolo": "8072.5525.P0ACT0006C",
+      "dataLimiteDefesa": "2024-04-01",
+      "prazoDefesaExpirado": true
+    },
+    {
+      "idAutoInfracao": 61050426,
+      "numeroAuto": "C139006122",
+      "descricao": "DEIXAR O CONDUTOR DE USAR O CINTO SEGURANÇA ",
+      "dataHoraAutuacao": "2024-03-17T09:57:00",
+      "localInfracao": "SC370 -146.5-ENTR. SC-108 (P/ SÃO LUDGERO)  - GRAVATAL (ENTR. SC-435) - BRACO DO NORTE/SC",
+      "complemento": "Próximo Farmacon                                                                ",
+      "valor": 195.23,
+      "situacao": "Penalidade notificada",
+      "status": "Paga",
+      "protocolo": "8785.5185.C139006122",
+      "dataLimiteDefesa": "2024-05-20",
+      "prazoDefesaExpirado": true
+    }
+  ],
+  "dividaAtiva": [],
+  "dataAtualizacao": "2026-06-28T21:18:03",
+  "dataAquisicao": "2022-04-25",
+  "pendente": false,
+  "tipo": "Automovel",
+  "categoria": "Particular",
+  "carroceria": "Nao Aplicavel",
+  "especie": "Passageiro",
+  "placaAnterior": "MLW7809",
+  "lugares": 5,
+  "combustivel": "Alcool-Gasol",
+  "restricaoVenda": "Alienação Fiduciária em favor de B**** V********* S***",
+  "informacoesPendentesSng": [
+    "Registro de Baixa de Alienação Fiduciária informado por B**** V********* S** em 20/03/2026 às 06h56min para J***** L****** E******"
+  ],
+  "restricoes": "Intenção de Venda para L**** L******* D* V******* L*** (Data de Inclusão: 24/10/2025)",
+  "processos": [
+    {
+      "numeroProcesso": "738302/2022",
+      "interessadoDocumento": "079*******0",
+      "dataHoraInicio": "2022-07-25T09:25:00",
+      "dataHoraFim": "2022-07-25T09:30:00",
+      "situacao": "Encerrado",
+      "servicos": [
+        {
+          "servico": "Transferência de Domicílio",
+          "dataHoraExecucao": "2022-07-25T09:25:03.57"
+        },
+        {
+          "servico": "Transferência de Propriedade",
+          "dataHoraExecucao": "2022-07-25T09:25:03.57"
+        },
+        {
+          "servico": "Alienação Fiduciária",
+          "dataHoraExecucao": "2022-07-25T09:25:03.57"
+        },
+        {
+          "servico": "Geração de guia de pagamento",
+          "dataHoraExecucao": "2022-07-25T09:25:03.626"
+        },
+        {
+          "servico": "Auditoria",
+          "dataHoraExecucao": "2022-07-25T09:30:01.3"
+        },
+        {
+          "servico": "Autorização Nova PIV",
+          "dataHoraExecucao": "2022-07-25T09:30:01.3"
+        },
+        {
+          "servico": "Emissão de CRV/CRLVe",
+          "dataHoraExecucao": "2022-07-25T09:30:21.813"
+        },
+        {
+          "servico": "Conversão Nova PIV",
+          "dataHoraExecucao": "2022-07-25T09:25:03.57"
+        }
+      ]
+    },
+    {
+      "numeroProcesso": "557551/2017",
+      "interessadoDocumento": "822*******5",
+      "dataHoraInicio": "2017-06-20T13:00:00",
+      "dataHoraFim": "2017-07-06T15:12:00",
+      "situacao": "Encerrado",
+      "servicos": [
+        {
+          "servico": "Baixa de Alienação Fiduciária",
+          "dataHoraExecucao": "2017-06-20T13:00:17.59"
+        },
+        {
+          "servico": "Transferência de Propriedade",
+          "dataHoraExecucao": "2017-06-20T13:00:17.59"
+        },
+        {
+          "servico": "Geração de guia de pagamento",
+          "dataHoraExecucao": "2017-06-20T13:00:17.62"
+        },
+        {
+          "servico": "Auditoria",
+          "dataHoraExecucao": "2017-07-06T15:12:01.693"
+        },
+        {
+          "servico": "Emissão CRV(1ª via)",
+          "dataHoraExecucao": "2017-07-06T15:44:17.113"
+        }
+      ]
+    },
+    {
+      "numeroProcesso": "1142802/2014",
+      "interessadoDocumento": "595*******5",
+      "dataHoraInicio": "2014-12-04T13:44:00",
+      "dataHoraFim": "2014-12-04T17:50:00",
+      "situacao": "Encerrado",
+      "servicos": [
+        {
+          "servico": "Emissão de CRLV (1ª Via)",
+          "dataHoraExecucao": "2014-12-04T17:51:14.826"
+        },
+        {
+          "servico": "Primeiro Emplacamento",
+          "dataHoraExecucao": "2014-12-04T13:44:47.483",
+          "emitenteNFNome": "A**** V******* L***",
+          "emitenteNFDocumento": "133**********2",
+          "dataEmissaoNF": "2014-12-03",
+          "valorNF": 43000
+        },
+        {
+          "servico": "Alienação Fiduciária",
+          "dataHoraExecucao": "2014-12-04T13:44:47.483"
+        },
+        {
+          "servico": "Geração de guia de pagamento",
+          "dataHoraExecucao": "2014-12-04T13:44:48.076"
+        },
+        {
+          "servico": "Auditoria",
+          "dataHoraExecucao": "2014-12-04T17:50:32.84"
+        },
+        {
+          "servico": "Emissão de CRV (1ª Via) - Individual",
+          "dataHoraExecucao": "2014-12-10T12:44:11.316"
+        }
+      ]
+    }
+  ],
+  "editaisCedo": [
+    {
+      "numeroEdital": "340/2022",
+      "numeroAuto": "55075965W ",
+      "tipo": "Autuação",
+      "dataPublicacaoDOE": "2022-08-16",
+      "hash": "5b4c0517cca67b21e6bcbfa446284eae"
+    },
+    {
+      "numeroEdital": "363/2022",
+      "numeroAuto": "55075965W ",
+      "tipo": "Penalidade",
+      "dataPublicacaoDOE": "2022-11-03",
+      "hash": "a32c32e43cc8ea6a223bcb5e162944f2"
+    },
+    {
+      "numeroEdital": "494/2024",
+      "numeroAuto": "P06YU001BY",
+      "tipo": "Autuação",
+      "dataPublicacaoDOE": "2024-02-07",
+      "hash": "93516ace413120e540b82979f3bfac32"
+    },
+    {
+      "numeroEdital": "494/2024",
+      "numeroAuto": "P06YU001BZ",
+      "tipo": "Autuação",
+      "dataPublicacaoDOE": "2024-02-07",
+      "hash": "93516ace413120e540b82979f3bfac32"
+    },
+    {
+      "numeroEdital": "519/2024",
+      "numeroAuto": "P06YU001BY",
+      "tipo": "Penalidade",
+      "dataPublicacaoDOE": "2024-04-30",
+      "hash": "52c391367b24f612f96c769c5d76ab38"
+    },
+    {
+      "numeroEdital": "519/2024",
+      "numeroAuto": "P06YU001BZ",
+      "tipo": "Penalidade",
+      "dataPublicacaoDOE": "2024-04-30",
+      "hash": "52c391367b24f612f96c769c5d76ab38"
+    }
+  ],
+  "ipvasNotificados": [],
+  "recursosInfracao": [],
+  "avisos": [],
+  "csvGnvVencido": false,
+  "origemDados": "Cadastro",
+  "hash": "cf7b1046ae233c3c1bb98b6df684a226",
+  "token": "89ef68ce-c7d8-445f-81ff-c24580d94c8f"
+}

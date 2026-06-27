@@ -1,0 +1,491 @@
+{
+  "placa": "MLX2H34",
+  "renavam": 557053293,
+  "proprietarioAtual": "L*** P**** D* O*******",
+  "proprietarioAnterior": "L****** D* S**** C*****",
+  "principalCondutor": "",
+  "cor": "Branca",
+  "marcaModelo": "HYUNDAI/HB20 1.0M 1.0 M",
+  "anoFabricacao": 2013,
+  "anoModelo": 2014,
+  "motivoBaixa": "Em circulação",
+  "exercicioLicenciamento": 2026,
+  "licenciado": "2026 CRLV Digital",
+  "municipio": "CAPIVARI DE BAIXO",
+  "uf": "SC",
+  "debitos": [],
+  "infracoes": [],
+  "historicoInfracoes": [
+    {
+      "idAutoInfracao": 23195847,
+      "numeroAuto": "8749374932",
+      "descricao": "AVANÇAR SINAL VERMELHO DO SEMAFORO - FISCALIZACAO ELETRONICA",
+      "dataHoraAutuacao": "2014-06-06T19:53:55",
+      "localInfracao": "AV. CEL. MARCOS KONDER / RUA SILVA - SENTIDO: NORTE/SUL - ITAJAI/SC",
+      "valor": 191.53,
+      "situacao": "Penalidade notificada",
+      "status": "Paga",
+      "protocolo": "8749.6050.8749374932",
+      "dataLimiteDefesa": "2014-08-01",
+      "prazoDefesaExpirado": true
+    },
+    {
+      "idAutoInfracao": 36441929,
+      "numeroAuto": "8749873820",
+      "descricao": "TRANSITAR EM VEL SUPERIOR À MÁXIMA PERMITIDA EM ATÉ 20%",
+      "dataHoraAutuacao": "2017-11-18T17:47:33",
+      "localInfracao": "AV. MARIO URIARTE, 1500 - FX: 2 - SENTIDO: LESTE/OESTE - ITAJAI/SC",
+      "valor": 130.16,
+      "situacao": "Penalidade notificada",
+      "status": "Paga",
+      "protocolo": "8749.7455.8749873820",
+      "dataLimiteDefesa": "2018-01-04",
+      "prazoDefesaExpirado": true
+    },
+    {
+      "idAutoInfracao": 36646914,
+      "numeroAuto": "55067705G ",
+      "descricao": "ESTAC EM DESACOR C/ REGULAMENTAÇÃO - ESTACIONAMENTO ROTATIVO",
+      "dataHoraAutuacao": "2017-12-18T10:55:00",
+      "localInfracao": "PCA VICTOR KONDER, DEF. PMB - BLUMENAU/SC",
+      "complemento": "",
+      "valor": 195.23,
+      "situacao": "Penalidade notificada",
+      "status": "Paga",
+      "protocolo": "8034.5541.55067705G ",
+      "dataLimiteDefesa": "2018-01-26",
+      "prazoDefesaExpirado": true
+    },
+    {
+      "idAutoInfracao": 39712671,
+      "numeroAuto": "8749955119",
+      "descricao": "AVANÇAR SINAL VERMELHO DO SEMAFORO - FISCALIZACAO ELETRONICA",
+      "dataHoraAutuacao": "2018-09-18T14:04:17",
+      "localInfracao": "AV. IRINEU BORNHAUSEN / R. BENJAMIN FRANKLIN PEREIRA - FX: 1 - SENTIDO: N/S - ITAJAI/SC",
+      "valor": 293.47,
+      "situacao": "Penalidade notificada",
+      "status": "Paga",
+      "protocolo": "8749.6050.8749955119",
+      "dataLimiteDefesa": "2018-11-05",
+      "prazoDefesaExpirado": true
+    },
+    {
+      "idAutoInfracao": 64093175,
+      "numeroAuto": "R845784706",
+      "descricao": "TRANSITAR EM VEL SUPERIOR À MÁXIMA PERMITIDA EM ATÉ 20%",
+      "dataHoraAutuacao": "2024-09-28T02:16:00",
+      "localInfracao": "BR-101 KM-325 UF-SC - CAPIVARI DE BAIXO/SC",
+      "valor": 130.16,
+      "situacao": "Penalidade notificada",
+      "status": "Paga",
+      "protocolo": "100.7455.R845784706",
+      "dataLimiteDefesa": "2024-12-17",
+      "prazoDefesaExpirado": true
+    },
+    {
+      "idAutoInfracao": 64091364,
+      "numeroAuto": "R845502069",
+      "descricao": "TRANSITAR EM VEL SUPERIOR À MÁXIMA PERMITIDA EM ATÉ 20%",
+      "dataHoraAutuacao": "2024-09-28T02:19:00",
+      "localInfracao": "BR-101 KM-318 UF-SC - PESCARIA BRAVA/SC",
+      "valor": 130.16,
+      "situacao": "Penalidade notificada",
+      "status": "Paga",
+      "protocolo": "100.7455.R845502069",
+      "dataLimiteDefesa": "2024-12-17",
+      "prazoDefesaExpirado": true
+    },
+    {
+      "idAutoInfracao": 68119095,
+      "numeroAuto": "CRC0757435",
+      "descricao": "TRANSITAR EM VEL SUPERIOR À MÁXIMA PERMITIDA EM ATÉ 20%",
+      "dataHoraAutuacao": "2025-07-07T00:16:54",
+      "localInfracao": "AV. SANTOS DUMONT (PROXIMO AMREC/ FORUM) - CRICIUMA/SC",
+      "complemento": "                                                                                ",
+      "valor": 130.16,
+      "situacao": "Penalidade notificada",
+      "status": "Paga",
+      "protocolo": "8788.7455.CRC0757435",
+      "dataLimiteDefesa": "2025-09-19",
+      "prazoDefesaExpirado": true
+    },
+    {
+      "idAutoInfracao": 68090003,
+      "numeroAuto": "C246006656",
+      "descricao": "EM MOVIMENTO, DEIXAR DE MANTER ACESA A LUZ BAIXA A NOITE",
+      "dataHoraAutuacao": "2025-07-13T00:01:18",
+      "localInfracao": "CRICIUMA (ENTR. NOROESTE ANEL RODOVIARIO) - CRICIUMA (ENTR. SC-10 - KM 52.2 - CRICIUMA/SC",
+      "complemento": "Colina",
+      "valor": 130.16,
+      "situacao": "Penalidade notificada",
+      "status": "Paga",
+      "protocolo": "8785.7234.C246006656",
+      "dataLimiteDefesa": "2025-09-15",
+      "prazoDefesaExpirado": true
+    },
+    {
+      "idAutoInfracao": 68503904,
+      "numeroAuto": "J002870761",
+      "descricao": "TRANSITAR EM VEL SUPERIOR À MÁXIMA PERMITIDA EM ATÉ 20%",
+      "dataHoraAutuacao": "2025-07-19T04:39:00",
+      "localInfracao": "SC - BR 101 - KM 213.75 - C - PALHOCA/SC",
+      "valor": 130.16,
+      "situacao": "Penalidade notificada",
+      "status": "Paga",
+      "protocolo": "100.7455.J002870761",
+      "dataLimiteDefesa": "2025-09-26",
+      "prazoDefesaExpirado": true
+    },
+    {
+      "idAutoInfracao": 68503925,
+      "numeroAuto": "J002871165",
+      "descricao": "TRANSITAR EM VEL SUPERIOR À MÁXIMA PERMITIDA EM ATÉ 20%",
+      "dataHoraAutuacao": "2025-07-19T05:15:00",
+      "localInfracao": "SC - BR 101 - KM 277.30 - C - IMBITUBA/SC",
+      "valor": 130.16,
+      "situacao": "Penalidade notificada",
+      "status": "Paga",
+      "protocolo": "100.7455.J002871165",
+      "dataLimiteDefesa": "2025-09-26",
+      "prazoDefesaExpirado": true
+    },
+    {
+      "idAutoInfracao": 71000748,
+      "numeroAuto": "6RA2144416",
+      "descricao": "TRANSITAR EM LOCAL/HORÁRIO NAO PERMITIDO REGULAMENT-RODIZIO",
+      "dataHoraAutuacao": "2025-12-02T19:16:00",
+      "localInfracao": "MARGINAL TIETE, PISTA CENTRAL (A. SENNA-CASTELO BRANCO), A MENOS 133M DO KM 15 - SAO PAULO/SP",
+      "valor": 130.16,
+      "situacao": "Penalidade notificada",
+      "status": "Paga",
+      "protocolo": "271070.5746.6RA2144416",
+      "dataLimiteDefesa": "2026-02-17",
+      "prazoDefesaExpirado": true
+    }
+  ],
+  "dividaAtiva": [],
+  "dataAtualizacao": "2026-06-28T21:17:38",
+  "dataAquisicao": "2025-04-10",
+  "pendente": false,
+  "tipo": "Automovel",
+  "categoria": "Particular",
+  "carroceria": "Nao Aplicavel",
+  "especie": "Passageiro",
+  "placaAnterior": "MLX2734",
+  "lugares": 5,
+  "combustivel": "Alcool-Gasol",
+  "restricaoVenda": "Sem gravame",
+  "informacoesPendentesSng": [],
+  "processos": [
+    {
+      "numeroProcesso": "487074/2025",
+      "interessadoDocumento": "669*******9",
+      "dataHoraInicio": "2025-05-02T10:39:00",
+      "dataHoraFim": "2025-05-02T14:58:00",
+      "situacao": "Encerrado",
+      "servicos": [
+        {
+          "servico": "Transferência de Domicílio",
+          "dataHoraExecucao": "2025-05-02T10:39:47.076"
+        },
+        {
+          "servico": "Transferência de Propriedade",
+          "dataHoraExecucao": "2025-05-02T10:39:47.073"
+        },
+        {
+          "servico": "Geração de guia de pagamento",
+          "dataHoraExecucao": "2025-05-02T10:39:47.13"
+        },
+        {
+          "servico": "Auditoria",
+          "dataHoraExecucao": "2025-05-02T14:58:08.86"
+        },
+        {
+          "servico": "Emissão de CRV/CRLVe",
+          "dataHoraExecucao": "2025-05-02T14:58:33.2"
+        }
+      ]
+    },
+    {
+      "numeroProcesso": "804173/2024",
+      "interessadoDocumento": "081*******5",
+      "dataHoraInicio": "2024-07-15T16:38:00",
+      "dataHoraFim": "2024-07-18T13:09:00",
+      "situacao": "Encerrado",
+      "servicos": [
+        {
+          "servico": "Transferência de Domicílio",
+          "dataHoraExecucao": "2024-07-15T16:38:25.066"
+        },
+        {
+          "servico": "Transferência de Propriedade",
+          "dataHoraExecucao": "2024-07-15T16:38:25.066"
+        },
+        {
+          "servico": "Geração de guia de pagamento",
+          "dataHoraExecucao": "2024-07-15T16:38:25.1"
+        },
+        {
+          "servico": "Auditoria",
+          "dataHoraExecucao": "2024-07-18T13:09:13.136"
+        },
+        {
+          "servico": "Emissão de CRV/CRLVe",
+          "dataHoraExecucao": "2024-07-18T13:09:46.64"
+        }
+      ]
+    },
+    {
+      "numeroProcesso": "1270170/2022",
+      "interessadoDocumento": "008*******2",
+      "dataHoraInicio": "2022-12-08T11:06:00",
+      "dataHoraFim": "2022-12-09T11:45:00",
+      "situacao": "Encerrado",
+      "servicos": [
+        {
+          "servico": "Transferência de Domicílio",
+          "dataHoraExecucao": "2022-12-08T11:06:38.943"
+        },
+        {
+          "servico": "Baixa de Alienação Fiduciária",
+          "dataHoraExecucao": "2022-12-08T11:06:38.943"
+        },
+        {
+          "servico": "Transferência de Propriedade",
+          "dataHoraExecucao": "2022-12-08T11:06:38.943"
+        },
+        {
+          "servico": "Geração de guia de pagamento",
+          "dataHoraExecucao": "2022-12-08T11:06:38.966"
+        },
+        {
+          "servico": "Conversão Nova PIV",
+          "dataHoraExecucao": "2022-12-08T11:06:38.943"
+        },
+        {
+          "servico": "Auditoria",
+          "dataHoraExecucao": "2022-12-09T11:45:58.433"
+        },
+        {
+          "servico": "Autorização Nova PIV",
+          "dataHoraExecucao": "2022-12-09T11:45:58.436"
+        },
+        {
+          "servico": "Emissão de CRV/CRLVe",
+          "dataHoraExecucao": "2022-12-09T11:46:49.396"
+        }
+      ]
+    },
+    {
+      "numeroProcesso": "641355/2019",
+      "interessadoDocumento": "293*******9",
+      "dataHoraInicio": "2019-07-01T14:54:00",
+      "dataHoraFim": "2019-07-09T09:38:00",
+      "situacao": "Encerrado",
+      "servicos": [
+        {
+          "servico": "Transferência de Propriedade",
+          "dataHoraExecucao": "2019-07-01T14:54:40.613"
+        },
+        {
+          "servico": "Alienação Fiduciária",
+          "dataHoraExecucao": "2019-07-01T14:54:40.613"
+        },
+        {
+          "servico": "Geração de guia de pagamento",
+          "dataHoraExecucao": "2019-07-01T14:54:40.646"
+        },
+        {
+          "servico": "Auditoria",
+          "dataHoraExecucao": "2019-07-09T09:38:45.133"
+        },
+        {
+          "servico": "Emissão CRV(1ª via)",
+          "dataHoraExecucao": "2019-07-09T14:05:37.52"
+        }
+      ]
+    },
+    {
+      "numeroProcesso": "1217171/2018",
+      "interessadoDocumento": "293*******9",
+      "dataHoraInicio": "2018-12-04T09:00:00",
+      "dataHoraFim": "2018-12-21T15:22:00",
+      "situacao": "Encerrado",
+      "servicos": [
+        {
+          "servico": "Transferência de Domicílio",
+          "dataHoraExecucao": "2018-12-04T09:00:10.766"
+        },
+        {
+          "servico": "Baixa de Alienação Fiduciária",
+          "dataHoraExecucao": "2018-12-04T09:00:10.766"
+        },
+        {
+          "servico": "Transferência de Propriedade",
+          "dataHoraExecucao": "2018-12-04T09:00:10.766"
+        },
+        {
+          "servico": "Geração de guia de pagamento",
+          "dataHoraExecucao": "2018-12-04T09:00:10.783"
+        },
+        {
+          "servico": "Auditoria",
+          "dataHoraExecucao": "2018-12-21T15:22:17.38"
+        },
+        {
+          "servico": "Emissão CRV(1ª via)",
+          "dataHoraExecucao": "2018-12-21T15:33:36.486"
+        }
+      ]
+    },
+    {
+      "numeroProcesso": "714456/2013",
+      "interessadoDocumento": "939*******2",
+      "dataHoraInicio": "2013-08-13T10:20:00",
+      "dataHoraFim": "2013-08-13T11:02:00",
+      "situacao": "Encerrado",
+      "servicos": [
+        {
+          "servico": "Transferência de Propriedade",
+          "dataHoraExecucao": "2013-08-13T10:20:52.916"
+        },
+        {
+          "servico": "Alienação Fiduciária",
+          "dataHoraExecucao": "2013-08-13T10:20:52.916"
+        },
+        {
+          "servico": "Geração de guia de pagamento",
+          "dataHoraExecucao": "2013-08-13T10:20:52.95"
+        },
+        {
+          "servico": "Auditoria",
+          "dataHoraExecucao": "2013-08-13T11:02:33.966"
+        },
+        {
+          "servico": "Emissão CRV(1ª via)",
+          "dataHoraExecucao": "2013-08-13T12:04:50.493"
+        }
+      ]
+    },
+    {
+      "numeroProcesso": "681816/2013",
+      "interessadoDocumento": "939*******2",
+      "dataHoraInicio": "2013-08-02T11:33:00",
+      "dataHoraFim": "2013-08-02T14:19:00",
+      "situacao": "Encerrado",
+      "servicos": [
+        {
+          "servico": "Primeiro Emplacamento",
+          "dataHoraExecucao": "2013-08-02T11:33:17.6",
+          "emitenteNFNome": "L* C******* D* V******* L***",
+          "emitenteNFDocumento": "104**********7",
+          "dataEmissaoNF": "2013-07-29",
+          "valorNF": 36290
+        },
+        {
+          "servico": "Geração de guia de pagamento",
+          "dataHoraExecucao": "2013-08-02T11:33:17.6"
+        },
+        {
+          "servico": "Auditoria",
+          "dataHoraExecucao": "2013-08-02T14:19:24.76"
+        },
+        {
+          "servico": "Emissão CRV(1ª via)",
+          "dataHoraExecucao": "2013-08-02T14:19:51.07"
+        }
+      ]
+    }
+  ],
+  "editaisCedo": [],
+  "ipvasNotificados": [],
+  "recursosInfracao": [
+    {
+      "numeroProcesso": 37562,
+      "anoProcesso": 2025,
+      "dataDefesa": "2025-08-26",
+      "codigoInstancia": 9,
+      "instancia": "Indicação Condutor",
+      "numeroAuto": "02870761",
+      "tipoAuto": "J0",
+      "orgaoAuto": 100,
+      "descricaoAuto": "UF:RD-000100-J002870761-7455-0",
+      "descricaoInfracao": "TRANSITAR EM VEL SUPERIOR À MÁXIMA PERMITIDA EM ATÉ 20%",
+      "cidadeAuto": "PALHOCA",
+      "dataHoraAuto": "2025-07-19T04:39:00",
+      "nomeLocal": "SC - BR 101 - KM 213.75 - C",
+      "resultadoRecurso": "",
+      "resultadoIndicacao": "DEFERIDO em 25/09/2025",
+      "motivoResultadoInfracao": "",
+      "motivoResultadoIndicacao": "",
+      "informacaoRequerente": "Proprietário"
+    },
+    {
+      "numeroProcesso": 37561,
+      "anoProcesso": 2025,
+      "dataDefesa": "2025-08-26",
+      "codigoInstancia": 9,
+      "instancia": "Indicação Condutor",
+      "numeroAuto": "02871165",
+      "tipoAuto": "J0",
+      "orgaoAuto": 100,
+      "descricaoAuto": "UF:RD-000100-J002871165-7455-0",
+      "descricaoInfracao": "TRANSITAR EM VEL SUPERIOR À MÁXIMA PERMITIDA EM ATÉ 20%",
+      "cidadeAuto": "IMBITUBA",
+      "dataHoraAuto": "2025-07-19T05:15:00",
+      "nomeLocal": "SC - BR 101 - KM 277.30 - C",
+      "resultadoRecurso": "",
+      "resultadoIndicacao": "DEFERIDO em 25/09/2025",
+      "motivoResultadoInfracao": "",
+      "motivoResultadoIndicacao": "",
+      "informacaoRequerente": "Proprietário"
+    },
+    {
+      "numeroProcesso": 7691,
+      "anoProcesso": 2025,
+      "dataDefesa": "2025-08-26",
+      "codigoInstancia": 9,
+      "instancia": "Indicação Condutor",
+      "numeroAuto": "46006656",
+      "tipoAuto": "C2",
+      "orgaoAuto": 8785,
+      "descricaoAuto": "SIE-008785-C246006656-7234-0",
+      "descricaoInfracao": "EM MOVIMENTO, DEIXAR DE MANTER ACESA A LUZ BAIXA A NOITE",
+      "cidadeAuto": "CRICIUMA",
+      "dataHoraAuto": "2025-07-13T00:01:18",
+      "nomeLocal": "CRICIUMA (ENTR. NOROESTE ANEL RODOVIARIO) - CRICIUMA (ENTR. SC-10 - KM 52.2",
+      "complemento": "Colina",
+      "resultadoRecurso": "",
+      "resultadoIndicacao": "DEFERIDO em 01/09/2025",
+      "motivoResultadoInfracao": "",
+      "motivoResultadoIndicacao": "",
+      "informacaoRequerente": "Proprietário"
+    },
+    {
+      "numeroProcesso": 4641,
+      "anoProcesso": 2025,
+      "dataDefesa": "2025-08-26",
+      "codigoInstancia": 9,
+      "instancia": "Indicação Condutor",
+      "numeroAuto": "C0757435",
+      "tipoAuto": "CR",
+      "orgaoAuto": 8788,
+      "descricaoAuto": "CRICIUMA-008788-CRC0757435-7455-0",
+      "descricaoInfracao": "TRANSITAR EM VEL SUPERIOR À MÁXIMA PERMITIDA EM ATÉ 20%",
+      "cidadeAuto": "CRICIUMA",
+      "dataHoraAuto": "2025-07-07T00:16:54",
+      "nomeLocal": "AV. SANTOS DUMONT (PROXIMO AMREC/ FORUM)",
+      "complemento": "",
+      "resultadoRecurso": "",
+      "resultadoIndicacao": "DEFERIDO em 12/09/2025",
+      "motivoResultadoInfracao": "",
+      "motivoResultadoIndicacao": "",
+      "informacaoRequerente": "Proprietário"
+    }
+  ],
+  "avisos": [],
+  "csvGnvVencido": false,
+  "origemDados": "Cadastro",
+  "hash": "7d7c9455a65ed32f18c1afca25ba803d",
+  "token": "2b9b636c-58be-4d09-a64b-ef269e95da7c"
+}

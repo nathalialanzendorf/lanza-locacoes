@@ -1,6 +1,6 @@
 {
   "descricao": "Débitos a cobrar dos parceiros/donos por veículo (IPVA, Licenciamento, Seguro, Rastreador, Manutenção, etc.). Consumido por relatorio-prestacao-contas.",
-  "atualizadoEm": "2026-06-27",
+  "atualizadoEm": "2026-06-28",
   "schemaParceiroDespesa": {
     "id": "uuid (despesa)",
     "veiculoId": "uuid -> veiculos.json (null se placa não cadastrada)",
@@ -22,7 +22,10 @@
       "data": "10/05/2026",
       "valor": 50,
       "competencia": "05/2026",
-      "origem": "rastreador-fixo/MLN0B87/05-2026"
+      "origem": "rastreador-fixo/MLN0B87/05-2026",
+      "rastreameManutencaoId": 163,
+      "rastreameHash": "2ed3b4a66372ef37",
+      "rastreameSyncEm": "2026-06-27T23:18:08.297Z"
     },
     {
       "id": "f2df5450-86e2-4530-8780-a9bf881e6b28",
@@ -33,7 +36,10 @@
       "data": "10/05/2026",
       "valor": 50,
       "competencia": "05/2026",
-      "origem": "rastreador-fixo/IWP5G63/05-2026"
+      "origem": "rastreador-fixo/IWP5G63/05-2026",
+      "rastreameManutencaoId": 164,
+      "rastreameHash": "6ad3d1827638ff1a",
+      "rastreameSyncEm": "2026-06-27T23:18:08.512Z"
     },
     {
       "id": "dac78a98-875d-4de0-a567-c15a23ae52fe",
@@ -44,7 +50,10 @@
       "data": "12/06/2026",
       "valor": 70,
       "competencia": "05/2026",
-      "origem": "prestação de contas/05.2026/Luiz.txt"
+      "origem": "prestação de contas/05.2026/Luiz.txt",
+      "rastreameManutencaoId": 165,
+      "rastreameHash": "f09cae61f0ae690e",
+      "rastreameSyncEm": "2026-06-27T23:18:08.750Z"
     },
     {
       "id": "ab18bdd6-65ab-4a79-8097-b5f7ddcc33a9",
@@ -55,7 +64,10 @@
       "data": "10/05/2026",
       "valor": 50,
       "competencia": "05/2026",
-      "origem": "rastreador-fixo/MLX2H34/05-2026"
+      "origem": "rastreador-fixo/MLX2H34/05-2026",
+      "rastreameManutencaoId": 166,
+      "rastreameHash": "f6756ca0b84bbb1a",
+      "rastreameSyncEm": "2026-06-27T23:18:08.950Z"
     },
     {
       "id": "47dabd25-1f16-4eda-a827-9ff7a9567e09",
@@ -66,7 +78,10 @@
       "data": "01/05/2026",
       "valor": 30,
       "competencia": "05/2026",
-      "origem": "prestação de contas/05.2026/Luiz.txt"
+      "origem": "prestação de contas/05.2026/Luiz.txt",
+      "rastreameManutencaoId": 167,
+      "rastreameHash": "e04f7d21fd475d45",
+      "rastreameSyncEm": "2026-06-27T23:18:09.169Z"
     },
     {
       "id": "9c42b042-9e73-46cb-9ffd-996e085c8234",
@@ -77,7 +92,10 @@
       "data": "10/05/2026",
       "valor": 50,
       "competencia": "05/2026",
-      "origem": "rastreador-fixo/IXT7I93/05-2026"
+      "origem": "rastreador-fixo/IXT7I93/05-2026",
+      "rastreameManutencaoId": 168,
+      "rastreameHash": "fa3e19562ef470e8",
+      "rastreameSyncEm": "2026-06-27T23:18:09.368Z"
     },
     {
       "id": "f4e088b5-1eab-4d85-bac2-fb6b1cbbed83",
@@ -88,7 +106,10 @@
       "data": "01/05/2026",
       "valor": 20,
       "competencia": "05/2026",
-      "origem": "prestação de contas/05.2026/Luiz.txt"
+      "origem": "prestação de contas/05.2026/Luiz.txt",
+      "rastreameManutencaoId": 169,
+      "rastreameHash": "e894fa5ad5a8ef00",
+      "rastreameSyncEm": "2026-06-27T23:18:09.566Z"
     },
     {
       "id": "8d6dc58c-bad2-4c66-a053-8fe4ef112723",
@@ -99,7 +120,10 @@
       "data": "10/05/2026",
       "valor": 50,
       "competencia": "05/2026",
-      "origem": "rastreador-fixo/RAH4F54/05-2026"
+      "origem": "rastreador-fixo/RAH4F54/05-2026",
+      "rastreameManutencaoId": 170,
+      "rastreameHash": "f00f76982cd0fc13",
+      "rastreameSyncEm": "2026-06-27T23:18:09.758Z"
     },
     {
       "id": "fa480c9c-52fa-4fc7-a467-875cba70e993",
@@ -110,7 +134,10 @@
       "data": "10/05/2026",
       "valor": 50,
       "competencia": "05/2026",
-      "origem": "rastreador-fixo/AVU6740/05-2026"
+      "origem": "rastreador-fixo/AVU6740/05-2026",
+      "rastreameManutencaoId": 171,
+      "rastreameHash": "8d49d55a10a30a91",
+      "rastreameSyncEm": "2026-06-27T23:18:09.949Z"
     },
     {
       "id": "4165e089-e200-451b-aafd-93b768251071",
@@ -121,7 +148,10 @@
       "data": "31/03/2026",
       "valor": 850,
       "competencia": "05/2026",
-      "origem": "prestação de contas/05.2026/Maicon.txt"
+      "origem": "prestação de contas/05.2026/Maicon.txt",
+      "rastreameManutencaoId": 172,
+      "rastreameHash": "a5d2c06e2ce71cfa",
+      "rastreameSyncEm": "2026-06-27T23:18:10.153Z"
     },
     {
       "id": "5397480e-ff51-455c-880c-e30c713314f6",
@@ -132,7 +162,10 @@
       "data": "31/03/2026",
       "valor": 844,
       "competencia": "05/2026",
-      "origem": "prestação de contas/05.2026/Maicon.txt"
+      "origem": "prestação de contas/05.2026/Maicon.txt",
+      "rastreameManutencaoId": 173,
+      "rastreameHash": "94556d6aebe1b1ea",
+      "rastreameSyncEm": "2026-06-27T23:18:10.363Z"
     },
     {
       "id": "fcc6843e-5891-4167-8904-4ad62ae84376",
@@ -143,7 +176,10 @@
       "data": "10/05/2026",
       "valor": 50,
       "competencia": "05/2026",
-      "origem": "rastreador-fixo/BBV6A91/05-2026"
+      "origem": "rastreador-fixo/BBV6A91/05-2026",
+      "rastreameManutencaoId": 174,
+      "rastreameHash": "d9b394a9cfc3ef84",
+      "rastreameSyncEm": "2026-06-27T23:18:10.558Z"
     },
     {
       "id": "ab04bb51-79fb-4184-8947-a4d167d9cf35",
@@ -154,7 +190,10 @@
       "data": "10/05/2026",
       "valor": 50,
       "competencia": "05/2026",
-      "origem": "rastreador-fixo/MKV6268/05-2026"
+      "origem": "rastreador-fixo/MKV6268/05-2026",
+      "rastreameManutencaoId": 175,
+      "rastreameHash": "787c365c75362bcf",
+      "rastreameSyncEm": "2026-06-27T23:18:10.761Z"
     },
     {
       "id": "e253851f-4eea-4c13-907c-9765ad879dc3",
@@ -165,7 +204,10 @@
       "data": "26/03/2026",
       "valor": 800,
       "competencia": "05/2026",
-      "origem": "prestação de contas/05.2026/Regiane.txt"
+      "origem": "prestação de contas/05.2026/Regiane.txt",
+      "rastreameManutencaoId": 176,
+      "rastreameHash": "6854dec677e64292",
+      "rastreameSyncEm": "2026-06-27T23:18:10.959Z"
     },
     {
       "id": "bb37d157-6461-4851-a818-9288b00211e0",
@@ -176,7 +218,10 @@
       "data": "27/03/2026",
       "valor": 290,
       "competencia": "05/2026",
-      "origem": "prestação de contas/05.2026/Regiane.txt"
+      "origem": "prestação de contas/05.2026/Regiane.txt",
+      "rastreameManutencaoId": 177,
+      "rastreameHash": "e76d2eb6cdd2484a",
+      "rastreameSyncEm": "2026-06-27T23:18:11.159Z"
     },
     {
       "id": "69b8a514-76ed-4a3f-bf8a-5399449933d9",
@@ -187,7 +232,10 @@
       "data": "10/05/2026",
       "valor": 50,
       "competencia": "05/2026",
-      "origem": "rastreador-fixo/PWH3A45/05-2026"
+      "origem": "rastreador-fixo/PWH3A45/05-2026",
+      "rastreameManutencaoId": 178,
+      "rastreameHash": "a2ae74406f2d728c",
+      "rastreameSyncEm": "2026-06-27T23:18:11.354Z"
     },
     {
       "id": "b6bb71d3-8624-4a1f-a591-fbda03353603",
@@ -198,7 +246,10 @@
       "data": "10/06/2026",
       "valor": 50,
       "competencia": "06/2026",
-      "origem": "rastreador-fixo/AVU6740/06-2026"
+      "origem": "rastreador-fixo/AVU6740/06-2026",
+      "rastreameManutencaoId": 179,
+      "rastreameHash": "42397c4b9ced22ed",
+      "rastreameSyncEm": "2026-06-27T23:18:11.555Z"
     },
     {
       "id": "912b45f1-2d4d-40ec-9d16-acea9e7ec0b2",
@@ -209,7 +260,10 @@
       "data": "10/06/2026",
       "valor": 50,
       "competencia": "06/2026",
-      "origem": "rastreador-fixo/BBV6A91/06-2026"
+      "origem": "rastreador-fixo/BBV6A91/06-2026",
+      "rastreameManutencaoId": 180,
+      "rastreameHash": "75fdc733c7a08e0d",
+      "rastreameSyncEm": "2026-06-27T23:18:11.768Z"
     },
     {
       "id": "c2c6bfb4-1062-40f2-a274-798c97c373c2",
@@ -220,7 +274,10 @@
       "data": "10/06/2026",
       "valor": 50,
       "competencia": "06/2026",
-      "origem": "rastreador-fixo/MKV6268/06-2026"
+      "origem": "rastreador-fixo/MKV6268/06-2026",
+      "rastreameManutencaoId": 181,
+      "rastreameHash": "a70acd55f34da95a",
+      "rastreameSyncEm": "2026-06-27T23:18:11.973Z"
     },
     {
       "id": "6d60649f-9360-42cc-a236-f5239778890e",
@@ -231,7 +288,10 @@
       "data": "10/06/2026",
       "valor": 50,
       "competencia": "06/2026",
-      "origem": "rastreador-fixo/MLN0B87/06-2026"
+      "origem": "rastreador-fixo/MLN0B87/06-2026",
+      "rastreameManutencaoId": 182,
+      "rastreameHash": "8e44612552a4b2f3",
+      "rastreameSyncEm": "2026-06-27T23:18:12.164Z"
     },
     {
       "id": "723eb9aa-2b87-4b56-8d86-0b3f6ba091f6",
@@ -242,7 +302,10 @@
       "data": "10/06/2026",
       "valor": 50,
       "competencia": "06/2026",
-      "origem": "rastreador-fixo/PWH3A45/06-2026"
+      "origem": "rastreador-fixo/PWH3A45/06-2026",
+      "rastreameManutencaoId": 183,
+      "rastreameHash": "44debc9412fd7921",
+      "rastreameSyncEm": "2026-06-27T23:18:12.360Z"
     },
     {
       "id": "f8c80d6e-cf71-4c77-80e7-17cb13931225",
@@ -253,7 +316,10 @@
       "data": "10/06/2026",
       "valor": 50,
       "competencia": "06/2026",
-      "origem": "rastreador-fixo/IWP5G63/06-2026"
+      "origem": "rastreador-fixo/IWP5G63/06-2026",
+      "rastreameManutencaoId": 184,
+      "rastreameHash": "e756543eff209a35",
+      "rastreameSyncEm": "2026-06-27T23:18:12.549Z"
     },
     {
       "id": "8474fbd5-10e5-45d3-87c4-e53ac4179174",
@@ -264,7 +330,10 @@
       "data": "10/06/2026",
       "valor": 50,
       "competencia": "06/2026",
-      "origem": "rastreador-fixo/MLX2H34/06-2026"
+      "origem": "rastreador-fixo/MLX2H34/06-2026",
+      "rastreameManutencaoId": 185,
+      "rastreameHash": "0f32f682dab2de64",
+      "rastreameSyncEm": "2026-06-27T23:18:12.749Z"
     },
     {
       "id": "139c0dcf-8e1f-4f18-8550-28bf70de9740",
@@ -275,7 +344,10 @@
       "data": "10/06/2026",
       "valor": 50,
       "competencia": "06/2026",
-      "origem": "rastreador-fixo/IXT7I93/06-2026"
+      "origem": "rastreador-fixo/IXT7I93/06-2026",
+      "rastreameManutencaoId": 186,
+      "rastreameHash": "252d4f0f5e72ddcc",
+      "rastreameSyncEm": "2026-06-27T23:18:12.949Z"
     },
     {
       "id": "012b3870-304e-4303-9063-8266cc597af0",
@@ -286,7 +358,10 @@
       "data": "10/06/2026",
       "valor": 50,
       "competencia": "06/2026",
-      "origem": "rastreador-fixo/RAH4F54/06-2026"
+      "origem": "rastreador-fixo/RAH4F54/06-2026",
+      "rastreameManutencaoId": 187,
+      "rastreameHash": "7358acd5cf16a679",
+      "rastreameSyncEm": "2026-06-27T23:18:13.149Z"
     },
     {
       "id": "97a2d0fe-9bd3-4763-b403-ae61d71845b9",
@@ -297,7 +372,10 @@
       "data": "10/06/2026",
       "valor": 50,
       "competencia": "06/2026",
-      "origem": "rastreador-fixo/IYR8F19/06-2026"
+      "origem": "rastreador-fixo/IYR8F19/06-2026",
+      "rastreameManutencaoId": 188,
+      "rastreameHash": "ddbda6ef7694a0f3",
+      "rastreameSyncEm": "2026-06-27T23:18:13.340Z"
     },
     {
       "id": "378c58a9-949b-49de-b735-b4a911f77d2d",
@@ -308,7 +386,10 @@
       "data": "10/06/2026",
       "valor": 50,
       "competencia": "06/2026",
-      "origem": "rastreador-fixo/QJB0I83/06-2026"
+      "origem": "rastreador-fixo/QJB0I83/06-2026",
+      "rastreameManutencaoId": 189,
+      "rastreameHash": "645961ddde58fb81",
+      "rastreameSyncEm": "2026-06-27T23:18:13.536Z"
     },
     {
       "id": "cda9fa10-25b7-4cd2-b32d-39dcc376d782",
@@ -319,7 +400,10 @@
       "data": "10/06/2026",
       "valor": 50,
       "competencia": "06/2026",
-      "origem": "rastreador-fixo/MLW7I09/06-2026"
+      "origem": "rastreador-fixo/MLW7I09/06-2026",
+      "rastreameManutencaoId": 190,
+      "rastreameHash": "839b21e12d567865",
+      "rastreameSyncEm": "2026-06-27T23:18:13.732Z"
     },
     {
       "id": "e3b06ef3-8f89-42e2-9f49-48b02418c838",
@@ -330,7 +414,10 @@
       "data": "10/06/2026",
       "valor": 50,
       "competencia": "06/2026",
-      "origem": "rastreador-fixo/FHG0B73/06-2026"
+      "origem": "rastreador-fixo/FHG0B73/06-2026",
+      "rastreameManutencaoId": 191,
+      "rastreameHash": "e1b44ac15958ac88",
+      "rastreameSyncEm": "2026-06-27T23:18:13.930Z"
     },
     {
       "id": "5fd7ff8b-6f81-42f5-aa42-90b9bbef37db",
@@ -341,7 +428,10 @@
       "data": "10/06/2026",
       "valor": 50,
       "competencia": "06/2026",
-      "origem": "rastreador-fixo/OZC0B50/06-2026"
+      "origem": "rastreador-fixo/OZC0B50/06-2026",
+      "rastreameManutencaoId": 192,
+      "rastreameHash": "5791ea854d6285f0",
+      "rastreameSyncEm": "2026-06-27T23:18:14.127Z"
     },
     {
       "id": "a17edddd-a564-4687-8c3e-5318393bb052",
@@ -352,7 +442,10 @@
       "data": "10/06/2026",
       "valor": 50,
       "competencia": "06/2026",
-      "origem": "rastreador-fixo/OWN3C59/06-2026"
+      "origem": "rastreador-fixo/OWN3C59/06-2026",
+      "rastreameManutencaoId": 193,
+      "rastreameHash": "c854cc3104b6d9aa",
+      "rastreameSyncEm": "2026-06-27T23:18:14.327Z"
     },
     {
       "id": "5415f006-a340-4a30-a1f1-20d45b456018",
@@ -374,7 +467,10 @@
       "data": "10/06/2026",
       "valor": 74.85,
       "competencia": "06/2026",
-      "origem": "Proteção Veicular/Comprovantes/2026/06 Junho/AVU6740 - GOL.pdf"
+      "origem": "Proteção Veicular/Comprovantes/2026/06 Junho/AVU6740 - GOL.pdf",
+      "rastreameManutencaoId": 194,
+      "rastreameHash": "1308ec3b6481f652",
+      "rastreameSyncEm": "2026-06-27T23:18:14.521Z"
     },
     {
       "id": "e5412177-a154-4800-80e2-e73738987324",
@@ -385,7 +481,10 @@
       "data": "10/06/2026",
       "valor": 112.28,
       "competencia": "06/2026",
-      "origem": "Proteção Veicular/Comprovantes/2026/06 Junho/BBV6A91 - GOL.pdf"
+      "origem": "Proteção Veicular/Comprovantes/2026/06 Junho/BBV6A91 - GOL.pdf",
+      "rastreameManutencaoId": 195,
+      "rastreameHash": "f4f9a213815a59ce",
+      "rastreameSyncEm": "2026-06-27T23:18:14.731Z"
     },
     {
       "id": "1c51e6e9-f297-4857-97b9-f51b3e47b41f",
@@ -396,7 +495,10 @@
       "data": "10/06/2026",
       "valor": 79.84,
       "competencia": "06/2026",
-      "origem": "Proteção Veicular/Comprovantes/2026/06 Junho/FHG0B73 - FIESTA SED.pdf"
+      "origem": "Proteção Veicular/Comprovantes/2026/06 Junho/FHG0B73 - FIESTA SED.pdf",
+      "rastreameManutencaoId": 196,
+      "rastreameHash": "65ead43f883d6641",
+      "rastreameSyncEm": "2026-06-27T23:18:14.941Z"
     },
     {
       "id": "b6144352-efac-4fd0-bc67-bec73c3c0fb0",
@@ -407,7 +509,10 @@
       "data": "10/06/2026",
       "valor": 97.31,
       "competencia": "06/2026",
-      "origem": "Proteção Veicular/Comprovantes/2026/06 Junho/MKV6268 - HB20.pdf"
+      "origem": "Proteção Veicular/Comprovantes/2026/06 Junho/MKV6268 - HB20.pdf",
+      "rastreameManutencaoId": 197,
+      "rastreameHash": "db235de27c688436",
+      "rastreameSyncEm": "2026-06-27T23:18:15.141Z"
     },
     {
       "id": "b108ea29-e909-4ae1-a973-e83394b36312",
@@ -418,7 +523,10 @@
       "data": "10/06/2026",
       "valor": 79.84,
       "competencia": "06/2026",
-      "origem": "Proteção Veicular/Comprovantes/2026/06 Junho/MLN0B87 - FIESTA.pdf"
+      "origem": "Proteção Veicular/Comprovantes/2026/06 Junho/MLN0B87 - FIESTA.pdf",
+      "rastreameManutencaoId": 198,
+      "rastreameHash": "f7f18f5fc48432c6",
+      "rastreameSyncEm": "2026-06-27T23:18:15.339Z"
     },
     {
       "id": "8cd3e7f4-c539-4328-98cc-5d006009af52",
@@ -429,7 +537,10 @@
       "data": "10/06/2026",
       "valor": 107.29,
       "competencia": "06/2026",
-      "origem": "Proteção Veicular/Comprovantes/2026/06 Junho/MLW7I09 - HB20.pdf"
+      "origem": "Proteção Veicular/Comprovantes/2026/06 Junho/MLW7I09 - HB20.pdf",
+      "rastreameManutencaoId": 199,
+      "rastreameHash": "35e37ccaa7319429",
+      "rastreameSyncEm": "2026-06-27T23:18:15.542Z"
     },
     {
       "id": "5a452512-593c-4f5a-aff7-6d3a4d11d2d4",
@@ -440,7 +551,10 @@
       "data": "10/06/2026",
       "valor": 79.84,
       "competencia": "06/2026",
-      "origem": "Proteção Veicular/Comprovantes/2026/06 Junho/OWN3C59 - SANDERO.pdf"
+      "origem": "Proteção Veicular/Comprovantes/2026/06 Junho/OWN3C59 - SANDERO.pdf",
+      "rastreameManutencaoId": 200,
+      "rastreameHash": "98e08578af1551bf",
+      "rastreameSyncEm": "2026-06-27T23:18:15.735Z"
     },
     {
       "id": "d7237f1a-f6a9-4c08-b22e-cf1c960f7bc7",
@@ -451,7 +565,10 @@
       "data": "10/06/2026",
       "valor": 114.77,
       "competencia": "06/2026",
-      "origem": "Proteção Veicular/Comprovantes/2026/06 Junho/OZC0B50 - FOCUS.pdf"
+      "origem": "Proteção Veicular/Comprovantes/2026/06 Junho/OZC0B50 - FOCUS.pdf",
+      "rastreameManutencaoId": 201,
+      "rastreameHash": "5d07dcb00978afb0",
+      "rastreameSyncEm": "2026-06-27T23:18:15.928Z"
     },
     {
       "id": "20f67f92-361b-4c8e-be5b-99c328e32667",
@@ -462,7 +579,10 @@
       "data": "10/06/2026",
       "valor": 124.75,
       "competencia": "06/2026",
-      "origem": "Proteção Veicular/Comprovantes/2026/06 Junho/PWH3A45 - DOBLO.pdf"
+      "origem": "Proteção Veicular/Comprovantes/2026/06 Junho/PWH3A45 - DOBLO.pdf",
+      "rastreameManutencaoId": 202,
+      "rastreameHash": "4f9be8097397e911",
+      "rastreameSyncEm": "2026-06-27T23:18:16.119Z"
     },
     {
       "id": "69486886-f291-4f94-8ac6-f617b1ffe22a",
@@ -473,7 +593,10 @@
       "data": "10/06/2026",
       "valor": 132.24,
       "competencia": "06/2026",
-      "origem": "Proteção Veicular/Comprovantes/2026/06 Junho/QJB0I83 - FOX.pdf"
+      "origem": "Proteção Veicular/Comprovantes/2026/06 Junho/QJB0I83 - FOX.pdf",
+      "rastreameManutencaoId": 203,
+      "rastreameHash": "eced671551be852a",
+      "rastreameSyncEm": "2026-06-27T23:18:16.316Z"
     },
     {
       "id": "a4c64b3a-2f36-4481-9711-093ee189af47",
@@ -484,7 +607,10 @@
       "data": "10/05/2026",
       "valor": 79.81,
       "competencia": "05/2026",
-      "origem": "Proteção Veicular/Comprovantes/2026/05 Maio/MLN0B87 - FIESTA 1.0.pdf"
+      "origem": "Proteção Veicular/Comprovantes/2026/05 Maio/MLN0B87 - FIESTA 1.0.pdf",
+      "rastreameManutencaoId": 204,
+      "rastreameHash": "3d9fb6b479c9a9e3",
+      "rastreameSyncEm": "2026-06-27T23:18:16.515Z"
     },
     {
       "id": "b652df24-94dc-4961-a7e1-4ceb16c13432",
@@ -495,7 +621,10 @@
       "data": "10/05/2026",
       "valor": 74.83,
       "competencia": "05/2026",
-      "origem": "Proteção Veicular/Comprovantes/2026/05 Maio/AVU6740 - GOL (NOVO) 1.0.pdf"
+      "origem": "Proteção Veicular/Comprovantes/2026/05 Maio/AVU6740 - GOL (NOVO) 1.0.pdf",
+      "rastreameManutencaoId": 205,
+      "rastreameHash": "d72b70416ec1c60d",
+      "rastreameSyncEm": "2026-06-27T23:18:16.716Z"
     },
     {
       "id": "90bab4f1-d34f-4526-9387-604055b186bd",
@@ -506,7 +635,10 @@
       "data": "10/05/2026",
       "valor": 112.24,
       "competencia": "05/2026",
-      "origem": "Proteção Veicular/Comprovantes/2026/05 Maio/BBV6A91 - GOL TRENDLINE 1.6 .pdf"
+      "origem": "Proteção Veicular/Comprovantes/2026/05 Maio/BBV6A91 - GOL TRENDLINE 1.6 .pdf",
+      "rastreameManutencaoId": 206,
+      "rastreameHash": "9eb0bfd6da74920c",
+      "rastreameSyncEm": "2026-06-27T23:18:16.913Z"
     },
     {
       "id": "27b81b1a-6721-429e-8a4c-ccb4837605d4",
@@ -517,7 +649,10 @@
       "data": "10/05/2026",
       "valor": 97.27,
       "competencia": "05/2026",
-      "origem": "Proteção Veicular/Comprovantes/2026/05 Maio/MKV6268 - HB20 COMF.pdf"
+      "origem": "Proteção Veicular/Comprovantes/2026/05 Maio/MKV6268 - HB20 COMF.pdf",
+      "rastreameManutencaoId": 207,
+      "rastreameHash": "c406eccab6641f7b",
+      "rastreameSyncEm": "2026-06-27T23:18:17.108Z"
     },
     {
       "id": "88b3066d-def2-433b-86fc-60439cc97978",
@@ -528,7 +663,10 @@
       "data": "10/05/2026",
       "valor": 124.71,
       "competencia": "05/2026",
-      "origem": "Proteção Veicular/Comprovantes/2026/05 Maio/PWH3A45 - DOBLO ESSENCE 1.8.pdf"
+      "origem": "Proteção Veicular/Comprovantes/2026/05 Maio/PWH3A45 - DOBLO ESSENCE 1.8.pdf",
+      "rastreameManutencaoId": 208,
+      "rastreameHash": "6b5eb0d5d5f1737d",
+      "rastreameSyncEm": "2026-06-27T23:18:17.307Z"
     },
     {
       "id": "d2b2fbd4-ac04-4cc3-b026-0e11f3165da3",
@@ -539,7 +677,10 @@
       "data": "10/10/2025",
       "valor": 74.37,
       "competencia": "10/2025",
-      "origem": "Proteção Veicular/Comprovantes/2025/10 Outubro/AVU6740 - GOL (NOVO).pdf"
+      "origem": "Proteção Veicular/Comprovantes/2025/10 Outubro/AVU6740 - GOL (NOVO).pdf",
+      "rastreameManutencaoId": 209,
+      "rastreameHash": "fd8df418b52ce376",
+      "rastreameSyncEm": "2026-06-27T23:18:17.507Z"
     },
     {
       "id": "c143a8b2-5d0f-4143-bc89-4acceabead71",
@@ -550,7 +691,10 @@
       "data": "10/10/2025",
       "valor": 111.55,
       "competencia": "10/2025",
-      "origem": "Proteção Veicular/Comprovantes/2025/10 Outubro/BBV6A91 - GOL TRENDLINE.pdf"
+      "origem": "Proteção Veicular/Comprovantes/2025/10 Outubro/BBV6A91 - GOL TRENDLINE.pdf",
+      "rastreameManutencaoId": 210,
+      "rastreameHash": "517fc6269a1106af",
+      "rastreameSyncEm": "2026-06-27T23:18:17.710Z"
     },
     {
       "id": "e7626ac3-96ae-4b31-8975-3c4788989e5e",
@@ -561,7 +705,10 @@
       "data": "10/10/2025",
       "valor": 79.32,
       "competencia": "10/2025",
-      "origem": "Proteção Veicular/Comprovantes/2025/10 Outubro/FHG0B73 - FIESTA SED.pdf"
+      "origem": "Proteção Veicular/Comprovantes/2025/10 Outubro/FHG0B73 - FIESTA SED.pdf",
+      "rastreameManutencaoId": 211,
+      "rastreameHash": "d200a22c611b0a30",
+      "rastreameSyncEm": "2026-06-27T23:18:17.904Z"
     },
     {
       "id": "855ef517-d115-4eb0-811b-70e65847745c",
@@ -583,7 +730,10 @@
       "data": "10/10/2025",
       "valor": 94.2,
       "competencia": "10/2025",
-      "origem": "Proteção Veicular/Comprovantes/2025/10 Outubro/MKV6268 - HB20 COMF.pdf"
+      "origem": "Proteção Veicular/Comprovantes/2025/10 Outubro/MKV6268 - HB20 COMF.pdf",
+      "rastreameManutencaoId": 212,
+      "rastreameHash": "c595c7737a176ae1",
+      "rastreameSyncEm": "2026-06-27T23:18:18.105Z"
     },
     {
       "id": "a1331179-b30d-4fce-9f27-91526304f8e9",
@@ -594,7 +744,10 @@
       "data": "10/10/2025",
       "valor": 76.84,
       "competencia": "10/2025",
-      "origem": "Proteção Veicular/Comprovantes/2025/10 Outubro/MLN0B87 - FIESTA 1.0.pdf"
+      "origem": "Proteção Veicular/Comprovantes/2025/10 Outubro/MLN0B87 - FIESTA 1.0.pdf",
+      "rastreameManutencaoId": 213,
+      "rastreameHash": "340fa0cd7e9be45a",
+      "rastreameSyncEm": "2026-06-27T23:18:18.314Z"
     },
     {
       "id": "27a0a499-dd2c-4767-b64b-2ae51ab83653",
@@ -605,7 +758,10 @@
       "data": "10/10/2025",
       "valor": 106.59,
       "competencia": "10/2025",
-      "origem": "Proteção Veicular/Comprovantes/2025/10 Outubro/MLW7I09 - HB20 COMF..pdf"
+      "origem": "Proteção Veicular/Comprovantes/2025/10 Outubro/MLW7I09 - HB20 COMF..pdf",
+      "rastreameManutencaoId": 214,
+      "rastreameHash": "0edffb5b2da31eec",
+      "rastreameSyncEm": "2026-06-27T23:18:18.514Z"
     },
     {
       "id": "c2a97c13-d4af-4b07-81c3-6006200a0a83",
@@ -616,7 +772,10 @@
       "data": "10/10/2025",
       "valor": 123.94,
       "competencia": "10/2025",
-      "origem": "Proteção Veicular/Comprovantes/2025/10 Outubro/PWH3A45 - DOBLO ESSENCE.pdf"
+      "origem": "Proteção Veicular/Comprovantes/2025/10 Outubro/PWH3A45 - DOBLO ESSENCE.pdf",
+      "rastreameManutencaoId": 215,
+      "rastreameHash": "7bd55e469b131c1f",
+      "rastreameSyncEm": "2026-06-27T23:18:18.703Z"
     },
     {
       "id": "b334edce-f677-423c-ad40-4400ed24eaa0",
@@ -627,7 +786,10 @@
       "data": "10/10/2025",
       "valor": 128.9,
       "competencia": "10/2025",
-      "origem": "Proteção Veicular/Comprovantes/2025/10 Outubro/QJB0I83 - FOX CONNECT.pdf"
+      "origem": "Proteção Veicular/Comprovantes/2025/10 Outubro/QJB0I83 - FOX CONNECT.pdf",
+      "rastreameManutencaoId": 216,
+      "rastreameHash": "daea57102b90338a",
+      "rastreameSyncEm": "2026-06-27T23:18:18.902Z"
     },
     {
       "id": "a36dc843-c45b-460f-979c-ed9f51edcb93",
@@ -649,7 +811,10 @@
       "data": "10/11/2025",
       "valor": 74.32,
       "competencia": "11/2025",
-      "origem": "Proteção Veicular/Comprovantes/2025/11 Novembro/AVU6740 - GOL.pdf"
+      "origem": "Proteção Veicular/Comprovantes/2025/11 Novembro/AVU6740 - GOL.pdf",
+      "rastreameManutencaoId": 217,
+      "rastreameHash": "4c5f5dde3a9fe655",
+      "rastreameSyncEm": "2026-06-27T23:18:19.097Z"
     },
     {
       "id": "16990217-dea0-4b10-a915-ab8afdf47d3a",
@@ -660,7 +825,10 @@
       "data": "10/11/2025",
       "valor": 111.48,
       "competencia": "11/2025",
-      "origem": "Proteção Veicular/Comprovantes/2025/11 Novembro/BBV6A91 - GOL TRENDLINE.pdf"
+      "origem": "Proteção Veicular/Comprovantes/2025/11 Novembro/BBV6A91 - GOL TRENDLINE.pdf",
+      "rastreameManutencaoId": 218,
+      "rastreameHash": "4772b8a8b4f1d982",
+      "rastreameSyncEm": "2026-06-27T23:18:19.292Z"
     },
     {
       "id": "f7ee3d7e-e4e9-4768-b9c5-1d95fcce99cf",
@@ -671,7 +839,10 @@
       "data": "10/11/2025",
       "valor": 79.28,
       "competencia": "11/2025",
-      "origem": "Proteção Veicular/Comprovantes/2025/11 Novembro/FHG0B73 - FIESTA SED.pdf"
+      "origem": "Proteção Veicular/Comprovantes/2025/11 Novembro/FHG0B73 - FIESTA SED.pdf",
+      "rastreameManutencaoId": 219,
+      "rastreameHash": "762836b5de0d0b7c",
+      "rastreameSyncEm": "2026-06-27T23:18:19.506Z"
     },
     {
       "id": "04aba8d5-6d9c-402c-b3c2-2d65b03df921",
@@ -693,7 +864,10 @@
       "data": "10/11/2025",
       "valor": 94.14,
       "competencia": "11/2025",
-      "origem": "Proteção Veicular/Comprovantes/2025/11 Novembro/MKV6268 - HB20.pdf"
+      "origem": "Proteção Veicular/Comprovantes/2025/11 Novembro/MKV6268 - HB20.pdf",
+      "rastreameManutencaoId": 220,
+      "rastreameHash": "1c998d660d4e38e5",
+      "rastreameSyncEm": "2026-06-27T23:18:19.711Z"
     },
     {
       "id": "8470da69-23d9-4443-8e93-0f8d26ae9441",
@@ -704,7 +878,10 @@
       "data": "10/11/2025",
       "valor": 76.8,
       "competencia": "11/2025",
-      "origem": "Proteção Veicular/Comprovantes/2025/11 Novembro/MLN0B87 - FIESTA.pdf"
+      "origem": "Proteção Veicular/Comprovantes/2025/11 Novembro/MLN0B87 - FIESTA.pdf",
+      "rastreameManutencaoId": 221,
+      "rastreameHash": "d1b25b52545c77d4",
+      "rastreameSyncEm": "2026-06-27T23:18:19.909Z"
     },
     {
       "id": "9acf524e-7642-4758-b4b1-646314ca410e",
@@ -715,7 +892,10 @@
       "data": "10/11/2025",
       "valor": 106.53,
       "competencia": "11/2025",
-      "origem": "Proteção Veicular/Comprovantes/2025/11 Novembro/MLW7I09 - HB20 COMF.pdf"
+      "origem": "Proteção Veicular/Comprovantes/2025/11 Novembro/MLW7I09 - HB20 COMF.pdf",
+      "rastreameManutencaoId": 222,
+      "rastreameHash": "84baefd26ffa170f",
+      "rastreameSyncEm": "2026-06-27T23:18:20.116Z"
     },
     {
       "id": "50342037-2403-49aa-ab12-395b23aca5f4",
@@ -726,7 +906,10 @@
       "data": "10/11/2025",
       "valor": 123.87,
       "competencia": "11/2025",
-      "origem": "Proteção Veicular/Comprovantes/2025/11 Novembro/PWH3A45 - DOBLO ESSENCE.pdf"
+      "origem": "Proteção Veicular/Comprovantes/2025/11 Novembro/PWH3A45 - DOBLO ESSENCE.pdf",
+      "rastreameManutencaoId": 223,
+      "rastreameHash": "47ca18b00ceaf17e",
+      "rastreameSyncEm": "2026-06-27T23:18:20.308Z"
     },
     {
       "id": "a658ecbb-503e-46fe-a5a0-fc69928157b0",
@@ -737,7 +920,10 @@
       "data": "10/11/2025",
       "valor": 128.82,
       "competencia": "11/2025",
-      "origem": "Proteção Veicular/Comprovantes/2025/11 Novembro/QJB0I83 - FOX CONNECT.pdf"
+      "origem": "Proteção Veicular/Comprovantes/2025/11 Novembro/QJB0I83 - FOX CONNECT.pdf",
+      "rastreameManutencaoId": 224,
+      "rastreameHash": "95e726849821f185",
+      "rastreameSyncEm": "2026-06-27T23:18:20.506Z"
     },
     {
       "id": "e508e242-46e0-46ed-8568-f23c4dd5cc37",
@@ -759,7 +945,10 @@
       "data": "10/12/2025",
       "valor": 74.38,
       "competencia": "12/2025",
-      "origem": "Proteção Veicular/Comprovantes/2025/12 Dezembro/AVU6740 - GOL (NOVO).pdf"
+      "origem": "Proteção Veicular/Comprovantes/2025/12 Dezembro/AVU6740 - GOL (NOVO).pdf",
+      "rastreameManutencaoId": 225,
+      "rastreameHash": "5e5d86e617547cfe",
+      "rastreameSyncEm": "2026-06-27T23:18:20.697Z"
     },
     {
       "id": "08dcb831-1049-4b7d-a5da-21c9df2c8c7d",
@@ -770,7 +959,10 @@
       "data": "10/12/2025",
       "valor": 111.58,
       "competencia": "12/2025",
-      "origem": "Proteção Veicular/Comprovantes/2025/12 Dezembro/BBV6A91 - GOL TRENDLINE.pdf"
+      "origem": "Proteção Veicular/Comprovantes/2025/12 Dezembro/BBV6A91 - GOL TRENDLINE.pdf",
+      "rastreameManutencaoId": 226,
+      "rastreameHash": "7579923374e554e9",
+      "rastreameSyncEm": "2026-06-27T23:18:20.888Z"
     },
     {
       "id": "40c22f21-fd38-44af-9e3c-eacf04f71ecb",
@@ -781,7 +973,10 @@
       "data": "10/12/2025",
       "valor": 79.34,
       "competencia": "12/2025",
-      "origem": "Proteção Veicular/Comprovantes/2025/12 Dezembro/FHG0B73 - FIESTA SED.pdf"
+      "origem": "Proteção Veicular/Comprovantes/2025/12 Dezembro/FHG0B73 - FIESTA SED.pdf",
+      "rastreameManutencaoId": 227,
+      "rastreameHash": "38bacf8e4a86624e",
+      "rastreameSyncEm": "2026-06-27T23:18:21.081Z"
     },
     {
       "id": "1bbda7dd-ec7c-4dd7-8f89-3247f1a03134",
@@ -803,7 +998,10 @@
       "data": "10/12/2025",
       "valor": 94.22,
       "competencia": "12/2025",
-      "origem": "Proteção Veicular/Comprovantes/2025/12 Dezembro/MKV6268 - HB20 COMF.pdf"
+      "origem": "Proteção Veicular/Comprovantes/2025/12 Dezembro/MKV6268 - HB20 COMF.pdf",
+      "rastreameManutencaoId": 228,
+      "rastreameHash": "80c1700421876eee",
+      "rastreameSyncEm": "2026-06-27T23:18:21.281Z"
     },
     {
       "id": "835fc212-7fe4-4f92-979a-456048e6ca50",
@@ -814,7 +1012,10 @@
       "data": "10/12/2025",
       "valor": 76.86,
       "competencia": "12/2025",
-      "origem": "Proteção Veicular/Comprovantes/2025/12 Dezembro/MLN0B87 - FIESTA 1.0.pdf"
+      "origem": "Proteção Veicular/Comprovantes/2025/12 Dezembro/MLN0B87 - FIESTA 1.0.pdf",
+      "rastreameManutencaoId": 229,
+      "rastreameHash": "9be028127ae0b357",
+      "rastreameSyncEm": "2026-06-27T23:18:21.487Z"
     },
     {
       "id": "a81588c2-69ff-4b76-8495-e47317002d5b",
@@ -825,7 +1026,10 @@
       "data": "10/12/2025",
       "valor": 106.62,
       "competencia": "12/2025",
-      "origem": "Proteção Veicular/Comprovantes/2025/12 Dezembro/MLW7I09 - HB20 COMF..pdf"
+      "origem": "Proteção Veicular/Comprovantes/2025/12 Dezembro/MLW7I09 - HB20 COMF..pdf",
+      "rastreameManutencaoId": 230,
+      "rastreameHash": "b50054dcd85fe7f1",
+      "rastreameSyncEm": "2026-06-27T23:18:21.691Z"
     },
     {
       "id": "a98bd879-ca0b-4bec-9d4f-a52351c3807f",
@@ -836,7 +1040,10 @@
       "data": "10/12/2025",
       "valor": 114.06,
       "competencia": "12/2025",
-      "origem": "Proteção Veicular/Comprovantes/2025/12 Dezembro/OZC0B50 - FOCUS.pdf"
+      "origem": "Proteção Veicular/Comprovantes/2025/12 Dezembro/OZC0B50 - FOCUS.pdf",
+      "rastreameManutencaoId": 231,
+      "rastreameHash": "24def41e64a58d15",
+      "rastreameSyncEm": "2026-06-27T23:18:21.898Z"
     },
     {
       "id": "21b6e375-d25d-4190-a13d-8a0f62a9df7a",
@@ -847,7 +1054,10 @@
       "data": "10/12/2025",
       "valor": 123.97,
       "competencia": "12/2025",
-      "origem": "Proteção Veicular/Comprovantes/2025/12 Dezembro/PWH3A45 - DOBLO ESSENCE.pdf"
+      "origem": "Proteção Veicular/Comprovantes/2025/12 Dezembro/PWH3A45 - DOBLO ESSENCE.pdf",
+      "rastreameManutencaoId": 232,
+      "rastreameHash": "4e64a5a9e35b812b",
+      "rastreameSyncEm": "2026-06-27T23:18:22.095Z"
     },
     {
       "id": "2fc25419-1635-4028-94e9-7ec741e4e905",
@@ -858,7 +1068,10 @@
       "data": "10/12/2025",
       "valor": 128.93,
       "competencia": "12/2025",
-      "origem": "Proteção Veicular/Comprovantes/2025/12 Dezembro/QJB0I83 - FOX CONNECT.pdf"
+      "origem": "Proteção Veicular/Comprovantes/2025/12 Dezembro/QJB0I83 - FOX CONNECT.pdf",
+      "rastreameManutencaoId": 233,
+      "rastreameHash": "2675472b25020153",
+      "rastreameSyncEm": "2026-06-27T23:18:22.287Z"
     },
     {
       "id": "3747e963-c3ad-4fff-ab1b-5f34961bf09b",
@@ -880,7 +1093,10 @@
       "data": "10/05/2025",
       "valor": 76.82,
       "competencia": "05/2025",
-      "origem": "Proteção Veicular/Comprovantes/2025/5 Maio/Ana - FORD FIESTA 2013-2014.pdf"
+      "origem": "Proteção Veicular/Comprovantes/2025/5 Maio/Ana - FORD FIESTA 2013-2014.pdf",
+      "rastreameManutencaoId": 234,
+      "rastreameHash": "2b246c67bea8049e",
+      "rastreameSyncEm": "2026-06-27T23:18:22.490Z"
     },
     {
       "id": "43ea3122-8f43-40b1-998d-1d4e0844ae99",
@@ -891,7 +1107,10 @@
       "data": "10/05/2025",
       "valor": 94.17,
       "competencia": "05/2025",
-      "origem": "Proteção Veicular/Comprovantes/2025/5 Maio/Felipe - HYUNDAI HB20 2014-2015.pdf"
+      "origem": "Proteção Veicular/Comprovantes/2025/5 Maio/Felipe - HYUNDAI HB20 2014-2015.pdf",
+      "rastreameManutencaoId": 235,
+      "rastreameHash": "8d981a443d544c15",
+      "rastreameSyncEm": "2026-06-27T23:18:22.686Z"
     },
     {
       "id": "6e388f8b-1cbc-482f-8bf8-f15ceef9ad4b",
@@ -902,7 +1121,10 @@
       "data": "10/05/2025",
       "valor": 84.26,
       "competencia": "05/2025",
-      "origem": "Proteção Veicular/Comprovantes/2025/5 Maio/Felipe - RENAULT CLIO 2015-2016.pdf"
+      "origem": "Proteção Veicular/Comprovantes/2025/5 Maio/Felipe - RENAULT CLIO 2015-2016.pdf",
+      "rastreameManutencaoId": 236,
+      "rastreameHash": "d71834e01a329375",
+      "rastreameSyncEm": "2026-06-27T23:18:22.870Z"
     },
     {
       "id": "013980d7-1154-4cb2-bb75-e10a492d1926",
@@ -913,7 +1135,10 @@
       "data": "10/05/2025",
       "valor": 128.87,
       "competencia": "05/2025",
-      "origem": "Proteção Veicular/Comprovantes/2025/5 Maio/Felipe - VW FOX 2018-2018.pdf"
+      "origem": "Proteção Veicular/Comprovantes/2025/5 Maio/Felipe - VW FOX 2018-2018.pdf",
+      "rastreameManutencaoId": 237,
+      "rastreameHash": "f06a9aba436c789d",
+      "rastreameSyncEm": "2026-06-27T23:18:23.072Z"
     },
     {
       "id": "0da8bf50-6ef9-4f18-81eb-dfd23433bbd0",
@@ -924,7 +1149,10 @@
       "data": "10/05/2025",
       "valor": 74.35,
       "competencia": "05/2025",
-      "origem": "Proteção Veicular/Comprovantes/2025/5 Maio/Maicon - VW GOL 2012-2013.pdf"
+      "origem": "Proteção Veicular/Comprovantes/2025/5 Maio/Maicon - VW GOL 2012-2013.pdf",
+      "rastreameManutencaoId": 238,
+      "rastreameHash": "e3ece8bafc742c09",
+      "rastreameSyncEm": "2026-06-27T23:18:23.270Z"
     },
     {
       "id": "127dbda1-8f2c-43e2-bb5a-6b1ad763a145",
@@ -946,7 +1174,10 @@
       "data": "10/06/2025",
       "valor": 94.34,
       "competencia": "06/2025",
-      "origem": "Proteção Veicular/Comprovantes/2025/6 Junho (1)/1665020 MKV6268 - HB20 COMF.C.PLUSC.STYLE 1.0 FLEX 12V(R$ 94,34).pdf"
+      "origem": "Proteção Veicular/Comprovantes/2025/6 Junho (1)/1665020 MKV6268 - HB20 COMF.C.PLUSC.STYLE 1.0 FLEX 12V(R$ 94,34).pdf",
+      "rastreameManutencaoId": 239,
+      "rastreameHash": "78127c640a866e43",
+      "rastreameSyncEm": "2026-06-27T23:18:23.752Z"
     },
     {
       "id": "35f209f5-51b9-4528-bbfd-f8adee2b0e83",
@@ -968,7 +1199,10 @@
       "data": "10/06/2025",
       "valor": 129.1,
       "competencia": "06/2025",
-      "origem": "Proteção Veicular/Comprovantes/2025/6 Junho (1)/1676345 QJB0I83 - FOX CONNECT 1.6 FLEX 8V 5P(R$ 129,10).pdf"
+      "origem": "Proteção Veicular/Comprovantes/2025/6 Junho (1)/1676345 QJB0I83 - FOX CONNECT 1.6 FLEX 8V 5P(R$ 129,10).pdf",
+      "rastreameManutencaoId": 240,
+      "rastreameHash": "db59c00a11a99d71",
+      "rastreameSyncEm": "2026-06-27T23:18:23.963Z"
     },
     {
       "id": "bfe24e11-82c7-4d3c-a3fa-5d02c4a0886a",
@@ -979,7 +1213,10 @@
       "data": "10/06/2025",
       "valor": 76.96,
       "competencia": "06/2025",
-      "origem": "Proteção Veicular/Comprovantes/2025/6 Junho (1)/1676348 MLN0B87 - FIESTA 1.0 8V FLEXCLASS 1.0 8V FLEX 5P(R$ 76,96).pdf"
+      "origem": "Proteção Veicular/Comprovantes/2025/6 Junho (1)/1676348 MLN0B87 - FIESTA 1.0 8V FLEXCLASS 1.0 8V FLEX 5P(R$ 76,96).pdf",
+      "rastreameManutencaoId": 241,
+      "rastreameHash": "7cc800778e8a2486",
+      "rastreameSyncEm": "2026-06-27T23:18:24.167Z"
     },
     {
       "id": "8221a741-9584-4c28-9d90-59052608c485",
@@ -990,7 +1227,10 @@
       "data": "10/06/2025",
       "valor": 74.48,
       "competencia": "06/2025",
-      "origem": "Proteção Veicular/Comprovantes/2025/6 Junho (1)/1676353 AVU6740 - GOL (NOVO) 1.0 MI TOTAL FLEX 8V 4P(R$ 74,48).pdf"
+      "origem": "Proteção Veicular/Comprovantes/2025/6 Junho (1)/1676353 AVU6740 - GOL (NOVO) 1.0 MI TOTAL FLEX 8V 4P(R$ 74,48).pdf",
+      "rastreameManutencaoId": 242,
+      "rastreameHash": "403084960eab4e31",
+      "rastreameSyncEm": "2026-06-27T23:18:24.369Z"
     },
     {
       "id": "660d11a5-4870-42e8-a926-c171439612cc",
@@ -1001,7 +1241,10 @@
       "data": "10/06/2025",
       "valor": 84.41,
       "competencia": "06/2025",
-      "origem": "Proteção Veicular/Comprovantes/2025/6 Junho (1)/1676373 QHY6I12 - CLIO RNALIZÉEXPR.1.0 HI-POWER 16V 5P(R$ 84,41).pdf"
+      "origem": "Proteção Veicular/Comprovantes/2025/6 Junho (1)/1676373 QHY6I12 - CLIO RNALIZÉEXPR.1.0 HI-POWER 16V 5P(R$ 84,41).pdf",
+      "rastreameManutencaoId": 243,
+      "rastreameHash": "08532f8df0529ec5",
+      "rastreameSyncEm": "2026-06-27T23:18:24.559Z"
     },
     {
       "id": "37919cb0-45c7-4a1a-9a3a-8347cad86047",
@@ -1034,7 +1277,10 @@
       "data": "10/07/2025",
       "valor": 74.34,
       "competencia": "07/2025",
-      "origem": "Proteção Veicular/Comprovantes/2025/7 Julho/AVU6740 - GOL (NOVO) 1.0 MI TOTAL FLEX 8V 4P.pdf"
+      "origem": "Proteção Veicular/Comprovantes/2025/7 Julho/AVU6740 - GOL (NOVO) 1.0 MI TOTAL FLEX 8V 4P.pdf",
+      "rastreameManutencaoId": 244,
+      "rastreameHash": "97f8856e1ceb0727",
+      "rastreameSyncEm": "2026-06-27T23:18:24.756Z"
     },
     {
       "id": "2c7de58c-d59e-4ff3-9ff5-f392e5b9627c",
@@ -1067,7 +1313,10 @@
       "data": "10/07/2025",
       "valor": 79.3,
       "competencia": "07/2025",
-      "origem": "Proteção Veicular/Comprovantes/2025/7 Julho/MKP5D68 - FIESTA SED. 1.6 8V FLEX 4P.pdf"
+      "origem": "Proteção Veicular/Comprovantes/2025/7 Julho/MKP5D68 - FIESTA SED. 1.6 8V FLEX 4P.pdf",
+      "rastreameManutencaoId": 245,
+      "rastreameHash": "b9a5d138702f34a9",
+      "rastreameSyncEm": "2026-06-27T23:18:24.944Z"
     },
     {
       "id": "54fb1d32-cb5e-4e20-9b96-92d312e682e2",
@@ -1078,7 +1327,10 @@
       "data": "10/07/2025",
       "valor": 94.16,
       "competencia": "07/2025",
-      "origem": "Proteção Veicular/Comprovantes/2025/7 Julho/MKV6268 - HB20 COMF.C.PLUSC.STYLE 1.0 FLEX 12V.pdf"
+      "origem": "Proteção Veicular/Comprovantes/2025/7 Julho/MKV6268 - HB20 COMF.C.PLUSC.STYLE 1.0 FLEX 12V.pdf",
+      "rastreameManutencaoId": 246,
+      "rastreameHash": "c8714840518460c3",
+      "rastreameSyncEm": "2026-06-27T23:18:25.142Z"
     },
     {
       "id": "1e40e784-1a3b-4df3-8545-bae6bb2dbd20",
@@ -1089,7 +1341,10 @@
       "data": "10/07/2025",
       "valor": 76.82,
       "competencia": "07/2025",
-      "origem": "Proteção Veicular/Comprovantes/2025/7 Julho/MLN0B87 - FIESTA 1.0 8V FLEXCLASS 1.0 8V FLEX 5P.pdf"
+      "origem": "Proteção Veicular/Comprovantes/2025/7 Julho/MLN0B87 - FIESTA 1.0 8V FLEXCLASS 1.0 8V FLEX 5P.pdf",
+      "rastreameManutencaoId": 247,
+      "rastreameHash": "ae1245b853a6828f",
+      "rastreameSyncEm": "2026-06-27T23:18:25.346Z"
     },
     {
       "id": "3fdbb656-75d6-46bb-8d62-b04996481f85",
@@ -1100,7 +1355,10 @@
       "data": "10/07/2025",
       "valor": 84.25,
       "competencia": "07/2025",
-      "origem": "Proteção Veicular/Comprovantes/2025/7 Julho/QHY6I12 - CLIO RNALIZÉEXPR.1.0 HI-POWER 16V 5P.pdf"
+      "origem": "Proteção Veicular/Comprovantes/2025/7 Julho/QHY6I12 - CLIO RNALIZÉEXPR.1.0 HI-POWER 16V 5P.pdf",
+      "rastreameManutencaoId": 248,
+      "rastreameHash": "b21459ecf8ef39c7",
+      "rastreameSyncEm": "2026-06-27T23:18:25.529Z"
     },
     {
       "id": "7986264d-6b69-42c6-b33f-2bd68847b07e",
@@ -1111,7 +1369,10 @@
       "data": "10/07/2025",
       "valor": 128.86,
       "competencia": "07/2025",
-      "origem": "Proteção Veicular/Comprovantes/2025/7 Julho/QJB0I83 - FOX CONNECT 1.6 FLEX 8V 5P.pdf"
+      "origem": "Proteção Veicular/Comprovantes/2025/7 Julho/QJB0I83 - FOX CONNECT 1.6 FLEX 8V 5P.pdf",
+      "rastreameManutencaoId": 249,
+      "rastreameHash": "82f850825e55c371",
+      "rastreameSyncEm": "2026-06-27T23:18:25.726Z"
     },
     {
       "id": "6f69b4ac-3acb-466a-a20e-2621eeb19f67",
@@ -1122,7 +1383,10 @@
       "data": "10/08/2025",
       "valor": 74.4,
       "competencia": "08/2025",
-      "origem": "Proteção Veicular/Comprovantes/2025/8 Agosto/AVU6740 - GOL.pdf"
+      "origem": "Proteção Veicular/Comprovantes/2025/8 Agosto/AVU6740 - GOL.pdf",
+      "rastreameManutencaoId": 250,
+      "rastreameHash": "bcb83d6abbc3d99e",
+      "rastreameSyncEm": "2026-06-27T23:18:25.926Z"
     },
     {
       "id": "84599a68-de63-47ab-bb44-8dd490d8aa0d",
@@ -1144,7 +1408,10 @@
       "data": "10/08/2025",
       "valor": 79.36,
       "competencia": "08/2025",
-      "origem": "Proteção Veicular/Comprovantes/2025/8 Agosto/FHG0B73 - FIESTA SEDAN.pdf"
+      "origem": "Proteção Veicular/Comprovantes/2025/8 Agosto/FHG0B73 - FIESTA SEDAN.pdf",
+      "rastreameManutencaoId": 251,
+      "rastreameHash": "67fb9f609211ae4c",
+      "rastreameSyncEm": "2026-06-27T23:18:26.115Z"
     },
     {
       "id": "7cb59055-19a0-43df-ab81-6328129d24f2",
@@ -1177,7 +1444,10 @@
       "data": "10/08/2025",
       "valor": 94.24,
       "competencia": "08/2025",
-      "origem": "Proteção Veicular/Comprovantes/2025/8 Agosto/MKV6268 - HB20 COMF.pdf"
+      "origem": "Proteção Veicular/Comprovantes/2025/8 Agosto/MKV6268 - HB20 COMF.pdf",
+      "rastreameManutencaoId": 252,
+      "rastreameHash": "cb98f9c660f9fe56",
+      "rastreameSyncEm": "2026-06-27T23:18:26.315Z"
     },
     {
       "id": "72c5e9d9-f60b-4d70-9e15-add9beac8807",
@@ -1188,7 +1458,10 @@
       "data": "10/08/2025",
       "valor": 76.88,
       "competencia": "08/2025",
-      "origem": "Proteção Veicular/Comprovantes/2025/8 Agosto/MLN0B87 - FIESTA.pdf"
+      "origem": "Proteção Veicular/Comprovantes/2025/8 Agosto/MLN0B87 - FIESTA.pdf",
+      "rastreameManutencaoId": 253,
+      "rastreameHash": "f8b3d1532b3f532f",
+      "rastreameSyncEm": "2026-06-27T23:18:26.509Z"
     },
     {
       "id": "1bf5f57d-b32d-4de5-8952-104434ca5bed",
@@ -1199,7 +1472,10 @@
       "data": "10/08/2025",
       "valor": 106.64,
       "competencia": "08/2025",
-      "origem": "Proteção Veicular/Comprovantes/2025/8 Agosto/MLW7I09 - HB20 COMF.pdf"
+      "origem": "Proteção Veicular/Comprovantes/2025/8 Agosto/MLW7I09 - HB20 COMF.pdf",
+      "rastreameManutencaoId": 254,
+      "rastreameHash": "84dca1058c667682",
+      "rastreameSyncEm": "2026-06-27T23:18:26.707Z"
     },
     {
       "id": "6a24b481-f8e1-4723-9547-5b9a1034d0a8",
@@ -1210,7 +1486,10 @@
       "data": "10/08/2025",
       "valor": 128.95,
       "competencia": "08/2025",
-      "origem": "Proteção Veicular/Comprovantes/2025/8 Agosto/QJB0I83 - FOX CONNECT.pdf"
+      "origem": "Proteção Veicular/Comprovantes/2025/8 Agosto/QJB0I83 - FOX CONNECT.pdf",
+      "rastreameManutencaoId": 255,
+      "rastreameHash": "abd211272115fe78",
+      "rastreameSyncEm": "2026-06-27T23:18:26.902Z"
     },
     {
       "id": "a65867ca-61dc-4e42-81ed-313e9bb59d85",
@@ -1221,7 +1500,10 @@
       "data": "10/09/2025",
       "valor": 74.33,
       "competencia": "09/2025",
-      "origem": "Proteção Veicular/Comprovantes/2025/9 Setembro/AVU6740 - GOL (NOVO).pdf"
+      "origem": "Proteção Veicular/Comprovantes/2025/9 Setembro/AVU6740 - GOL (NOVO).pdf",
+      "rastreameManutencaoId": 256,
+      "rastreameHash": "b2c37419a3614498",
+      "rastreameSyncEm": "2026-06-27T23:18:27.095Z"
     },
     {
       "id": "f523566b-aba7-458b-a4c7-833074fef1bd",
@@ -1243,7 +1525,10 @@
       "data": "10/09/2025",
       "valor": 79.29,
       "competencia": "09/2025",
-      "origem": "Proteção Veicular/Comprovantes/2025/9 Setembro/FHG0B73 - FIESTA SED.pdf"
+      "origem": "Proteção Veicular/Comprovantes/2025/9 Setembro/FHG0B73 - FIESTA SED.pdf",
+      "rastreameManutencaoId": 257,
+      "rastreameHash": "ac2c8dcf4eeb65b4",
+      "rastreameSyncEm": "2026-06-27T23:18:27.295Z"
     },
     {
       "id": "66cb45d1-6b17-4e54-adca-99b47319e710",
@@ -1265,7 +1550,10 @@
       "data": "10/09/2025",
       "valor": 94.16,
       "competencia": "09/2025",
-      "origem": "Proteção Veicular/Comprovantes/2025/9 Setembro/MKV6268 - HB20.pdf"
+      "origem": "Proteção Veicular/Comprovantes/2025/9 Setembro/MKV6268 - HB20.pdf",
+      "rastreameManutencaoId": 258,
+      "rastreameHash": "f93a54fa657f8825",
+      "rastreameSyncEm": "2026-06-27T23:18:27.495Z"
     },
     {
       "id": "88e29ddb-ecd2-4feb-9590-a3ce69819545",
@@ -1276,7 +1564,10 @@
       "data": "10/09/2025",
       "valor": 76.81,
       "competencia": "09/2025",
-      "origem": "Proteção Veicular/Comprovantes/2025/9 Setembro/MLN0B87 - FIESTA.pdf"
+      "origem": "Proteção Veicular/Comprovantes/2025/9 Setembro/MLN0B87 - FIESTA.pdf",
+      "rastreameManutencaoId": 259,
+      "rastreameHash": "ceeea96ad025a5a0",
+      "rastreameSyncEm": "2026-06-27T23:18:27.693Z"
     },
     {
       "id": "e2cf648e-3f17-45e8-a9f8-176b457abb72",
@@ -1287,7 +1578,10 @@
       "data": "10/09/2025",
       "valor": 106.54,
       "competencia": "09/2025",
-      "origem": "Proteção Veicular/Comprovantes/2025/9 Setembro/MLW7I09 - HB20.pdf"
+      "origem": "Proteção Veicular/Comprovantes/2025/9 Setembro/MLW7I09 - HB20.pdf",
+      "rastreameManutencaoId": 260,
+      "rastreameHash": "e309d8d5d7a730ef",
+      "rastreameSyncEm": "2026-06-27T23:18:27.888Z"
     },
     {
       "id": "dc9058ec-385e-449d-b279-d7fc2405109a",
@@ -1298,7 +1592,10 @@
       "data": "15/09/2025",
       "valor": 123.89,
       "competencia": "09/2025",
-      "origem": "Proteção Veicular/Comprovantes/2025/9 Setembro/PWH3A45 - DOBLO.pdf"
+      "origem": "Proteção Veicular/Comprovantes/2025/9 Setembro/PWH3A45 - DOBLO.pdf",
+      "rastreameManutencaoId": 261,
+      "rastreameHash": "f76999d9136652ab",
+      "rastreameSyncEm": "2026-06-27T23:18:28.089Z"
     },
     {
       "id": "8240b451-a1e7-444c-8b31-7994c4ade049",
@@ -1309,7 +1606,10 @@
       "data": "10/09/2025",
       "valor": 128.85,
       "competencia": "09/2025",
-      "origem": "Proteção Veicular/Comprovantes/2025/9 Setembro/QJB0I83 - FOX.pdf"
+      "origem": "Proteção Veicular/Comprovantes/2025/9 Setembro/QJB0I83 - FOX.pdf",
+      "rastreameManutencaoId": 262,
+      "rastreameHash": "8118f37624f10137",
+      "rastreameSyncEm": "2026-06-27T23:18:28.280Z"
     },
     {
       "id": "4e158853-ec0e-4cb6-af2c-6c41055d4614",
@@ -1331,7 +1631,10 @@
       "data": "10/01/2026",
       "valor": 74.41,
       "competencia": "01/2026",
-      "origem": "Proteção Veicular/Comprovantes/2026/01 Janeiro/AVU6740 - GOL (NOVO).pdf"
+      "origem": "Proteção Veicular/Comprovantes/2026/01 Janeiro/AVU6740 - GOL (NOVO).pdf",
+      "rastreameManutencaoId": 263,
+      "rastreameHash": "3ac3599f013d4d79",
+      "rastreameSyncEm": "2026-06-27T23:18:28.471Z"
     },
     {
       "id": "6412d782-637d-4501-b6ce-4b3089075abd",
@@ -1342,7 +1645,10 @@
       "data": "10/01/2026",
       "valor": 111.61,
       "competencia": "01/2026",
-      "origem": "Proteção Veicular/Comprovantes/2026/01 Janeiro/BBV6A91 - GOL TRENDLINE.pdf"
+      "origem": "Proteção Veicular/Comprovantes/2026/01 Janeiro/BBV6A91 - GOL TRENDLINE.pdf",
+      "rastreameManutencaoId": 264,
+      "rastreameHash": "fbd168ac32d0a372",
+      "rastreameSyncEm": "2026-06-27T23:18:28.671Z"
     },
     {
       "id": "1f25adbb-287b-44ab-b43a-c6091d4a19d4",
@@ -1353,7 +1659,10 @@
       "data": "10/01/2026",
       "valor": 79.37,
       "competencia": "01/2026",
-      "origem": "Proteção Veicular/Comprovantes/2026/01 Janeiro/FHG0B73 - FIESTA SED.pdf"
+      "origem": "Proteção Veicular/Comprovantes/2026/01 Janeiro/FHG0B73 - FIESTA SED.pdf",
+      "rastreameManutencaoId": 265,
+      "rastreameHash": "513e5f0e3d5055f9",
+      "rastreameSyncEm": "2026-06-27T23:18:28.863Z"
     },
     {
       "id": "b6849b0a-b87d-4df8-8fb5-486197855fe2",
@@ -1375,7 +1684,10 @@
       "data": "10/01/2026",
       "valor": 94.25,
       "competencia": "01/2026",
-      "origem": "Proteção Veicular/Comprovantes/2026/01 Janeiro/MKV6268 - HB20 COMF.pdf"
+      "origem": "Proteção Veicular/Comprovantes/2026/01 Janeiro/MKV6268 - HB20 COMF.pdf",
+      "rastreameManutencaoId": 266,
+      "rastreameHash": "70ce72908a22abb3",
+      "rastreameSyncEm": "2026-06-27T23:18:29.060Z"
     },
     {
       "id": "402636ff-76e9-44b8-85c6-d6e7a817c121",
@@ -1386,7 +1698,10 @@
       "data": "10/01/2026",
       "valor": 76.89,
       "competencia": "01/2026",
-      "origem": "Proteção Veicular/Comprovantes/2026/01 Janeiro/MLN0B87 - FIESTA.pdf"
+      "origem": "Proteção Veicular/Comprovantes/2026/01 Janeiro/MLN0B87 - FIESTA.pdf",
+      "rastreameManutencaoId": 267,
+      "rastreameHash": "becee1d85a4a8e00",
+      "rastreameSyncEm": "2026-06-27T23:18:29.257Z"
     },
     {
       "id": "b1e9dd84-b65a-498b-b2c1-175be7f1684a",
@@ -1397,7 +1712,10 @@
       "data": "10/01/2026",
       "valor": 106.65,
       "competencia": "01/2026",
-      "origem": "Proteção Veicular/Comprovantes/2026/01 Janeiro/MLW7I09 - HB20 COMF.pdf"
+      "origem": "Proteção Veicular/Comprovantes/2026/01 Janeiro/MLW7I09 - HB20 COMF.pdf",
+      "rastreameManutencaoId": 268,
+      "rastreameHash": "4d976ce7a2d09d78",
+      "rastreameSyncEm": "2026-06-27T23:18:29.454Z"
     },
     {
       "id": "35663093-86d8-49f7-b8ce-0b204a43cfc8",
@@ -1408,7 +1726,10 @@
       "data": "10/01/2026",
       "valor": 114.09,
       "competencia": "01/2026",
-      "origem": "Proteção Veicular/Comprovantes/2026/01 Janeiro/OZC0B50 - FOCUS.pdf"
+      "origem": "Proteção Veicular/Comprovantes/2026/01 Janeiro/OZC0B50 - FOCUS.pdf",
+      "rastreameManutencaoId": 269,
+      "rastreameHash": "cc72a3ade89c8a09",
+      "rastreameSyncEm": "2026-06-27T23:18:29.648Z"
     },
     {
       "id": "7f11bd75-3fb9-46f7-b3b8-b37deb69689f",
@@ -1419,7 +1740,10 @@
       "data": "10/01/2026",
       "valor": 124.02,
       "competencia": "01/2026",
-      "origem": "Proteção Veicular/Comprovantes/2026/01 Janeiro/PWH3A45 - DOBLO.pdf"
+      "origem": "Proteção Veicular/Comprovantes/2026/01 Janeiro/PWH3A45 - DOBLO.pdf",
+      "rastreameManutencaoId": 270,
+      "rastreameHash": "e26703d521e23dbe",
+      "rastreameSyncEm": "2026-06-27T23:18:29.844Z"
     },
     {
       "id": "ee4fd28a-8d01-4868-b213-c0c72ee46541",
@@ -1430,7 +1754,10 @@
       "data": "10/01/2026",
       "valor": 128.98,
       "competencia": "01/2026",
-      "origem": "Proteção Veicular/Comprovantes/2026/01 Janeiro/QJB0I83 - FOX CONNECT.pdf"
+      "origem": "Proteção Veicular/Comprovantes/2026/01 Janeiro/QJB0I83 - FOX CONNECT.pdf",
+      "rastreameManutencaoId": 271,
+      "rastreameHash": "f10582e30a5ed413",
+      "rastreameSyncEm": "2026-06-27T23:18:30.040Z"
     },
     {
       "id": "1b4a364b-cba4-4578-a39e-a55c21783a8c",
@@ -1452,7 +1779,10 @@
       "data": "10/02/2026",
       "valor": 74.75,
       "competencia": "02/2026",
-      "origem": "Proteção Veicular/Comprovantes/2026/02 Fevereiro/AVU6740 - GOL.pdf"
+      "origem": "Proteção Veicular/Comprovantes/2026/02 Fevereiro/AVU6740 - GOL.pdf",
+      "rastreameManutencaoId": 272,
+      "rastreameHash": "5985a57ceae89b05",
+      "rastreameSyncEm": "2026-06-27T23:18:30.233Z"
     },
     {
       "id": "7f82a36e-1d88-4e1b-a706-6e4862d0a89b",
@@ -1463,7 +1793,10 @@
       "data": "10/02/2026",
       "valor": 112.12,
       "competencia": "02/2026",
-      "origem": "Proteção Veicular/Comprovantes/2026/02 Fevereiro/BBV6A91 - GOL.pdf"
+      "origem": "Proteção Veicular/Comprovantes/2026/02 Fevereiro/BBV6A91 - GOL.pdf",
+      "rastreameManutencaoId": 273,
+      "rastreameHash": "2a582c5df07ceb71",
+      "rastreameSyncEm": "2026-06-27T23:18:30.425Z"
     },
     {
       "id": "6bc61e5f-8d10-4afd-b228-c22e38df1ba9",
@@ -1474,7 +1807,10 @@
       "data": "10/02/2026",
       "valor": 79.73,
       "competencia": "02/2026",
-      "origem": "Proteção Veicular/Comprovantes/2026/02 Fevereiro/FHG0B73 - FIESTA SED.pdf"
+      "origem": "Proteção Veicular/Comprovantes/2026/02 Fevereiro/FHG0B73 - FIESTA SED.pdf",
+      "rastreameManutencaoId": 274,
+      "rastreameHash": "44761a8e42101548",
+      "rastreameSyncEm": "2026-06-27T23:18:30.617Z"
     },
     {
       "id": "65c42f31-5d35-4058-8162-31463163edb5",
@@ -1496,7 +1832,10 @@
       "data": "10/02/2026",
       "valor": 94.68,
       "competencia": "02/2026",
-      "origem": "Proteção Veicular/Comprovantes/2026/02 Fevereiro/MKV6268 - HB20 COMF.pdf"
+      "origem": "Proteção Veicular/Comprovantes/2026/02 Fevereiro/MKV6268 - HB20 COMF.pdf",
+      "rastreameManutencaoId": 275,
+      "rastreameHash": "99551b5fc8eb76f0",
+      "rastreameSyncEm": "2026-06-27T23:18:30.807Z"
     },
     {
       "id": "9a9d50be-63bd-4d68-9d9e-78146c78049e",
@@ -1507,7 +1846,10 @@
       "data": "10/02/2026",
       "valor": 77.24,
       "competencia": "02/2026",
-      "origem": "Proteção Veicular/Comprovantes/2026/02 Fevereiro/MLN0B87 - FIESTA.pdf"
+      "origem": "Proteção Veicular/Comprovantes/2026/02 Fevereiro/MLN0B87 - FIESTA.pdf",
+      "rastreameManutencaoId": 276,
+      "rastreameHash": "6e59d4a930d5895d",
+      "rastreameSyncEm": "2026-06-27T23:18:31.002Z"
     },
     {
       "id": "38d63ba8-db42-4b17-9e53-198162d58fe1",
@@ -1518,7 +1860,10 @@
       "data": "10/02/2026",
       "valor": 107.14,
       "competencia": "02/2026",
-      "origem": "Proteção Veicular/Comprovantes/2026/02 Fevereiro/MLW7I09 - HB20 COMF.pdf"
+      "origem": "Proteção Veicular/Comprovantes/2026/02 Fevereiro/MLW7I09 - HB20 COMF.pdf",
+      "rastreameManutencaoId": 277,
+      "rastreameHash": "0333d0684127655a",
+      "rastreameSyncEm": "2026-06-27T23:18:31.193Z"
     },
     {
       "id": "c04e3952-7408-44a6-974a-9e2a482bb662",
@@ -1529,7 +1874,10 @@
       "data": "10/02/2026",
       "valor": 114.62,
       "competencia": "02/2026",
-      "origem": "Proteção Veicular/Comprovantes/2026/02 Fevereiro/OZC0B50 - FOCUS 1.6.pdf"
+      "origem": "Proteção Veicular/Comprovantes/2026/02 Fevereiro/OZC0B50 - FOCUS 1.6.pdf",
+      "rastreameManutencaoId": 278,
+      "rastreameHash": "6cb2f6e9d15576ee",
+      "rastreameSyncEm": "2026-06-27T23:18:31.385Z"
     },
     {
       "id": "f4761027-d68f-4816-a54a-dd7f9c93de99",
@@ -1540,7 +1888,10 @@
       "data": "10/02/2026",
       "valor": 124.58,
       "competencia": "02/2026",
-      "origem": "Proteção Veicular/Comprovantes/2026/02 Fevereiro/PWH3A45 - DOBLO.pdf"
+      "origem": "Proteção Veicular/Comprovantes/2026/02 Fevereiro/PWH3A45 - DOBLO.pdf",
+      "rastreameManutencaoId": 279,
+      "rastreameHash": "76960bfebfb1c3ec",
+      "rastreameSyncEm": "2026-06-27T23:18:31.580Z"
     },
     {
       "id": "aabb5368-b622-4f69-b0bf-eed040d1933a",
@@ -1551,7 +1902,10 @@
       "data": "10/02/2026",
       "valor": 129.57,
       "competencia": "02/2026",
-      "origem": "Proteção Veicular/Comprovantes/2026/02 Fevereiro/QJB0I83 - FOX.pdf"
+      "origem": "Proteção Veicular/Comprovantes/2026/02 Fevereiro/QJB0I83 - FOX.pdf",
+      "rastreameManutencaoId": 280,
+      "rastreameHash": "9d913f673c8c4555",
+      "rastreameSyncEm": "2026-06-27T23:18:31.772Z"
     },
     {
       "id": "49213d26-58b9-4187-841d-95db073c7dad",
@@ -1573,7 +1927,10 @@
       "data": "10/03/2026",
       "valor": 74.78,
       "competencia": "03/2026",
-      "origem": "Proteção Veicular/Comprovantes/2026/03 Março/AVU6740 - GOL (NOVO).pdf"
+      "origem": "Proteção Veicular/Comprovantes/2026/03 Março/AVU6740 - GOL (NOVO).pdf",
+      "rastreameManutencaoId": 281,
+      "rastreameHash": "bc3da27b18681f18",
+      "rastreameSyncEm": "2026-06-27T23:18:31.970Z"
     },
     {
       "id": "75499e72-59dd-4c93-898b-66da29d3b220",
@@ -1584,7 +1941,10 @@
       "data": "10/03/2026",
       "valor": 112.17,
       "competencia": "03/2026",
-      "origem": "Proteção Veicular/Comprovantes/2026/03 Março/BBV6A91 - GOL TRENDLINE.pdf"
+      "origem": "Proteção Veicular/Comprovantes/2026/03 Março/BBV6A91 - GOL TRENDLINE.pdf",
+      "rastreameManutencaoId": 282,
+      "rastreameHash": "ae096f98af7eb473",
+      "rastreameSyncEm": "2026-06-27T23:18:32.163Z"
     },
     {
       "id": "5e00541d-1de0-4422-bd36-00108fd902d6",
@@ -1595,7 +1955,10 @@
       "data": "10/03/2026",
       "valor": 79.77,
       "competencia": "03/2026",
-      "origem": "Proteção Veicular/Comprovantes/2026/03 Março/FHG0B73 - FIESTA SED.pdf"
+      "origem": "Proteção Veicular/Comprovantes/2026/03 Março/FHG0B73 - FIESTA SED.pdf",
+      "rastreameManutencaoId": 283,
+      "rastreameHash": "c0fed491733247a2",
+      "rastreameSyncEm": "2026-06-27T23:18:32.357Z"
     },
     {
       "id": "d5e7709d-ae66-466c-9e43-6d3f9465bbb7",
@@ -1617,7 +1980,10 @@
       "data": "10/03/2026",
       "valor": 94.72,
       "competencia": "03/2026",
-      "origem": "Proteção Veicular/Comprovantes/2026/03 Março/MKV6268 - HB20 COMF.pdf"
+      "origem": "Proteção Veicular/Comprovantes/2026/03 Março/MKV6268 - HB20 COMF.pdf",
+      "rastreameManutencaoId": 284,
+      "rastreameHash": "bc67fcb88456c5f3",
+      "rastreameSyncEm": "2026-06-27T23:18:32.552Z"
     },
     {
       "id": "ff655253-30c4-4eda-aec7-2715287ac501",
@@ -1628,7 +1994,10 @@
       "data": "10/03/2026",
       "valor": 77.27,
       "competencia": "03/2026",
-      "origem": "Proteção Veicular/Comprovantes/2026/03 Março/MLN0B87 - FIESTA.pdf"
+      "origem": "Proteção Veicular/Comprovantes/2026/03 Março/MLN0B87 - FIESTA.pdf",
+      "rastreameManutencaoId": 285,
+      "rastreameHash": "df9473bda254f958",
+      "rastreameSyncEm": "2026-06-27T23:18:32.749Z"
     },
     {
       "id": "3a0d52ef-8e2a-402c-8a58-32d32c3f0608",
@@ -1639,7 +2008,10 @@
       "data": "10/03/2026",
       "valor": 107.19,
       "competencia": "03/2026",
-      "origem": "Proteção Veicular/Comprovantes/2026/03 Março/MLW7I09 - HB20.pdf"
+      "origem": "Proteção Veicular/Comprovantes/2026/03 Março/MLW7I09 - HB20.pdf",
+      "rastreameManutencaoId": 286,
+      "rastreameHash": "dbd73bc26fe16c29",
+      "rastreameSyncEm": "2026-06-27T23:18:32.942Z"
     },
     {
       "id": "b5214378-82cc-4124-855e-b02857fba607",
@@ -1650,7 +2022,10 @@
       "data": "10/03/2026",
       "valor": 114.66,
       "competencia": "03/2026",
-      "origem": "Proteção Veicular/Comprovantes/2026/03 Março/OZC0B50 - FOCUS.pdf"
+      "origem": "Proteção Veicular/Comprovantes/2026/03 Março/OZC0B50 - FOCUS.pdf",
+      "rastreameManutencaoId": 287,
+      "rastreameHash": "e86e336451090e2c",
+      "rastreameSyncEm": "2026-06-27T23:18:33.159Z"
     },
     {
       "id": "4e76e0e4-f0cd-4c33-af58-d5f4e6f1e67c",
@@ -1661,7 +2036,10 @@
       "data": "10/03/2026",
       "valor": 124.64,
       "competencia": "03/2026",
-      "origem": "Proteção Veicular/Comprovantes/2026/03 Março/PWH3A45 - DOBLO ESSENCE.pdf"
+      "origem": "Proteção Veicular/Comprovantes/2026/03 Março/PWH3A45 - DOBLO ESSENCE.pdf",
+      "rastreameManutencaoId": 288,
+      "rastreameHash": "b70f555ec5f2f84e",
+      "rastreameSyncEm": "2026-06-27T23:18:33.358Z"
     },
     {
       "id": "dd439af1-f9c0-4105-9f9b-fb91889726b8",
@@ -1672,7 +2050,10 @@
       "data": "10/03/2026",
       "valor": 129.62,
       "competencia": "03/2026",
-      "origem": "Proteção Veicular/Comprovantes/2026/03 Março/QJB0I83 - FOX CONNECT.pdf"
+      "origem": "Proteção Veicular/Comprovantes/2026/03 Março/QJB0I83 - FOX CONNECT.pdf",
+      "rastreameManutencaoId": 289,
+      "rastreameHash": "ac95ea9e38b26910",
+      "rastreameSyncEm": "2026-06-27T23:18:33.634Z"
     },
     {
       "id": "ab827c7e-3692-4fd6-97f0-adc714c32c49",
@@ -1694,7 +2075,10 @@
       "data": "10/04/2026",
       "valor": 74.8,
       "competencia": "04/2026",
-      "origem": "Proteção Veicular/Comprovantes/2026/04 Abril/AVU6740 - GOL (NOVO) 1.0.pdf"
+      "origem": "Proteção Veicular/Comprovantes/2026/04 Abril/AVU6740 - GOL (NOVO) 1.0.pdf",
+      "rastreameManutencaoId": 290,
+      "rastreameHash": "3ce358890f590048",
+      "rastreameSyncEm": "2026-06-27T23:18:33.849Z"
     },
     {
       "id": "5522e34f-609e-4bea-9117-48bdfcf68008",
@@ -1705,7 +2089,10 @@
       "data": "10/04/2026",
       "valor": 112.2,
       "competencia": "04/2026",
-      "origem": "Proteção Veicular/Comprovantes/2026/04 Abril/BBV6A91 - GOL TRENDLINE 1.6.pdf"
+      "origem": "Proteção Veicular/Comprovantes/2026/04 Abril/BBV6A91 - GOL TRENDLINE 1.6.pdf",
+      "rastreameManutencaoId": 291,
+      "rastreameHash": "22d4b6cf12835b37",
+      "rastreameSyncEm": "2026-06-27T23:18:34.176Z"
     },
     {
       "id": "dd242f5e-3a07-42bc-aefb-5f927b7196d9",
@@ -1716,7 +2103,10 @@
       "data": "10/04/2026",
       "valor": 79.79,
       "competencia": "04/2026",
-      "origem": "Proteção Veicular/Comprovantes/2026/04 Abril/FHG0B73 - FIESTA SED. 1.6.pdf"
+      "origem": "Proteção Veicular/Comprovantes/2026/04 Abril/FHG0B73 - FIESTA SED. 1.6.pdf",
+      "rastreameManutencaoId": 292,
+      "rastreameHash": "be79d4d6e4b6ffc5",
+      "rastreameSyncEm": "2026-06-27T23:18:34.371Z"
     },
     {
       "id": "b84b4f14-e8a6-4899-aacd-b3c4d2fa274a",
@@ -1738,7 +2128,10 @@
       "data": "10/04/2026",
       "valor": 97.24,
       "competencia": "04/2026",
-      "origem": "Proteção Veicular/Comprovantes/2026/04 Abril/MKV6268 - HB20 COMF.pdf"
+      "origem": "Proteção Veicular/Comprovantes/2026/04 Abril/MKV6268 - HB20 COMF.pdf",
+      "rastreameManutencaoId": 293,
+      "rastreameHash": "7d818b35a49aa74e",
+      "rastreameSyncEm": "2026-06-27T23:18:34.566Z"
     },
     {
       "id": "859280c1-9119-4836-af3a-6c8d91ecf2a8",
@@ -1749,7 +2142,10 @@
       "data": "10/04/2026",
       "valor": 79.79,
       "competencia": "04/2026",
-      "origem": "Proteção Veicular/Comprovantes/2026/04 Abril/MLN0B87 - FIESTA 1.0.pdf"
+      "origem": "Proteção Veicular/Comprovantes/2026/04 Abril/MLN0B87 - FIESTA 1.0.pdf",
+      "rastreameManutencaoId": 294,
+      "rastreameHash": "1a1febcfce441748",
+      "rastreameSyncEm": "2026-06-27T23:18:34.758Z"
     },
     {
       "id": "d5b2ce5a-3c1b-463d-b3b1-a10e391710af",
@@ -1760,7 +2156,10 @@
       "data": "10/04/2026",
       "valor": 107.21,
       "competencia": "04/2026",
-      "origem": "Proteção Veicular/Comprovantes/2026/04 Abril/MLW7I09 - HB20 COMF.pdf"
+      "origem": "Proteção Veicular/Comprovantes/2026/04 Abril/MLW7I09 - HB20 COMF.pdf",
+      "rastreameManutencaoId": 295,
+      "rastreameHash": "7efc8414319f7661",
+      "rastreameSyncEm": "2026-06-27T23:18:34.946Z"
     },
     {
       "id": "4283a988-a500-4a9e-94bc-47bd151a2068",
@@ -1771,7 +2170,10 @@
       "data": "10/04/2026",
       "valor": 114.69,
       "competencia": "04/2026",
-      "origem": "Proteção Veicular/Comprovantes/2026/04 Abril/OZC0B50 - FOCUS 1.6.pdf"
+      "origem": "Proteção Veicular/Comprovantes/2026/04 Abril/OZC0B50 - FOCUS 1.6.pdf",
+      "rastreameManutencaoId": 296,
+      "rastreameHash": "86a454f3a5cb21a3",
+      "rastreameSyncEm": "2026-06-27T23:18:35.145Z"
     },
     {
       "id": "d667f2ca-ee0b-449a-9d91-4e05d2fcafa6",
@@ -1782,7 +2184,10 @@
       "data": "10/04/2026",
       "valor": 124.67,
       "competencia": "04/2026",
-      "origem": "Proteção Veicular/Comprovantes/2026/04 Abril/PWH3A45 - DOBLO ESSENCE 1.8.pdf"
+      "origem": "Proteção Veicular/Comprovantes/2026/04 Abril/PWH3A45 - DOBLO ESSENCE 1.8.pdf",
+      "rastreameManutencaoId": 297,
+      "rastreameHash": "0a30e935df214de1",
+      "rastreameSyncEm": "2026-06-27T23:18:35.337Z"
     },
     {
       "id": "c2416c62-e628-4f95-afe0-7b6c2d5bedde",
@@ -1793,7 +2198,10 @@
       "data": "10/04/2026",
       "valor": 132.15,
       "competencia": "04/2026",
-      "origem": "Proteção Veicular/Comprovantes/2026/04 Abril/QJB0I83 - FOX CONNECT 1.6.pdf"
+      "origem": "Proteção Veicular/Comprovantes/2026/04 Abril/QJB0I83 - FOX CONNECT 1.6.pdf",
+      "rastreameManutencaoId": 298,
+      "rastreameHash": "0690fa4e09244e82",
+      "rastreameSyncEm": "2026-06-27T23:18:35.532Z"
     },
     {
       "id": "f9364790-0645-41d2-8a31-82cd6d605db2",
@@ -1815,7 +2223,10 @@
       "data": "10/05/2026",
       "valor": 79.81,
       "competencia": "05/2026",
-      "origem": "Proteção Veicular/Comprovantes/2026/05 Maio/FHG0B73 - FIESTA SED. 1.6.pdf"
+      "origem": "Proteção Veicular/Comprovantes/2026/05 Maio/FHG0B73 - FIESTA SED. 1.6.pdf",
+      "rastreameManutencaoId": 299,
+      "rastreameHash": "5ef5db7cb358d909",
+      "rastreameSyncEm": "2026-06-27T23:18:35.724Z"
     },
     {
       "id": "00229afa-ec3b-4d55-8e80-635e09f3c77d",
@@ -1826,7 +2237,10 @@
       "data": "10/05/2026",
       "valor": 107.25,
       "competencia": "05/2026",
-      "origem": "Proteção Veicular/Comprovantes/2026/05 Maio/MLW7I09 - HB20.pdf"
+      "origem": "Proteção Veicular/Comprovantes/2026/05 Maio/MLW7I09 - HB20.pdf",
+      "rastreameManutencaoId": 300,
+      "rastreameHash": "5b0f4f78c2922841",
+      "rastreameSyncEm": "2026-06-27T23:18:35.921Z"
     },
     {
       "id": "88878a5f-ec3e-4157-8a77-55cb1d5f1f99",
@@ -1837,7 +2251,10 @@
       "data": "10/06/2026",
       "valor": 80.83,
       "competencia": "05/2026",
-      "origem": "Proteção Veicular/Comprovantes/2026/05 Maio/OWN3C59 - SANDERO TECHRUN HI-FLEX 1.0.pdf"
+      "origem": "Proteção Veicular/Comprovantes/2026/05 Maio/OWN3C59 - SANDERO TECHRUN HI-FLEX 1.0.pdf",
+      "rastreameManutencaoId": 301,
+      "rastreameHash": "ed29429820c5c7a6",
+      "rastreameSyncEm": "2026-06-27T23:18:36.122Z"
     },
     {
       "id": "2d42c049-d655-47c9-bfff-a4c10e509588",
@@ -1848,7 +2265,10 @@
       "data": "10/05/2026",
       "valor": 114.73,
       "competencia": "05/2026",
-      "origem": "Proteção Veicular/Comprovantes/2026/05 Maio/OZC0B50 - FOCUS 1.6.pdf"
+      "origem": "Proteção Veicular/Comprovantes/2026/05 Maio/OZC0B50 - FOCUS 1.6.pdf",
+      "rastreameManutencaoId": 302,
+      "rastreameHash": "d7dc568d60e58c62",
+      "rastreameSyncEm": "2026-06-27T23:18:36.331Z"
     },
     {
       "id": "dc25388d-10e0-432a-a7e4-0b6e542c1879",
@@ -1859,7 +2279,10 @@
       "data": "10/05/2026",
       "valor": 132.19,
       "competencia": "05/2026",
-      "origem": "Proteção Veicular/Comprovantes/2026/05 Maio/QJB0I83 - FOX CONNECT 1.6.pdf"
+      "origem": "Proteção Veicular/Comprovantes/2026/05 Maio/QJB0I83 - FOX CONNECT 1.6.pdf",
+      "rastreameManutencaoId": 303,
+      "rastreameHash": "abdd0e83c8a6c331",
+      "rastreameSyncEm": "2026-06-27T23:18:36.525Z"
     },
     {
       "id": "0d9f2f61-6012-4d29-adfa-ed37bcd246fa",
@@ -1892,7 +2315,10 @@
       "data": "10/01/2026",
       "valor": 50,
       "competencia": "01/2026",
-      "origem": "rastreador-fixo/AVU6740/01-2026"
+      "origem": "rastreador-fixo/AVU6740/01-2026",
+      "rastreameManutencaoId": 304,
+      "rastreameHash": "baf3acdcb2cc5bf8",
+      "rastreameSyncEm": "2026-06-27T23:18:36.721Z"
     },
     {
       "id": "f9424182-c888-47f4-bf59-f5203db94d4b",
@@ -1903,7 +2329,10 @@
       "data": "10/02/2026",
       "valor": 50,
       "competencia": "02/2026",
-      "origem": "rastreador-fixo/AVU6740/02-2026"
+      "origem": "rastreador-fixo/AVU6740/02-2026",
+      "rastreameManutencaoId": 305,
+      "rastreameHash": "25c147e33b207ef5",
+      "rastreameSyncEm": "2026-06-27T23:18:36.914Z"
     },
     {
       "id": "ae37ea9c-dbbd-4562-8253-429543ff91d7",
@@ -1914,7 +2343,10 @@
       "data": "10/03/2026",
       "valor": 50,
       "competencia": "03/2026",
-      "origem": "rastreador-fixo/AVU6740/03-2026"
+      "origem": "rastreador-fixo/AVU6740/03-2026",
+      "rastreameManutencaoId": 306,
+      "rastreameHash": "f2ffa7f59ad28b72",
+      "rastreameSyncEm": "2026-06-27T23:18:37.121Z"
     },
     {
       "id": "e8c3934b-37b7-4e25-ab9c-efdd9ec20ea8",
@@ -1925,7 +2357,10 @@
       "data": "10/04/2026",
       "valor": 50,
       "competencia": "04/2026",
-      "origem": "rastreador-fixo/AVU6740/04-2026"
+      "origem": "rastreador-fixo/AVU6740/04-2026",
+      "rastreameManutencaoId": 307,
+      "rastreameHash": "72b94c57421b29dc",
+      "rastreameSyncEm": "2026-06-27T23:18:37.312Z"
     },
     {
       "id": "f2a0a9e9-b1f1-454d-be75-d4c1dcf3b748",
@@ -1936,7 +2371,10 @@
       "data": "10/01/2026",
       "valor": 50,
       "competencia": "01/2026",
-      "origem": "rastreador-fixo/BBV6A91/01-2026"
+      "origem": "rastreador-fixo/BBV6A91/01-2026",
+      "rastreameManutencaoId": 308,
+      "rastreameHash": "d8b7dc47d9aee2f4",
+      "rastreameSyncEm": "2026-06-27T23:18:37.508Z"
     },
     {
       "id": "e4251ce9-8a7e-4527-a4c0-346ee07a26a0",
@@ -1947,7 +2385,10 @@
       "data": "10/02/2026",
       "valor": 50,
       "competencia": "02/2026",
-      "origem": "rastreador-fixo/BBV6A91/02-2026"
+      "origem": "rastreador-fixo/BBV6A91/02-2026",
+      "rastreameManutencaoId": 309,
+      "rastreameHash": "92bd9b1f21fcf44d",
+      "rastreameSyncEm": "2026-06-27T23:18:37.698Z"
     },
     {
       "id": "7bccd99f-4cc3-485f-acfc-ad7fc9596d97",
@@ -1958,7 +2399,10 @@
       "data": "10/03/2026",
       "valor": 50,
       "competencia": "03/2026",
-      "origem": "rastreador-fixo/BBV6A91/03-2026"
+      "origem": "rastreador-fixo/BBV6A91/03-2026",
+      "rastreameManutencaoId": 310,
+      "rastreameHash": "1f45bd46fa22285f",
+      "rastreameSyncEm": "2026-06-27T23:18:37.890Z"
     },
     {
       "id": "fc3c3d6a-e3fe-4798-ada1-47b35697f9c8",
@@ -1969,7 +2413,10 @@
       "data": "10/04/2026",
       "valor": 50,
       "competencia": "04/2026",
-      "origem": "rastreador-fixo/BBV6A91/04-2026"
+      "origem": "rastreador-fixo/BBV6A91/04-2026",
+      "rastreameManutencaoId": 311,
+      "rastreameHash": "3da5cc8733cdd309",
+      "rastreameSyncEm": "2026-06-27T23:18:38.085Z"
     },
     {
       "id": "c5ef8f1f-9411-4375-ba8e-ca52688e5799",
@@ -1980,7 +2427,10 @@
       "data": "10/01/2026",
       "valor": 50,
       "competencia": "01/2026",
-      "origem": "rastreador-fixo/MKV6268/01-2026"
+      "origem": "rastreador-fixo/MKV6268/01-2026",
+      "rastreameManutencaoId": 312,
+      "rastreameHash": "2bf61e24d4f72dd6",
+      "rastreameSyncEm": "2026-06-27T23:18:38.276Z"
     },
     {
       "id": "d10284fe-f1db-4491-8e52-47ad82b2ea5a",
@@ -1991,7 +2441,10 @@
       "data": "10/02/2026",
       "valor": 50,
       "competencia": "02/2026",
-      "origem": "rastreador-fixo/MKV6268/02-2026"
+      "origem": "rastreador-fixo/MKV6268/02-2026",
+      "rastreameManutencaoId": 313,
+      "rastreameHash": "ef7c466fabcca605",
+      "rastreameSyncEm": "2026-06-27T23:18:38.471Z"
     },
     {
       "id": "7f44c1c9-62bd-4845-bde7-b2704be3b1a1",
@@ -2002,7 +2455,10 @@
       "data": "10/03/2026",
       "valor": 50,
       "competencia": "03/2026",
-      "origem": "rastreador-fixo/MKV6268/03-2026"
+      "origem": "rastreador-fixo/MKV6268/03-2026",
+      "rastreameManutencaoId": 314,
+      "rastreameHash": "cfd526a2491469c8",
+      "rastreameSyncEm": "2026-06-27T23:18:38.671Z"
     },
     {
       "id": "a9c794ac-65e7-4b24-b787-24a07cf5a1b3",
@@ -2013,7 +2469,10 @@
       "data": "10/04/2026",
       "valor": 50,
       "competencia": "04/2026",
-      "origem": "rastreador-fixo/MKV6268/04-2026"
+      "origem": "rastreador-fixo/MKV6268/04-2026",
+      "rastreameManutencaoId": 315,
+      "rastreameHash": "9aaaa0e43fc61d55",
+      "rastreameSyncEm": "2026-06-27T23:18:38.862Z"
     },
     {
       "id": "1c65251f-11cd-4fd2-bfb1-d734f93ec7c7",
@@ -2024,7 +2483,10 @@
       "data": "10/01/2026",
       "valor": 50,
       "competencia": "01/2026",
-      "origem": "rastreador-fixo/MLN0B87/01-2026"
+      "origem": "rastreador-fixo/MLN0B87/01-2026",
+      "rastreameManutencaoId": 316,
+      "rastreameHash": "43cb6f7510037bab",
+      "rastreameSyncEm": "2026-06-27T23:18:39.059Z"
     },
     {
       "id": "6a303150-6a96-4c2c-8f24-5478ee34518f",
@@ -2035,7 +2497,10 @@
       "data": "10/02/2026",
       "valor": 50,
       "competencia": "02/2026",
-      "origem": "rastreador-fixo/MLN0B87/02-2026"
+      "origem": "rastreador-fixo/MLN0B87/02-2026",
+      "rastreameManutencaoId": 317,
+      "rastreameHash": "3069ba2dbd70c5cd",
+      "rastreameSyncEm": "2026-06-27T23:18:39.252Z"
     },
     {
       "id": "9dc5bc85-1861-4b5e-a66e-78081d625426",
@@ -2046,7 +2511,10 @@
       "data": "10/03/2026",
       "valor": 50,
       "competencia": "03/2026",
-      "origem": "rastreador-fixo/MLN0B87/03-2026"
+      "origem": "rastreador-fixo/MLN0B87/03-2026",
+      "rastreameManutencaoId": 318,
+      "rastreameHash": "0db04e1d0c24762e",
+      "rastreameSyncEm": "2026-06-27T23:18:39.451Z"
     },
     {
       "id": "e3f3b2ea-7c82-4e8c-9361-fa4c322e19aa",
@@ -2057,7 +2525,10 @@
       "data": "10/04/2026",
       "valor": 50,
       "competencia": "04/2026",
-      "origem": "rastreador-fixo/MLN0B87/04-2026"
+      "origem": "rastreador-fixo/MLN0B87/04-2026",
+      "rastreameManutencaoId": 319,
+      "rastreameHash": "904c41d904b40b3e",
+      "rastreameSyncEm": "2026-06-27T23:18:39.654Z"
     },
     {
       "id": "64d34fc4-bcd4-4611-b236-3839ac91a312",
@@ -2068,7 +2539,10 @@
       "data": "10/01/2026",
       "valor": 50,
       "competencia": "01/2026",
-      "origem": "rastreador-fixo/PWH3A45/01-2026"
+      "origem": "rastreador-fixo/PWH3A45/01-2026",
+      "rastreameManutencaoId": 320,
+      "rastreameHash": "fbf8d19dc9749a44",
+      "rastreameSyncEm": "2026-06-27T23:18:39.852Z"
     },
     {
       "id": "9ef183d8-34f5-4ed9-b9c2-2c1a4707ed74",
@@ -2079,7 +2553,10 @@
       "data": "10/02/2026",
       "valor": 50,
       "competencia": "02/2026",
-      "origem": "rastreador-fixo/PWH3A45/02-2026"
+      "origem": "rastreador-fixo/PWH3A45/02-2026",
+      "rastreameManutencaoId": 321,
+      "rastreameHash": "1aacd6b641e8286e",
+      "rastreameSyncEm": "2026-06-27T23:18:40.043Z"
     },
     {
       "id": "6b19ff16-8afd-4929-b1e2-f8918e61f4fe",
@@ -2090,7 +2567,10 @@
       "data": "10/03/2026",
       "valor": 50,
       "competencia": "03/2026",
-      "origem": "rastreador-fixo/PWH3A45/03-2026"
+      "origem": "rastreador-fixo/PWH3A45/03-2026",
+      "rastreameManutencaoId": 322,
+      "rastreameHash": "958ed33ea0dd09f5",
+      "rastreameSyncEm": "2026-06-27T23:18:40.241Z"
     },
     {
       "id": "3fe8dfaf-f9f8-4c1b-a4e1-2cdea870426a",
@@ -2101,7 +2581,10 @@
       "data": "10/04/2026",
       "valor": 50,
       "competencia": "04/2026",
-      "origem": "rastreador-fixo/PWH3A45/04-2026"
+      "origem": "rastreador-fixo/PWH3A45/04-2026",
+      "rastreameManutencaoId": 323,
+      "rastreameHash": "92646121fb5b7450",
+      "rastreameSyncEm": "2026-06-27T23:18:40.439Z"
     },
     {
       "id": "199d0e6d-4dcc-4893-bd72-15fd203cd8d5",
@@ -2112,7 +2595,10 @@
       "data": "10/01/2026",
       "valor": 50,
       "competencia": "01/2026",
-      "origem": "rastreador-fixo/IWP5G63/01-2026"
+      "origem": "rastreador-fixo/IWP5G63/01-2026",
+      "rastreameManutencaoId": 324,
+      "rastreameHash": "5cf587fa33fb92cb",
+      "rastreameSyncEm": "2026-06-27T23:18:40.634Z"
     },
     {
       "id": "d67d845b-bbd0-470c-af75-1f8c702e64d7",
@@ -2123,7 +2609,10 @@
       "data": "10/02/2026",
       "valor": 50,
       "competencia": "02/2026",
-      "origem": "rastreador-fixo/IWP5G63/02-2026"
+      "origem": "rastreador-fixo/IWP5G63/02-2026",
+      "rastreameManutencaoId": 325,
+      "rastreameHash": "45ba89e8d96c7d60",
+      "rastreameSyncEm": "2026-06-27T23:18:40.823Z"
     },
     {
       "id": "397429c2-000a-4438-a3e1-11d097693a0a",
@@ -2134,7 +2623,10 @@
       "data": "10/03/2026",
       "valor": 50,
       "competencia": "03/2026",
-      "origem": "rastreador-fixo/IWP5G63/03-2026"
+      "origem": "rastreador-fixo/IWP5G63/03-2026",
+      "rastreameManutencaoId": 326,
+      "rastreameHash": "bb05c53c401172e0",
+      "rastreameSyncEm": "2026-06-27T23:18:41.016Z"
     },
     {
       "id": "94c84ebf-e5c0-4abd-bbe5-614aad54d939",
@@ -2145,7 +2637,10 @@
       "data": "10/04/2026",
       "valor": 50,
       "competencia": "04/2026",
-      "origem": "rastreador-fixo/IWP5G63/04-2026"
+      "origem": "rastreador-fixo/IWP5G63/04-2026",
+      "rastreameManutencaoId": 327,
+      "rastreameHash": "d23eceb29ca92530",
+      "rastreameSyncEm": "2026-06-27T23:18:41.207Z"
     },
     {
       "id": "d1b66487-359e-455f-af11-30d9db3348c4",
@@ -2156,7 +2651,10 @@
       "data": "10/01/2026",
       "valor": 50,
       "competencia": "01/2026",
-      "origem": "rastreador-fixo/MLX2H34/01-2026"
+      "origem": "rastreador-fixo/MLX2H34/01-2026",
+      "rastreameManutencaoId": 328,
+      "rastreameHash": "1c74c7de5fcf46eb",
+      "rastreameSyncEm": "2026-06-27T23:18:41.403Z"
     },
     {
       "id": "09eac60e-84d3-44de-88fa-6938c4a56ffd",
@@ -2167,7 +2665,10 @@
       "data": "10/02/2026",
       "valor": 50,
       "competencia": "02/2026",
-      "origem": "rastreador-fixo/MLX2H34/02-2026"
+      "origem": "rastreador-fixo/MLX2H34/02-2026",
+      "rastreameManutencaoId": 329,
+      "rastreameHash": "203d72223a0a195c",
+      "rastreameSyncEm": "2026-06-27T23:18:41.598Z"
     },
     {
       "id": "797e2a4b-db9b-4906-b575-d10344c5729e",
@@ -2178,7 +2679,10 @@
       "data": "10/03/2026",
       "valor": 50,
       "competencia": "03/2026",
-      "origem": "rastreador-fixo/MLX2H34/03-2026"
+      "origem": "rastreador-fixo/MLX2H34/03-2026",
+      "rastreameManutencaoId": 330,
+      "rastreameHash": "7adc2aa737b20786",
+      "rastreameSyncEm": "2026-06-27T23:18:41.793Z"
     },
     {
       "id": "44d438cb-8ced-48a1-b2d3-4e6705ca1c4c",
@@ -2189,7 +2693,10 @@
       "data": "10/04/2026",
       "valor": 50,
       "competencia": "04/2026",
-      "origem": "rastreador-fixo/MLX2H34/04-2026"
+      "origem": "rastreador-fixo/MLX2H34/04-2026",
+      "rastreameManutencaoId": 331,
+      "rastreameHash": "f408065eb53bab6a",
+      "rastreameSyncEm": "2026-06-27T23:18:41.986Z"
     },
     {
       "id": "fbd669c0-7fd8-439d-be63-fea062db899c",
@@ -2200,7 +2707,10 @@
       "data": "10/01/2026",
       "valor": 50,
       "competencia": "01/2026",
-      "origem": "rastreador-fixo/IXT7I93/01-2026"
+      "origem": "rastreador-fixo/IXT7I93/01-2026",
+      "rastreameManutencaoId": 332,
+      "rastreameHash": "36ff922bf016b2b6",
+      "rastreameSyncEm": "2026-06-27T23:18:42.179Z"
     },
     {
       "id": "e86b906d-02d9-4579-8bc2-9fb230367c2b",
@@ -2211,7 +2721,10 @@
       "data": "10/02/2026",
       "valor": 50,
       "competencia": "02/2026",
-      "origem": "rastreador-fixo/IXT7I93/02-2026"
+      "origem": "rastreador-fixo/IXT7I93/02-2026",
+      "rastreameManutencaoId": 333,
+      "rastreameHash": "f1fafce79547ce88",
+      "rastreameSyncEm": "2026-06-27T23:18:42.382Z"
     },
     {
       "id": "31bfc93c-d096-4b06-940a-7b8c0a32d993",
@@ -2222,7 +2735,10 @@
       "data": "10/03/2026",
       "valor": 50,
       "competencia": "03/2026",
-      "origem": "rastreador-fixo/IXT7I93/03-2026"
+      "origem": "rastreador-fixo/IXT7I93/03-2026",
+      "rastreameManutencaoId": 334,
+      "rastreameHash": "10e8e11e425110fc",
+      "rastreameSyncEm": "2026-06-27T23:18:42.575Z"
     },
     {
       "id": "b83fd907-09b9-4500-b674-a334ae34c27a",
@@ -2233,7 +2749,10 @@
       "data": "10/04/2026",
       "valor": 50,
       "competencia": "04/2026",
-      "origem": "rastreador-fixo/IXT7I93/04-2026"
+      "origem": "rastreador-fixo/IXT7I93/04-2026",
+      "rastreameManutencaoId": 335,
+      "rastreameHash": "85583d32cef0d7e3",
+      "rastreameSyncEm": "2026-06-27T23:18:42.767Z"
     },
     {
       "id": "4fcfc413-9369-4a70-bd36-341afffc0485",
@@ -2244,7 +2763,10 @@
       "data": "10/01/2026",
       "valor": 50,
       "competencia": "01/2026",
-      "origem": "rastreador-fixo/RAH4F54/01-2026"
+      "origem": "rastreador-fixo/RAH4F54/01-2026",
+      "rastreameManutencaoId": 336,
+      "rastreameHash": "5cc829c7af22e738",
+      "rastreameSyncEm": "2026-06-27T23:18:42.964Z"
     },
     {
       "id": "824c01b2-c936-4d10-be4c-6312d6366cd9",
@@ -2255,7 +2777,10 @@
       "data": "10/02/2026",
       "valor": 50,
       "competencia": "02/2026",
-      "origem": "rastreador-fixo/RAH4F54/02-2026"
+      "origem": "rastreador-fixo/RAH4F54/02-2026",
+      "rastreameManutencaoId": 337,
+      "rastreameHash": "230d3ba074eb70fb",
+      "rastreameSyncEm": "2026-06-27T23:18:43.158Z"
     },
     {
       "id": "73434589-970c-4270-9c85-022722c7a212",
@@ -2266,7 +2791,10 @@
       "data": "10/03/2026",
       "valor": 50,
       "competencia": "03/2026",
-      "origem": "rastreador-fixo/RAH4F54/03-2026"
+      "origem": "rastreador-fixo/RAH4F54/03-2026",
+      "rastreameManutencaoId": 338,
+      "rastreameHash": "58d23a7ce506c5df",
+      "rastreameSyncEm": "2026-06-27T23:18:43.350Z"
     },
     {
       "id": "26abed92-4888-471a-b86e-bf5f65cddba7",
@@ -2277,7 +2805,10 @@
       "data": "10/04/2026",
       "valor": 50,
       "competencia": "04/2026",
-      "origem": "rastreador-fixo/RAH4F54/04-2026"
+      "origem": "rastreador-fixo/RAH4F54/04-2026",
+      "rastreameManutencaoId": 339,
+      "rastreameHash": "ab37f344a2b9c725",
+      "rastreameSyncEm": "2026-06-27T23:18:43.554Z"
     },
     {
       "id": "673e39ff-ca6c-4723-a34c-a21717712e79",
@@ -2288,7 +2819,10 @@
       "data": "10/01/2026",
       "valor": 50,
       "competencia": "01/2026",
-      "origem": "rastreador-fixo/IYR8F19/01-2026"
+      "origem": "rastreador-fixo/IYR8F19/01-2026",
+      "rastreameManutencaoId": 340,
+      "rastreameHash": "782bf5b45ce57eea",
+      "rastreameSyncEm": "2026-06-27T23:18:43.754Z"
     },
     {
       "id": "9c93fe95-a93f-434e-9051-09633f015d47",
@@ -2299,7 +2833,10 @@
       "data": "10/02/2026",
       "valor": 50,
       "competencia": "02/2026",
-      "origem": "rastreador-fixo/IYR8F19/02-2026"
+      "origem": "rastreador-fixo/IYR8F19/02-2026",
+      "rastreameManutencaoId": 341,
+      "rastreameHash": "70e71a1b8c701e9f",
+      "rastreameSyncEm": "2026-06-27T23:18:43.949Z"
     },
     {
       "id": "b1cc83c4-512c-4da1-a2e7-16f8e087aaf7",
@@ -2310,7 +2847,10 @@
       "data": "10/03/2026",
       "valor": 50,
       "competencia": "03/2026",
-      "origem": "rastreador-fixo/IYR8F19/03-2026"
+      "origem": "rastreador-fixo/IYR8F19/03-2026",
+      "rastreameManutencaoId": 342,
+      "rastreameHash": "ab8c89c15de6fa44",
+      "rastreameSyncEm": "2026-06-27T23:18:44.141Z"
     },
     {
       "id": "f1521e15-cb55-499f-beda-e01d2d0be9d1",
@@ -2321,7 +2861,10 @@
       "data": "10/04/2026",
       "valor": 50,
       "competencia": "04/2026",
-      "origem": "rastreador-fixo/IYR8F19/04-2026"
+      "origem": "rastreador-fixo/IYR8F19/04-2026",
+      "rastreameManutencaoId": 343,
+      "rastreameHash": "d04c30a3aa249480",
+      "rastreameSyncEm": "2026-06-27T23:18:44.336Z"
     },
     {
       "id": "c15b2620-68f4-4193-9564-5e76a5bdb079",
@@ -2332,7 +2875,10 @@
       "data": "10/05/2026",
       "valor": 50,
       "competencia": "05/2026",
-      "origem": "rastreador-fixo/IYR8F19/05-2026"
+      "origem": "rastreador-fixo/IYR8F19/05-2026",
+      "rastreameManutencaoId": 344,
+      "rastreameHash": "efeb8af53af7b0b5",
+      "rastreameSyncEm": "2026-06-27T23:18:44.554Z"
     },
     {
       "id": "be3a6996-9b30-404d-a512-37a73fbbf068",
@@ -2343,7 +2889,10 @@
       "data": "10/01/2026",
       "valor": 50,
       "competencia": "01/2026",
-      "origem": "rastreador-fixo/QJB0I83/01-2026"
+      "origem": "rastreador-fixo/QJB0I83/01-2026",
+      "rastreameManutencaoId": 345,
+      "rastreameHash": "1d7c26aa53b158e0",
+      "rastreameSyncEm": "2026-06-27T23:18:44.744Z"
     },
     {
       "id": "84645566-774a-4a90-82ba-ec0616eb247e",
@@ -2354,7 +2903,10 @@
       "data": "10/02/2026",
       "valor": 50,
       "competencia": "02/2026",
-      "origem": "rastreador-fixo/QJB0I83/02-2026"
+      "origem": "rastreador-fixo/QJB0I83/02-2026",
+      "rastreameManutencaoId": 346,
+      "rastreameHash": "aa3f9b4b4d44f711",
+      "rastreameSyncEm": "2026-06-27T23:18:44.942Z"
     },
     {
       "id": "bb84173f-381e-4fd6-b4ed-6154f930f8e8",
@@ -2365,7 +2917,10 @@
       "data": "10/03/2026",
       "valor": 50,
       "competencia": "03/2026",
-      "origem": "rastreador-fixo/QJB0I83/03-2026"
+      "origem": "rastreador-fixo/QJB0I83/03-2026",
+      "rastreameManutencaoId": 347,
+      "rastreameHash": "3b97023b24991a9c",
+      "rastreameSyncEm": "2026-06-27T23:18:45.138Z"
     },
     {
       "id": "650be42c-09c6-4da5-8376-bf9fe96c4b3a",
@@ -2376,7 +2931,10 @@
       "data": "10/04/2026",
       "valor": 50,
       "competencia": "04/2026",
-      "origem": "rastreador-fixo/QJB0I83/04-2026"
+      "origem": "rastreador-fixo/QJB0I83/04-2026",
+      "rastreameManutencaoId": 348,
+      "rastreameHash": "6d02a527f9cbadf8",
+      "rastreameSyncEm": "2026-06-27T23:18:45.335Z"
     },
     {
       "id": "d32875e3-042a-46b3-9350-1e04cdfa3178",
@@ -2387,7 +2945,10 @@
       "data": "10/05/2026",
       "valor": 50,
       "competencia": "05/2026",
-      "origem": "rastreador-fixo/QJB0I83/05-2026"
+      "origem": "rastreador-fixo/QJB0I83/05-2026",
+      "rastreameManutencaoId": 349,
+      "rastreameHash": "e0f0d6b128378492",
+      "rastreameSyncEm": "2026-06-27T23:18:45.527Z"
     },
     {
       "id": "b2b09943-8c54-488a-a1c4-1107cd718be0",
@@ -2398,7 +2959,10 @@
       "data": "10/01/2026",
       "valor": 50,
       "competencia": "01/2026",
-      "origem": "rastreador-fixo/MLW7I09/01-2026"
+      "origem": "rastreador-fixo/MLW7I09/01-2026",
+      "rastreameManutencaoId": 350,
+      "rastreameHash": "dc9e5d15d86eb48d",
+      "rastreameSyncEm": "2026-06-27T23:18:45.718Z"
     },
     {
       "id": "91786911-9f0d-4f5a-bdc8-0c680fa30dbc",
@@ -2409,7 +2973,10 @@
       "data": "10/02/2026",
       "valor": 50,
       "competencia": "02/2026",
-      "origem": "rastreador-fixo/MLW7I09/02-2026"
+      "origem": "rastreador-fixo/MLW7I09/02-2026",
+      "rastreameManutencaoId": 351,
+      "rastreameHash": "143b782e9fc4fe84",
+      "rastreameSyncEm": "2026-06-27T23:18:45.907Z"
     },
     {
       "id": "0f20fc7a-1b4a-48ee-a1b4-d81f0aac7d2b",
@@ -2420,7 +2987,10 @@
       "data": "10/03/2026",
       "valor": 50,
       "competencia": "03/2026",
-      "origem": "rastreador-fixo/MLW7I09/03-2026"
+      "origem": "rastreador-fixo/MLW7I09/03-2026",
+      "rastreameManutencaoId": 352,
+      "rastreameHash": "1fce44810dbd5d79",
+      "rastreameSyncEm": "2026-06-27T23:18:46.104Z"
     },
     {
       "id": "08eb2785-a70a-417d-9f32-5475661e6b9d",
@@ -2431,7 +3001,10 @@
       "data": "10/04/2026",
       "valor": 50,
       "competencia": "04/2026",
-      "origem": "rastreador-fixo/MLW7I09/04-2026"
+      "origem": "rastreador-fixo/MLW7I09/04-2026",
+      "rastreameManutencaoId": 353,
+      "rastreameHash": "89bb3b910587de10",
+      "rastreameSyncEm": "2026-06-27T23:18:46.293Z"
     },
     {
       "id": "a2b144d3-f5c3-4a58-abde-a02bce5d86b5",
@@ -2442,7 +3015,10 @@
       "data": "10/05/2026",
       "valor": 50,
       "competencia": "05/2026",
-      "origem": "rastreador-fixo/MLW7I09/05-2026"
+      "origem": "rastreador-fixo/MLW7I09/05-2026",
+      "rastreameManutencaoId": 354,
+      "rastreameHash": "1bd2c49d5060bc90",
+      "rastreameSyncEm": "2026-06-27T23:18:46.488Z"
     },
     {
       "id": "5a53d839-53d5-40d7-af98-291703abc142",
@@ -2453,7 +3029,10 @@
       "data": "10/01/2026",
       "valor": 50,
       "competencia": "01/2026",
-      "origem": "rastreador-fixo/FHG0B73/01-2026"
+      "origem": "rastreador-fixo/FHG0B73/01-2026",
+      "rastreameManutencaoId": 355,
+      "rastreameHash": "38fda9dc16d094ca",
+      "rastreameSyncEm": "2026-06-27T23:18:46.690Z"
     },
     {
       "id": "9dc96dde-769a-48ac-bf31-9a40039f109f",
@@ -2464,7 +3043,10 @@
       "data": "10/02/2026",
       "valor": 50,
       "competencia": "02/2026",
-      "origem": "rastreador-fixo/FHG0B73/02-2026"
+      "origem": "rastreador-fixo/FHG0B73/02-2026",
+      "rastreameManutencaoId": 356,
+      "rastreameHash": "1ba81a33abc677bf",
+      "rastreameSyncEm": "2026-06-27T23:18:46.883Z"
     },
     {
       "id": "6f9ed92b-69c4-4123-bb69-42f60b42911f",
@@ -2475,7 +3057,10 @@
       "data": "10/03/2026",
       "valor": 50,
       "competencia": "03/2026",
-      "origem": "rastreador-fixo/FHG0B73/03-2026"
+      "origem": "rastreador-fixo/FHG0B73/03-2026",
+      "rastreameManutencaoId": 357,
+      "rastreameHash": "473fb2e6c5eaf908",
+      "rastreameSyncEm": "2026-06-27T23:18:47.083Z"
     },
     {
       "id": "f420854e-f339-42c0-b0df-f84df45c34d4",
@@ -2486,7 +3071,10 @@
       "data": "10/04/2026",
       "valor": 50,
       "competencia": "04/2026",
-      "origem": "rastreador-fixo/FHG0B73/04-2026"
+      "origem": "rastreador-fixo/FHG0B73/04-2026",
+      "rastreameManutencaoId": 358,
+      "rastreameHash": "072271a8448cdfbe",
+      "rastreameSyncEm": "2026-06-27T23:18:47.278Z"
     },
     {
       "id": "19b66b80-4677-4a06-8a34-edd79a527d90",
@@ -2497,7 +3085,10 @@
       "data": "10/05/2026",
       "valor": 50,
       "competencia": "05/2026",
-      "origem": "rastreador-fixo/FHG0B73/05-2026"
+      "origem": "rastreador-fixo/FHG0B73/05-2026",
+      "rastreameManutencaoId": 359,
+      "rastreameHash": "a32a29b5eb45bd19",
+      "rastreameSyncEm": "2026-06-27T23:18:47.471Z"
     },
     {
       "id": "c75fa4c8-3774-49f5-b426-90a4815ab6c9",
@@ -2508,7 +3099,10 @@
       "data": "10/01/2026",
       "valor": 50,
       "competencia": "01/2026",
-      "origem": "rastreador-fixo/OZC0B50/01-2026"
+      "origem": "rastreador-fixo/OZC0B50/01-2026",
+      "rastreameManutencaoId": 360,
+      "rastreameHash": "65afd12e06beb81f",
+      "rastreameSyncEm": "2026-06-27T23:18:47.684Z"
     },
     {
       "id": "e288023b-03f5-40aa-9c41-43389c52618d",
@@ -2519,7 +3113,10 @@
       "data": "10/02/2026",
       "valor": 50,
       "competencia": "02/2026",
-      "origem": "rastreador-fixo/OZC0B50/02-2026"
+      "origem": "rastreador-fixo/OZC0B50/02-2026",
+      "rastreameManutencaoId": 361,
+      "rastreameHash": "c83b8fc42e7b1971",
+      "rastreameSyncEm": "2026-06-27T23:18:47.879Z"
     },
     {
       "id": "704a8c9b-31f5-4fef-9fc1-760ec72e7459",
@@ -2530,7 +3127,10 @@
       "data": "10/03/2026",
       "valor": 50,
       "competencia": "03/2026",
-      "origem": "rastreador-fixo/OZC0B50/03-2026"
+      "origem": "rastreador-fixo/OZC0B50/03-2026",
+      "rastreameManutencaoId": 362,
+      "rastreameHash": "3bce488ad46f3f69",
+      "rastreameSyncEm": "2026-06-27T23:18:48.074Z"
     },
     {
       "id": "2c58e9dc-7df2-4275-8e87-0f36eb0d813f",
@@ -2541,7 +3141,10 @@
       "data": "10/04/2026",
       "valor": 50,
       "competencia": "04/2026",
-      "origem": "rastreador-fixo/OZC0B50/04-2026"
+      "origem": "rastreador-fixo/OZC0B50/04-2026",
+      "rastreameManutencaoId": 363,
+      "rastreameHash": "ad0dd12e5aa7d7b0",
+      "rastreameSyncEm": "2026-06-27T23:18:48.270Z"
     },
     {
       "id": "1b45ea94-7b5a-4747-b155-57a9d025f2ac",
@@ -2552,7 +3155,10 @@
       "data": "10/05/2026",
       "valor": 50,
       "competencia": "05/2026",
-      "origem": "rastreador-fixo/OZC0B50/05-2026"
+      "origem": "rastreador-fixo/OZC0B50/05-2026",
+      "rastreameManutencaoId": 364,
+      "rastreameHash": "d41fe079f0ce394b",
+      "rastreameSyncEm": "2026-06-27T23:18:48.470Z"
     },
     {
       "id": "d1ce9400-184b-4c7b-96d7-a55d72beb6c2",
@@ -2563,7 +3169,10 @@
       "data": "10/01/2026",
       "valor": 50,
       "competencia": "01/2026",
-      "origem": "rastreador-fixo/OWN3C59/01-2026"
+      "origem": "rastreador-fixo/OWN3C59/01-2026",
+      "rastreameManutencaoId": 365,
+      "rastreameHash": "49ab9615aed3d3b5",
+      "rastreameSyncEm": "2026-06-27T23:18:48.663Z"
     },
     {
       "id": "b1834fda-8d1e-413b-9bc2-853c5f152495",
@@ -2574,7 +3183,10 @@
       "data": "10/02/2026",
       "valor": 50,
       "competencia": "02/2026",
-      "origem": "rastreador-fixo/OWN3C59/02-2026"
+      "origem": "rastreador-fixo/OWN3C59/02-2026",
+      "rastreameManutencaoId": 366,
+      "rastreameHash": "0648a959a9e29bf4",
+      "rastreameSyncEm": "2026-06-27T23:18:48.855Z"
     },
     {
       "id": "09804ddb-adad-48d8-a8f1-21790837b953",
@@ -2585,7 +3197,10 @@
       "data": "10/03/2026",
       "valor": 50,
       "competencia": "03/2026",
-      "origem": "rastreador-fixo/OWN3C59/03-2026"
+      "origem": "rastreador-fixo/OWN3C59/03-2026",
+      "rastreameManutencaoId": 367,
+      "rastreameHash": "478d912928f3f3c4",
+      "rastreameSyncEm": "2026-06-27T23:18:49.043Z"
     },
     {
       "id": "3a8fc286-a57b-4b37-8602-0c10da95383f",
@@ -2596,7 +3211,10 @@
       "data": "10/04/2026",
       "valor": 50,
       "competencia": "04/2026",
-      "origem": "rastreador-fixo/OWN3C59/04-2026"
+      "origem": "rastreador-fixo/OWN3C59/04-2026",
+      "rastreameManutencaoId": 368,
+      "rastreameHash": "bf7d99b63e2c98ed",
+      "rastreameSyncEm": "2026-06-27T23:18:49.238Z"
     },
     {
       "id": "ba671054-9cc7-4684-b3d1-dcdc404bbed7",
@@ -2607,7 +3225,10 @@
       "data": "10/05/2026",
       "valor": 50,
       "competencia": "05/2026",
-      "origem": "rastreador-fixo/OWN3C59/05-2026"
+      "origem": "rastreador-fixo/OWN3C59/05-2026",
+      "rastreameManutencaoId": 369,
+      "rastreameHash": "6c58f961dbbb6bed",
+      "rastreameSyncEm": "2026-06-27T23:18:49.433Z"
     },
     {
       "id": "dce62c14-291c-46f3-90a1-27c73eea3efd",
@@ -2663,6 +3284,575 @@
       "valor": 50,
       "competencia": "05/2026",
       "origem": "rastreador-fixo/RLA1G81/05-2026"
+    },
+    {
+      "id": "e03b3c00-48d3-4a24-bd95-54a66f9f0cb0",
+      "veiculoId": "4d5fd2ec-9b50-4835-96b4-89ae4eaa1452",
+      "placa": "AVU-6740",
+      "categoria": "Seguro",
+      "descricao": "Seguro",
+      "data": "10/07/2026",
+      "valor": 74.89,
+      "competencia": "07/2026",
+      "origem": "Proteção Veicular/Comprovantes/2026/07 Julho/AVU6740 - GOL.pdf",
+      "rastreameManutencaoId": 370,
+      "rastreameHash": "4673543321e4019f",
+      "rastreameSyncEm": "2026-06-27T23:18:49.625Z"
+    },
+    {
+      "id": "796ab4ba-2028-41a1-9726-ec56c7b0e1b6",
+      "veiculoId": "77c7be82-a74d-4895-8466-5ecbadf10989",
+      "placa": "BBV-6A91",
+      "categoria": "Seguro",
+      "descricao": "Seguro",
+      "data": "10/07/2026",
+      "valor": 112.34,
+      "competencia": "07/2026",
+      "origem": "Proteção Veicular/Comprovantes/2026/07 Julho/BBV6A91 - GOL.pdf",
+      "rastreameManutencaoId": 371,
+      "rastreameHash": "2a118efb9b3afd47",
+      "rastreameSyncEm": "2026-06-27T23:18:49.819Z"
+    },
+    {
+      "id": "1034cf31-dd62-415d-9e87-4cc86713bcee",
+      "veiculoId": "20025418-0fc3-4993-9a7b-40494862ad8d",
+      "placa": "FHG-0B73",
+      "categoria": "Seguro",
+      "descricao": "Seguro",
+      "data": "10/07/2026",
+      "valor": 79.89,
+      "competencia": "07/2026",
+      "origem": "Proteção Veicular/Comprovantes/2026/07 Julho/FHG0B73 - FIESTA SED..pdf",
+      "rastreameManutencaoId": 372,
+      "rastreameHash": "ebfedfb78d13742e",
+      "rastreameSyncEm": "2026-06-27T23:18:50.020Z"
+    },
+    {
+      "id": "42c25886-c7f0-4ff2-b08e-bda4e06519f1",
+      "veiculoId": "cb8799e3-d032-4ec3-850e-ca1725555db3",
+      "placa": "MKV-6268",
+      "categoria": "Seguro",
+      "descricao": "Seguro",
+      "data": "10/07/2026",
+      "valor": 97.36,
+      "competencia": "07/2026",
+      "origem": "Proteção Veicular/Comprovantes/2026/07 Julho/MKV6268 - HB20.pdf",
+      "rastreameManutencaoId": 373,
+      "rastreameHash": "552e2f2c90cc7075",
+      "rastreameSyncEm": "2026-06-27T23:18:50.210Z"
+    },
+    {
+      "id": "bd9eb33c-f6b2-4a1c-add4-f56440a86d19",
+      "veiculoId": "359000ba-3b11-4d88-be89-94bb583e4e0d",
+      "placa": "MLN-0B87",
+      "categoria": "Seguro",
+      "descricao": "Seguro",
+      "data": "10/07/2026",
+      "valor": 79.89,
+      "competencia": "07/2026",
+      "origem": "Proteção Veicular/Comprovantes/2026/07 Julho/MLN0B87 - FIESTA.pdf",
+      "rastreameManutencaoId": 374,
+      "rastreameHash": "bd09f89da981c01a",
+      "rastreameSyncEm": "2026-06-27T23:18:50.408Z"
+    },
+    {
+      "id": "497a7796-a832-4919-8cea-a3505809b572",
+      "veiculoId": "20630c6c-0b8a-41a9-b098-ff1773fddc76",
+      "placa": "MLW-7I09",
+      "categoria": "Seguro",
+      "descricao": "Seguro",
+      "data": "10/07/2026",
+      "valor": 107.35,
+      "competencia": "07/2026",
+      "origem": "Proteção Veicular/Comprovantes/2026/07 Julho/MLW7I09 - HB20.pdf",
+      "rastreameManutencaoId": 375,
+      "rastreameHash": "6ac19f2be512229f",
+      "rastreameSyncEm": "2026-06-27T23:18:50.599Z"
+    },
+    {
+      "id": "17f0bfa8-63c5-4d9f-92df-4ad6c2d727f0",
+      "veiculoId": "e1698af5-a4cd-49b0-874b-9b6cfba6912e",
+      "placa": "OWN-3C59",
+      "categoria": "Seguro",
+      "descricao": "Seguro",
+      "data": "10/07/2026",
+      "valor": 79.89,
+      "competencia": "07/2026",
+      "origem": "Proteção Veicular/Comprovantes/2026/07 Julho/OWN3C59 - SANDERO.pdf",
+      "rastreameManutencaoId": 376,
+      "rastreameHash": "9de9c8f3850fca9a",
+      "rastreameSyncEm": "2026-06-27T23:18:50.796Z"
+    },
+    {
+      "id": "65d8642f-fd69-455c-8e07-1df99d793e8f",
+      "veiculoId": "cf8d3ebe-5246-4e7e-a28d-368173633fc2",
+      "placa": "OZC-0B50",
+      "categoria": "Seguro",
+      "descricao": "Seguro",
+      "data": "10/07/2026",
+      "valor": 114.84,
+      "competencia": "07/2026",
+      "origem": "Proteção Veicular/Comprovantes/2026/07 Julho/OZC0B50 - FOCUS.pdf",
+      "rastreameManutencaoId": 377,
+      "rastreameHash": "8c9f0b49f2f27007",
+      "rastreameSyncEm": "2026-06-27T23:18:50.986Z"
+    },
+    {
+      "id": "a47dc0a3-b2b1-4eaa-8085-628ea657d5a2",
+      "veiculoId": "0517704e-f5b4-42a4-835c-8f022b04dab9",
+      "placa": "PWH-3A45",
+      "categoria": "Seguro",
+      "descricao": "Seguro",
+      "data": "10/07/2026",
+      "valor": 124.82,
+      "competencia": "07/2026",
+      "origem": "Proteção Veicular/Comprovantes/2026/07 Julho/PWH3A45 - DOBLO.pdf",
+      "rastreameManutencaoId": 378,
+      "rastreameHash": "5097bfaf6b1eb7e5",
+      "rastreameSyncEm": "2026-06-27T23:18:51.178Z"
+    },
+    {
+      "id": "8fa00e65-19d8-4e24-83ba-db170156dffa",
+      "veiculoId": "4c116216-c4c3-4eef-96c4-a65abb5f4e38",
+      "placa": "QJB-0I83",
+      "categoria": "Seguro",
+      "descricao": "Seguro",
+      "data": "10/07/2026",
+      "valor": 132.31,
+      "competencia": "07/2026",
+      "origem": "Proteção Veicular/Comprovantes/2026/07 Julho/QJB0I83 - FOX.pdf",
+      "rastreameManutencaoId": 379,
+      "rastreameHash": "10cbbc765fb254b9",
+      "rastreameSyncEm": "2026-06-27T23:18:51.369Z"
+    },
+    {
+      "id": "058edf55-fce3-4648-a2ea-e934604a5e4d",
+      "veiculoId": "46949d70-4607-4cc3-b6c2-d1c0b63f0333",
+      "placa": "RYC-7C32",
+      "categoria": "Seguro",
+      "descricao": "Seguro",
+      "data": "10/07/2026",
+      "valor": 292.09,
+      "competencia": "07/2026",
+      "origem": "Proteção Veicular/Comprovantes/2026/07 Julho/RYC7C32 - NIVUS.pdf"
+    },
+    {
+      "id": "b31f1014-afa5-4506-a150-9348bfdcc756",
+      "veiculoId": "4d5fd2ec-9b50-4835-96b4-89ae4eaa1452",
+      "placa": "AVU-6740",
+      "categoria": "IPVA",
+      "descricao": "IPVA (1a. Cota) 2026",
+      "data": "10/10/2026",
+      "valor": 142.55,
+      "competencia": "10/2026",
+      "origem": "detran-sc/debitos/AVU6740/IPVA/649114503"
+    },
+    {
+      "id": "a33be447-eecf-4d08-8946-3ac2eb608232",
+      "veiculoId": "4d5fd2ec-9b50-4835-96b4-89ae4eaa1452",
+      "placa": "AVU-6740",
+      "categoria": "IPVA",
+      "descricao": "IPVA (2a. Cota) 2026",
+      "data": "10/11/2026",
+      "valor": 142.55,
+      "competencia": "11/2026",
+      "origem": "detran-sc/debitos/AVU6740/IPVA/649114504"
+    },
+    {
+      "id": "b46d4b6f-cc99-4ac3-859d-2cdf534f1537",
+      "veiculoId": "4d5fd2ec-9b50-4835-96b4-89ae4eaa1452",
+      "placa": "AVU-6740",
+      "categoria": "IPVA",
+      "descricao": "IPVA (3a. Cota) 2026",
+      "data": "10/12/2026",
+      "valor": 142.54,
+      "competencia": "12/2026",
+      "origem": "detran-sc/debitos/AVU6740/IPVA/649114505"
+    },
+    {
+      "id": "ab1af384-68c0-403a-905f-9720d652ace9",
+      "veiculoId": "4d5fd2ec-9b50-4835-96b4-89ae4eaa1452",
+      "placa": "AVU-6740",
+      "categoria": "Licenciamento",
+      "descricao": "Licenciamento Anual 2026",
+      "data": "30/12/2026",
+      "valor": 149.37,
+      "competencia": "12/2026",
+      "origem": "detran-sc/debitos/AVU6740/Licenciamento/649114501"
+    },
+    {
+      "id": "e7f7565c-709b-49d6-b5d2-1564e5dbd3d8",
+      "veiculoId": "80a01c2a-ea86-493c-88e1-c12843043007",
+      "placa": "IYR-8F19",
+      "categoria": "IPVA",
+      "descricao": "IPVA (1a. Cota) 2026",
+      "data": "10/09/2026",
+      "valor": 459.47,
+      "competencia": "09/2026",
+      "origem": "detran-sc/debitos/IYR8F19/IPVA/662432410"
+    },
+    {
+      "id": "34a0aa2f-9989-42b7-9790-2584704ad830",
+      "veiculoId": "80a01c2a-ea86-493c-88e1-c12843043007",
+      "placa": "IYR-8F19",
+      "categoria": "IPVA",
+      "descricao": "IPVA (2a. Cota) 2026",
+      "data": "10/10/2026",
+      "valor": 459.47,
+      "competencia": "10/2026",
+      "origem": "detran-sc/debitos/IYR8F19/IPVA/662432411"
+    },
+    {
+      "id": "42ada357-2153-4619-9147-ced07fba7533",
+      "veiculoId": "80a01c2a-ea86-493c-88e1-c12843043007",
+      "placa": "IYR-8F19",
+      "categoria": "IPVA",
+      "descricao": "IPVA (3a. Cota) 2026",
+      "data": "10/11/2026",
+      "valor": 459.48,
+      "competencia": "11/2026",
+      "origem": "detran-sc/debitos/IYR8F19/IPVA/662432412"
+    },
+    {
+      "id": "28eba0d7-bb6e-4734-a27a-58806c2f9f51",
+      "veiculoId": "80a01c2a-ea86-493c-88e1-c12843043007",
+      "placa": "IYR-8F19",
+      "categoria": "Licenciamento",
+      "descricao": "Licenciamento Anual 2026",
+      "data": "30/11/2026",
+      "valor": 149.37,
+      "competencia": "11/2026",
+      "origem": "detran-sc/debitos/IYR8F19/Licenciamento/662432408"
+    },
+    {
+      "id": "4ec9a33b-3c05-4fca-85af-f61eaab1043e",
+      "veiculoId": "cb8799e3-d032-4ec3-850e-ca1725555db3",
+      "placa": "MKV-6268",
+      "categoria": "IPVA",
+      "descricao": "IPVA (1a. Cota) 2026",
+      "data": "10/08/2026",
+      "valor": 192.53,
+      "competencia": "08/2026",
+      "origem": "detran-sc/debitos/MKV6268/IPVA/656474056"
+    },
+    {
+      "id": "652661a0-8306-4e36-b0b1-4d5c3794da80",
+      "veiculoId": "cb8799e3-d032-4ec3-850e-ca1725555db3",
+      "placa": "MKV-6268",
+      "categoria": "IPVA",
+      "descricao": "IPVA (2a. Cota) 2026",
+      "data": "10/09/2026",
+      "valor": 192.53,
+      "competencia": "09/2026",
+      "origem": "detran-sc/debitos/MKV6268/IPVA/656474057"
+    },
+    {
+      "id": "583559bb-6546-458b-8f1c-fba49454373d",
+      "veiculoId": "cb8799e3-d032-4ec3-850e-ca1725555db3",
+      "placa": "MKV-6268",
+      "categoria": "IPVA",
+      "descricao": "IPVA (3a. Cota) 2026",
+      "data": "10/10/2026",
+      "valor": 192.54,
+      "competencia": "10/2026",
+      "origem": "detran-sc/debitos/MKV6268/IPVA/656474058"
+    },
+    {
+      "id": "e43a6108-74d1-428f-92ad-87471778ee7f",
+      "veiculoId": "cb8799e3-d032-4ec3-850e-ca1725555db3",
+      "placa": "MKV-6268",
+      "categoria": "Licenciamento",
+      "descricao": "Licenciamento Anual 2026",
+      "data": "31/10/2026",
+      "valor": 149.37,
+      "competencia": "10/2026",
+      "origem": "detran-sc/debitos/MKV6268/Licenciamento/656474054"
+    },
+    {
+      "id": "ef510324-1612-46d7-85e4-85f6dbe3781d",
+      "veiculoId": "359000ba-3b11-4d88-be89-94bb583e4e0d",
+      "placa": "MLN-0B87",
+      "categoria": "IPVA",
+      "descricao": "IPVA (1a. Cota) 2026",
+      "data": "10/07/2026",
+      "valor": 179.99,
+      "competencia": "07/2026",
+      "origem": "detran-sc/debitos/MLN0B87/IPVA/660934759"
+    },
+    {
+      "id": "0f721876-38e6-443c-a5a8-76b8ba5cdf4e",
+      "veiculoId": "359000ba-3b11-4d88-be89-94bb583e4e0d",
+      "placa": "MLN-0B87",
+      "categoria": "IPVA",
+      "descricao": "IPVA (2a. Cota) 2026",
+      "data": "10/08/2026",
+      "valor": 179.99,
+      "competencia": "08/2026",
+      "origem": "detran-sc/debitos/MLN0B87/IPVA/660934760"
+    },
+    {
+      "id": "604b0a54-2430-48e9-8622-8c2b0dcc6824",
+      "veiculoId": "359000ba-3b11-4d88-be89-94bb583e4e0d",
+      "placa": "MLN-0B87",
+      "categoria": "IPVA",
+      "descricao": "IPVA (3a. Cota) 2026",
+      "data": "10/09/2026",
+      "valor": 180,
+      "competencia": "09/2026",
+      "origem": "detran-sc/debitos/MLN0B87/IPVA/660934761"
+    },
+    {
+      "id": "0535fa69-93d9-4d9b-bdd6-8d877c847dae",
+      "veiculoId": "359000ba-3b11-4d88-be89-94bb583e4e0d",
+      "placa": "MLN-0B87",
+      "categoria": "Licenciamento",
+      "descricao": "Licenciamento Anual 2026",
+      "data": "30/09/2026",
+      "valor": 149.37,
+      "competencia": "09/2026",
+      "origem": "detran-sc/debitos/MLN0B87/Licenciamento/660934757"
+    },
+    {
+      "id": "d0f66ebd-6ddf-48f1-b744-8dccb041f6f6",
+      "veiculoId": "e1698af5-a4cd-49b0-874b-9b6cfba6912e",
+      "placa": "OWN-3C59",
+      "categoria": "IPVA",
+      "descricao": "IPVA (1a. Cota) 2026",
+      "data": "10/09/2026",
+      "valor": 197.28,
+      "competencia": "09/2026",
+      "origem": "detran-sc/debitos/OWN3C59/IPVA/657472456"
+    },
+    {
+      "id": "11716a3b-ef0f-49fc-8d95-771cd1d579f6",
+      "veiculoId": "e1698af5-a4cd-49b0-874b-9b6cfba6912e",
+      "placa": "OWN-3C59",
+      "categoria": "IPVA",
+      "descricao": "IPVA (2a. Cota) 2026",
+      "data": "10/10/2026",
+      "valor": 197.28,
+      "competencia": "10/2026",
+      "origem": "detran-sc/debitos/OWN3C59/IPVA/657472457"
+    },
+    {
+      "id": "c0637170-23b1-4739-81f0-eba69c59d88a",
+      "veiculoId": "e1698af5-a4cd-49b0-874b-9b6cfba6912e",
+      "placa": "OWN-3C59",
+      "categoria": "IPVA",
+      "descricao": "IPVA (3a. Cota) 2026",
+      "data": "10/11/2026",
+      "valor": 197.28,
+      "competencia": "11/2026",
+      "origem": "detran-sc/debitos/OWN3C59/IPVA/657472458"
+    },
+    {
+      "id": "46cf5754-8c4c-4a6e-982d-eb19cd9f16f0",
+      "veiculoId": "e1698af5-a4cd-49b0-874b-9b6cfba6912e",
+      "placa": "OWN-3C59",
+      "categoria": "Licenciamento",
+      "descricao": "Licenciamento Anual 2026",
+      "data": "30/11/2026",
+      "valor": 149.37,
+      "competencia": "11/2026",
+      "origem": "detran-sc/debitos/OWN3C59/Licenciamento/657472454"
+    },
+    {
+      "id": "be1fa602-26a6-4401-ba45-90df7feb4921",
+      "veiculoId": "cf8d3ebe-5246-4e7e-a28d-368173633fc2",
+      "placa": "OZC-0B50",
+      "categoria": "IPVA",
+      "descricao": "IPVA (1a. Cota) 2026",
+      "data": "10/10/2026",
+      "valor": 244.65,
+      "competencia": "10/2026",
+      "origem": "detran-sc/debitos/OZC0B50/IPVA/654621166"
+    },
+    {
+      "id": "9e334747-8da5-409f-9d4f-926a7062be3d",
+      "veiculoId": "cf8d3ebe-5246-4e7e-a28d-368173633fc2",
+      "placa": "OZC-0B50",
+      "categoria": "IPVA",
+      "descricao": "IPVA (2a. Cota) 2026",
+      "data": "10/11/2026",
+      "valor": 244.65,
+      "competencia": "11/2026",
+      "origem": "detran-sc/debitos/OZC0B50/IPVA/654621167"
+    },
+    {
+      "id": "1911dbc0-e9d8-4e39-bf74-ea30b69c07de",
+      "veiculoId": "cf8d3ebe-5246-4e7e-a28d-368173633fc2",
+      "placa": "OZC-0B50",
+      "categoria": "IPVA",
+      "descricao": "IPVA (3a. Cota) 2026",
+      "data": "10/12/2026",
+      "valor": 244.64,
+      "competencia": "12/2026",
+      "origem": "detran-sc/debitos/OZC0B50/IPVA/654621168"
+    },
+    {
+      "id": "0c0d4889-2045-4221-bff1-a44f4a6078db",
+      "veiculoId": "cf8d3ebe-5246-4e7e-a28d-368173633fc2",
+      "placa": "OZC-0B50",
+      "categoria": "Licenciamento",
+      "descricao": "Licenciamento Anual 2026",
+      "data": "30/12/2026",
+      "valor": 149.37,
+      "competencia": "12/2026",
+      "origem": "detran-sc/debitos/OZC0B50/Licenciamento/654621164"
+    },
+    {
+      "id": "228a06f1-483b-429e-b960-92bc15ad105e",
+      "veiculoId": "46949d70-4607-4cc3-b6c2-d1c0b63f0333",
+      "placa": "RYC-7C32",
+      "categoria": "IPVA",
+      "descricao": "IPVA (Cota Unica) 2026",
+      "data": "28/02/2026",
+      "valor": 2931.17,
+      "competencia": "02/2026",
+      "origem": "detran-sc/debitos/RYC7C32/IPVA/647793430"
+    },
+    {
+      "id": "ffa8fbc0-9a84-4ff5-96f0-351c54b00faf",
+      "veiculoId": "4d5fd2ec-9b50-4835-96b4-89ae4eaa1452",
+      "placa": "AVU-6740",
+      "categoria": "IPVA",
+      "descricao": "IPVA (Cota Unica) 2026",
+      "data": "31/10/2026",
+      "valor": 427.64,
+      "competencia": "10/2026",
+      "origem": "detran-sc/debitos/AVU6740/IPVA/649114502"
+    },
+    {
+      "id": "b2646b31-905c-4a85-a377-2973992657ab",
+      "veiculoId": "80a01c2a-ea86-493c-88e1-c12843043007",
+      "placa": "IYR-8F19",
+      "categoria": "IPVA",
+      "descricao": "IPVA (Cota Unica) 2026",
+      "data": "30/09/2026",
+      "valor": 1378.42,
+      "competencia": "09/2026",
+      "origem": "detran-sc/debitos/IYR8F19/IPVA/662432409"
+    },
+    {
+      "id": "014959c1-16e7-4233-9e88-e406259c7247",
+      "veiculoId": "cb8799e3-d032-4ec3-850e-ca1725555db3",
+      "placa": "MKV-6268",
+      "categoria": "IPVA",
+      "descricao": "IPVA (Cota Unica) 2026",
+      "data": "31/08/2026",
+      "valor": 577.6,
+      "competencia": "08/2026",
+      "origem": "detran-sc/debitos/MKV6268/IPVA/656474055"
+    },
+    {
+      "id": "728429bc-b703-4fd9-b227-3f2bfaf0d97a",
+      "veiculoId": "359000ba-3b11-4d88-be89-94bb583e4e0d",
+      "placa": "MLN-0B87",
+      "categoria": "IPVA",
+      "descricao": "IPVA (Cota Unica) 2026",
+      "data": "31/07/2026",
+      "valor": 539.98,
+      "competencia": "07/2026",
+      "origem": "detran-sc/debitos/MLN0B87/IPVA/660934758"
+    },
+    {
+      "id": "6c517808-adf9-4f5b-94d3-643426ab8de0",
+      "veiculoId": "e1698af5-a4cd-49b0-874b-9b6cfba6912e",
+      "placa": "OWN-3C59",
+      "categoria": "IPVA",
+      "descricao": "IPVA (Cota Unica) 2026",
+      "data": "30/09/2026",
+      "valor": 591.84,
+      "competencia": "09/2026",
+      "origem": "detran-sc/debitos/OWN3C59/IPVA/657472455"
+    },
+    {
+      "id": "d8b21573-6769-4aff-bf04-a5f1fae6e3f5",
+      "veiculoId": "cf8d3ebe-5246-4e7e-a28d-368173633fc2",
+      "placa": "OZC-0B50",
+      "categoria": "IPVA",
+      "descricao": "IPVA (Cota Unica) 2026",
+      "data": "31/10/2026",
+      "valor": 733.94,
+      "competencia": "10/2026",
+      "origem": "detran-sc/debitos/OZC0B50/IPVA/654621165"
+    },
+    {
+      "id": "1dc39318-dafa-4c62-ada7-bec228a34c01",
+      "veiculoId": "20630c6c-0b8a-41a9-b098-ff1773fddc76",
+      "placa": "MLW-7I09",
+      "categoria": "IPVA",
+      "descricao": "IPVA (Cota Unica) 2026",
+      "data": "30/09/2026",
+      "valor": 684.88,
+      "competencia": "09/2026",
+      "origem": "detran-sc/debitos/MLW7I09/IPVA/656593059"
+    },
+    {
+      "id": "186ee57c-b1de-431b-a79e-aadd1246457f",
+      "veiculoId": "20630c6c-0b8a-41a9-b098-ff1773fddc76",
+      "placa": "MLW-7I09",
+      "categoria": "IPVA",
+      "descricao": "IPVA (1a. Cota) 2026",
+      "data": "10/09/2026",
+      "valor": 228.29,
+      "competencia": "09/2026",
+      "origem": "detran-sc/debitos/MLW7I09/IPVA/656593060"
+    },
+    {
+      "id": "3941bf0f-7c18-4bec-86f0-429d73c1dbda",
+      "veiculoId": "20630c6c-0b8a-41a9-b098-ff1773fddc76",
+      "placa": "MLW-7I09",
+      "categoria": "IPVA",
+      "descricao": "IPVA (2a. Cota) 2026",
+      "data": "10/10/2026",
+      "valor": 228.29,
+      "competencia": "10/2026",
+      "origem": "detran-sc/debitos/MLW7I09/IPVA/656593061"
+    },
+    {
+      "id": "e18b012e-0f3b-4f41-a3c2-9aef1ecf74c5",
+      "veiculoId": "20630c6c-0b8a-41a9-b098-ff1773fddc76",
+      "placa": "MLW-7I09",
+      "categoria": "IPVA",
+      "descricao": "IPVA (3a. Cota) 2026",
+      "data": "10/11/2026",
+      "valor": 228.3,
+      "competencia": "11/2026",
+      "origem": "detran-sc/debitos/MLW7I09/IPVA/656593062"
+    },
+    {
+      "id": "703fa428-352c-461f-b5f1-2b5359e663cf",
+      "veiculoId": "20630c6c-0b8a-41a9-b098-ff1773fddc76",
+      "placa": "MLW-7I09",
+      "categoria": "Licenciamento",
+      "descricao": "Licenciamento Anual 2026",
+      "data": "30/11/2026",
+      "valor": 149.37,
+      "competencia": "11/2026",
+      "origem": "detran-sc/debitos/MLW7I09/Licenciamento/656593058"
+    },
+    {
+      "id": "5cc22541-08c9-4d03-9cec-166d39542c52",
+      "veiculoId": "0517704e-f5b4-42a4-835c-8f022b04dab9",
+      "placa": "PWH-3A45",
+      "categoria": "IPVA",
+      "descricao": "IPVA Cota Única (2026)",
+      "data": "30/04/2026",
+      "valor": 1829.58,
+      "competencia": "04/2026",
+      "origem": "detran-rs/debitos/PWH3A45/IPVA/2026-cota-unica"
+    },
+    {
+      "id": "72161d3d-cb06-4e15-b63b-2c728541880c",
+      "veiculoId": "0517704e-f5b4-42a4-835c-8f022b04dab9",
+      "placa": "PWH-3A45",
+      "categoria": "Licenciamento",
+      "descricao": "Licenciamento (2026)",
+      "data": "31/07/2026",
+      "valor": 114.09,
+      "competencia": "07/2026",
+      "origem": "detran-rs/debitos/PWH3A45/Licenciamento/2026"
     }
   ]
 }

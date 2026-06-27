@@ -2,6 +2,10 @@ import fs from "node:fs";
 import path from "node:path";
 
 import {
+  ativarClienteDoContrato,
+  desativarClienteDoContrato,
+} from "../lib/contratoClienteStatus.js";
+import {
   encerrarContratoDb,
   excluirContrato,
   registrarContrato,
@@ -184,7 +188,7 @@ function isDbMode(f: GerarFlags): boolean {
   return Boolean(f.placa || f.cpf || f.cliente || f.semana != null || f.caucao != null);
 }
 
-function cmdGerar(argv: string[]): void {
+async function cmdGerar(argv: string[]): Promise<void> {
   const f = parseGerarArgs(argv);
 
   if (f.jsonPath && isDbMode(f)) {
@@ -235,13 +239,27 @@ function cmdGerar(argv: string[]): void {
   const r = gerar(dados);
   printGerarResult(r);
 
+  let reg: ReturnType<typeof registrarContrato> | null = null;
   try {
-    const reg = registrarContrato(r.pasta);
+    reg = registrarContrato(r.pasta);
     console.log(
       `Contrato registrado: v${reg.versao} | ${reg.tipoContrato} | ${reg.diaPagamentoSemana ?? reg.diaPagamentoMes ?? "—"} | database/contratos.json`,
     );
   } catch (e) {
     console.error("[aviso] Não foi possível registrar em contratos.json:", (e as Error).message);
+  }
+
+  if (reg) {
+    // Cliente com contrato novo deve estar ativo (local + Rastreame): reativa se estava inativo.
+    const res = await ativarClienteDoContrato({
+      clienteId: reg.clienteId,
+      cpf: reg.cpf,
+      nome: reg.clienteNome,
+    });
+    if (res.local === "ativado") {
+      console.log(`Cliente reativado: ${reg.clienteNome} | local + Rastreame (${res.rastreame})`);
+    }
+    if (res.aviso) console.error(`[aviso] ${res.aviso}`);
   }
 }
 
@@ -275,14 +293,15 @@ function parseMotivo(v: string | null): MotivoEncerramento | null {
   const t = (v ?? "").trim().toLowerCase();
   if (t === "devolvido" || t === "devolucao" || t === "devolução") return "devolvido";
   if (t === "recuperado" || t === "recolhido") return "recuperado";
+  if (t === "troca" || t === "trocado") return "troca";
   return null;
 }
 
-function cmdEncerrar(argv: string[]): void {
+async function cmdEncerrar(argv: string[]): Promise<void> {
   let pasta: string | null = null;
   let data: string | null = null;
   let motivo: MotivoEncerramento | null = null;
-  let quebra = true;
+  let quebra: boolean | null = null;
 
   for (let i = 0; i < argv.length; i++) {
     const a = argv[i]!;
@@ -296,21 +315,39 @@ function cmdEncerrar(argv: string[]): void {
   if (!pasta || !data || !motivo) {
     console.error(`Uso:
   cadastro-contrato encerrar <pasta-contrato|--id uuid> \\
-    --data DD/MM/AAAA --motivo devolvido|recuperado [--quebra|--sem-quebra]
+    --data DD/MM/AAAA --motivo devolvido|recuperado|troca [--quebra|--sem-quebra]
 
 Efetiva encerramento em database/contratos.json (use relatorio-encerramento-contrato antes para o acerto).
+"troca" não é quebra por padrão (gera novo contrato com outro veículo; caução transfere).
 `);
     process.exit(1);
   }
 
+  // "troca" não é quebra por padrão (novo contrato com outro veículo); demais motivos: quebra.
+  const quebraFinal = quebra ?? (motivo === "troca" ? false : true);
+
   const r = encerrarContratoDb(pasta, {
     dataEncerramento: data,
     motivoEncerramento: motivo,
-    quebraContrato: quebra,
+    quebraContrato: quebraFinal,
   });
   console.log(`Encerrado: ${r.clienteNome} | ${r.placa} | v${r.versao}`);
   console.log(`  Data: ${r.dataEncerramento} | Motivo: ${r.motivoEncerramento} | Quebra: ${r.quebraContrato ? "sim" : "não"}`);
   console.log(`  id: ${r.id}`);
+
+  // Ao encerrar, inativa o cliente (local + Rastreame) — exceto se tiver outro contrato ativo.
+  const res = await desativarClienteDoContrato({
+    clienteId: r.clienteId,
+    cpf: r.cpf,
+    nome: r.clienteNome,
+    contratoId: r.id,
+  });
+  if (res.local === "inativado") {
+    console.log(`Cliente inativado: ${r.clienteNome} | local + Rastreame (${res.rastreame})`);
+  } else if (res.aviso) {
+    console.log(`Cliente mantido ativo: ${res.aviso}`);
+  }
+  if (res.aviso && res.rastreame === "erro") console.error(`[aviso] ${res.aviso}`);
 }
 
 function cmdExcluir(argv: string[]): void {
@@ -348,19 +385,19 @@ Aliases legados: gerar-contrato, registrar-contrato, registrar-encerramento-cont
 `);
 }
 
-export function main(argv: string[]): void {
+export async function main(argv: string[]): Promise<void> {
   const sub = argv[0] && !argv[0].startsWith("-") ? argv[0].toLowerCase() : null;
   const rest = sub ? argv.slice(1) : argv;
 
   switch (sub) {
     case "gerar":
-      cmdGerar(rest);
+      await cmdGerar(rest);
       break;
     case "sincronizar":
       cmdSincronizar(rest);
       break;
     case "encerrar":
-      cmdEncerrar(rest);
+      await cmdEncerrar(rest);
       break;
     case "excluir":
       cmdExcluir(rest);
@@ -372,11 +409,11 @@ export function main(argv: string[]): void {
       printGerarUsage();
       break;
     case null:
-      cmdGerar(argv);
+      await cmdGerar(argv);
       break;
     default:
       if (sub.endsWith(".json") || sub.startsWith("--")) {
-        cmdGerar(argv);
+        await cmdGerar(argv);
       } else {
         console.error(`Subcomando desconhecido: ${sub}`);
         printUsage();

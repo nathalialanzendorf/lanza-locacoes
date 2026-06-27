@@ -5,12 +5,14 @@ import {
 } from "./auth.js";
 import type { DetranScConsultaVeiculo } from "./types.js";
 
-const CONSULTA_PATHS = [
-  "/veiculo/consulta",
-  "/veiculo/solicitar-consulta",
-] as const;
-
+// Início da consulta: GET /veiculo/requisitar-consulta?p=PLACA&r=RENAVAM&c=CAPTCHA&v=
+// Devolve o ticket (UUID) usado em /veiculo/resposta-consulta?t=TICKET.
+// `c` é um token de captcha gerado no browser (uso único, ~curta validade).
+const REQUISITAR_PATH = "/veiculo/requisitar-consulta";
 const RESPOSTA_PATH = "/veiculo/resposta-consulta";
+
+/** Erro de consulta DETRAN com mensagem do portal (ex.: "Captcha inválido"). */
+export class DetranScConsultaError extends Error {}
 
 function sleep(ms: number): Promise<void> {
   return new Promise((r) => setTimeout(r, ms));
@@ -28,9 +30,20 @@ function pickTicket(raw: unknown): string | null {
   return null;
 }
 
+/** Alguns endpoints devolvem o ticket como string nua (UUID) em vez de objeto. */
+function pickTicketFromString(raw: unknown): string | null {
+  if (typeof raw !== "string") return null;
+  const s = raw.trim().replace(/^"|"$/g, "");
+  if (/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(s)) return s;
+  return null;
+}
+
 function hasVeiculoPayload(raw: unknown): boolean {
   if (!raw || typeof raw !== "object") return false;
   const o = raw as Record<string, unknown>;
+  // pendente:true = consulta ainda processando (resposta-consulta devolve
+  // {placa,pendente:true,...} enquanto monta o dossiê) — não é o payload final.
+  if (o.pendente === true) return false;
   const check = (x: Record<string, unknown>) =>
     Array.isArray(x.infracoes) ||
     Array.isArray(x.historicoInfracoes) ||
@@ -47,58 +60,77 @@ function hasVeiculoPayload(raw: unknown): boolean {
   return false;
 }
 
+/** Extrai mensagem de erro do portal (array/obj com `mensagemUsuario`/`message`). */
+function extrairMensagemErro(raw: unknown): string | null {
+  const fromObj = (o: Record<string, unknown>): string | null => {
+    for (const k of ["mensagemUsuario", "mensagem", "message", "erro", "error"]) {
+      const v = o[k];
+      if (typeof v === "string" && v.trim()) return v.trim();
+    }
+    return null;
+  };
+  if (Array.isArray(raw)) {
+    for (const item of raw) {
+      if (item && typeof item === "object") {
+        const m = fromObj(item as Record<string, unknown>);
+        if (m) return m;
+      }
+    }
+    return null;
+  }
+  if (raw && typeof raw === "object") return fromObj(raw as Record<string, unknown>);
+  return null;
+}
+
+/**
+ * Inicia a consulta em `requisitar-consulta` e devolve o ticket.
+ *
+ * O parâmetro `c` (captcha Cloudflare) é **opcional**: o backend devolve o
+ * ticket apenas com `p` (+ `r`) — ex.: `{"pendente":true,"token":"<uuid>"}`.
+ * Mantemos `captcha` aceito caso o browser o forneça, mas não é exigido, o que
+ * permite a varredura automática da frota.
+ */
 async function iniciarConsulta(
   placa: string,
   renavam: string,
+  captcha: string | undefined,
 ): Promise<{ ticket: string | null; direct: DetranScConsultaVeiculo | null }> {
-  const headers = {
-    ...detranScJsonHeaders(),
-    "Content-Type": "application/json",
-  };
   const placaApi = compactPlaca(placa);
   const renavamApi = String(renavam).replace(/\D/g, "");
+  const debug = process.env.DETRAN_SC_DEBUG === "1";
 
-  const bodies = [
-    { placa: placaApi, renavam: renavamApi },
-    { placa: placaApi, renavam: Number(renavamApi) },
-  ];
+  // `c` já vem URL-safe do browser; não re-encodar para não corromper o token.
+  const cParam = captcha && captcha.trim() ? captcha.trim() : "";
+  const url =
+    `${DETRAN_SC_API_BASE}${REQUISITAR_PATH}` +
+    `?p=${encodeURIComponent(placaApi)}&r=${encodeURIComponent(renavamApi)}&c=${cParam}&v=`;
 
-  for (const path of CONSULTA_PATHS) {
-    const url = `${DETRAN_SC_API_BASE}${path}`;
-
-    for (const body of bodies) {
-      try {
-        const r = await fetch(url, {
-          method: "POST",
-          headers,
-          body: JSON.stringify(body),
-        });
-        const raw = await r.json().catch(() => null);
-        if (r.ok && hasVeiculoPayload(raw)) {
-          return { ticket: null, direct: raw as DetranScConsultaVeiculo };
-        }
-        const ticket = pickTicket(raw);
-        if (ticket) return { ticket, direct: null };
-      } catch {
-        /* tenta próximo */
-      }
-    }
-
-    try {
-      const qs = new URLSearchParams({ placa: placaApi, renavam: renavamApi });
-      const r = await fetch(`${url}?${qs}`, { method: "GET", headers: detranScJsonHeaders() });
-      const raw = await r.json().catch(() => null);
-      if (r.ok && hasVeiculoPayload(raw)) {
-        return { ticket: null, direct: raw as DetranScConsultaVeiculo };
-      }
-      const ticket = pickTicket(raw);
-      if (ticket) return { ticket, direct: null };
-    } catch {
-      /* tenta próximo path */
-    }
+  const r = await fetch(url, { headers: detranScJsonHeaders() });
+  const text = await r.text();
+  if (debug) {
+    console.error(`[detran-debug] GET requisitar-consulta p=${placaApi} → HTTP ${r.status}: ${text.slice(0, 400)}`);
   }
 
-  return { ticket: null, direct: null };
+  let raw: unknown = null;
+  try {
+    raw = JSON.parse(text);
+  } catch {
+    raw = text.trim() || null;
+  }
+
+  const msgErro = extrairMensagemErro(raw);
+  if (msgErro) throw new DetranScConsultaError(`DETRAN SC requisitar-consulta: ${msgErro}`);
+
+  if (r.ok && hasVeiculoPayload(raw)) {
+    return { ticket: null, direct: raw as DetranScConsultaVeiculo };
+  }
+
+  const ticket = pickTicketFromString(raw) ?? pickTicket(raw);
+  if (ticket) return { ticket, direct: null };
+
+  throw new DetranScConsultaError(
+    `DETRAN SC: requisitar-consulta não devolveu ticket (HTTP ${r.status}).`,
+  );
 }
 
 async function buscarResposta(ticket: string): Promise<DetranScConsultaVeiculo> {
@@ -124,13 +156,11 @@ async function buscarResposta(ticket: string): Promise<DetranScConsultaVeiculo> 
 
     if (hasVeiculoPayload(raw)) return raw as DetranScConsultaVeiculo;
 
+    const o = raw && typeof raw === "object" ? (raw as Record<string, unknown>) : {};
     const pendente =
-      typeof raw === "object" &&
-      raw &&
-      ("status" in raw || "situacao" in raw) &&
-      /process|pendente|aguard/i.test(
-        String((raw as Record<string, unknown>).status ?? (raw as Record<string, unknown>).situacao),
-      );
+      o.pendente === true ||
+      (("status" in o || "situacao" in o) &&
+        /process|pendente|aguard/i.test(String(o.status ?? o.situacao)));
 
     if (pendente) {
       await sleep(delays[i]!);
@@ -143,12 +173,13 @@ async function buscarResposta(ticket: string): Promise<DetranScConsultaVeiculo> 
   throw new Error("DETRAN SC: timeout aguardando resposta-consulta");
 }
 
-/** Consulta veículo no portal Detran Digital SC (placa + renavam). */
+/** Consulta veículo no portal Detran Digital SC (placa + renavam + captcha). */
 export async function consultarVeiculoDetranSc(
   placa: string,
   renavam: string,
+  opts?: { captcha?: string },
 ): Promise<DetranScConsultaVeiculo> {
-  const { ticket, direct } = await iniciarConsulta(placa, renavam);
+  const { ticket, direct } = await iniciarConsulta(placa, renavam, opts?.captcha);
   if (direct) return direct;
   if (!ticket) {
     throw new Error(

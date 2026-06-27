@@ -5,6 +5,16 @@ import { loadLocalEnv } from "../loadLocalEnv.js";
 
 loadLocalEnv();
 
+// Redes com interceptação TLS (proxy/firewall) fazem o Node falhar com
+// UNABLE_TO_VERIFY_LEAF_SIGNATURE ao chamar backend.detran.sc.gov.br.
+// Mesma necessidade do Rastreame/Pedágio — ativar via DETRAN_SC_TLS_INSECURE=1.
+if (
+  process.env.DETRAN_SC_TLS_INSECURE === "1" ||
+  process.env.RASTREAME_TLS_INSECURE === "1"
+) {
+  process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
+}
+
 export const DETRAN_SC_ORIGIN = "https://servicos.detran.sc.gov.br";
 export const DETRAN_SC_API_BASE =
   "https://backend.detran.sc.gov.br/transito-api";

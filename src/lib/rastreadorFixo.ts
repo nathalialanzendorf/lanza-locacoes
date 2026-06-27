@@ -1,6 +1,7 @@
 /**
  * Rastreador mensal fixo por veículo cadastrado.
- * R$ 50,00 — dia 10 da competência. Sync idempotente (placa + competência).
+ * R$ 50,00 — dia 10 da competência. Lançamento em lote idempotente (placa + competência).
+ * Faz parte da skill cadastro-despesa (não é um sync — só grava localmente).
  */
 import fs from "node:fs";
 import crypto from "node:crypto";
@@ -56,13 +57,13 @@ export function competenciaAtual(): string {
   return `${String(d.getMonth() + 1).padStart(2, "0")}/${d.getFullYear()}`;
 }
 
-type SyncRastreadorOpts = {
+type LancarRastreadorOpts = {
   desde?: string;
   ate?: string;
   dryRun?: boolean;
 };
 
-export type SyncRastreadorResult = {
+export type LancarRastreadorResult = {
   novos: number;
   atualizados: number;
   semAlteracao: number;
@@ -73,9 +74,10 @@ export type SyncRastreadorResult = {
 
 function loadVeiculos(): { id: string; placa: string }[] {
   const raw = JSON.parse(fs.readFileSync(DB_VEICULOS, "utf8")) as {
-    veiculos: { id: string; placa: string }[];
+    veiculos: { id: string; placa: string; ativo?: boolean; particular?: boolean }[];
   };
-  return raw.veiculos;
+  // Taxa só para veículos ATIVOS e de LOCAÇÃO (particular do proprietário não paga rastreador).
+  return raw.veiculos.filter((v) => v.ativo !== false && v.particular !== true);
 }
 
 function findRastreadoresMes(
@@ -104,7 +106,7 @@ function pickCanonicRastreador(
   );
 }
 
-export function syncRastreadorFixo(opts: SyncRastreadorOpts = {}): SyncRastreadorResult {
+export function lancarRastreadorFixo(opts: LancarRastreadorOpts = {}): LancarRastreadorResult {
   const desde = opts.desde ?? "01/2026";
   const ate = opts.ate ?? competenciaAtual();
   const competencias = listCompetenciasMensais(desde, ate);

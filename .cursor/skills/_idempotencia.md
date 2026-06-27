@@ -13,14 +13,15 @@ Toda skill que **grava** dados deve poder ser **reexecutada** sem duplicar regis
 
 | Skill / CLI | Chave idempotente |
 |-------------|-------------------|
-| **sync-rastreador** | `placa + competencia + Rastreador` · `origem: rastreador-fixo/...` |
+| **cadastro-despesa** `gravar-rastreador` | `placa + competencia + Rastreador` · `origem: rastreador-fixo/...` |
 | **sync-seguro** | `origem` (PDF) **ou** `placa + competencia + Seguro` |
 | **sync-ipva-licenciamento** | `origem: detran-sc/debitos/...` |
 | **sync-infracoes** | `autoInfracao` |
-| **sync-recebimentos** pull | `rastreameId` / `RAST-{id}` |
-| **sync-recebimentos** push | `info + motorista + rastreavel` (antes de POST) |
-| **sync-motoristas** | CPF / CNH / `rastreameMotoristaKey` |
-| **sync-rastreaveis** | `placa` / `rastreameRastreavelKey` |
+| **sync-gastos-gerais** pull | `rastreameId` / `RAST-{id}` |
+| **sync-gastos-gerais** push | `info + motorista + rastreavel` (antes de POST) |
+| **sync-manutencao** push | `rastreameManutencaoId` local; dedupe `rastreavel + info + data` antes de POST |
+| **sync-cliente** | CPF / CNH / `rastreameMotoristaKey` / nome |
+| **sync-veiculo** | `placa` / `rastreameRastreavelKey` |
 | **cadastro-despesa** | `placa + competencia + categoria + descricao` (manual) |
 | **cadastro-cliente** | CPF / CNH |
 | **cadastro-veiculo** | `placa` |

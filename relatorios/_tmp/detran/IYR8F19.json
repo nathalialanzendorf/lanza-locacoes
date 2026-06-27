@@ -1,0 +1,246 @@
+{
+  "placa": "IYR8F19",
+  "renavam": 1161560650,
+  "proprietarioAtual": "J*** A**** B****** D* J****",
+  "proprietarioAnterior": "V******* D*****",
+  "principalCondutor": "R***** M****** P*****",
+  "cor": "Branca",
+  "marcaModelo": "PEUGEOT/2008 STYLE EAT6",
+  "anoFabricacao": 2018,
+  "anoModelo": 2019,
+  "motivoBaixa": "Em circulação",
+  "exercicioLicenciamento": 2025,
+  "licenciado": "2025 em 18/12/2025 através do Registro de Veículo (CRV)",
+  "municipio": "TUBARAO",
+  "uf": "SC",
+  "debitos": [
+    {
+      "idDebito": 673446808,
+      "descricaoClasse": "DETRAN/-008786-55707381W-6920",
+      "dataVencimentoOriginal": "2026-04-24",
+      "valorAtualizado": 132.85,
+      "linhaDigitavel": "00190.00009  03644.646162  73446.808179  7  14930000013285",
+      "emiteGuia": 1,
+      "exercicio": 2025,
+      "dareSat": 0,
+      "vencido": true
+    },
+    {
+      "idDebito": 662432409,
+      "descricaoClasse": "IPVA (Cota Unica) 2026",
+      "dataVencimentoOriginal": "2026-09-30",
+      "valorAtualizado": 1378.42,
+      "linhaDigitavel": "85690000013-9  78420024836-6  74026001161-5  56065018053-5",
+      "emiteGuia": 1,
+      "exercicio": 2026,
+      "dareSat": 1,
+      "vencido": false
+    },
+    {
+      "idDebito": 662432410,
+      "descricaoClasse": "IPVA (1a. Cota) 2026",
+      "dataVencimentoOriginal": "2026-09-10",
+      "valorAtualizado": 459.47,
+      "linhaDigitavel": "85670000004-0  59470024836-4  74126001161-3  56065018053-5",
+      "emiteGuia": 1,
+      "exercicio": 2026,
+      "dareSat": 1,
+      "vencido": false
+    },
+    {
+      "idDebito": 662432411,
+      "descricaoClasse": "IPVA (2a. Cota) 2026",
+      "dataVencimentoOriginal": "2026-10-10",
+      "valorAtualizado": 459.47,
+      "linhaDigitavel": "85660000004-1  59470024836-4  74226001161-1  56065018053-5",
+      "emiteGuia": 3,
+      "motivoNaoEmissaoGuia": "1ª Cota não quitada",
+      "exercicio": 2026,
+      "dareSat": 0,
+      "vencido": false
+    },
+    {
+      "idDebito": 662432412,
+      "descricaoClasse": "IPVA (3a. Cota) 2026",
+      "dataVencimentoOriginal": "2026-11-10",
+      "valorAtualizado": 459.48,
+      "linhaDigitavel": "85640000004-3  59480024836-3  74326001161-9  56065018053-5",
+      "emiteGuia": 3,
+      "motivoNaoEmissaoGuia": "2ª Cota não quitada",
+      "exercicio": 2026,
+      "dareSat": 0,
+      "vencido": false
+    },
+    {
+      "idDebito": 662432408,
+      "descricaoClasse": "Licenciamento Anual 2026",
+      "dataVencimentoOriginal": "2026-11-30",
+      "valorAtualizado": 149.37,
+      "linhaDigitavel": "85690000001-4  49370024700-7  06624324080-2  00260021353-8",
+      "emiteGuia": 1,
+      "exercicio": 2026,
+      "dareSat": 1,
+      "vencido": false
+    }
+  ],
+  "infracoes": [
+    {
+      "idAutoInfracao": 70928931,
+      "numeroAuto": "55707381W ",
+      "descricao": "DEIXAR DE EFETUAR REG DO VEIC EM 30 DIAS QDO FOR TRANSF PROP",
+      "dataHoraAutuacao": "2025-12-18T17:09:38",
+      "localInfracao": "RUA ALTAMIRO GUIMARAES, 864 - TUBARAO/SC",
+      "valor": 130.16,
+      "situacao": "Penalidade notificada",
+      "status": "Em aberto",
+      "protocolo": "8786.6920.55707381W ",
+      "dataLimiteDefesa": "2026-02-05",
+      "prazoDefesaExpirado": true
+    },
+    {
+      "idAutoInfracao": 74459598,
+      "numeroAuto": "J007667297",
+      "descricao": "TRANSITAR EM VEL SUPERIOR À MÁXIMA PERMITIDA EM ATÉ 20%",
+      "dataHoraAutuacao": "2026-04-03T06:48:00",
+      "localInfracao": "RS - BR 101 - KM 86.20 - C - OSORIO/RS",
+      "valor": 130.16,
+      "situacao": "Autuação notificada",
+      "status": "Em aberto",
+      "protocolo": "100.7455.J007667297",
+      "dataLimiteDefesa": "2026-05-29",
+      "prazoDefesaExpirado": true
+    },
+    {
+      "idAutoInfracao": 74713630,
+      "numeroAuto": "E033126290",
+      "descricao": "TRANSITAR EM VEL SUPERIOR À MÁXIMA PERMITIDA EM ATÉ 20%",
+      "dataHoraAutuacao": "2026-04-03T08:59:00",
+      "localInfracao": "ROD. RSC287 KM 38 SENTIDO TAQUARI-VENANCIO AIRES - TAQUARI/RS",
+      "valor": 130.16,
+      "situacao": "Autuação notificada",
+      "status": "Em aberto",
+      "protocolo": "121200.7455.E033126290",
+      "dataLimiteDefesa": "2026-06-22",
+      "prazoDefesaExpirado": true
+    }
+  ],
+  "historicoInfracoes": [
+    {
+      "idAutoInfracao": 59916293,
+      "numeroAuto": "E022483424",
+      "descricao": "TRANSITAR EM VEL SUPERIOR À MÁXIMA PERMITIDA EM ATÉ 20%",
+      "dataHoraAutuacao": "2022-03-21T15:54:00",
+      "localInfracao": "AV IMPERATRIZ LEOPOLDINA OPOSTO AO NUMERO1360 BC - SAO LEOPOLDO/RS",
+      "valor": 130.16,
+      "situacao": "Penalidade notificada",
+      "status": "Justificada",
+      "protocolo": "288770.7455.E022483424",
+      "dataLimiteDefesa": "2022-06-07",
+      "prazoDefesaExpirado": true
+    },
+    {
+      "idAutoInfracao": 65484337,
+      "numeroAuto": "Z000011209",
+      "descricao": "ESTAC EM DESACOR C/ REGULAMENTAÇÃO - ESTACIONAMENTO ROTATIVO",
+      "dataHoraAutuacao": "2025-01-02T11:22:10",
+      "localInfracao": "RUA DR RODOVALHO NUMERO 110 - TUBARAO/SC",
+      "complemento": "                                                                                ",
+      "valor": 195.23,
+      "situacao": "Penalidade notificada",
+      "status": "Paga",
+      "protocolo": "8741.5541.Z000011209",
+      "dataLimiteDefesa": "2025-03-31",
+      "prazoDefesaExpirado": true
+    },
+    {
+      "idAutoInfracao": 68505939,
+      "numeroAuto": "Z000017430",
+      "descricao": "ESTAC EM DESACOR C/ REGULAMENTAÇÃO - ESTACIONAMENTO ROTATIVO",
+      "dataHoraAutuacao": "2025-07-29T10:07:34",
+      "localInfracao": "RUA PADRE BERNARDO FREUSER, NUMERO 81 - TUBARAO/SC",
+      "valor": 195.23,
+      "situacao": "Penalidade notificada",
+      "status": "Paga",
+      "protocolo": "8072.5541.Z000017430",
+      "dataLimiteDefesa": "2025-10-13",
+      "prazoDefesaExpirado": true
+    }
+  ],
+  "dividaAtiva": [],
+  "dataAtualizacao": "2026-06-28T21:17:52",
+  "dataAquisicao": "2025-06-10",
+  "pendente": false,
+  "tipo": "Automovel",
+  "categoria": "Particular",
+  "carroceria": "Nao Aplicavel",
+  "especie": "Passageiro",
+  "placaAnterior": "IYR8F19/RS",
+  "lugares": 5,
+  "combustivel": "Alcool-Gasol",
+  "restricaoVenda": "Sem gravame",
+  "informacoesPendentesSng": [],
+  "processos": [
+    {
+      "numeroProcesso": "1579816/2025",
+      "interessadoDocumento": "179*******7",
+      "dataHoraInicio": "2025-12-18T15:59:00",
+      "dataHoraFim": "2025-12-18T17:08:00",
+      "situacao": "Encerrado",
+      "servicos": [
+        {
+          "servico": "Transferência de Propriedade",
+          "dataHoraExecucao": "2025-12-18T15:59:33.423"
+        },
+        {
+          "servico": "Geração de guia de pagamento",
+          "dataHoraExecucao": "2025-12-18T15:59:33.52"
+        },
+        {
+          "servico": "Auditoria",
+          "dataHoraExecucao": "2025-12-18T17:08:38.526"
+        },
+        {
+          "servico": "Emissão de CRV/CRLVe",
+          "dataHoraExecucao": "2025-12-18T17:09:38.91"
+        }
+      ]
+    },
+    {
+      "numeroProcesso": "1454420/2023",
+      "interessadoDocumento": "277*******3",
+      "dataHoraInicio": "2023-12-22T17:32:00",
+      "dataHoraFim": "2023-12-27T10:49:00",
+      "situacao": "Encerrado",
+      "servicos": [
+        {
+          "servico": "Trânsferência outra UF",
+          "dataHoraExecucao": "2023-12-22T17:32:55.14"
+        },
+        {
+          "servico": "Transferência de Propriedade",
+          "dataHoraExecucao": "2023-12-22T17:32:55.143"
+        },
+        {
+          "servico": "Geração de guia de pagamento",
+          "dataHoraExecucao": "2023-12-22T17:32:55.203"
+        },
+        {
+          "servico": "Auditoria",
+          "dataHoraExecucao": "2023-12-27T10:49:41.91"
+        },
+        {
+          "servico": "Emissão de CRV/CRLVe",
+          "dataHoraExecucao": "2023-12-27T10:56:11.196"
+        }
+      ]
+    }
+  ],
+  "editaisCedo": [],
+  "ipvasNotificados": [],
+  "recursosInfracao": [],
+  "avisos": [],
+  "csvGnvVencido": false,
+  "origemDados": "Cadastro",
+  "hash": "411342f98d9077c983a785e471ebd42a",
+  "token": "68000d96-c53d-4781-ab56-b8955f22c28b"
+}

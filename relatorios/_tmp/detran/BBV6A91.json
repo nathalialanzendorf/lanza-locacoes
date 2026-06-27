@@ -1,0 +1,512 @@
+{
+  "placa": "BBV6A91",
+  "renavam": 1140458539,
+  "proprietarioAtual": "G******* A***** D* L***",
+  "proprietarioAnterior": "C******** P******* P******",
+  "principalCondutor": "",
+  "cor": "Branca",
+  "marcaModelo": "VW/NOVO GOL TL MBV",
+  "anoFabricacao": 2017,
+  "anoModelo": 2018,
+  "motivoBaixa": "Em circulação",
+  "exercicioLicenciamento": 2026,
+  "licenciado": "2026 CRLV Digital",
+  "municipio": "IMARUI",
+  "uf": "SC",
+  "debitos": [
+    {
+      "idDebito": 675608401,
+      "descricaoClasse": "UF:RD-000100-J005833081-7455",
+      "dataVencimentoOriginal": "2026-10-02",
+      "valorAtualizado": 130.16,
+      "linhaDigitavel": "00190.00009  03644.643169  75608.401172  6  15870000010413",
+      "emiteGuia": 1,
+      "exercicio": 2025,
+      "dareSat": 0,
+      "vencido": false
+    }
+  ],
+  "infracoes": [
+    {
+      "idAutoInfracao": 72122436,
+      "numeroAuto": "J005833081",
+      "descricao": "TRANSITAR EM VEL SUPERIOR À MÁXIMA PERMITIDA EM ATÉ 20%",
+      "dataHoraAutuacao": "2025-12-26T05:37:00",
+      "localInfracao": "SC - BR 101 - KM 334.70 - C - TUBARAO/SC",
+      "valor": 130.16,
+      "situacao": "Penalidade notificada",
+      "status": "Em aberto",
+      "protocolo": "100.7455.J005833081",
+      "dataLimiteDefesa": "2026-03-06",
+      "prazoDefesaExpirado": true
+    },
+    {
+      "idAutoInfracao": 75197147,
+      "numeroAuto": "CRC0883952",
+      "descricao": "TRANSITAR EM VEL SUPERIOR À MÁXIMA PERMITIDA EM ATÉ 20%",
+      "dataHoraAutuacao": "2026-05-12T17:39:10",
+      "localInfracao": "AV. SANTOS DUMONT (PROXIMO AMREC/ FORUM) - CRICIUMA/SC",
+      "valor": 130.16,
+      "situacao": "Autuação notificada",
+      "status": "Em aberto",
+      "protocolo": "8788.7455.CRC0883952",
+      "dataLimiteDefesa": "2026-07-06",
+      "prazoDefesaExpirado": false
+    },
+    {
+      "idAutoInfracao": 75482230,
+      "numeroAuto": "CRC0890597",
+      "descricao": "AVANÇAR SINAL VERM, EXC OND. PERM LIVR CONV A DIR - Fisc Ele",
+      "dataHoraAutuacao": "2026-06-02T20:00:44",
+      "localInfracao": "AV. CENTENARIO ESQ. RUA DOMINGOS BRISTOT - CRICIUMA/SC",
+      "valor": 293.47,
+      "situacao": "Autuação notificada",
+      "status": "Em aberto",
+      "protocolo": "8788.6050.CRC0890597",
+      "dataLimiteDefesa": "2026-07-24",
+      "prazoDefesaExpirado": false
+    }
+  ],
+  "historicoInfracoes": [
+    {
+      "idAutoInfracao": 64591705,
+      "numeroAuto": "P08UC001LA",
+      "descricao": "TRANSIT PELA CONTRAMÃO DIREÇÃO EM VIA COM DUPLO SENTIDO CIRC",
+      "dataHoraAutuacao": "2024-12-01T07:00:10",
+      "localInfracao": "PRAIA DO MELÃO - BALNEÁRIO ARROIO DO SILVA - SANTA CATARINA, BRASIL - BALNEARIO ARROIO DO SILVA/SC",
+      "complemento": "                                                                                ",
+      "valor": 195.23,
+      "situacao": "Penalidade notificada",
+      "status": "Justificada",
+      "protocolo": "8528.5720.P08UC001LA",
+      "dataLimiteDefesa": "2025-02-03",
+      "prazoDefesaExpirado": true
+    },
+    {
+      "idAutoInfracao": 64591706,
+      "numeroAuto": "P08UC001LB",
+      "descricao": "Transitar com o veículo com lotação excedente",
+      "dataHoraAutuacao": "2024-12-01T07:11:00",
+      "localInfracao": "PRAIA DO MELÃO - BALNEÁRIO ARROIO DO SILVA - SANTA CATARINA, BRASIL - BALNEARIO ARROIO DO SILVA/SC",
+      "complemento": "                                                                                ",
+      "valor": 293.47,
+      "situacao": "Penalidade notificada",
+      "status": "Paga",
+      "protocolo": "8528.6858.P08UC001LB",
+      "dataLimiteDefesa": "2025-02-03",
+      "prazoDefesaExpirado": true
+    },
+    {
+      "idAutoInfracao": 64591707,
+      "numeroAuto": "P08UC001LC",
+      "descricao": "DEIXAR O PASSAGEIRO DE USAR O CINTO SEGURANÇA ",
+      "dataHoraAutuacao": "2024-12-01T07:12:37",
+      "localInfracao": "PRAIA DO MELÃO - BALNEÁRIO ARROIO DO SILVA - SANTA CATARINA, BRASIL - BALNEARIO ARROIO DO SILVA/SC",
+      "complemento": "                                                                                ",
+      "valor": 195.23,
+      "situacao": "Penalidade notificada",
+      "status": "Paga",
+      "protocolo": "8528.5185.P08UC001LC",
+      "dataLimiteDefesa": "2025-02-03",
+      "prazoDefesaExpirado": true
+    },
+    {
+      "idAutoInfracao": 64591708,
+      "numeroAuto": "P08UC001LD",
+      "descricao": "CONDUZIR PESSOAS NAS PARTES EXTERNAS DO VEICULO ",
+      "dataHoraAutuacao": "2024-12-01T07:14:11",
+      "localInfracao": "PRAIA DO MELÃO - BALNEÁRIO ARROIO DO SILVA - SANTA CATARINA, BRASIL - BALNEARIO ARROIO DO SILVA/SC",
+      "complemento": "                                                                                ",
+      "valor": 195.23,
+      "situacao": "Penalidade notificada",
+      "status": "Paga",
+      "protocolo": "8528.6947.P08UC001LD",
+      "dataLimiteDefesa": "2025-02-03",
+      "prazoDefesaExpirado": true
+    },
+    {
+      "idAutoInfracao": 65564331,
+      "numeroAuto": "P0CSB0000I",
+      "descricao": "COND VEIC C/ DEFEITO NO SIST DE ILUM./SINALIZ./LAMP.QUEIMADA",
+      "dataHoraAutuacao": "2025-01-30T19:45:38",
+      "localInfracao": "AVENIDA SANTA CATARINA, STELAMMARIS - BALNEÁRIO ARROIO DO SILVA - SANTA CATARINA - BALNEARIO ARROIO DO SILVA/SC",
+      "complemento": "FRENTE AO GINÁSIO DE ESPORTES                                                   ",
+      "valor": 130.16,
+      "situacao": "Penalidade notificada",
+      "status": "Advertida",
+      "protocolo": "8528.6769.P0CSB0000I",
+      "dataLimiteDefesa": "2025-04-07",
+      "prazoDefesaExpirado": true
+    },
+    {
+      "idAutoInfracao": 66595478,
+      "numeroAuto": "J001208390",
+      "descricao": "TRANSITAR EM VEL SUPERIOR À MÁXIMA PERMITIDA EM ATÉ 20%",
+      "dataHoraAutuacao": "2025-03-17T22:44:00",
+      "localInfracao": "SC - BR 101 - KM 363.40 - C - SANGAO/SC",
+      "valor": 130.16,
+      "situacao": "Penalidade notificada",
+      "status": "Justificada",
+      "protocolo": "100.7455.J001208390",
+      "dataLimiteDefesa": "2025-05-26",
+      "prazoDefesaExpirado": true
+    },
+    {
+      "idAutoInfracao": 67874815,
+      "numeroAuto": "CRC0697711",
+      "descricao": "PARAR SOBRE FAIXA DE PEDESTRE MUDANÇA SINAL LUMINOSO-ELETRON",
+      "dataHoraAutuacao": "2025-06-22T11:52:28",
+      "localInfracao": "RUA PERNAMBUCO, ESQ. AVENIDA CENTENARIO - CRICIUMA/SC",
+      "complemento": "                                                                                ",
+      "valor": 130.16,
+      "situacao": "Penalidade notificada",
+      "status": "Paga",
+      "protocolo": "8788.5673.CRC0697711",
+      "dataLimiteDefesa": "2025-08-18",
+      "prazoDefesaExpirado": true
+    }
+  ],
+  "dividaAtiva": [],
+  "dataAtualizacao": "2026-06-28T21:17:16",
+  "dataAquisicao": "2023-04-28",
+  "pendente": false,
+  "tipo": "Automovel",
+  "categoria": "Particular",
+  "carroceria": "Nao Aplicavel",
+  "especie": "Passageiro",
+  "placaAnterior": "BBV6A91/PR",
+  "lugares": 5,
+  "combustivel": "Alcool-Gasol",
+  "restricaoVenda": "Alienação Fiduciária em favor de S******** S******** D* C******* F************ E I***********",
+  "informacoesPendentesSng": [
+    "Registro de Baixa de Alienação Fiduciária informado por A***** C******* F************ E I******* em 05/05/2026 às 08h05min para G******* A***** D* L***"
+  ],
+  "restricoes": "Comunicação de venda Cartório para L**** L******* D* V******* L*** (Data da venda: 27/05/2026, Data de Inclusão: 27/05/2026), Intenção de Venda para L**** L******* D* V******* L*** (Data de Inclusão: 27/05/2026)",
+  "processos": [
+    {
+      "numeroProcesso": "439647/2023",
+      "interessadoDocumento": "749*******9",
+      "dataHoraInicio": "2023-05-03T15:43:00",
+      "dataHoraFim": "2023-05-05T17:19:00",
+      "situacao": "Encerrado",
+      "servicos": [
+        {
+          "servico": "Transferência de Domicílio",
+          "dataHoraExecucao": "2023-05-03T15:43:17.65"
+        },
+        {
+          "servico": "Transferência de Propriedade",
+          "dataHoraExecucao": "2023-05-03T15:43:17.65"
+        },
+        {
+          "servico": "Alienação Fiduciária",
+          "dataHoraExecucao": "2023-05-03T15:43:17.65"
+        },
+        {
+          "servico": "Geração de guia de pagamento",
+          "dataHoraExecucao": "2023-05-03T15:43:17.68"
+        },
+        {
+          "servico": "Auditoria",
+          "dataHoraExecucao": "2023-05-05T17:19:48.66"
+        },
+        {
+          "servico": "Emissão de CRV/CRLVe",
+          "dataHoraExecucao": "2023-05-05T17:20:25.81"
+        }
+      ]
+    },
+    {
+      "numeroProcesso": "164885/2023",
+      "interessadoDocumento": "031*******2",
+      "dataHoraInicio": "2023-02-22T16:00:00",
+      "dataHoraFim": "2023-02-23T08:59:00",
+      "situacao": "Encerrado",
+      "servicos": [
+        {
+          "servico": "Trânsferência outra UF",
+          "dataHoraExecucao": "2023-02-22T16:00:33.596"
+        },
+        {
+          "servico": "Transferência de Propriedade",
+          "dataHoraExecucao": "2023-02-22T16:00:33.596"
+        },
+        {
+          "servico": "Geração de guia de pagamento",
+          "dataHoraExecucao": "2023-02-22T16:00:34.046"
+        },
+        {
+          "servico": "Auditoria",
+          "dataHoraExecucao": "2023-02-23T08:59:13.243"
+        },
+        {
+          "servico": "Emissão de CRV/CRLVe",
+          "dataHoraExecucao": "2023-02-23T09:00:29.653"
+        }
+      ]
+    }
+  ],
+  "editaisCedo": [
+    {
+      "numeroEdital": "586/2024",
+      "numeroAuto": "P08UC001LA",
+      "tipo": "Autuação",
+      "dataPublicacaoDOE": "2024-12-30",
+      "hash": "c9ecb3a7a73cf1591525951b5dc4addc"
+    },
+    {
+      "numeroEdital": "586/2024",
+      "numeroAuto": "P08UC001LB",
+      "tipo": "Autuação",
+      "dataPublicacaoDOE": "2024-12-30",
+      "hash": "c9ecb3a7a73cf1591525951b5dc4addc"
+    },
+    {
+      "numeroEdital": "586/2024",
+      "numeroAuto": "P08UC001LC",
+      "tipo": "Autuação",
+      "dataPublicacaoDOE": "2024-12-30",
+      "hash": "c9ecb3a7a73cf1591525951b5dc4addc"
+    },
+    {
+      "numeroEdital": "586/2024",
+      "numeroAuto": "P08UC001LD",
+      "tipo": "Autuação",
+      "dataPublicacaoDOE": "2024-12-30",
+      "hash": "c9ecb3a7a73cf1591525951b5dc4addc"
+    },
+    {
+      "numeroEdital": "600/2025",
+      "numeroAuto": "P0CSB0000I",
+      "tipo": "Autuação",
+      "dataPublicacaoDOE": "2025-02-25",
+      "hash": "413fc845f4cfd6b5957952bf40c8123b"
+    },
+    {
+      "numeroEdital": "607/2025",
+      "numeroAuto": "P08UC001LA",
+      "tipo": "Penalidade",
+      "dataPublicacaoDOE": "2025-03-19",
+      "hash": "755c3e42e72e778d7ba774cb6ef1b736"
+    },
+    {
+      "numeroEdital": "607/2025",
+      "numeroAuto": "P08UC001LB",
+      "tipo": "Penalidade",
+      "dataPublicacaoDOE": "2025-03-19",
+      "hash": "755c3e42e72e778d7ba774cb6ef1b736"
+    },
+    {
+      "numeroEdital": "607/2025",
+      "numeroAuto": "P08UC001LC",
+      "tipo": "Penalidade",
+      "dataPublicacaoDOE": "2025-03-19",
+      "hash": "755c3e42e72e778d7ba774cb6ef1b736"
+    },
+    {
+      "numeroEdital": "607/2025",
+      "numeroAuto": "P08UC001LD",
+      "tipo": "Penalidade",
+      "dataPublicacaoDOE": "2025-03-19",
+      "hash": "755c3e42e72e778d7ba774cb6ef1b736"
+    },
+    {
+      "numeroEdital": "627/2025",
+      "numeroAuto": "P0CSB0000I",
+      "tipo": "Penalidade",
+      "dataPublicacaoDOE": "2025-05-30",
+      "hash": "f35586ffe013700a44042aca5a29b016"
+    }
+  ],
+  "ipvasNotificados": [],
+  "recursosInfracao": [
+    {
+      "numeroProcesso": 3211,
+      "anoProcesso": 2026,
+      "dataDefesa": "2026-06-18",
+      "codigoInstancia": 9,
+      "instancia": "Indicação Condutor",
+      "numeroAuto": "C0890597",
+      "tipoAuto": "CR",
+      "orgaoAuto": 8788,
+      "descricaoAuto": "CRICIUMA-008788-CRC0890597-6050-3",
+      "descricaoInfracao": "AVANÇAR SINAL VERM, EXC OND. PERM LIVR CONV A DIR - Fisc Ele",
+      "cidadeAuto": "CRICIUMA",
+      "dataHoraAuto": "2026-06-02T20:00:44",
+      "nomeLocal": "AV. CENTENARIO ESQ. RUA DOMINGOS BRISTOT",
+      "resultadoRecurso": "",
+      "resultadoIndicacao": "DEFERIDO em 18/06/2026",
+      "motivoResultadoInfracao": "",
+      "motivoResultadoIndicacao": "",
+      "informacaoRequerente": "Proprietário"
+    },
+    {
+      "numeroProcesso": 22,
+      "anoProcesso": 2026,
+      "dataDefesa": "2026-04-23",
+      "codigoInstancia": 3,
+      "instancia": "CETRAN",
+      "numeroAuto": "8UC001LD",
+      "tipoAuto": "P0",
+      "orgaoAuto": 8528,
+      "descricaoAuto": "BL ARROIO SILVA-008528-P08UC001LD-6947-1",
+      "descricaoInfracao": "CONDUZIR PESSOAS NAS PARTES EXTERNAS DO VEICULO",
+      "cidadeAuto": "BALNEARIO ARROIO DO SILVA",
+      "dataHoraAuto": "2024-12-01T07:14:11",
+      "nomeLocal": "PRAIA DO MELÃO - BALNEÁRIO ARROIO DO SILVA - SANTA CATARINA, BRASIL",
+      "complemento": "",
+      "resultadoRecurso": "Processo Cadastrado sem decisão",
+      "resultadoIndicacao": "",
+      "motivoResultadoIndicacao": "",
+      "informacaoRequerente": "Proprietário"
+    },
+    {
+      "numeroProcesso": 19,
+      "anoProcesso": 2026,
+      "dataDefesa": "2026-04-17",
+      "codigoInstancia": 3,
+      "instancia": "CETRAN",
+      "numeroAuto": "8UC001LB",
+      "tipoAuto": "P0",
+      "orgaoAuto": 8528,
+      "descricaoAuto": "BL ARROIO SILVA-008528-P08UC001LB-6858-0",
+      "descricaoInfracao": "Transitar com o veículo com lotação excedente",
+      "cidadeAuto": "BALNEARIO ARROIO DO SILVA",
+      "dataHoraAuto": "2024-12-01T07:11:00",
+      "nomeLocal": "PRAIA DO MELÃO - BALNEÁRIO ARROIO DO SILVA - SANTA CATARINA, BRASIL",
+      "complemento": "",
+      "resultadoRecurso": "Processo Cadastrado sem decisão",
+      "resultadoIndicacao": "",
+      "motivoResultadoIndicacao": "",
+      "informacaoRequerente": "Proprietário"
+    },
+    {
+      "numeroProcesso": 6360,
+      "anoProcesso": 2026,
+      "dataDefesa": "2026-01-20",
+      "codigoInstancia": 9,
+      "instancia": "Indicação Condutor",
+      "numeroAuto": "05833081",
+      "tipoAuto": "J0",
+      "orgaoAuto": 100,
+      "descricaoAuto": "UF:RD-000100-J005833081-7455-0",
+      "descricaoInfracao": "TRANSITAR EM VEL SUPERIOR À MÁXIMA PERMITIDA EM ATÉ 20%",
+      "cidadeAuto": "TUBARAO",
+      "dataHoraAuto": "2025-12-26T05:37:00",
+      "nomeLocal": "SC - BR 101 - KM 334.70 - C",
+      "resultadoRecurso": "",
+      "resultadoIndicacao": "DEFERIDO em 20/01/2026",
+      "motivoResultadoInfracao": "",
+      "motivoResultadoIndicacao": "",
+      "informacaoRequerente": "Proprietário"
+    },
+    {
+      "numeroProcesso": 18800,
+      "anoProcesso": 2025,
+      "dataDefesa": "2025-04-24",
+      "codigoInstancia": 9,
+      "instancia": "Indicação Condutor",
+      "numeroAuto": "01208390",
+      "tipoAuto": "J0",
+      "orgaoAuto": 100,
+      "descricaoAuto": "UF:RD-000100-J001208390-7455-0",
+      "descricaoInfracao": "TRANSITAR EM VEL SUPERIOR À MÁXIMA PERMITIDA EM ATÉ 20%",
+      "cidadeAuto": "SANGAO",
+      "dataHoraAuto": "2025-03-17T22:44:00",
+      "nomeLocal": "SC - BR 101 - KM 363.40 - C",
+      "resultadoRecurso": "",
+      "resultadoIndicacao": "DEFERIDO em 24/04/2025",
+      "motivoResultadoInfracao": "",
+      "motivoResultadoIndicacao": "",
+      "informacaoRequerente": "Proprietário"
+    },
+    {
+      "numeroProcesso": 31,
+      "anoProcesso": 2025,
+      "dataDefesa": "2025-04-17",
+      "codigoInstancia": 2,
+      "instancia": "JARI",
+      "numeroAuto": "8UC001LA",
+      "tipoAuto": "P0",
+      "orgaoAuto": 8528,
+      "descricaoAuto": "BL ARROIO SILVA-008528-P08UC001LA-5720-0",
+      "descricaoInfracao": "TRANSIT PELA CONTRAMÃO DIREÇÃO EM VIA COM DUPLO SENTIDO CIRC",
+      "cidadeAuto": "BALNEARIO ARROIO DO SILVA",
+      "dataHoraAuto": "2024-12-01T07:00:10",
+      "nomeLocal": "PRAIA DO MELÃO - BALNEÁRIO ARROIO DO SILVA - SANTA CATARINA, BRASIL",
+      "complemento": "",
+      "resultadoRecurso": "Deferido em 27/03/2026",
+      "resultadoIndicacao": "",
+      "motivoResultadoInfracao": "",
+      "motivoResultadoIndicacao": "",
+      "informacaoRequerente": "Proprietário"
+    },
+    {
+      "numeroProcesso": 30,
+      "anoProcesso": 2025,
+      "dataDefesa": "2025-04-17",
+      "codigoInstancia": 2,
+      "instancia": "JARI",
+      "numeroAuto": "8UC001LB",
+      "tipoAuto": "P0",
+      "orgaoAuto": 8528,
+      "descricaoAuto": "BL ARROIO SILVA-008528-P08UC001LB-6858-0",
+      "descricaoInfracao": "Transitar com o veículo com lotação excedente",
+      "cidadeAuto": "BALNEARIO ARROIO DO SILVA",
+      "dataHoraAuto": "2024-12-01T07:11:00",
+      "nomeLocal": "PRAIA DO MELÃO - BALNEÁRIO ARROIO DO SILVA - SANTA CATARINA, BRASIL",
+      "complemento": "",
+      "resultadoRecurso": "Indeferido em 27/03/2026",
+      "resultadoIndicacao": "",
+      "motivoResultadoInfracao": "",
+      "motivoResultadoIndicacao": "",
+      "informacaoRequerente": "Proprietário"
+    },
+    {
+      "numeroProcesso": 29,
+      "anoProcesso": 2025,
+      "dataDefesa": "2025-04-17",
+      "codigoInstancia": 2,
+      "instancia": "JARI",
+      "numeroAuto": "8UC001LD",
+      "tipoAuto": "P0",
+      "orgaoAuto": 8528,
+      "descricaoAuto": "BL ARROIO SILVA-008528-P08UC001LD-6947-1",
+      "descricaoInfracao": "CONDUZIR PESSOAS NAS PARTES EXTERNAS DO VEICULO",
+      "cidadeAuto": "BALNEARIO ARROIO DO SILVA",
+      "dataHoraAuto": "2024-12-01T07:14:11",
+      "nomeLocal": "PRAIA DO MELÃO - BALNEÁRIO ARROIO DO SILVA - SANTA CATARINA, BRASIL",
+      "complemento": "",
+      "resultadoRecurso": "Indeferido em 27/03/2026",
+      "resultadoIndicacao": "",
+      "motivoResultadoInfracao": "",
+      "motivoResultadoIndicacao": "",
+      "informacaoRequerente": "Proprietário"
+    },
+    {
+      "numeroProcesso": 28,
+      "anoProcesso": 2025,
+      "dataDefesa": "2025-04-17",
+      "codigoInstancia": 2,
+      "instancia": "JARI",
+      "numeroAuto": "8UC001LC",
+      "tipoAuto": "P0",
+      "orgaoAuto": 8528,
+      "descricaoAuto": "BL ARROIO SILVA-008528-P08UC001LC-5185-2",
+      "descricaoInfracao": "DEIXAR O PASSAGEIRO DE USAR O CINTO SEGURANÇA",
+      "cidadeAuto": "BALNEARIO ARROIO DO SILVA",
+      "dataHoraAuto": "2024-12-01T07:12:37",
+      "nomeLocal": "PRAIA DO MELÃO - BALNEÁRIO ARROIO DO SILVA - SANTA CATARINA, BRASIL",
+      "complemento": "",
+      "resultadoRecurso": "Processo Cadastrado sem decisão",
+      "resultadoIndicacao": "",
+      "motivoResultadoIndicacao": "",
+      "informacaoRequerente": "Proprietário"
+    }
+  ],
+  "avisos": [],
+  "csvGnvVencido": false,
+  "origemDados": "Cadastro",
+  "hash": "1dda885579ab5a3c5c3e478c886a33be",
+  "token": "d1756602-62cc-4e45-b434-635912587ec6"
+}

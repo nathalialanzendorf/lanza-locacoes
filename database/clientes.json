@@ -1,6 +1,6 @@
 {
   "descricao": "Clientes (motoristas/locatários) da frota. id = uuid. Chave natural: cpf.",
-  "atualizadoEm": "2026-06-26",
+  "atualizadoEm": "2026-06-28",
   "schemaCliente": {
     "id": "uuid",
     "nome": "Nome completo",
@@ -67,12 +67,16 @@
       "id": "30f48e6a-0213-4d33-9f39-3e84c4b4c747",
       "cnhArquivo": "D:\\Dropbox\\Aluguel Carros\\Baiano - PEUGEOT 2008 2020-2021\\20.06.2026 - Ceres Beatriz Gonzaga Pereira\\CNH.pdf",
       "pastaContratoOrigem": "D:\\Dropbox\\Aluguel Carros\\Baiano - PEUGEOT 2008 2020-2021\\20.06.2026 - Ceres Beatriz Gonzaga Pereira",
-      "origemImportacao": "cnh-pasta-contrato"
+      "origemImportacao": "cnh-pasta-contrato",
+      "rastreameMotoristaKey": "36",
+      "rastreameMotoristaId": 36,
+      "ativo": true,
+      "rastreameSyncEm": "2026-06-28T22:47:04.563Z"
     },
     {
       "nome": "Vitor Hugo Pacifico Machado",
       "cpf": "109.394.129-98",
-      "telefone": null,
+      "telefone": "(48) 99192-6827",
       "email": null,
       "endereco": {
         "logradouro": "Rua João Batista Larroyd , 308",
@@ -86,7 +90,18 @@
       "cnhArquivo": "D:\\Dropbox\\Aluguel Carros\\Maicon - VW GOL 2012-2013\\01.04.2026 - Vitor (recuperado 02.04)\\CNH.pdf",
       "pastaContratoOrigem": "D:\\Dropbox\\Aluguel Carros\\Maicon - VW GOL 2012-2013\\01.04.2026 - Vitor (recuperado 02.04)",
       "origemImportacao": "cnh-pasta-contrato",
-      "id": "83867662-f5e2-4936-82d6-83faf9fe0b3a"
+      "id": "83867662-f5e2-4936-82d6-83faf9fe0b3a",
+      "dataNascimento": "27/03/1999",
+      "localNascimento": "Laguna SC",
+      "cnh": {
+        "numeroRegistro": "07327169432",
+        "categoria": "AB",
+        "validade": "03/03/2034"
+      },
+      "rastreameMotoristaKey": "30",
+      "rastreameMotoristaId": 30,
+      "ativo": false,
+      "rastreameSyncEm": "2026-06-28T22:47:04.946Z"
     },
     {
       "nome": "LUIZ FILIPE BERTO MATIAS",
@@ -105,12 +120,16 @@
       "cnhArquivo": "D:\\Dropbox\\Aluguel Carros\\Maicon - VW GOL 2012-2013\\01.08.2025 - Luiz Filipe Berto Matias (devolvido)\\CNH-e.pdf",
       "pastaContratoOrigem": "D:\\Dropbox\\Aluguel Carros\\Maicon - VW GOL 2012-2013\\01.08.2025 - Luiz Filipe Berto Matias (devolvido)",
       "origemImportacao": "cnh-pasta-contrato",
-      "id": "c3ab9fc6-ced5-4e39-9648-62f1a74aac08"
+      "id": "c3ab9fc6-ced5-4e39-9648-62f1a74aac08",
+      "rastreameMotoristaKey": "37",
+      "rastreameMotoristaId": 37,
+      "rastreameSyncEm": "2026-06-28T22:47:04.733Z",
+      "ativo": true
     },
     {
       "nome": "VITOR BASSANI PADILHA",
       "cpf": "877.654.620-91",
-      "telefone": null,
+      "telefone": "(47) 98489-7411",
       "email": null,
       "endereco": {
         "logradouro": "Av. Porto Alegre, 897",
@@ -124,7 +143,16 @@
       "cnhArquivo": "D:\\Dropbox\\Aluguel Carros\\Luiz - HYUNDAI HB20 2013-2014\\04.06.2026 - Vitor Bassani Padilha\\CNH-e.pdf",
       "pastaContratoOrigem": "D:\\Dropbox\\Aluguel Carros\\Luiz - HYUNDAI HB20 2013-2014\\04.06.2026 - Vitor Bassani Padilha",
       "origemImportacao": "cnh-pasta-contrato",
-      "id": "5b036529-56e0-40c2-b395-18061ab27f65"
+      "id": "5b036529-56e0-40c2-b395-18061ab27f65",
+      "cnh": {
+        "numeroRegistro": "07037189893",
+        "categoria": "D",
+        "validade": "22/03/2032"
+      },
+      "rastreameMotoristaKey": "14",
+      "rastreameMotoristaId": 14,
+      "ativo": true,
+      "rastreameSyncEm": "2026-06-28T22:47:04.940Z"
     },
     {
       "nome": "MIKAEL SCHMIDT",
@@ -143,7 +171,11 @@
       "cnhArquivo": "D:\\Dropbox\\Aluguel Carros\\Luiz - HYUNDAI HB20 2013-2014\\04.07.2025 - Mikael Schmidt (devolvido)\\CNH-e.pdf",
       "pastaContratoOrigem": "D:\\Dropbox\\Aluguel Carros\\Luiz - HYUNDAI HB20 2013-2014\\04.07.2025 - Mikael Schmidt (devolvido)",
       "origemImportacao": "cnh-pasta-contrato",
-      "id": "8cb42547-f0b8-4485-b746-3cef7e30b054"
+      "id": "8cb42547-f0b8-4485-b746-3cef7e30b054",
+      "rastreameMotoristaKey": "38",
+      "rastreameMotoristaId": 38,
+      "rastreameSyncEm": "2026-06-28T22:47:04.799Z",
+      "ativo": true
     },
     {
       "nome": "FABIANA DA SILVA ANTUNES CHAVES",
@@ -162,12 +194,16 @@
       "cnhArquivo": "D:\\Dropbox\\Aluguel Carros\\Felipe - FIAT DOBLO 2015-2015\\04.10.2025 - Fabiana da Silva Antunes Chavea (devolvido 13.11)\\CNH.jpg",
       "pastaContratoOrigem": "D:\\Dropbox\\Aluguel Carros\\Felipe - FIAT DOBLO 2015-2015\\04.10.2025 - Fabiana da Silva Antunes Chavea (devolvido 13.11)",
       "origemImportacao": "cnh-pasta-contrato",
-      "id": "a582a855-9a4a-424a-9257-b535d3af79c0"
+      "id": "a582a855-9a4a-424a-9257-b535d3af79c0",
+      "rastreameMotoristaKey": "39",
+      "rastreameMotoristaId": 39,
+      "rastreameSyncEm": "2026-06-28T22:47:04.633Z",
+      "ativo": true
     },
     {
       "nome": "SUSANA DA SILVA",
       "cpf": "003.925.309-02",
-      "telefone": null,
+      "telefone": "(48) 9982-5753",
       "email": null,
       "endereco": {
         "logradouro": "Rua Lucia Kulakowski Saldanha, 249 AP 202, Ed. Cerâmica Res. II",
@@ -181,7 +217,18 @@
       "cnhArquivo": "D:\\Dropbox\\Aluguel Carros\\Maicon - VW GOL 2017-2018\\05.05.2026 - Susana da Silva\\CNH-e.pdf",
       "pastaContratoOrigem": "D:\\Dropbox\\Aluguel Carros\\Maicon - VW GOL 2017-2018\\05.05.2026 - Susana da Silva",
       "origemImportacao": "cnh-pasta-contrato",
-      "id": "0eafaf84-8700-4d16-8295-25619305410b"
+      "id": "0eafaf84-8700-4d16-8295-25619305410b",
+      "dataNascimento": "22/01/1980",
+      "localNascimento": "Timbó SC",
+      "cnh": {
+        "numeroRegistro": "04643173122",
+        "categoria": "AB",
+        "validade": "12/05/2034"
+      },
+      "rastreameMotoristaKey": "31",
+      "rastreameMotoristaId": 31,
+      "ativo": true,
+      "rastreameSyncEm": "2026-06-28T22:47:04.899Z"
     },
     {
       "nome": "MARIA LUIZA VARGAS MINA DE OLIVEIRA",
@@ -200,7 +247,11 @@
       "cnhArquivo": "D:\\Dropbox\\Aluguel Carros\\Maicon - VW GOL 2017-2018\\05.07.2025 - Maria Luiza Vargas Mina de Oliveira (devolvido 06.07)\\CNH 1.jpeg",
       "pastaContratoOrigem": "D:\\Dropbox\\Aluguel Carros\\Maicon - VW GOL 2017-2018\\05.07.2025 - Maria Luiza Vargas Mina de Oliveira (devolvido 06.07)",
       "origemImportacao": "cnh-pasta-contrato",
-      "id": "2df336db-f9bd-4df5-82d0-d23edd184650"
+      "id": "2df336db-f9bd-4df5-82d0-d23edd184650",
+      "rastreameMotoristaKey": "40",
+      "rastreameMotoristaId": 40,
+      "rastreameSyncEm": "2026-06-28T22:47:04.757Z",
+      "ativo": true
     },
     {
       "nome": "DOUGLAS CAVALCANTE PEREIRA",
@@ -219,7 +270,11 @@
       "cnhArquivo": "D:\\Dropbox\\Aluguel Carros\\Felipe - VW FOX 2018-2018\\05.08.2025 - Douglas Cavalcante Pereira (devolvido)\\CNH-e.pdf",
       "pastaContratoOrigem": "D:\\Dropbox\\Aluguel Carros\\Felipe - VW FOX 2018-2018\\05.08.2025 - Douglas Cavalcante Pereira (devolvido)",
       "origemImportacao": "cnh-pasta-contrato",
-      "id": "94ac09ef-aad3-49a9-a706-560f5c4709a8"
+      "id": "94ac09ef-aad3-49a9-a706-560f5c4709a8",
+      "rastreameMotoristaKey": "41",
+      "rastreameMotoristaId": 41,
+      "rastreameSyncEm": "2026-06-28T22:47:04.618Z",
+      "ativo": true
     },
     {
       "nome": "JAVIER ALEXANDER DURAN CARRERO",
@@ -238,12 +293,16 @@
       "cnhArquivo": "D:\\Dropbox\\Aluguel Carros\\Ana - FORD FIESTA 2013-2014\\05.09.25 - Javier Alexander Duran Carrero(devolvido)\\CNH.pdf",
       "pastaContratoOrigem": "D:\\Dropbox\\Aluguel Carros\\Ana - FORD FIESTA 2013-2014\\05.09.25 - Javier Alexander Duran Carrero(devolvido)",
       "origemImportacao": "cnh-pasta-contrato",
-      "id": "c99ec984-3300-4e4f-bdee-5f56f32a25e2"
+      "id": "c99ec984-3300-4e4f-bdee-5f56f32a25e2",
+      "rastreameMotoristaKey": "42",
+      "rastreameMotoristaId": 42,
+      "rastreameSyncEm": "2026-06-28T22:47:04.674Z",
+      "ativo": true
     },
     {
       "nome": "ALBERTO JOSE GONZALEZ SALAZAR",
       "cpf": "711.240.812-16",
-      "telefone": null,
+      "telefone": "(48) 99645-5358",
       "email": null,
       "endereco": {
         "logradouro": "Rua Martinho Fraga 5922 , CASA 1 bairro São Martinho , cidade Tubarão , estado Santa Catarina , CEP 88 708 - 814 . As partes acima identificadas têm, entre si, justo e acertado o presente Contrato de Locação de Automóvel por prazo determinado , que se regerá pelas cláusulas seguintes e pelas condições descritas no presente. Estão inclusos no contrato laudo de vistoria, termo de responsabilidade por avarias, infrações e acidentes de trânsito. Cláusula 1ª - DO OBJETO 1.1 O presente contrato tem como OBJETO a locação do automóvel de placa: MLN-0B87 , marca/modelo FORD/FIESTA FLEX (Fiesta 1.6 16V Flex Mec. 5p) , Chassi 9BFZF55A8E8053063 , RENAVAM 590047108, ano/modelo 2013/2014 , cor BRANCO . 1.1.1 Informações t abela Fipe: http://veiculos.fipe.org.br?carro/ford/5-2025/003310-3/2014 1.2 A presente locação terá o lapso temporal de validade de 90 dias , podendo ser renovado por vontade das partes, iniciando no dia 06 / 1 2 / 2025 as 11 :00 e terminando no dia 0 6 / 0 3/ 202 6 as 11 :00 , com tolerância de no máximo 1 hora. Data na qual o automóvel deverá ser devolvido no estado em que foi locado, sem avarias. Cláusula 2ª – DAS OBRIGAÇÕES 2.1. O LOCATÁRIO declara estar cientes da obrigatoriedade de possuir CNH – Carteira Nacional de Habilitação categoria “B” no ato de celebração deste contrato. Está ciente da responsabilidade quanto à integridade do veículo desde a retirada até a devolução ao LOCADOR. 2.2. O LOCATÁRIO declara-se único e o principal responsável por eventual dano proveniente de mau uso do veículo durante o prazo de vigência do contrato. 2.3. O LOCATÁRIO declara estar ciente de que o veículo está limitado a utilização nas rodovias dos estados de SANTA CATARINA, sob pena de rescisão contratual, multa e perda das garantias contratadas, responsabilizando-se única e exclusivamente por quaisquer danos causados ao veículo por terceiros. 2.3.1. Havendo necessidade de utilização do veículo contratado fora da área previamente delimitada o LOCATÁRIO tem obrigação de comunicar previamente através de canal de voz ou mensagem de texto aguardando a devida autorização. O descumprimento desta exigência contratual acarretará automaticamente rescisão contratual e multa no valor de R$200,00 (Duzentos reais). 2.4. Em hipótese alguma o LOCADOR será responsabilizada por danos causados pelo LOCATÁRIO ou terceiros transportados pelo mesmo; havendo quaisquer autuações, processos, penalidades ou crimes de trânsito oriundos de tal natureza o LOCATÁRIO terá total e única responsabilidade sendo o LOCADOR excluído das responsabilidades. Se o LOCADOR for incluído em processo de autuação por penalidade caberá ao LOCATÁRIO o reembolso todos os valores comprovadamente desembolsados pela mesma, incluindo valores provenientes de custas processuais, honorários advocatícios, depósitos recursais e quaisquer outros valores despendidos de autuações e processos de trânsito. 2.5. O LOCATÁRIO não poderá utilizar o veículo nas situações descritas no item “2.5.1”. Responsabilizando-se civil e criminalmente por tais violações; isentando o LOCADOR de qualquer responsabilidade por tais violações. Ensejando a resolução do presente contrato e seus consectários, bem como a possibilidade de ressarcimento sobre danos por parte desta. 2.5.1. Configura uso inadequado do veículo as seguintes práticas do LOCATÁRIO: a. Transporte de mercadorias ou materiais ilegais; b. Violar ou adulterar os equipamentos de aferição de quilometragem; c. Abastecer o veículo com combustível fora dos padrões do fabricante; d. Transportar pessoas ou bens além da capacidade especificada pelo fabricante; e. áreas proibidas ao tráfego veicular ou que apresentem risco ao veículo; f. conduzir o veículo sob o efeito de bebida alcóolica; g. conduzir ou transportar passageiros sem utilizar dos dispositivos de segurança do veículo em conformidade com código de trânsito brasileiro (CTB); h. conceder o veículo a terceiros; i. circular com o veículo fora do território nacional; j. negligenciar os cuidados ao veículo que possam facilitar danos ou furto; k. ocasionar avarias ou danos aos acessórios do veículo contratado; l. transportar bens ou valores monetários que não sejam declarados à Receita Federal do Brasil; 2.6. O LOCADOR não fará substituição de veículo em ocasiões de furto, práticas ilegais, incêndio, colisão ou apreensão por órgão competente. 2.7. Caso o veículo seja apreendido por autoridades de trânsito ou segurança pública, todos os custos processuais e eventuais honorários advocatícios, incluindo os custos de diárias de retenção e multas serão de responsabilidade do LOCATÁRIO e as despesas supracitadas deverão ser pagas diretamente ao LOCADOR. 2.8. Na ocasião de perda total do bem, o LOCATÁRIO deverá ressarcir o valor do bem com referência da tabela FIPE do mês de contratação. 2.9. Em hipótese alguma a LOCADOR ficará responsável por valores indenizatórios a título de lucros cessantes, danos morais, lesão corporal, invalidez permanente ou morte. 2.10. Fica expressamente proibido fumar no interior do veículo. Na vistoria se for identificado danos como queimaduras no interior do veículo, manchas nos tecidos e mau cheiro, resultará em perda do valor do caução , descrito na cláusula 3.2, devido aos danos, custos de limpeza/reparo e desvalorização do veículo. 2.11. Caso o LOCATÁRIO venha a violar a cláusula primeira, fica resguardado ao LOCADOR o direito de realizar as medidas cabíveis de cobrança dos valores devidos e da recuperação do veículo através de denúncia aos órgãos competentes, inclusive débitos oriundos de eventuais avarias e infrações de trânsito. Em caso de apropriação indébita, caberá responsabilidade criminal ao LOCATÁRIO. Cláusula 3ª - DO PAGAMENTO 3.1 Não serão aceitos pagamentos realizados para tercerios, somente para contas bancárias pertencentes a Lanza Locações Veiculares (Chave pix 43.051.371/0001-05 ) ou pessoalmente ao seu representando José Felipe Barreto rodrigues . 3.2 O pagamento da locação deste veículo deverá ser realizado semanalmente todas as segundas-feiras",
@@ -257,27 +316,50 @@
       "cnhArquivo": "D:\\Dropbox\\Aluguel Carros\\Ana - FORD FIESTA 2013-2014\\05.12.2025 - Alberto Jose Gonzalez Salazar (devolvido 05.01)\\CNH-e.pdf",
       "pastaContratoOrigem": "D:\\Dropbox\\Aluguel Carros\\Ana - FORD FIESTA 2013-2014\\05.12.2025 - Alberto Jose Gonzalez Salazar (devolvido 05.01)",
       "origemImportacao": "cnh-pasta-contrato",
-      "id": "7f095a7f-992b-4842-95b6-522bcb00a0b8"
+      "id": "7f095a7f-992b-4842-95b6-522bcb00a0b8",
+      "cnh": {
+        "numeroRegistro": "08261009936",
+        "categoria": "E",
+        "validade": "18/07/2026"
+      },
+      "rastreameMotoristaKey": "5",
+      "rastreameMotoristaId": 5,
+      "ativo": false,
+      "rastreameSyncEm": "2026-06-28T22:47:04.511Z"
     },
     {
       "nome": "SERGIO ALEXANDRE PINTO GLORIA",
-      "cpf": "020.113.930-86",
-      "telefone": null,
+      "cpf": "416.754.362-15",
+      "telefone": "(92) 99376-8613",
       "email": null,
       "endereco": {
         "logradouro": "Rua L Av. Giocondo Tasso, 735",
-        "numero": "o valor de R$650,00 (Seiscentos e cinquenta reais) , pelo período determinado na Cláusula Primeira, onde o pagamento da primeira semana deverá ser efetuado no momento da retirada do veículo pelo LOCATÁRIO. 3.2 O pagamento do valor calção da locação deste veículo, será no valor de R$1.300,00 (Mil e trezentos reais) onde o mesmo que será devolvido assim que for recebido o veículo pelo LOCADOR, caso não tenha sofrido nenhuma avaria, multa, entre outras despesas. 3.3 Este veículo possui rastreamento e em caso de atraso no pagamento o mesmo poderá ser bloqueado e realizado o recolhimento do veículo. Ciente de que do atraso ou inadimplência no pagamento de qualquer custo previsto neste contrato em favor do LOCADOR irá gerar protesto do respectivo débito, direcionando-o a empresa de cobrança podendo ainda informar ao serviço de proteção de crédito (SPC/SERASA). Além de estar sujeito à cobrança judicial de acordo com a legislação vigente até que o pagamento seja efetuado. 3.4 Em caso de rescisão deste termo antes do prazo determinado na Cláusula Primeira, tanto por solicitação do LOCATÁRIO ou devido atraso no pagamento, o valor do calção, descrito na cláusula 3.2, não será devolvido pelo LOCADOR. 3 .5 Caso o LOCATÁRIO exceder o prazo na devolução do veículo, determinado na Cláusula Primeira, será cobrado o valor de R$ 120,00 (Cento e vinte reais) por dia de atraso. Cláusula 4 ª - PROTEÇÕES E COBERTURAS 4 . 1. O veículo descrito, objeto do contrato está coberto com proteção veicular contratada pelo LOCADOR. 4 . 2 . Em ocorrências de acidentes de trânsito, furto, roubo ou ocorrência de perda total do veículo o LOCATÁRIO será penalizado a pagar o valor da COTA DE PARTICIPAÇÃO , que deverá ser paga diretamente ao LOCADOR detentor do contrato digital da apólice securitária, correspondente à PROTEÇÃO VEICULAR , devendo assim providenciar em até 24h (vinte e quatro horas) da ocorrência o registro junto ao órgão policial responsável através de B.O (Boletim de ocorrência), comunicando imediatamente ao LOCADOR através de canal digital ou ligação por voz, descrevendo as informações do boletim e dados dos possíveis envolvidos tendo obrigatoriedade da devolução da chave de ignição do veículo, ressalva a impossibilidade mecânica ou retenção pelos órgãos de segurança pública. 4 .3 . O LOCATÁRIO em qualquer das ocorrências mencionadas no item 6. 2 , fica responsável por eventuais despesas adicionais, não previstas na cobertura, obrigando-se a cobrir tais despesas através de pagamento com cartão de débito ou crédito da sua titularidade ou procurador, no limite de 30 dias após o evento. 4 . 4 . A proteção oferecida pelo LOCADOR será invalidada sempre que o LOCATÁRIO infringir as finalidades deste contrato . Cláusula 5 ª - MANUTENÇÃO 5.1 O LOCATÁRIO fica responsável por deslocar o veículo quinzenalmente até mecânica automotiva Auto Tech Medeiros , para realização da vistoria e análise preventiva, sem custos, a fim de garantir o bom funcionamento do veículo. Sediado no endereço Rua João Goulart, 622",
+        "numero": "",
         "complemento": "",
         "bairro": "Cabeçuda",
         "cidade": "Laguna",
         "uf": "SC",
         "cep": "88790-000"
       },
-      "cnh": {},
+      "cnh": {
+        "numeroRegistro": "01689183233",
+        "categoria": "AD",
+        "validade": "13/02/2030"
+      },
       "cnhArquivo": "D:\\Dropbox\\Aluguel Carros\\Maicon - VW GOL 2012-2013\\30.01.2026 - Sergio Alexandre Pinto Gloria (trocado)\\CNH.jpg",
       "pastaContratoOrigem": "D:\\Dropbox\\Aluguel Carros\\Maicon - VW GOL 2012-2013\\30.01.2026 - Sergio Alexandre Pinto Gloria (trocado)",
       "origemImportacao": "cnh-pasta-contrato",
-      "id": "8357d4ce-2174-4918-bb1c-9b037473d5eb"
+      "id": "8357d4ce-2174-4918-bb1c-9b037473d5eb",
+      "rg": "10116702",
+      "rgOrgaoExpedidor": "SESEG AM",
+      "dataNascimento": "21/07/1971",
+      "localNascimento": "Manaus AM",
+      "filiacao": "Jose Mauro dos Santos Gloria; Tereza Pinto Gloria",
+      "rastreameMotoristaKey": "25",
+      "rastreameMotoristaId": 25,
+      "ativo": true,
+      "rastreameSyncEm": "2026-06-28T22:47:04.885Z",
+      "atualizadoEm": "2026-06-28T17:19:46.039Z"
     },
     {
       "nome": "ALISSON DA SILVA DE SOUZA",
@@ -296,7 +378,11 @@
       "cnhArquivo": "D:\\Dropbox\\Aluguel Carros\\Felipe - FORD FIESTA 2012-2013\\06.06.25 - Alisson da Silva de Souza (devolvido)\\CNH-e.pdf",
       "pastaContratoOrigem": "D:\\Dropbox\\Aluguel Carros\\Felipe - FORD FIESTA 2012-2013\\06.06.25 - Alisson da Silva de Souza (devolvido)",
       "origemImportacao": "cnh-pasta-contrato",
-      "id": "2c6e7aba-bd76-40e4-ba75-8f2798e57cfc"
+      "id": "2c6e7aba-bd76-40e4-ba75-8f2798e57cfc",
+      "rastreameMotoristaKey": "43",
+      "rastreameMotoristaId": 43,
+      "rastreameSyncEm": "2026-06-28T22:47:04.520Z",
+      "ativo": true
     },
     {
       "nome": "MATHEUS CANTO ANSELMO",
@@ -315,12 +401,26 @@
       "cnhArquivo": "D:\\Dropbox\\Aluguel Carros\\Luiz - RENAULT SANDERO 2015-2015\\07.03.2026 - Matheus Canto Anselmo\\CNH-e.pdf",
       "pastaContratoOrigem": "D:\\Dropbox\\Aluguel Carros\\Luiz - RENAULT SANDERO 2015-2015\\07.03.2026 - Matheus Canto Anselmo",
       "origemImportacao": "cnh-pasta-contrato",
-      "id": "2a920f4d-d21d-438e-aa8c-cdf8455ea926"
+      "id": "2a920f4d-d21d-438e-aa8c-cdf8455ea926",
+      "rg": "7275184",
+      "rgOrgaoExpedidor": "SSP SC",
+      "dataNascimento": "26/04/2004",
+      "localNascimento": "Tubarão SC",
+      "filiacao": "Camila da Costa Canto Anselmo",
+      "cnh": {
+        "numeroRegistro": "09059748715",
+        "categoria": "B",
+        "validade": "21/07/2026"
+      },
+      "rastreameMotoristaKey": "27",
+      "rastreameMotoristaId": 27,
+      "ativo": false,
+      "rastreameSyncEm": "2026-06-28T22:47:04.770Z"
     },
     {
       "nome": "NOE DE OLIVEIRA JUNIOR",
       "cpf": "052.137.819-26",
-      "telefone": null,
+      "telefone": "(48) 99634-1342",
       "email": null,
       "endereco": {
         "logradouro": "Rua Alair Antônio da silveira , casa 1 bairro Caputera , cidade Laguna , estado Santa Catarina , CEP 88 790 -000 . As partes acima identificadas têm, entre si, justo e acertado o presente Contrato de Locação de Automóvel por prazo determinado , que se regerá pelas cláusulas seguintes e pelas condições descritas no presente. Estão inclusos no contrato laudo de vistoria, termo de responsabilidade por avarias, infrações e acidentes de trânsito. Cláusula 1ª - DO OBJETO 1.1 O presente contrato tem como OBJETO a locação do automóvel de placa: MLX - 2H34 , marca/modelo HYUNDAI HB20 1.0 (HB20 Comf./C.Plus/C.Style 1.0 Flex 12V) , Chassi 9BHBG51CAEP128235 , RENAVAM 557053293 , ano/modelo 201 3 /2014 , cor BRANCO . 1.1.1 Informações t abela Fipe: https://veiculos.fipe.org.br?carro/hyundai/5-2025/015088-6/2014 1.2 A presente locação terá o lapso temporal de validade de 90 dias , podendo ser renovado por vontade das partes, iniciando no dia 08 / 10 / 2025 as 08 : 00 e terminando no dia 0 6 / 01 /202 6 as 08 : 00 , com tolerância de no máximo 1 hora. Data na qual o automóvel deverá ser devolvido no estado em que foi locado, sem avarias. Cláusula 2ª – DAS OBRIGAÇÕES 2.1. O LOCATÁRIO declara estar cientes da obrigatoriedade de possuir CNH – Carteira Nacional de Habilitação categoria “B” no ato de celebração deste contrato. Está ciente da responsabilidade quanto à integridade do veículo desde a retirada até a devolução ao LOCADOR. 2.2. O LOCATÁRIO declara-se único e o principal responsável por eventual dano proveniente de mau uso do veículo durante o prazo de vigência do contrato. 2.3. O LOCATÁRIO declara estar ciente de que o veículo está limitado a utilização nas rodovias dos estados de SANTA CATARINA, sob pena de rescisão contratual, multa e perda das garantias contratadas, responsabilizando-se única e exclusivamente por quaisquer danos causados ao veículo por terceiros. 2.3.1. Havendo necessidade de utilização do veículo contratado fora da área previamente delimitada o LOCATÁRIO tem obrigação de comunicar previamente através de canal de voz ou mensagem de texto aguardando a devida autorização. O descumprimento desta exigência contratual acarretará automaticamente rescisão contratual e multa no valor de R$200,00 (Duzentos reais). 2.4. Em hipótese alguma o LOCADOR será responsabilizada por danos causados pelo LOCATÁRIO ou terceiros transportados pelo mesmo; havendo quaisquer autuações, processos, penalidades ou crimes de trânsito oriundos de tal natureza o LOCATÁRIO terá total e única responsabilidade sendo o LOCADOR excluído das responsabilidades. Se o LOCADOR for incluído em processo de autuação por penalidade caberá ao LOCATÁRIO o reembolso todos os valores comprovadamente desembolsados pela mesma, incluindo valores provenientes de custas processuais, honorários advocatícios, depósitos recursais e quaisquer outros valores despendidos de autuações e processos de trânsito. 2.5. O LOCATÁRIO não poderá utilizar o veículo nas situações descritas no item “2.5.1”. Responsabilizando-se civil e criminalmente por tais violações; isentando o LOCADOR de qualquer responsabilidade por tais violações. Ensejando a resolução do presente contrato e seus consectários, bem como a possibilidade de ressarcimento sobre danos por parte desta. 2.5.1. Configura uso inadequado do veículo as seguintes práticas do LOCATÁRIO: a. Transporte de mercadorias ou materiais ilegais; b. Violar ou adulterar os equipamentos de aferição de quilometragem; c. Abastecer o veículo com combustível fora dos padrões do fabricante; d. Transportar pessoas ou bens além da capacidade especificada pelo fabricante; e. áreas proibidas ao tráfego veicular ou que apresentem risco ao veículo; f. conduzir o veículo sob o efeito de bebida alcóolica; g. conduzir ou transportar passageiros sem utilizar dos dispositivos de segurança do veículo em conformidade com código de trânsito brasileiro (CTB); h. conceder o veículo a terceiros; i. circular com o veículo fora do território nacional; j. negligenciar os cuidados ao veículo que possam facilitar danos ou furto; k. ocasionar avarias ou danos aos acessórios do veículo contratado; l. transportar bens ou valores monetários que não sejam declarados à Receita Federal do Brasil; 2.6. O LOCADOR não fará substituição de veículo em ocasiões de furto, práticas ilegais, incêndio, colisão ou apreensão por órgão competente. 2.7. Caso o veículo seja apreendido por autoridades de trânsito ou segurança pública, todos os custos processuais e eventuais honorários advocatícios, incluindo os custos de diárias de retenção e multas serão de responsabilidade do LOCATÁRIO e as despesas supracitadas deverão ser pagas diretamente ao LOCADOR. 2.8. Na ocasião de perda total do bem, o LOCATÁRIO deverá ressarcir o valor do bem com referência da tabela FIPE do mês de contratação. 2.9. Em hipótese alguma a LOCADOR ficará responsável por valores indenizatórios a título de lucros cessantes, danos morais, lesão corporal, invalidez permanente ou morte. 2.10. Fica expressamente proibido fumar no interior do veículo. Na vistoria se for identificado danos como queimaduras no interior do veículo, manchas nos tecidos e mau cheiro, resultará em perda do valor do caução, descrito na cláusula 3.2, devido aos danos, custos de limpeza/reparo e desvalorização do veículo. 2.11. Caso o LOCATÁRIO venha a violar a cláusula primeira, fica resguardado ao LOCADOR o direito de realizar as medidas cabíveis de cobrança dos valores devidos e da recuperação do veículo através de denúncia aos órgãos competentes, inclusive débitos oriundos de eventuais avarias e infrações de trânsito. Em caso de apropriação indébita, caberá responsabilidade criminal ao LOCATÁRIO. Cláusula 3ª - DO PAGAMENTO 3.1 Não serão aceitos pagamentos realizados para tercerios, somente para contas bancárias pertencentes a Lanza Locações Veiculares (Chave pix 43.051.371/0001-05 ) ou pessoalmente ao seu representando José Felipe Barreto rodrigues . 3.2 O pagamento da locação deste veículo deverá ser realizado todas as terças-feiras",
@@ -334,12 +434,23 @@
       "cnhArquivo": "D:\\Dropbox\\Aluguel Carros\\Luiz - HYUNDAI HB20 2013-2014\\08.10.2025 - Noe de Oliveira Junior (recuperado 08.12)\\CNH-e.pdf",
       "pastaContratoOrigem": "D:\\Dropbox\\Aluguel Carros\\Luiz - HYUNDAI HB20 2013-2014\\08.10.2025 - Noe de Oliveira Junior (recuperado 08.12)",
       "origemImportacao": "cnh-pasta-contrato",
-      "id": "656291e2-8b83-4ee3-8905-43d5193a54b7"
+      "id": "656291e2-8b83-4ee3-8905-43d5193a54b7",
+      "dataNascimento": "12/09/1985",
+      "localNascimento": "Florianópolis SC",
+      "cnh": {
+        "numeroRegistro": "05465756520",
+        "categoria": "B",
+        "validade": "14/09/2032"
+      },
+      "rastreameMotoristaKey": "20",
+      "rastreameMotoristaId": 20,
+      "ativo": false,
+      "rastreameSyncEm": "2026-06-28T22:47:04.829Z"
     },
     {
       "nome": "RENAN PETERS DA SILVA",
       "cpf": "102.826.879-39",
-      "telefone": null,
+      "telefone": "(48) 98862-3153",
       "email": null,
       "endereco": {
         "logradouro": "Rua José Rodolfo Correa, 320",
@@ -353,7 +464,21 @@
       "cnhArquivo": "D:\\Dropbox\\Aluguel Carros\\Maicon - VW GOL 2017-2018\\08.10.2025 - Renan Peters da Silva (devolvido 14.01)\\CNH-e.pdf",
       "pastaContratoOrigem": "D:\\Dropbox\\Aluguel Carros\\Maicon - VW GOL 2017-2018\\08.10.2025 - Renan Peters da Silva (devolvido 14.01)",
       "origemImportacao": "cnh-pasta-contrato",
-      "id": "d2eb7a7e-c4f1-4077-9bb1-9247c5363891"
+      "id": "d2eb7a7e-c4f1-4077-9bb1-9247c5363891",
+      "rg": "10282687939",
+      "rgOrgaoExpedidor": "SSP SC",
+      "dataNascimento": "25/04/1995",
+      "localNascimento": "Tubarão SC",
+      "filiacao": "Maria Goreti Peters da Silva",
+      "cnh": {
+        "numeroRegistro": "05861478708",
+        "categoria": "AB",
+        "validade": "03/08/2033"
+      },
+      "rastreameMotoristaKey": "12",
+      "rastreameMotoristaId": 12,
+      "ativo": false,
+      "rastreameSyncEm": "2026-06-28T22:47:04.866Z"
     },
     {
       "nome": "LUIS ROSSANO QUIROGA CUNHA",
@@ -372,12 +497,16 @@
       "cnhArquivo": "D:\\Dropbox\\Aluguel Carros\\Felipe - VW FOX 2018-2018\\10.03.2025 - Luis Rossano Quiroga Cunha (devolvido)\\CNH-e.pdf",
       "pastaContratoOrigem": "D:\\Dropbox\\Aluguel Carros\\Felipe - VW FOX 2018-2018\\10.03.2025 - Luis Rossano Quiroga Cunha (devolvido)",
       "origemImportacao": "cnh-pasta-contrato",
-      "id": "93675f58-3def-4c9e-b31d-390efdf47e6d"
+      "id": "93675f58-3def-4c9e-b31d-390efdf47e6d",
+      "rastreameMotoristaKey": "44",
+      "rastreameMotoristaId": 44,
+      "rastreameSyncEm": "2026-06-28T22:47:04.726Z",
+      "ativo": true
     },
     {
       "nome": "NATALIA TEIXEIRA SERAFIM",
       "cpf": "096.617.499-22",
-      "telefone": null,
+      "telefone": "(48) 9973-8725",
       "email": null,
       "endereco": {
         "logradouro": "Rua Thereza Demboski Milak , 280, Casa-8MQV+327 bairro Linha Batista , cidade Criciúma, estado Santa Catarina , CEP 88800-000 As partes acima identificadas têm, entre si, justo e acertado o presente Contrato de Locação de Automóvel por prazo determinado , que se regerá pelas cláusulas seguintes e pelas condições descritas no presente. Estão inclusos no contrato laudo de vistoria, termo de responsabilidade por avarias, infrações e acidentes de trânsito. Cláusula 1ª - DO OBJETO 1.1 O presente contrato tem como OBJETO a locação do automóvel de placa: AVU-6740 , marca/modelo VW- VOLKSWAGEN/ GOL 1.0 ( Gol (novo) 1.0 Mi Total Flex 8V 4p) Chassi 9BWAA05UIDT118971 , RENAVAM 00480715769, ano/modelo 2012/2013 , cor PRATA . 1.1.1 Informações t abela Fipe: https://veiculos.fipe.org.br?carro/vw-volkswagen/3-2026/005275-2/2013 1.2 A presente locação terá o lapso temporal de validade de 90 dias , podendo ser renovado por vontade das partes, iniciando no dia 10/04/2026 as 18:00 e terminando no dia 09/07/2026 as 18:00 , com tolerância de no máximo 1 hora. Data na qual o automóvel deverá ser devolvido no estado em que foi locado, sem avarias. Cláusula 2ª – DAS OBRIGAÇÕES 2.1. O LOCATÁRIO declara estar cientes da obrigatoriedade de possuir CNH – Carteira Nacional de Habilitação categoria “B” no ato de celebração deste contrato. Está ciente da responsabilidade quanto à integridade do veículo desde a retirada até a devolução ao LOCADOR. 2.1.1 Este veículo está sendo locado para fins profissionais, atuando como entregador(a) da Shoppe . Não possui EAR na sua habilitação e não poderá ser como motorista de aplicativos ou entregador de outras empresas que exijam o mesmo. 2.2. O LOCATÁRIO declara-se único e o principal responsável por eventual dano proveniente de mau uso do veículo durante o prazo de vigência do contrato. 2.3. O LOCATÁRIO declara estar ciente de que o veículo está limitado a utilização nas rodovias dos estados de SANTA CATARINA, sob pena de rescisão contratual, multa e perda das garantias contratadas, responsabilizando-se única e exclusivamente por quaisquer danos causados ao veículo por terceiros. 2.3.1. Havendo necessidade de utilização do veículo contratado fora da área previamente delimitada o LOCATÁRIO tem obrigação de comunicar previamente através de canal de voz ou mensagem de texto aguardando a devida autorização. O descumprimento desta exigência contratual acarretará automaticamente rescisão contratual e multa no valor de R$200,00 (Duzentos reais). 2.4. Em hipótese alguma o LOCADOR será responsabilizada por danos causados pelo LOCATÁRIO ou terceiros transportados pelo mesmo; havendo quaisquer autuações, processos, penalidades ou crimes de trânsito oriundos de tal natureza o LOCATÁRIO terá total e única responsabilidade sendo o LOCADOR excluído das responsabilidades. Se o LOCADOR for incluído em processo de autuação por penalidade caberá ao LOCATÁRIO o reembolso todos os valores comprovadamente desembolsados pela mesma, incluindo valores provenientes de custas processuais, honorários advocatícios, depósitos recursais e quaisquer outros valores despendidos de autuações e processos de trânsito. 2.5. O LOCATÁRIO não poderá utilizar o veículo nas situações descritas no item “2.5.1”. Responsabilizando-se civil e criminalmente por tais violações; isentando o LOCADOR de qualquer responsabilidade por tais violações. Ensejando a resolução do presente contrato e seus consectários, bem como a possibilidade de ressarcimento sobre danos por parte desta. 2.5.1. Configura uso inadequado do veículo as seguintes práticas do LOCATÁRIO: a. Transporte de mercadorias ou materiais ilegais; b. Violar ou adulterar os equipamentos de aferição de quilometragem; c. Abastecer o veículo com combustível fora dos padrões do fabricante; d. Transportar pessoas ou bens além da capacidade especificada pelo fabricante; e. áreas proibidas ao tráfego veicular ou que apresentem risco ao veículo; f. conduzir o veículo sob o efeito de bebida alcóolica; g. conduzir ou transportar passageiros sem utilizar dos dispositivos de segurança do veículo em conformidade com código de trânsito brasileiro (CTB); h. conceder o veículo a terceiros; i. circular com o veículo fora do território nacional; j. negligenciar os cuidados ao veículo que possam facilitar danos ou furto; k. ocasionar avarias ou danos aos acessórios do veículo contratado; l. transportar bens ou valores monetários que não sejam declarados à Receita Federal do Brasil; 2.6. O LOCADOR não fará substituição de veículo em ocasiões de furto, práticas ilegais, incêndio, colisão ou apreensão por órgão competente. 2.7. Caso o veículo seja apreendido por autoridades de trânsito ou segurança pública, todos os custos processuais e eventuais honorários advocatícios, incluindo os custos de diárias de retenção e multas serão de responsabilidade do LOCATÁRIO e as despesas supracitadas deverão ser pagas diretamente ao LOCADOR. 2.8. Na ocasião de perda total do bem, o LOCATÁRIO deverá ressarcir o valor do bem com referência da tabela FIPE do mês de contratação. 2.9. Em hipótese alguma a LOCADOR ficará responsável por valores indenizatórios a título de lucros cessantes, danos morais, lesão corporal, invalidez permanente ou morte. 2.10. Fica expressamente proibido fumar no interior do veículo. Na vistoria se for identificado danos como queimaduras no interior do veículo, manchas nos tecidos e mau cheiro, resultará em perda do valor do caução, descrito na cláusula 3.2, devido aos danos, custos de limpeza/reparo e desvalorização do veículo. 2.11. Caso o LOCATÁRIO venha a violar a cláusula primeira, fica resguardado ao LOCADOR o direito de realizar as medidas cabíveis de cobrança dos valores devidos e da recuperação do veículo através de denúncia aos órgãos competentes, inclusive débitos oriundos de eventuais avarias e infrações de trânsito. Em caso de apropriação indébita, caberá responsabilidade criminal ao LOCATÁRIO. Cláusula 3ª - DO PAGAMENTO 3.1 Não serão aceitos pagamentos realizados para tercerios, somente para contas bancárias pertencentes a Lanza Locações Veiculares (Chave pix 43.051.371/0001-05 ) ou pessoalmente ao seu representando José Felipe Barreto rodrigues . 3.2 O pagamento da locação deste veículo deverá ser realizado semanalmente todas as sábados",
@@ -391,7 +520,18 @@
       "cnhArquivo": "D:\\Dropbox\\Aluguel Carros\\Maicon - VW GOL 2012-2013\\10.04.2026 - Natalia Teixeira Serafim (devolvido 08.05.26)\\CNH-e.pdf",
       "pastaContratoOrigem": "D:\\Dropbox\\Aluguel Carros\\Maicon - VW GOL 2012-2013\\10.04.2026 - Natalia Teixeira Serafim (devolvido 08.05.26)",
       "origemImportacao": "cnh-pasta-contrato",
-      "id": "0d989340-7ca2-4fed-9615-f09fe57a8571"
+      "id": "0d989340-7ca2-4fed-9615-f09fe57a8571",
+      "dataNascimento": "18/12/1995",
+      "localNascimento": "Criciuma SC",
+      "cnh": {
+        "numeroRegistro": "06383629378",
+        "categoria": "AB",
+        "validade": "17/10/2034"
+      },
+      "rastreameMotoristaKey": "32",
+      "rastreameMotoristaId": 32,
+      "ativo": false,
+      "rastreameSyncEm": "2026-06-28T22:47:04.823Z"
     },
     {
       "nome": "ALVARO LUIZ COLLARES LADO",
@@ -410,12 +550,16 @@
       "cnhArquivo": "D:\\Dropbox\\Aluguel Carros\\Felipe - HYUNDAI HB20 2014-2015\\10.09.2025 - Alvaro Luiz Collares Lado (Devolvido)\\CNH-e.pdf.pdf",
       "pastaContratoOrigem": "D:\\Dropbox\\Aluguel Carros\\Felipe - HYUNDAI HB20 2014-2015\\10.09.2025 - Alvaro Luiz Collares Lado (Devolvido)",
       "origemImportacao": "cnh-pasta-contrato",
-      "id": "cf49702d-a4ba-4b42-8459-c88ff412d5d4"
+      "id": "cf49702d-a4ba-4b42-8459-c88ff412d5d4",
+      "rastreameMotoristaKey": "45",
+      "rastreameMotoristaId": 45,
+      "rastreameSyncEm": "2026-06-28T22:47:04.527Z",
+      "ativo": true
     },
     {
       "nome": "WESLLEY DIAS CORREA",
       "cpf": "886.814.600-97",
-      "telefone": null,
+      "telefone": "(48) 99993-1808",
       "email": null,
       "endereco": {
         "logradouro": "Rua Heitor Villa Lobos, 70 casa 3",
@@ -429,12 +573,26 @@
       "cnhArquivo": "D:\\Dropbox\\Aluguel Carros\\Felipe - HYUNDAI HB20 2014-2015\\10.09.2025 - Weslley Dias Correa (devolvido 11.01.26)\\CNH-e.pdf",
       "pastaContratoOrigem": "D:\\Dropbox\\Aluguel Carros\\Felipe - HYUNDAI HB20 2014-2015\\10.09.2025 - Weslley Dias Correa (devolvido 11.01.26)",
       "origemImportacao": "cnh-pasta-contrato",
-      "id": "ae9a098f-c428-48fb-83af-8fbac45ee072"
+      "id": "ae9a098f-c428-48fb-83af-8fbac45ee072",
+      "rg": "86681460097",
+      "rgOrgaoExpedidor": "SSP SC",
+      "dataNascimento": "04/01/2003",
+      "localNascimento": "Porto Alegre RS",
+      "filiacao": "Kelen Dias Cruz",
+      "cnh": {
+        "numeroRegistro": "08670230007",
+        "categoria": "B",
+        "validade": "17/10/2032"
+      },
+      "rastreameMotoristaKey": "10",
+      "rastreameMotoristaId": 10,
+      "ativo": false,
+      "rastreameSyncEm": "2026-06-28T22:47:04.956Z"
     },
     {
       "nome": "GUSTAVO COSTA DE QUADRO",
       "cpf": "074.864.179-36",
-      "telefone": null,
+      "telefone": "(48) 99211-1874",
       "email": null,
       "endereco": {
         "logradouro": "Rua 15 de Novembro, 398 Ed das Alamedas, APT 103 bairro Centro , cidade Içara , estado Santa Catarina , CEP 88820 -0 92 . As partes acima identificadas têm, entre si, justo e acertado o presente Contrato de Locação de Automóvel por prazo determinado , que se regerá pelas cláusulas seguintes e pelas condições descritas no presente. Estão inclusos no contrato laudo de vistoria, termo de responsabilidade por avarias, infrações e acidentes de trânsito. Cláusula 1ª - DO OBJETO 1.1 O presente contrato tem como OBJETO a locação do automóvel de placa: QJB-0I83 , marca/modelo VW- VOLKSWAGEN/FOX CONNECT MB (Fox Connect 1.6 Flex 8V 5p) , Chassi 9BWAB45Z4J4036819 , RENAVAM 1151385473, ano/modelo 2018/2018 , cor BRANCA . 1.1.1 Informações t abela Fipe: https://veiculos.fipe.org.br?carro/vw-volkswagen/5-2025/005481-0/2018 1.2 A presente locação terá o lapso temporal de validade de 90 dias , podendo ser renovado por vontade das partes, iniciando no dia 10 / 1 2 / 2025 as 20 :00 e terminando no dia 10 / 0 3 /202 6 as 20 :00 , com tolerância de no máximo 1 hora. Data na qual o automóvel deverá ser devolvido no estado em que foi locado, sem avarias. Cláusula 2ª – DAS OBRIGAÇÕES 2.1. O LOCATÁRIO declara estar cientes da obrigatoriedade de possuir CNH – Carteira Nacional de Habilitação categoria “B” no ato de celebração deste contrato. Está ciente da responsabilidade quanto à integridade do veículo desde a retirada até a devolução ao LOCADOR. 2.2. O LOCATÁRIO declara-se único e o principal responsável por eventual dano proveniente de mau uso do veículo durante o prazo de vigência do contrato. 2.3. O LOCATÁRIO declara estar ciente de que o veículo está limitado a utilização nas rodovias dos estados de SANTA CATARINA, sob pena de rescisão contratual, multa e perda das garantias contratadas, responsabilizando-se única e exclusivamente por quaisquer danos causados ao veículo por terceiros. 2.3.1. Havendo necessidade de utilização do veículo contratado fora da área previamente delimitada o LOCATÁRIO tem obrigação de comunicar previamente através de canal de voz ou mensagem de texto aguardando a devida autorização. O descumprimento desta exigência contratual acarretará automaticamente rescisão contratual e multa no valor de R$200,00 (Duzentos reais). 2.4. Em hipótese alguma o LOCADOR será responsabilizada por danos causados pelo LOCATÁRIO ou terceiros transportados pelo mesmo; havendo quaisquer autuações, processos, penalidades ou crimes de trânsito oriundos de tal natureza o LOCATÁRIO terá total e única responsabilidade sendo o LOCADOR excluído das responsabilidades. Se o LOCADOR for incluído em processo de autuação por penalidade caberá ao LOCATÁRIO o reembolso todos os valores comprovadamente desembolsados pela mesma, incluindo valores provenientes de custas processuais, honorários advocatícios, depósitos recursais e quaisquer outros valores despendidos de autuações e processos de trânsito. 2.5. O LOCATÁRIO não poderá utilizar o veículo nas situações descritas no item “2.5.1”. Responsabilizando-se civil e criminalmente por tais violações; isentando o LOCADOR de qualquer responsabilidade por tais violações. Ensejando a resolução do presente contrato e seus consectários, bem como a possibilidade de ressarcimento sobre danos por parte desta. 2.5.1. Configura uso inadequado do veículo as seguintes práticas do LOCATÁRIO: a. Transporte de mercadorias ou materiais ilegais; b. Violar ou adulterar os equipamentos de aferição de quilometragem; c. Abastecer o veículo com combustível fora dos padrões do fabricante; d. Transportar pessoas ou bens além da capacidade especificada pelo fabricante; e. áreas proibidas ao tráfego veicular ou que apresentem risco ao veículo; f. conduzir o veículo sob o efeito de bebida alcóolica; g. conduzir ou transportar passageiros sem utilizar dos dispositivos de segurança do veículo em conformidade com código de trânsito brasileiro (CTB); h. conceder o veículo a terceiros; i. circular com o veículo fora do território nacional; j. negligenciar os cuidados ao veículo que possam facilitar danos ou furto; k. ocasionar avarias ou danos aos acessórios do veículo contratado; l. transportar bens ou valores monetários que não sejam declarados à Receita Federal do Brasil; 2.6. O LOCADOR não fará substituição de veículo em ocasiões de furto, práticas ilegais, incêndio, colisão ou apreensão por órgão competente. 2.7. Caso o veículo seja apreendido por autoridades de trânsito ou segurança pública, todos os custos processuais e eventuais honorários advocatícios, incluindo os custos de diárias de retenção e multas serão de responsabilidade do LOCATÁRIO e as despesas supracitadas deverão ser pagas diretamente ao LOCADOR. 2.8. Na ocasião de perda total do bem, o LOCATÁRIO deverá ressarcir o valor do bem com referência da tabela FIPE do mês de contratação. 2.9. Em hipótese alguma a LOCADOR ficará responsável por valores indenizatórios a título de lucros cessantes, danos morais, lesão corporal, invalidez permanente ou morte. 2.10. Fica expressamente proibido fumar no interior do veículo. Na vistoria se for identificado danos como queimaduras no interior do veículo, manchas nos tecidos e mau cheiro, resultará em perda do valor do caução, descrito na cláusula 3.2, devido aos danos, custos de limpeza/reparo e desvalorização do veículo. 2.11. Caso o LOCATÁRIO venha a violar a cláusula primeira, fica resguardado ao LOCADOR o direito de realizar as medidas cabíveis de cobrança dos valores devidos e da recuperação do veículo através de denúncia aos órgãos competentes, inclusive débitos oriundos de eventuais avarias e infrações de trânsito. Em caso de apropriação indébita, caberá responsabilidade criminal ao LOCATÁRIO. Cláusula 3ª - DO PAGAMENTO 3.1 Não serão aceitos pagamentos realizados para tercerios, somente para contas bancárias pertencentes a Lanza Locações Veiculares (Chave pix 43.051.371/0001-05 ) ou pessoalmente ao seu representando José Felipe Barreto rodrigues . 3.2 O pagamento da locação deste veículo deverá ser realizado semanalmente todas as quintas-feiras",
@@ -448,12 +606,26 @@
       "cnhArquivo": "D:\\Dropbox\\Aluguel Carros\\Felipe - VW FOX 2018-2018\\10.12.2025 - Gustavo Costa de Quadros (troca)\\CNH-e.pdf",
       "pastaContratoOrigem": "D:\\Dropbox\\Aluguel Carros\\Felipe - VW FOX 2018-2018\\10.12.2025 - Gustavo Costa de Quadros (troca)",
       "origemImportacao": "cnh-pasta-contrato",
-      "id": "3b0778b6-9d31-4d45-a9d5-691b27ca62dc"
+      "id": "3b0778b6-9d31-4d45-a9d5-691b27ca62dc",
+      "rg": "7244136",
+      "rgOrgaoExpedidor": "SSP SC",
+      "dataNascimento": "27/08/2003",
+      "localNascimento": "Criciuma SC",
+      "filiacao": "Matia Goreti Silvano Costa",
+      "cnh": {
+        "numeroRegistro": "07749856686",
+        "categoria": "B",
+        "validade": "14/09/2031"
+      },
+      "rastreameMotoristaKey": "6",
+      "rastreameMotoristaId": 6,
+      "ativo": true,
+      "rastreameSyncEm": "2026-06-28T22:47:04.710Z"
     },
     {
       "nome": "LUIZ MARCELO PORTO MENEZES MOREIRA",
       "cpf": "079.792.694-11",
-      "telefone": null,
+      "telefone": "(48) 99125-2335",
       "email": null,
       "endereco": {
         "logradouro": "Rua Rua La Paz Casa 10",
@@ -467,12 +639,26 @@
       "cnhArquivo": "D:\\Dropbox\\Aluguel Carros\\Felipe - VW FOX 2018-2018\\11.12.2025 - Luiz Marcelo Porto Menezes Moreira (devolvido 18.05.26)\\CNH-e.pdf.pdf",
       "pastaContratoOrigem": "D:\\Dropbox\\Aluguel Carros\\Felipe - VW FOX 2018-2018\\11.12.2025 - Luiz Marcelo Porto Menezes Moreira (devolvido 18.05.26)",
       "origemImportacao": "cnh-pasta-contrato",
-      "id": "06249058-70f8-4ad1-a151-cc6b33320c5a"
+      "id": "06249058-70f8-4ad1-a151-cc6b33320c5a",
+      "rg": "34686045",
+      "rgOrgaoExpedidor": "SEDS AL",
+      "dataNascimento": "21/05/1991",
+      "localNascimento": "Paulo Afonso BA",
+      "filiacao": "Ana Cristina Porto Menezes",
+      "cnh": {
+        "numeroRegistro": "07250819878",
+        "categoria": "B",
+        "validade": "27/02/2034"
+      },
+      "rastreameMotoristaKey": "7",
+      "rastreameMotoristaId": 7,
+      "ativo": false,
+      "rastreameSyncEm": "2026-06-28T22:47:04.743Z"
     },
     {
       "nome": "VIRGINIA JOSE CARABALLO CAMACHO",
       "cpf": "708.627.522-05",
-      "telefone": null,
+      "telefone": "(92) 98279-4394",
       "email": null,
       "endereco": {
         "logradouro": "Rua João Bristot 1222",
@@ -486,12 +672,21 @@
       "cnhArquivo": "D:\\Dropbox\\Aluguel Carros\\Felipe - RENAULT SANDERO 2013-2014\\12.05.2026 - Virginia Jose Caraballo Camacho\\CNH-e.pdf",
       "pastaContratoOrigem": "D:\\Dropbox\\Aluguel Carros\\Felipe - RENAULT SANDERO 2013-2014\\12.05.2026 - Virginia Jose Caraballo Camacho",
       "origemImportacao": "cnh-pasta-contrato",
-      "id": "caf97370-463d-468f-af8c-931906c89ca2"
+      "id": "caf97370-463d-468f-af8c-931906c89ca2",
+      "cnh": {
+        "numeroRegistro": "08827955859",
+        "categoria": "B",
+        "validade": "26/11/2034"
+      },
+      "rastreameMotoristaKey": "33",
+      "rastreameMotoristaId": 33,
+      "ativo": true,
+      "rastreameSyncEm": "2026-06-28T22:47:04.931Z"
     },
     {
       "nome": "RAFAELA CARDOSO DEBIAZI",
       "cpf": "110.866.919-03",
-      "telefone": null,
+      "telefone": "(48) 99981-1121",
       "email": null,
       "endereco": {
         "logradouro": "Rua Estrada Geral Lage ado",
@@ -505,7 +700,21 @@
       "cnhArquivo": "D:\\Dropbox\\Aluguel Carros\\Felipe - FIAT DOBLO 2015-2015\\13.11.2025 - Rafaela Cardoso Debiazi\\CNH-e Rafaela.pdf",
       "pastaContratoOrigem": "D:\\Dropbox\\Aluguel Carros\\Felipe - FIAT DOBLO 2015-2015\\13.11.2025 - Rafaela Cardoso Debiazi",
       "origemImportacao": "cnh-pasta-contrato",
-      "id": "548b6bad-d9a8-445e-94f4-dddd40d40e30"
+      "id": "548b6bad-d9a8-445e-94f4-dddd40d40e30",
+      "rg": "6159825",
+      "rgOrgaoExpedidor": "SSP SC",
+      "dataNascimento": "15/12/1995",
+      "localNascimento": "Treze de Maio SC",
+      "filiacao": "Fabiana Cardoso Debiazi",
+      "cnh": {
+        "numeroRegistro": "06153106173",
+        "categoria": "AB",
+        "validade": "29/04/2034"
+      },
+      "rastreameMotoristaKey": "8",
+      "rastreameMotoristaId": 8,
+      "ativo": true,
+      "rastreameSyncEm": "2026-06-28T22:47:04.843Z"
     },
     {
       "nome": "MONICA GUIMARAES DE OLIVEIRA",
@@ -524,7 +733,11 @@
       "cnhArquivo": "D:\\Dropbox\\Aluguel Carros\\Maicon - VW GOL 2017-2018\\17.05.2025 - Monica Guimaraes de Oliveira (devolvido 20.05)\\CNH.jpg",
       "pastaContratoOrigem": "D:\\Dropbox\\Aluguel Carros\\Maicon - VW GOL 2017-2018\\17.05.2025 - Monica Guimaraes de Oliveira (devolvido 20.05)",
       "origemImportacao": "cnh-pasta-contrato",
-      "id": "b68066a6-7b6e-4f81-8483-ed20103448b0"
+      "id": "b68066a6-7b6e-4f81-8483-ed20103448b0",
+      "rastreameMotoristaKey": "46",
+      "rastreameMotoristaId": 46,
+      "rastreameSyncEm": "2026-06-28T22:47:04.814Z",
+      "ativo": true
     },
     {
       "nome": "SERGIO MEDEIROS CAMARGO MARCELO",
@@ -543,7 +756,11 @@
       "cnhArquivo": "D:\\Dropbox\\Aluguel Carros\\Felipe - VW FOX 2018-2018\\17.08.2025 - Sergio Medeiros Camargo Marcelo\\CNH-e.pdf",
       "pastaContratoOrigem": "D:\\Dropbox\\Aluguel Carros\\Felipe - VW FOX 2018-2018\\17.08.2025 - Sergio Medeiros Camargo Marcelo",
       "origemImportacao": "cnh-pasta-contrato",
-      "id": "80666f66-0424-4a33-8aca-db3a4a9207be"
+      "id": "80666f66-0424-4a33-8aca-db3a4a9207be",
+      "rastreameMotoristaKey": "47",
+      "rastreameMotoristaId": 47,
+      "rastreameSyncEm": "2026-06-28T22:47:04.893Z",
+      "ativo": true
     },
     {
       "nome": "MATHEUS MORAES MARQUES",
@@ -562,12 +779,16 @@
       "cnhArquivo": "D:\\Dropbox\\Aluguel Carros\\Felipe - RENAULT SANDERO 2013-2014\\18.10.2025 - Matheus Moraes Marques (devolvido)\\CNH.jpeg",
       "pastaContratoOrigem": "D:\\Dropbox\\Aluguel Carros\\Felipe - RENAULT SANDERO 2013-2014\\18.10.2025 - Matheus Moraes Marques (devolvido)",
       "origemImportacao": "cnh-pasta-contrato",
-      "id": "995dc8b2-6db6-41bf-88fd-676366691adb"
+      "id": "995dc8b2-6db6-41bf-88fd-676366691adb",
+      "rastreameMotoristaKey": "48",
+      "rastreameMotoristaId": 48,
+      "rastreameSyncEm": "2026-06-28T22:47:04.777Z",
+      "ativo": true
     },
     {
       "nome": "VICTOR ALISSON AZEVEDO MUNIZ",
       "cpf": "040.363.982-45",
-      "telefone": null,
+      "telefone": "(44) 79386-3827",
       "email": null,
       "endereco": {
         "logradouro": "Rua Vanteiro Margotti, 103",
@@ -581,7 +802,21 @@
       "cnhArquivo": "D:\\Dropbox\\Aluguel Carros\\Felipe - HYUNDAI HB20 2014-2015\\20.01.2026 - Victor Alisson Azevedo Muniz\\CNH-e.pdf",
       "pastaContratoOrigem": "D:\\Dropbox\\Aluguel Carros\\Felipe - HYUNDAI HB20 2014-2015\\20.01.2026 - Victor Alisson Azevedo Muniz",
       "origemImportacao": "cnh-pasta-contrato",
-      "id": "325d84a1-f8b8-412c-9a38-462c884065a6"
+      "id": "325d84a1-f8b8-412c-9a38-462c884065a6",
+      "rg": "11932490",
+      "rgOrgaoExpedidor": "SESPC AC",
+      "dataNascimento": "04/05/2001",
+      "localNascimento": "Rio Branco AC",
+      "filiacao": "Vianes Azevedo de Matos",
+      "cnh": {
+        "numeroRegistro": "07554206400",
+        "categoria": "AB",
+        "validade": "26/10/2035"
+      },
+      "rastreameMotoristaKey": "24",
+      "rastreameMotoristaId": 24,
+      "ativo": true,
+      "rastreameSyncEm": "2026-06-28T22:47:04.925Z"
     },
     {
       "nome": "REINIER FIGUEROA YERA",
@@ -600,7 +835,11 @@
       "cnhArquivo": "D:\\Dropbox\\Aluguel Carros\\Maicon - VW GOL 2017-2018\\20.04.2026 - Reinier Figueroa Yera\\CNH.pdf",
       "pastaContratoOrigem": "D:\\Dropbox\\Aluguel Carros\\Maicon - VW GOL 2017-2018\\20.04.2026 - Reinier Figueroa Yera",
       "origemImportacao": "cnh-pasta-contrato",
-      "id": "ed1a153f-7533-475e-88e8-aeeba3b712d9"
+      "id": "ed1a153f-7533-475e-88e8-aeeba3b712d9",
+      "rastreameMotoristaKey": "49",
+      "rastreameMotoristaId": 49,
+      "rastreameSyncEm": "2026-06-28T22:47:04.859Z",
+      "ativo": true
     },
     {
       "nome": "MATHEUS OSMAN PEREIRA DE QUADROS",
@@ -619,7 +858,11 @@
       "cnhArquivo": "D:\\Dropbox\\Aluguel Carros\\Maicon - VW GOL 2017-2018\\21.05.2025 - Matheus Osman Pereira de Quadros(devolvido)\\CNH-e.pdf",
       "pastaContratoOrigem": "D:\\Dropbox\\Aluguel Carros\\Maicon - VW GOL 2017-2018\\21.05.2025 - Matheus Osman Pereira de Quadros(devolvido)",
       "origemImportacao": "cnh-pasta-contrato",
-      "id": "4cf1fe6e-c55b-4399-85c5-e80f2c95d880"
+      "id": "4cf1fe6e-c55b-4399-85c5-e80f2c95d880",
+      "rastreameMotoristaKey": "50",
+      "rastreameMotoristaId": 50,
+      "rastreameSyncEm": "2026-06-28T22:47:04.785Z",
+      "ativo": true
     },
     {
       "nome": "ALAN LAMBERTI JOBIM",
@@ -638,7 +881,11 @@
       "cnhArquivo": "D:\\Dropbox\\Aluguel Carros\\Z Luiz - HYUNDAI HB20 2014-2014\\22.04.2025 - Alan Lamberti Jobim  (devolvido)\\CNH-e.pdf.pdf",
       "pastaContratoOrigem": "D:\\Dropbox\\Aluguel Carros\\Z Luiz - HYUNDAI HB20 2014-2014\\22.04.2025 - Alan Lamberti Jobim  (devolvido)",
       "origemImportacao": "cnh-pasta-contrato",
-      "id": "ae503083-2cd3-4ef1-829c-be55d7953a29"
+      "id": "ae503083-2cd3-4ef1-829c-be55d7953a29",
+      "rastreameMotoristaKey": "51",
+      "rastreameMotoristaId": 51,
+      "rastreameSyncEm": "2026-06-28T22:47:04.505Z",
+      "ativo": true
     },
     {
       "nome": "ANDRESSA DA SILVA MARQUES",
@@ -657,12 +904,16 @@
       "cnhArquivo": "D:\\Dropbox\\Aluguel Carros\\Luiz - HYUNDAI HB20 2013-2014\\22.07.2025 - Andressa da Silva Marques (recuperado)\\CNH-e.pdf (16).pdf",
       "pastaContratoOrigem": "D:\\Dropbox\\Aluguel Carros\\Luiz - HYUNDAI HB20 2013-2014\\22.07.2025 - Andressa da Silva Marques (recuperado)",
       "origemImportacao": "cnh-pasta-contrato",
-      "id": "cdce8613-4da4-4865-a158-c5779b0f4783"
+      "id": "cdce8613-4da4-4865-a158-c5779b0f4783",
+      "rastreameMotoristaKey": "52",
+      "rastreameMotoristaId": 52,
+      "rastreameSyncEm": "2026-06-28T22:47:04.548Z",
+      "ativo": true
     },
     {
       "nome": "DIEGO JOSSY DA SILVA SANTA ROSA",
       "cpf": "043.203.662-80",
-      "telefone": null,
+      "telefone": "(48) 99953-3882",
       "email": null,
       "endereco": {
         "logradouro": "Rua José Acácio Moreira, 415 AP 301",
@@ -676,12 +927,26 @@
       "cnhArquivo": "D:\\Dropbox\\Aluguel Carros\\Regiane - HYUNDAI HB20 2012-2013\\22.09.2025 - Diego Jossy da Silva Santa Rosa (Devolvido 12.01)\\CNH-e.pdf",
       "pastaContratoOrigem": "D:\\Dropbox\\Aluguel Carros\\Regiane - HYUNDAI HB20 2012-2013\\22.09.2025 - Diego Jossy da Silva Santa Rosa (Devolvido 12.01)",
       "origemImportacao": "cnh-pasta-contrato",
-      "id": "5fcce2b1-ed1d-4254-a5df-7e241d491810"
+      "id": "5fcce2b1-ed1d-4254-a5df-7e241d491810",
+      "rg": "04320366280",
+      "rgOrgaoExpedidor": "SSP SC",
+      "dataNascimento": "06/03/1997",
+      "localNascimento": "Santo Antonio do Taua PA",
+      "filiacao": "Dione Zeferino da Silva",
+      "cnh": {
+        "numeroRegistro": "08016596162",
+        "categoria": "AB",
+        "validade": "15/09/2034"
+      },
+      "rastreameMotoristaKey": "13",
+      "rastreameMotoristaId": 13,
+      "ativo": false,
+      "rastreameSyncEm": "2026-06-28T22:47:04.603Z"
     },
     {
       "nome": "TIAGO AUGUSTO DA SILVA PIARETI",
       "cpf": "388.519.608-52",
-      "telefone": null,
+      "telefone": "(48) 98816-8308",
       "email": null,
       "endereco": {
         "logradouro": "Rua Rua Silvio Búrigo, 3083 Bloco G AP 103 bairro Monte Castelo cidade Tubarão estado Santa Catarina CEP 88701-180 . As partes acima identificadas têm, entre si, justo e acertado o presente Contrato de Locação de Automóvel por prazo determinado , que se regerá pelas cláusulas seguintes e pelas condições descritas no presente. Estão inclusos no contrato laudo de vistoria, termo de responsabilidade por avarias, infrações e acidentes de trânsito. Cláusula 1ª - DO OBJETO 1.1 O presente contrato tem como OBJETO a locação do automóvel de placa: IXT - 7I93 , marca/modelo RENAULT/SANDERO 1.0 Flex ( SANDERO Expression Hi-Flex 1.0 16V 5p ), Chassi 93Y5SRF84HJ699432 , RENAVAM 01113955780 , ano/modelo 2017 / 2017 , cor Preta 1.1.1 Informações tabela Fipe: http://veiculos.fipe.org.br?carro/renault/3-2026/025244-1/2017 1.2 A presente locação terá o lapso temporal de validade de 90 dias , podendo ser renovado por vontade das partes, iniciando no dia 24 /0 3 /2026 as 20 :00 e terminando no dia 22 /0 6 /2026 as 20 :00 , com tolerância de no máximo 1 hora. Data na qual o automóvel deverá ser devolvido no estado em que foi locado, sem avarias. Cláusula 2ª – DAS OBRIGAÇÕES 2.1. O LOCATÁRIO declara estar cientes da obrigatoriedade de possuir CNH – Carteira Nacional de Habilitação categoria “B” no ato de celebração deste contrato. Está ciente da responsabilidade quanto à integridade do veículo desde a retirada até a devolução ao LOCADOR. 2.2. O LOCATÁRIO declara-se único e o principal responsável por eventual dano proveniente de mau uso do veículo durante o prazo de vigência do contrato. 2.3. O LOCATÁRIO declara estar ciente de que o veículo está limitado a utilização nas rodovias dos estados de SANTA CATARINA, sob pena de rescisão contratual, multa e perda das garantias contratadas, responsabilizando-se única e exclusivamente por quaisquer danos causados ao veículo por terceiros. 2.3.1. Havendo necessidade de utilização do veículo contratado fora da área previamente delimitada o LOCATÁRIO tem obrigação de comunicar previamente através de canal de voz ou mensagem de texto aguardando a devida autorização. O descumprimento desta exigência contratual acarretará automaticamente rescisão contratual e multa no valor de R$200,00 (Duzentos reais). 2.4. Em hipótese alguma o LOCADOR será responsabilizada por danos causados pelo LOCATÁRIO ou terceiros transportados pelo mesmo; havendo quaisquer autuações, processos, penalidades ou crimes de trânsito oriundos de tal natureza o LOCATÁRIO terá total e única responsabilidade sendo o LOCADOR excluído das responsabilidades. Se o LOCADOR for incluído em processo de autuação por penalidade caberá ao LOCATÁRIO o reembolso todos os valores comprovadamente desembolsados pela mesma, incluindo valores provenientes de custas processuais, honorários advocatícios, depósitos recursais e quaisquer outros valores despendidos de autuações e processos de trânsito. 2.5. O LOCATÁRIO não poderá utilizar o veículo nas situações descritas no item “2.5.1”. Responsabilizando-se civil e criminalmente por tais violações; isentando o LOCADOR de qualquer responsabilidade por tais violações. Ensejando a resolução do presente contrato e seus consectários, bem como a possibilidade de ressarcimento sobre danos por parte desta. 2.5.1. Configura uso inadequado do veículo as seguintes práticas do LOCATÁRIO: a. Transporte de mercadorias ou materiais ilegais; b. Violar ou adulterar os equipamentos de aferição de quilometragem; c. Abastecer o veículo com combustível fora dos padrões do fabricante; d. Transportar pessoas ou bens além da capacidade especificada pelo fabricante; e. áreas proibidas ao tráfego veicular ou que apresentem risco ao veículo; f. conduzir o veículo sob o efeito de bebida alcóolica; g. conduzir ou transportar passageiros sem utilizar dos dispositivos de segurança do veículo em conformidade com código de trânsito brasileiro (CTB); h. conceder o veículo a terceiros; i. circular com o veículo fora do território nacional; j. negligenciar os cuidados ao veículo que possam facilitar danos ou furto; k. ocasionar avarias ou danos aos acessórios do veículo contratado; l. transportar bens ou valores monetários que não sejam declarados à Receita Federal do Brasil; 2.6. O LOCADOR não fará substituição de veículo em ocasiões de furto, práticas ilegais, incêndio, colisão ou apreensão por órgão competente. 2.7. Caso o veículo seja apreendido por autoridades de trânsito ou segurança pública, todos os custos processuais e eventuais honorários advocatícios, incluindo os custos de diárias de retenção e multas serão de responsabilidade do LOCATÁRIO e as despesas supracitadas deverão ser pagas diretamente ao LOCADOR. 2.8. Na ocasião de perda total do bem, o LOCATÁRIO deverá ressarcir o valor do bem com referência da tabela FIPE do mês de contratação. 2.9. Em hipótese alguma a LOCADOR ficará responsável por valores indenizatórios a título de lucros cessantes, danos morais, lesão corporal, invalidez permanente ou morte. 2.10. Fica expressamente proibido fumar no interior do veículo. Na vistoria se for identificado danos como queimaduras no interior do veículo, manchas nos tecidos e mau cheiro, resultará em perda do valor do caução, descrito na cláusula 3.2, devido aos danos, custos de limpeza/reparo e desvalorização do veículo. 2.11. Caso o LOCATÁRIO venha a violar a cláusula primeira, fica resguardado ao LOCADOR o direito de realizar as medidas cabíveis de cobrança dos valores devidos e da recuperação do veículo através de denúncia aos órgãos competentes, inclusive débitos oriundos de eventuais avarias e infrações de trânsito. Em caso de apropriação indébita, caberá responsabilidade criminal ao LOCATÁRIO. Cláusula 3ª - DO PAGAMENTO 3.1 Não serão aceitos pagamentos realizados para tercerios, somente para contas bancárias pertencentes a Lanza Locações Veiculares (Chave pix 43.051.371/0001-05 ) ou pessoalmente ao seu representando José Felipe Barreto rodrigues . 3.2 O pagamento da locação deste veículo deverá ser realizado semanalmente todas as quartas-feiras",
@@ -695,12 +960,23 @@
       "cnhArquivo": "D:\\Dropbox\\Aluguel Carros\\Luiz - RENAULT SANDERO 2017-2017\\24.03.26 - Tiago Augusto da Silva Piareti\\CNH-e.pdf",
       "pastaContratoOrigem": "D:\\Dropbox\\Aluguel Carros\\Luiz - RENAULT SANDERO 2017-2017\\24.03.26 - Tiago Augusto da Silva Piareti",
       "origemImportacao": "cnh-pasta-contrato",
-      "id": "ad051658-2cd2-4adf-8b4e-7405175799d3"
+      "id": "ad051658-2cd2-4adf-8b4e-7405175799d3",
+      "dataNascimento": "03/01/1989",
+      "localNascimento": "SP SP",
+      "cnh": {
+        "numeroRegistro": "06396772528",
+        "categoria": "B",
+        "validade": "01/07/2034"
+      },
+      "rastreameMotoristaKey": "29",
+      "rastreameMotoristaId": 29,
+      "ativo": true,
+      "rastreameSyncEm": "2026-06-28T22:47:04.908Z"
     },
     {
       "nome": "RO NA LD VIANA JUNIOR",
       "cpf": "096.583.289-97",
-      "telefone": null,
+      "telefone": "(51) 99785-6945",
       "email": null,
       "endereco": {
         "logradouro": "Rua José Realino Gomes , 340",
@@ -714,12 +990,23 @@
       "cnhArquivo": "D:\\Dropbox\\Aluguel Carros\\Maicon - VW GOL 2012-2013\\24.05.2026 - Ronald Viana Junior (trocado)\\CNH-e.pdf",
       "pastaContratoOrigem": "D:\\Dropbox\\Aluguel Carros\\Maicon - VW GOL 2012-2013\\24.05.2026 - Ronald Viana Junior (trocado)",
       "origemImportacao": "cnh-pasta-contrato",
-      "id": "9c055b90-e03b-4225-9e5d-0aaf512faffe"
+      "id": "9c055b90-e03b-4225-9e5d-0aaf512faffe",
+      "dataNascimento": "16/05/1995",
+      "localNascimento": "Ararangua SC",
+      "cnh": {
+        "numeroRegistro": "08677483642",
+        "categoria": "B",
+        "validade": "02/05/2031"
+      },
+      "rastreameMotoristaKey": "35",
+      "rastreameMotoristaId": 35,
+      "ativo": true,
+      "rastreameSyncEm": "2026-06-28T22:47:04.876Z"
     },
     {
       "nome": "LUCAS DA SILVA DIMAS",
       "cpf": "112.856.279-03",
-      "telefone": null,
+      "telefone": "(48) 99217-1713",
       "email": null,
       "endereco": {
         "logradouro": "Rua Thadeu Silvestre 116, casa 01",
@@ -733,7 +1020,21 @@
       "cnhArquivo": "D:\\Dropbox\\Aluguel Carros\\Regiane - HYUNDAI HB20 2012-2013\\28.01.2026 - Lucas da Silva Dimas (recuperado 04.05)\\CNH-e.pdf",
       "pastaContratoOrigem": "D:\\Dropbox\\Aluguel Carros\\Regiane - HYUNDAI HB20 2012-2013\\28.01.2026 - Lucas da Silva Dimas (recuperado 04.05)",
       "origemImportacao": "cnh-pasta-contrato",
-      "id": "b4f659e6-91a0-4f4d-aa92-09249d8a603c"
+      "id": "b4f659e6-91a0-4f4d-aa92-09249d8a603c",
+      "rg": "4545564",
+      "rgOrgaoExpedidor": "SSP SC",
+      "dataNascimento": "20/07/1998",
+      "localNascimento": "CRICIUMA SC",
+      "filiacao": "Fabiani Francisco da Silva",
+      "cnh": {
+        "numeroRegistro": "07016678767",
+        "categoria": "AB",
+        "validade": "19/04/2032"
+      },
+      "rastreameMotoristaKey": "26",
+      "rastreameMotoristaId": 26,
+      "ativo": false,
+      "rastreameSyncEm": "2026-06-28T22:47:04.717Z"
     },
     {
       "nome": "DJAIR CARDOSO FERNANDES",
@@ -751,8 +1052,13 @@
       },
       "cnhArquivo": "D:\\Dropbox\\Aluguel Carros\\Regiane - HYUNDAI HB20 2012-2013\\28.03.2025 - Djair Cardoso Fernades (Recuperado)\\CNH-e.pdf",
       "pastaContratoOrigem": "D:\\Dropbox\\Aluguel Carros\\Regiane - HYUNDAI HB20 2012-2013\\28.03.2025 - Djair Cardoso Fernades (Recuperado)",
-      "origemImportacao": "cnh-pasta-contrato",
-      "id": "1a5ea522-2a15-4f49-8150-9baf63239139"
+      "origemImportacao": "contrato",
+      "id": "1a5ea522-2a15-4f49-8150-9baf63239139",
+      "rastreameMotoristaKey": "53",
+      "rastreameMotoristaId": 53,
+      "rastreameSyncEm": "2026-06-28T22:47:04.611Z",
+      "ativo": true,
+      "atualizadoEm": "2026-06-28T17:13:58.377Z"
     },
     {
       "nome": "CLOVIS ADAIR GONCALVES CRISPIM",
@@ -771,7 +1077,11 @@
       "cnhArquivo": "D:\\Dropbox\\Aluguel Carros\\Z Luiz - HYUNDAI HB20 2014-2014\\28.10.2025 - Clovis Adair Goncalves Crispim (recuperado 27.11)\\CNH-e.pdf",
       "pastaContratoOrigem": "D:\\Dropbox\\Aluguel Carros\\Z Luiz - HYUNDAI HB20 2014-2014\\28.10.2025 - Clovis Adair Goncalves Crispim (recuperado 27.11)",
       "origemImportacao": "cnh-pasta-contrato",
-      "id": "6fe338f2-d24e-46a6-a751-5bde251708b9"
+      "id": "6fe338f2-d24e-46a6-a751-5bde251708b9",
+      "rastreameMotoristaKey": "54",
+      "rastreameMotoristaId": 54,
+      "rastreameSyncEm": "2026-06-28T22:47:04.571Z",
+      "ativo": true
     },
     {
       "nome": "JORGE EDUARDO DA SILVA",
@@ -790,7 +1100,11 @@
       "cnhArquivo": "D:\\Dropbox\\Aluguel Carros\\Felipe - RENAULT SANDERO 2013-2014\\28.10.2025 - Jorge Eduardo da Silva (recuperado 06.12)\\CNH 2.jpeg",
       "pastaContratoOrigem": "D:\\Dropbox\\Aluguel Carros\\Felipe - RENAULT SANDERO 2013-2014\\28.10.2025 - Jorge Eduardo da Silva (recuperado 06.12)",
       "origemImportacao": "cnh-pasta-contrato",
-      "id": "4f96f84c-1288-4aad-a159-4ef66cdbf0fd"
+      "id": "4f96f84c-1288-4aad-a159-4ef66cdbf0fd",
+      "rastreameMotoristaKey": "55",
+      "rastreameMotoristaId": 55,
+      "rastreameSyncEm": "2026-06-28T22:47:04.697Z",
+      "ativo": true
     },
     {
       "nome": "VERIDIANE DE CASTRO RAMOS",
@@ -809,7 +1123,568 @@
       "cnhArquivo": "D:\\Dropbox\\Aluguel Carros\\Felipe - VW FOX 2018-2018\\30.06.2025 - Veridiane De Castro Ramos (devolvido)\\CNH.jpeg",
       "pastaContratoOrigem": "D:\\Dropbox\\Aluguel Carros\\Felipe - VW FOX 2018-2018\\30.06.2025 - Veridiane De Castro Ramos (devolvido)",
       "origemImportacao": "cnh-pasta-contrato",
-      "id": "d5ec3405-bb1f-4318-92c9-f7af830ab22b"
+      "id": "d5ec3405-bb1f-4318-92c9-f7af830ab22b",
+      "rastreameMotoristaKey": "56",
+      "rastreameMotoristaId": 56,
+      "rastreameSyncEm": "2026-06-28T22:47:04.916Z",
+      "ativo": true
+    },
+    {
+      "nome": "Andreia Regina de Lima",
+      "cpf": "250.092.538-28",
+      "rg": "54188705",
+      "rgOrgaoExpedidor": "SSP SP",
+      "dataNascimento": "07/04/1976",
+      "localNascimento": "São Roque SP",
+      "filiacao": "Rosemari Mendes Lima",
+      "telefone": null,
+      "email": null,
+      "endereco": {
+        "cep": null,
+        "logradouro": null,
+        "numero": null,
+        "complemento": null,
+        "bairro": null,
+        "cidade": null,
+        "uf": null
+      },
+      "cnh": {
+        "numeroRegistro": "02287845242",
+        "categoria": "B",
+        "validade": "16/01/2026"
+      },
+      "rastreameMotoristaKey": "22",
+      "rastreameMotoristaId": 22,
+      "origemImportacao": "rastreame",
+      "ativo": false,
+      "id": "bf1d4b0e-6c46-4878-8f1f-b639854af568",
+      "rastreameSyncEm": "2026-06-28T22:47:04.541Z",
+      "atualizadoEm": "2026-06-27T21:03:24.085Z"
+    },
+    {
+      "nome": "Arlem Eduardo Preira Rodriguez",
+      "cpf": "089.427.989-00",
+      "dataNascimento": "28/08/1992",
+      "localNascimento": "Ararangua SC",
+      "telefone": "(67) 98100-7398",
+      "email": null,
+      "endereco": {
+        "cep": null,
+        "logradouro": null,
+        "numero": null,
+        "complemento": null,
+        "bairro": null,
+        "cidade": null,
+        "uf": null
+      },
+      "cnh": {
+        "numeroRegistro": "05142685184",
+        "categoria": "AE",
+        "validade": "26/01/2031"
+      },
+      "rastreameMotoristaKey": "28",
+      "rastreameMotoristaId": 28,
+      "origemImportacao": "rastreame",
+      "ativo": true,
+      "id": "d83b9728-e78a-4c83-a9a1-b77bfbc08f1d",
+      "rastreameSyncEm": "2026-06-28T22:47:04.556Z",
+      "atualizadoEm": "2026-06-27T21:03:24.094Z"
+    },
+    {
+      "nome": "Daniel Damasceno",
+      "cpf": "811.431.500-82",
+      "rg": "1072971102",
+      "rgOrgaoExpedidor": "SJS/DI RS",
+      "dataNascimento": "07/06/1980",
+      "filiacao": "Cleuza Mara Damasceno",
+      "telefone": "(51) 99797-6394",
+      "email": null,
+      "endereco": {
+        "cep": null,
+        "logradouro": null,
+        "numero": null,
+        "complemento": null,
+        "bairro": null,
+        "cidade": null,
+        "uf": null
+      },
+      "cnh": {
+        "numeroRegistro": "02671938341",
+        "categoria": "B",
+        "validade": "25/05/2032"
+      },
+      "rastreameMotoristaKey": "11",
+      "rastreameMotoristaId": 11,
+      "origemImportacao": "rastreame",
+      "ativo": true,
+      "id": "0621844a-475e-46a2-b595-89967488dd9c",
+      "rastreameSyncEm": "2026-06-28T22:47:04.588Z",
+      "atualizadoEm": "2026-06-27T21:03:24.109Z"
+    },
+    {
+      "nome": "Danielle Batalha de Lima",
+      "cpf": "322.584.558-20",
+      "rg": "33042292",
+      "rgOrgaoExpedidor": "SSP SP",
+      "dataNascimento": "31/05/1982",
+      "localNascimento": "São Paulo SP",
+      "filiacao": "Zilda Mercedes Batalha Lima",
+      "telefone": "(48) 99165-3896",
+      "email": null,
+      "endereco": {
+        "cep": null,
+        "logradouro": null,
+        "numero": null,
+        "complemento": null,
+        "bairro": null,
+        "cidade": null,
+        "uf": null
+      },
+      "cnh": {
+        "numeroRegistro": "02309672103",
+        "categoria": "B",
+        "validade": "11/09/2031"
+      },
+      "rastreameMotoristaKey": "4",
+      "rastreameMotoristaId": 4,
+      "origemImportacao": "rastreame",
+      "ativo": false,
+      "id": "400d2519-36f7-4d81-af20-782b9b5f9869",
+      "rastreameSyncEm": "2026-06-28T22:47:04.595Z",
+      "atualizadoEm": "2026-06-27T21:03:24.115Z"
+    },
+    {
+      "nome": "Eduardo Simeao Pereira",
+      "rg": "3364332",
+      "rgOrgaoExpedidor": "SSP SC",
+      "dataNascimento": "01/03/1983",
+      "localNascimento": "Jaguaruna SC",
+      "telefone": "(19) 99998-8584",
+      "email": null,
+      "endereco": {
+        "cep": null,
+        "logradouro": null,
+        "numero": null,
+        "complemento": null,
+        "bairro": null,
+        "cidade": null,
+        "uf": null
+      },
+      "cnh": {
+        "numeroRegistro": "01926683686",
+        "categoria": "AB",
+        "validade": "22/10/2034"
+      },
+      "rastreameMotoristaKey": "16",
+      "rastreameMotoristaId": 16,
+      "origemImportacao": "rastreame",
+      "ativo": false,
+      "id": "81fd1098-b897-4a3b-b80d-9e2b6f43a605",
+      "rastreameSyncEm": "2026-06-28T22:47:04.626Z",
+      "atualizadoEm": "2026-06-27T21:03:24.127Z"
+    },
+    {
+      "nome": "Isaias dos Santos Philippe",
+      "cpf": "105.019.999-57",
+      "dataNascimento": "15/07/1997",
+      "localNascimento": "Tubarão SC",
+      "telefone": "(48) 99910-9555",
+      "email": null,
+      "endereco": {
+        "cep": null,
+        "logradouro": null,
+        "numero": null,
+        "complemento": null,
+        "bairro": null,
+        "cidade": null,
+        "uf": null
+      },
+      "cnh": {
+        "numeroRegistro": "06610936210",
+        "categoria": "AB",
+        "validade": "28/09/2035"
+      },
+      "rastreameMotoristaKey": "19",
+      "rastreameMotoristaId": 19,
+      "origemImportacao": "rastreame",
+      "ativo": false,
+      "id": "6b965bc9-1ce6-4f61-a99d-2b01a79065db",
+      "rastreameSyncEm": "2026-06-28T22:47:04.666Z",
+      "atualizadoEm": "2026-06-27T21:03:24.133Z"
+    },
+    {
+      "nome": "Jennifer da Silva Boeira Rodriguez",
+      "cpf": "013.267.140-90",
+      "dataNascimento": "11/06/1994",
+      "localNascimento": "Bodoquena MS",
+      "telefone": "(48) 99987-3778",
+      "email": null,
+      "endereco": {
+        "cep": null,
+        "logradouro": null,
+        "numero": null,
+        "complemento": null,
+        "bairro": null,
+        "cidade": null,
+        "uf": null
+      },
+      "cnh": {
+        "numeroRegistro": "08447453234",
+        "categoria": "B",
+        "validade": "20/03/2032"
+      },
+      "rastreameMotoristaKey": "34",
+      "rastreameMotoristaId": 34,
+      "origemImportacao": "rastreame",
+      "ativo": true,
+      "id": "7fa5300b-0223-49a2-bf7b-6d6368f22b9d",
+      "rastreameSyncEm": "2026-06-28T22:47:04.682Z",
+      "atualizadoEm": "2026-06-27T21:03:24.139Z"
+    },
+    {
+      "nome": "Juliano Foizer Silveira",
+      "cpf": "120.357.249-29",
+      "telefone": "(48) 99246-2259",
+      "email": null,
+      "endereco": {
+        "cep": "88820-092",
+        "logradouro": "Rua 15 de Novembro",
+        "numero": "398",
+        "complemento": "Ed. das Alamedas - Apto 103",
+        "bairro": "Centro",
+        "cidade": "Içara",
+        "uf": "SC"
+      },
+      "cnh": {
+        "numeroRegistro": "07784357608",
+        "validade": "29/06/2031"
+      },
+      "rastreameMotoristaKey": "15",
+      "rastreameMotoristaId": 15,
+      "origemImportacao": "rastreame",
+      "ativo": true,
+      "id": "a56a4d8e-03d0-4600-b06e-31fab673299a",
+      "rastreameSyncEm": "2026-06-28T22:47:04.703Z",
+      "atualizadoEm": "2026-06-28T16:37:44.488Z"
+    },
+    {
+      "nome": "Maria Aparecida Lentz",
+      "cpf": "048.544.329-50",
+      "rg": "5047474",
+      "rgOrgaoExpedidor": "SSP SC",
+      "dataNascimento": "31/05/1985",
+      "filiacao": "Maria Helena Lentz",
+      "telefone": null,
+      "email": null,
+      "endereco": {
+        "cep": null,
+        "logradouro": null,
+        "numero": null,
+        "complemento": null,
+        "bairro": null,
+        "cidade": null,
+        "uf": null
+      },
+      "cnh": {
+        "numeroRegistro": "04048630521",
+        "validade": "06/01/2032"
+      },
+      "rastreameMotoristaKey": "21",
+      "rastreameMotoristaId": 21,
+      "origemImportacao": "rastreame",
+      "ativo": false,
+      "id": "e5056ec1-efcf-4a6f-a530-59d40124f948",
+      "rastreameSyncEm": "2026-06-28T22:47:04.749Z",
+      "atualizadoEm": "2026-06-27T21:03:24.178Z"
+    },
+    {
+      "nome": "Mariane Alves Pereira",
+      "cpf": "085.167.559-08",
+      "rg": "603695",
+      "rgOrgaoExpedidor": "SSP SC",
+      "dataNascimento": "06/10/1993",
+      "localNascimento": "Sinop MP",
+      "filiacao": "Janete Licheski de Lima Pereira",
+      "telefone": "(48) 99187-5023",
+      "email": null,
+      "endereco": {
+        "cep": null,
+        "logradouro": null,
+        "numero": null,
+        "complemento": null,
+        "bairro": null,
+        "cidade": null,
+        "uf": null
+      },
+      "cnh": {
+        "numeroRegistro": "05351350029",
+        "categoria": "AE",
+        "validade": "11/04/2033"
+      },
+      "rastreameMotoristaKey": "17",
+      "rastreameMotoristaId": 17,
+      "origemImportacao": "rastreame",
+      "ativo": false,
+      "id": "765b6a80-dc50-43ba-9dde-df1e956064be",
+      "rastreameSyncEm": "2026-06-28T22:47:04.764Z",
+      "atualizadoEm": "2026-06-27T21:03:24.185Z"
+    },
+    {
+      "nome": "Melodi Nirvana Borges Da Silva",
+      "telefone": null,
+      "email": null,
+      "endereco": {
+        "cep": null,
+        "logradouro": null,
+        "numero": null,
+        "complemento": null,
+        "bairro": null,
+        "cidade": null,
+        "uf": null
+      },
+      "cnh": {},
+      "rastreameMotoristaKey": "18",
+      "rastreameMotoristaId": 18,
+      "origemImportacao": "rastreame",
+      "ativo": false,
+      "id": "c23dbf38-59e7-4b05-85ef-6b0313f352d4",
+      "rastreameSyncEm": "2026-06-28T22:47:04.792Z",
+      "atualizadoEm": "2026-06-27T21:03:24.199Z"
+    },
+    {
+      "nome": "Milton Luis Muther",
+      "telefone": "(48) 99688-7730",
+      "email": null,
+      "endereco": {
+        "cep": null,
+        "logradouro": null,
+        "numero": null,
+        "complemento": null,
+        "bairro": null,
+        "cidade": null,
+        "uf": null
+      },
+      "cnh": {
+        "numeroRegistro": "07155450395",
+        "categoria": "B",
+        "validade": "30/03/2028"
+      },
+      "rastreameMotoristaKey": "9",
+      "rastreameMotoristaId": 9,
+      "origemImportacao": "rastreame",
+      "ativo": true,
+      "id": "61c88b36-3079-40e9-a04d-1138818f0639",
+      "rastreameSyncEm": "2026-06-28T22:47:04.808Z",
+      "atualizadoEm": "2026-06-27T21:03:24.207Z"
+    },
+    {
+      "nome": "Rafaela Tauane Vargem",
+      "cpf": "467.564.448-16",
+      "rg": "526161449",
+      "rgOrgaoExpedidor": "SSP SP",
+      "dataNascimento": "24/01/2004",
+      "localNascimento": "São Roque SP",
+      "filiacao": "Andreia Regina de Lima",
+      "telefone": null,
+      "email": null,
+      "endereco": {
+        "cep": null,
+        "logradouro": null,
+        "numero": null,
+        "complemento": null,
+        "bairro": null,
+        "cidade": null,
+        "uf": null
+      },
+      "cnh": {
+        "numeroRegistro": "08148807161",
+        "categoria": "B",
+        "validade": "13/01/2033"
+      },
+      "rastreameMotoristaKey": "23",
+      "rastreameMotoristaId": 23,
+      "origemImportacao": "rastreame",
+      "ativo": false,
+      "id": "c8e09888-27d6-4200-8fc6-16acf921812d",
+      "rastreameSyncEm": "2026-06-28T22:47:04.850Z",
+      "atualizadoEm": "2026-06-27T21:03:24.234Z"
+    },
+    {
+      "nome": "Gabriel Ramos De Oliveira",
+      "cpf": "043.132.840-44",
+      "origemImportacao": "contrato",
+      "id": "9dd0b030-5ee2-4f44-9246-2013940c2524",
+      "atualizadoEm": "2026-06-28T17:13:58.310Z",
+      "ativo": true,
+      "rastreameMotoristaKey": "57",
+      "rastreameMotoristaId": 57,
+      "rastreameSyncEm": "2026-06-28T22:47:04.641Z"
+    },
+    {
+      "nome": "Willian Pessoa Garcia",
+      "cpf": "095.180.669-65",
+      "origemImportacao": "contrato",
+      "id": "835b8e5b-ecf7-4512-aee8-aa66a3ae71ec",
+      "atualizadoEm": "2026-06-28T17:13:58.385Z",
+      "ativo": true,
+      "rastreameMotoristaKey": "58",
+      "rastreameMotoristaId": 58,
+      "rastreameSyncEm": "2026-06-28T22:47:04.964Z"
+    },
+    {
+      "nome": "Cristiane dos Santos",
+      "cpf": "008.898.999-24",
+      "dataNascimento": "11/08/1981",
+      "localNascimento": "Itajaí AM/SC",
+      "rg": "3778749",
+      "rgOrgaoExpedidor": "SSP SC",
+      "filiacao": "Jair Francisco dos Santos; Maria da Graça Tobias",
+      "cnh": {
+        "numeroRegistro": "03890098908",
+        "categoria": "AB",
+        "primeiraHabilitacao": "20/07/2006",
+        "dataEmissao": "29/07/2022",
+        "validade": "25/07/2032",
+        "orgaoEmissor": "DETRAN",
+        "ufEmissor": "SC"
+      },
+      "cnhArquivo": "D:\\Dropbox\\Aluguel Carros\\Ana - FORD FIESTA 2013-2014\\17.03.25 - Cristiane dos Santos (devolvido 10.04)\\CNH.jpg",
+      "origemImportacao": "cnh-pasta-contrato",
+      "id": "9c70c7fb-3c0b-446f-a0a3-b0baf841f925",
+      "atualizadoEm": "2026-06-28T17:19:46.045Z",
+      "ativo": true,
+      "rastreameMotoristaKey": "59",
+      "rastreameMotoristaId": 59,
+      "rastreameSyncEm": "2026-06-28T22:47:04.578Z"
+    },
+    {
+      "nome": "Hamza Issa Mohammad Smreen",
+      "cpf": "241.003.618-07",
+      "dataNascimento": "29/06/1990",
+      "rg": "645136414",
+      "rgOrgaoExpedidor": "SSPII SP",
+      "filiacao": "Mohamed Issa Souza Samrin; Munera Mahmmod Diyab Smreen",
+      "cnh": {
+        "numeroRegistro": "07771986811",
+        "categoria": "E",
+        "primeiraHabilitacao": "29/03/2009",
+        "dataEmissao": "20/08/2022",
+        "validade": "25/05/2032",
+        "orgaoEmissor": "DETRAN",
+        "ufEmissor": "SP"
+      },
+      "cnhArquivo": "D:\\Dropbox\\Aluguel Carros\\Ana - FORD FIESTA 2013-2014\\21.01.2025 - Hamza Issa Mohammad Smreen (devolvido)\\CNH - Hamza Issa Mohammad Smreen.pdf",
+      "origemImportacao": "cnh-pasta-contrato",
+      "id": "b9315aac-b44f-4127-b958-7577dbebc293",
+      "atualizadoEm": "2026-06-28T17:19:46.052Z",
+      "ativo": true,
+      "rastreameMotoristaKey": "60",
+      "rastreameMotoristaId": 60,
+      "rastreameSyncEm": "2026-06-28T22:47:04.658Z"
+    },
+    {
+      "nome": "Gabriela Galvao Morokowoski",
+      "cpf": "119.627.299-90",
+      "dataNascimento": "13/01/2003",
+      "localNascimento": "Araranguá SC",
+      "rg": "7460929",
+      "rgOrgaoExpedidor": "SSP SC",
+      "filiacao": "Leonardo Morokowoski; Maria de Fatima Galvao",
+      "cnh": {
+        "numeroRegistro": "08414568620",
+        "categoria": "B",
+        "primeiraHabilitacao": "08/12/2023",
+        "dataEmissao": "23/01/2025",
+        "validade": "21/01/2035",
+        "orgaoEmissor": "DETRAN",
+        "ufEmissor": "SC"
+      },
+      "cnhArquivo": "D:\\Dropbox\\Aluguel Carros\\Felipe - HYUNDAI HB20 2014-2015\\28.03.2025 - Gabriela Galvao Morokowoski (troca 04.07.2025)\\CNH-e.pdf-12.pdf",
+      "origemImportacao": "cnh-pasta-contrato",
+      "id": "ed346bef-15b0-41e3-aa96-708b8f51e82a",
+      "atualizadoEm": "2026-06-28T17:19:46.057Z",
+      "ativo": true,
+      "rastreameMotoristaKey": "61",
+      "rastreameMotoristaId": 61,
+      "rastreameSyncEm": "2026-06-28T22:47:04.649Z"
+    },
+    {
+      "nome": "Jonadabe Boguinha Marques de Seabra",
+      "cpf": "418.584.628-27",
+      "dataNascimento": "29/10/1996",
+      "localNascimento": "São Paulo SP",
+      "rg": "503802852",
+      "rgOrgaoExpedidor": "SSP SP",
+      "filiacao": "Isidro Marques Abreu de Seabra; Sofia Manuela Vitoreira Boguinha",
+      "cnh": {
+        "numeroRegistro": "08404452700",
+        "categoria": "AB",
+        "primeiraHabilitacao": "06/12/2013",
+        "dataEmissao": "04/12/2023",
+        "validade": "06/11/2033",
+        "orgaoEmissor": "DETRAN",
+        "ufEmissor": "SC"
+      },
+      "cnhArquivo": "D:\\Dropbox\\Aluguel Carros\\Felipe - VW FOX 2018-2018\\11.07.25 - Jonadabe Boguinha Marques de Seabra (devolvido)\\a.jpeg",
+      "origemImportacao": "cnh-pasta-contrato",
+      "id": "11d0f268-eb4e-4b72-bbcd-fa26ca7d6427",
+      "atualizadoEm": "2026-06-28T17:19:46.063Z",
+      "ativo": true,
+      "rastreameMotoristaKey": "62",
+      "rastreameMotoristaId": 62,
+      "rastreameSyncEm": "2026-06-28T22:47:04.690Z"
+    },
+    {
+      "nome": "Amanda Silva de Miranda",
+      "cpf": "039.363.830-81",
+      "dataNascimento": "10/03/1996",
+      "localNascimento": "Uruguaiana RS",
+      "rg": "8220610",
+      "rgOrgaoExpedidor": "SSP SC",
+      "filiacao": "Karine Silva de Miranda",
+      "cnh": {
+        "numeroRegistro": "06434616545",
+        "categoria": "B",
+        "primeiraHabilitacao": "12/08/2015",
+        "dataEmissao": "25/11/2022",
+        "validade": "22/11/2032",
+        "orgaoEmissor": "DETRAN",
+        "ufEmissor": "SC"
+      },
+      "cnhArquivo": "D:\\Dropbox\\Aluguel Carros\\Maicon - VW GOL 2012-2013\\26.11.2025 - Amanda Silva de Miranda (devolvido 05.12)\\CNH-e.pdf",
+      "origemImportacao": "cnh-pasta-contrato",
+      "id": "a9d4a01b-03a1-4867-880f-7d74e138bf1c",
+      "atualizadoEm": "2026-06-28T17:19:46.070Z",
+      "ativo": true,
+      "rastreameMotoristaKey": "63",
+      "rastreameMotoristaId": 63,
+      "rastreameSyncEm": "2026-06-28T22:47:04.534Z"
+    },
+    {
+      "nome": "Rafael Moreira Pontel",
+      "cpf": "020.113.930-86",
+      "dataNascimento": "27/08/1989",
+      "localNascimento": "Rio Pardo RS",
+      "rg": "7101898273",
+      "rgOrgaoExpedidor": "SJS/II RS",
+      "filiacao": "Jose Flavio Pontel; Elisabete Moreira Pontel",
+      "cnh": {
+        "numeroRegistro": "05073879259",
+        "categoria": "B",
+        "primeiraHabilitacao": "10/11/2010",
+        "dataEmissao": "11/10/2022",
+        "validade": "10/10/2032",
+        "orgaoEmissor": "DETRAN",
+        "ufEmissor": "RS"
+      },
+      "cnhArquivo": "D:\\Dropbox\\Aluguel Carros\\Maicon - VW GOL 2017-2018\\06.03.25 - Rafael Moreira Pontel(devolvido 24.04)\\CNH-e.pdf",
+      "origemImportacao": "cnh-pasta-contrato",
+      "id": "a64a49f1-2afc-4d27-bc04-fd694c344885",
+      "atualizadoEm": "2026-06-28T17:19:46.076Z",
+      "ativo": true,
+      "rastreameMotoristaKey": "64",
+      "rastreameMotoristaId": 64,
+      "rastreameSyncEm": "2026-06-28T22:47:04.837Z"
     }
   ]
 }

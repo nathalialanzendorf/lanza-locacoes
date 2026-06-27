@@ -1,0 +1,16 @@
+{
+  "negociacaoCodigo": "2",
+  "gastosIds": [595, 596, 526, 532, 597, 598, 531],
+  "motoristaKey": "15",
+  "rastreavelKey": "174",
+  "parcelas": [
+    { "numero": 1, "totalParcelas": 8, "valor": 384.40, "data": "2026-07-04" },
+    { "numero": 2, "totalParcelas": 8, "valor": 384.40, "data": "2026-07-11" },
+    { "numero": 3, "totalParcelas": 8, "valor": 384.40, "data": "2026-07-18" },
+    { "numero": 4, "totalParcelas": 8, "valor": 384.40, "data": "2026-07-25" },
+    { "numero": 5, "totalParcelas": 8, "valor": 384.40, "data": "2026-08-01" },
+    { "numero": 6, "totalParcelas": 8, "valor": 384.40, "data": "2026-08-08" },
+    { "numero": 7, "totalParcelas": 8, "valor": 384.40, "data": "2026-08-15" },
+    { "numero": 8, "totalParcelas": 8, "valor": 384.43, "data": "2026-08-22" }
+  ]
+}

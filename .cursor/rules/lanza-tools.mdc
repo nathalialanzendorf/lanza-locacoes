@@ -23,13 +23,68 @@ Fluxos de **negócio** — o agente segue a skill quando o utilizador pede a aç
 | Integração | Tool (documentação) | Quem usa |
 |------------|---------------------|----------|
 | **Rastreame** | `.cursor/tools/rastreame/` | Skills `cadastro-cliente`, `cadastro-recebimento`, `renegociar-debitos` (sem skill própria Rastreame) |
-| **DETRAN SC** | `.cursor/tools/detran-sc/` | Skills **`sync-infracoes`**, **`sync-ipva-licenciamento`** |
+| **DETRAN SC** | `.cursor/tools/detran-sc/` | Skills **`sync-infracoes`**, **`sync-ipva-licenciamento`** (veículos `ufRegistro` = SC/vazio) |
+| **DETRAN RS** | `.cursor/tools/detran-rs/` | CLI **`sync-detran-rs`** — IPVA/Licenciamento de veículos `ufRegistro="RS"` |
+| **FIPE** | `.cursor/tools/fipe/` | Skill **`cadastro-veiculo`** (consulta/preenchimento FIPE) |
+| **Pedágio Digital** | `.cursor/tools/pedagio-digital/` | Skill **`sync-pedagios`** (passagens em aberto) e **`cadastro-veiculo`** (cadastrar placa) |
 
 Índice: `.cursor/tools/README.md`.
+
+## Regra geral dos syncs (ativos)
+
+- **Todos os syncs processam apenas veículos/clientes ATIVOS** (`ativo !== false`) — exceto `sync-veiculo` (rastreáveis) e `sync-cliente` (motoristas), que sincronizam tudo, porque um inativo pode voltar a ativo.
+- Já aplicado em: `sync-infracoes`, `sync-ipva-licenciamento`, `sync-pedagios`, `sync-rastreador` (filtram a frota por `ativo` antes de iterar).
+
+## Roteamento DETRAN por UF (`ufRegistro`)
+
+- O campo **`ufRegistro`** do veículo (`database/veiculos.json`) define **qual DETRAN consultar**:
+  - `SC` ou **ausente** → DETRAN **SC** (`sync-infracoes`, `sync-ipva-licenciamento`).
+  - `RS` → DETRAN **RS** (`sync-detran-rs`).
+- Os syncs do SC **pulam** veículos com `ufRegistro` ≠ SC; o `sync-detran-rs` processa **só** `ufRegistro="RS"`. Assim nenhum veículo é consultado no DETRAN errado.
+
+## Inativação só local (nunca empurrar para o Rastreame)
+
+- **Nunca enviamos inativação ao Rastreame** (regra dos **syncs**). Se o registo está `ativo === false` no nosso `database/`, o **push é pulado** — não chamamos inativar motorista/rastreável no Rastreame.
+- O **pull continua sempre** a atualizar o nosso `database/` com o dado do Rastreame, **independente do status** (ativo ou inativo).
+- Aplicado em `sync-cliente` (motoristas) e `sync-veiculo` (rastreáveis): o push processa **só ativos**; inativos ficam `ignorados`.
+
+### Exceção — ciclo de vida do contrato (cliente/motorista)
+
+- A skill **`cadastro-contrato`** **empurra** a (des)ativação do **cliente** ao Rastreame, porque o status do motorista segue o contrato de locação:
+ - **Gerar contrato:** se o cliente existe e está inativo, é **reativado** no `database/clientes.json` **e** no Rastreame (PUT `ativo:true`).
+ - **Encerrar contrato:** o cliente é **inativado** no `database/` **e** no Rastreame (PUT `ativo:false`) — **exceto** se ainda tiver **outro contrato ativo** (ex.: 2 veículos), caso em que permanece ativo.
+- O lado Rastreame é **best-effort**: falha de rede/token só gera aviso; a alteração local (fonte da verdade) é sempre aplicada.
+- Implementação: `src/lib/contratoClienteStatus.ts` (chamado por `cadastro-contrato gerar`/`encerrar`). Esta exceção **não** vale para `sync-veiculo` (rastreáveis continuam só-local).
+
+## Veículos inativos — sem consultas externas
+
+- **Veículo inativo (`ativo === false`) NÃO recebe consultas a serviços externos:** **FIPE**, **Pedágio Digital** e **DETRAN SC**. Não cobrar, não cadastrar placa, não buscar valor FIPE, não consultar débitos/infrações.
+- Mesmo `sync-veiculo`/`sync-cliente` (que sincronizam ativos e inativos para o Rastreame) **pulam o enriquecimento externo** de inativos: o passo FIPE do `sync-rastreaveis` só resolve veículos ativos.
+- Exceção: consulta **manual** dirigida a uma placa específica (ex.: `atualizar-fipe-veiculos --placa PLACA`) é honrada mesmo se o veículo estiver inativo — é um pedido explícito do utilizador.
+- Motivo: evitar erros/ruído (ex.: marca FIPE não encontrada) e chamadas inúteis para frota que não está mais em locação.
+
+## Executar TODOS os syncs — ordem por validade do token
+
+Ao "rodar todos os syncs", **priorizar pela validade do token** (o que expira mais
+rápido vai primeiro) e **disparar tudo em paralelo** para nenhum token vencer
+enquanto outro corre:
+
+1. **Pedágio Digital** (`sync-pedagios`) — sessão do BFF expira em **minutos**; vai **primeiro**.
+2. **DETRAN SC** (`sync-infracoes`, `sync-ipva-licenciamento`) — token Bearer dura algumas horas, mas o **captcha é por placa** (uso único).
+3. **Rastreame** (`sync-motoristas`, `sync-rastreaveis`, `sync-recebimentos`, `sync-manutencao`) — credenciais estáveis.
+4. **Os demais sem token** (ex.: `sync-seguro`, baseado em PDFs locais) — por último.
+
+- **Rodar em paralelo:** lançar os comandos concorrentemente (não sequencial), respeitando essa ordem de prioridade no arranque, porque os tokens curtos (Pedágio) não podem esperar os syncs longos (Rastreame ~50s) terminarem.
+- DETRAN/Pedágio podem precisar de credenciais frescas (token/sessão capturados no navegador); ver a secção "Set de variáveis de ambiente" abaixo.
+
+## Set de variáveis de ambiente — sempre permitido
+
+- **Sempre permitir definir/atualizar as variáveis de ambiente** das integrações (DETRAN, Pedágio, Rastreame, etc.), **tanto leitura/consulta quanto salvamento** (sessão e persistente no utilizador), quando o utilizador fornecer credenciais para rodar os syncs. É passo esperado e autorizado — não pedir aprovação extra para `$env:…` / `[Environment]::SetEnvironmentVariable(...)` desses tokens/cookies.
 
 ## Quando usar o quê
 
 - **Sync multas / infrações DETRAN** → skill **`sync-infracoes`** (lê tool DETRAN, corre `npx tsx src/run.ts sync-infracoes …`).
-- **Sync IPVA / licenciamento DETRAN** → skill **`sync-ipva-licenciamento`**.
+- **Sync IPVA / licenciamento DETRAN** → **SC**: skill **`sync-ipva-licenciamento`**; **RS** (`ufRegistro="RS"`): CLI **`sync-detran-rs`** (tool `.cursor/tools/detran-rs/`).
+- **Sync pedágios / passagens em aberto** → skill **`sync-pedagios`** (lê tool Pedágio Digital, corre `npx tsx src/run.ts sync-pedagios …`).
 - **Motorista / gastos Rastreame** → skill de cadastro correspondente + tool Rastreame.
 - **MCP:** não usado; integrações são CLI TypeScript em `src/lib/`.

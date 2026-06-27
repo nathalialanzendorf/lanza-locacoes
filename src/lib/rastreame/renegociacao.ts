@@ -54,11 +54,20 @@ export function tagNegociado(codigo: string): string {
   return `[NEGOCIADO ${String(codigo).trim()}]`;
 }
 
+/** Remove a tag ATRASADO (em qualquer posição) e normaliza espaços. */
+export function removerTagAtrasado(info: string): string {
+  return String(info ?? "")
+    .replace(/\bATRASADO\b\s*[-–—:]?\s*/gi, " ")
+    .replace(/\s{2,}/g, " ")
+    .trim();
+}
+
 export function infoMarcadaNegociada(info: string, codigo: string): string {
   const tag = tagNegociado(codigo);
   const t = String(info ?? "").trim();
   if (t.startsWith("[NEGOCIADO")) return t;
-  return `${tag} ${t}`;
+  // Regra Lanza: ao marcar como [NEGOCIADO x], remover a tag ATRASADO.
+  return `${tag} ${removerTagAtrasado(t)}`;
 }
 
 export function infoParcelaRenegociacao(numero: number, totalParcelas: number): string {

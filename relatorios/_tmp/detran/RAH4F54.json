@@ -1,0 +1,179 @@
+{
+  "placa": "RAH4F54",
+  "renavam": 1214476667,
+  "proprietarioAtual": "5******* L*** P**** D* O*******",
+  "proprietarioAnterior": "A****** D** S***** M*****",
+  "principalCondutor": "",
+  "cor": "Branca",
+  "marcaModelo": "FIAT/MOBI LIKE",
+  "anoFabricacao": 2019,
+  "anoModelo": 2020,
+  "motivoBaixa": "Em circulação",
+  "exercicioLicenciamento": 2026,
+  "licenciado": "2026 em 20/05/2026 através do Registro de Veículo (CRV)",
+  "municipio": "CAPIVARI DE BAIXO",
+  "uf": "SC",
+  "debitos": [],
+  "infracoes": [],
+  "historicoInfracoes": [
+    {
+      "idAutoInfracao": 50235483,
+      "numeroAuto": "0001108785",
+      "descricao": "AVANÇAR SINAL VERM, EXC OND. PERM LIVR CONV A DIR - Fisc Ele",
+      "dataHoraAutuacao": "2021-08-31T18:29:20",
+      "localInfracao": "RUA HENRIQUE LAGE, CRUZAMENTO COM AV. CENTENARIO - CRICIUMA/SC",
+      "valor": 293.47,
+      "situacao": "Penalidade notificada",
+      "status": "Paga",
+      "protocolo": "8788.6050.0001108785",
+      "dataLimiteDefesa": "2021-10-21",
+      "prazoDefesaExpirado": true
+    },
+    {
+      "idAutoInfracao": 61200862,
+      "numeroAuto": "CRC0378864",
+      "descricao": "TRANSITAR EM VEL SUPERIOR À MÁXIMA PERMITIDA EM ATÉ 20%",
+      "dataHoraAutuacao": "2024-03-26T16:34:19",
+      "localInfracao": "AV. SANTOS DUMONT (PRÓXIMO AMREC/ FÓRUM) - CRICIUMA/SC",
+      "complemento": "                                                                                ",
+      "valor": 130.16,
+      "situacao": "Penalidade notificada",
+      "status": "Advertida",
+      "protocolo": "8788.7455.CRC0378864",
+      "dataLimiteDefesa": "2024-06-03",
+      "prazoDefesaExpirado": true
+    },
+    {
+      "idAutoInfracao": 65792077,
+      "numeroAuto": "N010341800",
+      "descricao": "ESTAC EM DESACORDO COM AS POSIÇÕES ESTABELECIDAS NO CTB",
+      "dataHoraAutuacao": "2025-02-04T15:55:00",
+      "localInfracao": "AVENIDA MARCOLINO MARTINS CABRAL  DF - TUBARAO/SC",
+      "complemento": "CASA DA CIDADANIA                                                               ",
+      "valor": 130.16,
+      "situacao": "Penalidade notificada",
+      "status": "Paga",
+      "protocolo": "8072.5410.N010341800",
+      "dataLimiteDefesa": "2025-04-22",
+      "prazoDefesaExpirado": true
+    },
+    {
+      "idAutoInfracao": 70039694,
+      "numeroAuto": "P0cbn000fd",
+      "descricao": "ESTAC EM LOCAL/HORÁRIO PROIBIDO ESPECIFICAMENTE PELA SINALIZ",
+      "dataHoraAutuacao": "2025-11-11T13:52:58",
+      "localInfracao": "AVENIDA MARCOLINO MARTINS CABRAL, CENTRO - TUBARAO - SANTA CATARINA, 88701-000, - TUBARAO/SC",
+      "valor": 130.16,
+      "situacao": "Penalidade notificada",
+      "status": "Paga",
+      "protocolo": "8072.5550.P0cbn000fd",
+      "dataLimiteDefesa": "2026-01-16",
+      "prazoDefesaExpirado": true
+    }
+  ],
+  "dividaAtiva": [],
+  "dataAtualizacao": "2026-06-28T21:17:47",
+  "dataAquisicao": "2026-05-14",
+  "pendente": false,
+  "tipo": "Automovel",
+  "categoria": "Particular",
+  "carroceria": "Nao Aplicavel",
+  "especie": "Passageiro",
+  "placaAnterior": "RAH4554",
+  "lugares": 5,
+  "combustivel": "Alcool-Gasol",
+  "restricaoVenda": "Alienação Fiduciária em favor de C*** D* C*** P*** E I*** D* S** D* E*** D* S********* S** S*",
+  "informacoesPendentesSng": [],
+  "processos": [
+    {
+      "numeroProcesso": "589573/2026",
+      "interessadoDocumento": "669*******9",
+      "dataHoraInicio": "2026-05-20T10:14:00",
+      "dataHoraFim": "2026-05-20T10:48:00",
+      "situacao": "Encerrado",
+      "servicos": [
+        {
+          "servico": "Transferência de Domicílio",
+          "dataHoraExecucao": "2026-05-20T10:14:07.726"
+        },
+        {
+          "servico": "Baixa de Alienação Fiduciária",
+          "dataHoraExecucao": "2026-05-20T10:14:07.723"
+        },
+        {
+          "servico": "Transferência de Propriedade",
+          "dataHoraExecucao": "2026-05-20T10:14:07.726"
+        },
+        {
+          "servico": "Alienação Fiduciária",
+          "dataHoraExecucao": "2026-05-20T10:14:07.726"
+        },
+        {
+          "servico": "Geração de guia de pagamento",
+          "dataHoraExecucao": "2026-05-20T10:14:07.756"
+        },
+        {
+          "servico": "Auditoria",
+          "dataHoraExecucao": "2026-05-20T10:48:37.003"
+        },
+        {
+          "servico": "Autorização Nova PIV",
+          "dataHoraExecucao": "2026-05-20T10:48:37.003"
+        },
+        {
+          "servico": "Emissão de CRV/CRLVe",
+          "dataHoraExecucao": "2026-05-20T10:48:53.093"
+        },
+        {
+          "servico": "Conversão Nova PIV",
+          "dataHoraExecucao": "2026-05-20T10:14:07.726"
+        }
+      ]
+    },
+    {
+      "numeroProcesso": "1264468/2019",
+      "interessadoDocumento": "030*******1",
+      "dataHoraInicio": "2019-11-29T17:21:00",
+      "dataHoraFim": "2019-11-29T17:35:00",
+      "situacao": "Encerrado",
+      "servicos": [
+        {
+          "servico": "Emissão de CRLV (1ª Via)",
+          "dataHoraExecucao": "2019-11-29T17:36:30.32"
+        },
+        {
+          "servico": "Primeiro Emplacamento",
+          "dataHoraExecucao": "2019-11-29T17:21:25.393",
+          "emitenteNFNome": "S** P**** E V******* L***",
+          "emitenteNFDocumento": "977**********5",
+          "dataEmissaoNF": "2019-11-29",
+          "valorNF": 38500
+        },
+        {
+          "servico": "Alienação Fiduciária",
+          "dataHoraExecucao": "2019-11-29T17:21:25.393"
+        },
+        {
+          "servico": "Geração de guia de pagamento",
+          "dataHoraExecucao": "2019-11-29T17:21:25.426"
+        },
+        {
+          "servico": "Auditoria",
+          "dataHoraExecucao": "2019-11-29T17:35:46.026"
+        },
+        {
+          "servico": "Emissão de CRV (1ª Via) - Individual",
+          "dataHoraExecucao": "2019-12-03T15:49:22.543"
+        }
+      ]
+    }
+  ],
+  "editaisCedo": [],
+  "ipvasNotificados": [],
+  "recursosInfracao": [],
+  "avisos": [],
+  "csvGnvVencido": false,
+  "origemDados": "Cadastro",
+  "hash": "57ed29fa1c4303cb0e7f56750b61cdca",
+  "token": "67952d84-c24b-450a-bd3c-55c43bcde615"
+}

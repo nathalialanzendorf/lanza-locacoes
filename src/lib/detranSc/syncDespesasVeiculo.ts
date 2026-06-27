@@ -83,9 +83,9 @@ export function processarDespesasDetranSc(
 export async function sincronizarDespesasVeiculoDetranSc(
   placa: string,
   renavam: string,
-  opts?: { dryRun?: boolean },
+  opts?: { dryRun?: boolean; captcha?: string },
 ): Promise<SyncDespesasResult> {
-  const raw = await consultarVeiculoDetranSc(placa, renavam);
+  const raw = await consultarVeiculoDetranSc(placa, renavam, { captcha: opts?.captcha });
   return processarDespesasDetranSc(placa, raw, opts);
 }
 

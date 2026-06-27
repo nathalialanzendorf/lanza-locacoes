@@ -64,12 +64,13 @@ export function main(argv: string[]): void {
   relatorio-encerramento-contrato <entrada.json> [opções]
 
 Grava automaticamente em relatorios/quebra-contrato/:
-  quebra-contrato-{placa}-{cliente}-{DD-MM-AAAA}.txt
+  quebra-contrato-{placa}-{cliente}-{DD-MM-AAAA}.txt   (documento p/ WhatsApp)
+  quebra-contrato-{placa}-{cliente}-{DD-MM-AAAA}.json  (dados p/ canvas)
 
 Opções:
   --incluir-todas-infracoes-placa
   --out caminho.txt        Sobrescreve o .txt (documento para o cliente)
-  --out-json caminho.json  Grava JSON opcional (ex. rascunho em relatorios/_tmp/)
+  --out-json caminho.json  Sobrescreve o caminho do JSON (default: ao lado do .txt)
   --no-salvar              Só imprime no terminal (não grava ficheiros)
 
 Apenas calcula o acerto. Para efetivar: cadastro-contrato encerrar ...

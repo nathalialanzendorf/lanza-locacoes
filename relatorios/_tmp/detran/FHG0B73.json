@@ -1,0 +1,368 @@
+{
+  "placa": "FHG0B73",
+  "renavam": 501855688,
+  "proprietarioAtual": "JOSE FELIPE BARRETO RODRIGUES",
+  "proprietarioAnterior": "A** C****** P****** L*********",
+  "principalCondutor": "",
+  "cor": "Prata",
+  "marcaModelo": "FORD/FIESTA SEDAN1.6FLEX",
+  "anoFabricacao": 2012,
+  "anoModelo": 2013,
+  "motivoBaixa": "Em circulação",
+  "exercicioLicenciamento": 2026,
+  "licenciado": "2026 em 26/06/2026 através do Registro de Veículo (CRV)",
+  "municipio": "TUBARAO",
+  "uf": "SC",
+  "debitos": [],
+  "infracoes": [],
+  "historicoInfracoes": [
+    {
+      "idAutoInfracao": 41536640,
+      "numeroAuto": "54599595W ",
+      "descricao": "DEIXAR DE EFETUAR REG DO VEIC EM 30 DIAS QDO FOR TRANSF PROP",
+      "dataHoraAutuacao": "2019-04-03T11:51:52.177",
+      "localInfracao": "RUA URSULINA DE SENNA CASTRO 226 - FLORIANOPOLIS/SC",
+      "valor": 195.23,
+      "situacao": "Penalidade notificada",
+      "status": "Paga",
+      "senha": "AAAFA96B",
+      "protocolo": "8786.6920.54599595W ",
+      "dataLimiteDefesa": "2019-07-08",
+      "prazoDefesaExpirado": true
+    },
+    {
+      "idAutoInfracao": 42030953,
+      "numeroAuto": "R438569016",
+      "descricao": "TRANSITAR EM VEL SUPERIOR À MÁXIMA PERMITIDA EM ATÉ 20%",
+      "dataHoraAutuacao": "2019-05-06T09:41:00",
+      "localInfracao": "BR-101 KM-212 UF-SC - PALHOCA/SC",
+      "valor": 130.16,
+      "situacao": "Penalidade notificada",
+      "status": "Paga",
+      "protocolo": "100.7455.R438569016",
+      "dataLimiteDefesa": "2019-07-26",
+      "prazoDefesaExpirado": true
+    },
+    {
+      "idAutoInfracao": 43090513,
+      "numeroAuto": "54700169G ",
+      "descricao": "AVANÇAR O SINAL VERMELHO DO SEMAFORO ",
+      "dataHoraAutuacao": "2019-09-26T07:55:00",
+      "localInfracao": "AV PAULO FONTES, 1101 - FLORIANOPOLIS/SC",
+      "complemento": "",
+      "valor": 293.47,
+      "situacao": "Penalidade notificada",
+      "status": "Paga",
+      "senha": "15C0CD9E",
+      "protocolo": "8001.6050.54700169G ",
+      "dataLimiteDefesa": "2019-10-31",
+      "prazoDefesaExpirado": true
+    },
+    {
+      "idAutoInfracao": 43761777,
+      "numeroAuto": "E078005203",
+      "descricao": "ESTACIONAR AO LADO/SOBRE GRAMADO OU JARDIM PÚBLICO ",
+      "dataHoraAutuacao": "2019-12-11T11:51:00",
+      "localInfracao": "A405B/2.4/ENTR. ACESSO TAPERA - AEROPORTO HERCÍLIO LUZ - FLORIANOPOLIS/SC",
+      "complemento": "Aeroporto                                                                       ",
+      "valor": 195.23,
+      "situacao": "Penalidade notificada",
+      "status": "Paga",
+      "senha": "AB47C993",
+      "protocolo": "8785.5452.E078005203",
+      "dataLimiteDefesa": "2020-01-16",
+      "prazoDefesaExpirado": true
+    },
+    {
+      "idAutoInfracao": 51159250,
+      "numeroAuto": "P040M002BC",
+      "descricao": "ESTAC EM LOCAL/HORÁRIO PROIBIDO ESPECIFICAMENTE PELA SINALIZ",
+      "dataHoraAutuacao": "2021-11-19T15:14:55",
+      "localInfracao": "RUA CORONEL TEIXEIRA DE OLIVEIRA, CENTRO - BIGUAÇU - SANTA CATARINA, 88160-120, - BIGUACU/SC",
+      "complemento": "PRÓXIMO AO BANCO DO BRASIL                                                      ",
+      "valor": 130.16,
+      "situacao": "Penalidade notificada",
+      "status": "Advertida",
+      "senha": "B1119246",
+      "protocolo": "8048.5550.P040M002BC",
+      "dataLimiteDefesa": "2022-01-12",
+      "prazoDefesaExpirado": true
+    },
+    {
+      "idAutoInfracao": 58668087,
+      "numeroAuto": "T640206735",
+      "descricao": "COND VEIC C/ DEFEITO NO SIST DE ILUM./SINALIZ./LAMP.QUEIMADA",
+      "dataHoraAutuacao": "2023-08-14T10:22:00",
+      "localInfracao": "BR-101 KM-146 UF-SC - ITAPEMA/SC",
+      "valor": 130.16,
+      "situacao": "Penalidade notificada",
+      "status": "Justificada",
+      "protocolo": "100.6769.T640206735",
+      "dataLimiteDefesa": "2023-11-05",
+      "prazoDefesaExpirado": true
+    },
+    {
+      "idAutoInfracao": 65173146,
+      "numeroAuto": "J000406609",
+      "descricao": "TRANSITAR EM VEL SUPERIOR À MÁXIMA PERMITIDA EM ATÉ 20%",
+      "dataHoraAutuacao": "2024-12-10T19:44:00",
+      "localInfracao": "SC - BR 101 - KM 277.30 - D - IMBITUBA/SC",
+      "valor": 130.16,
+      "situacao": "Penalidade notificada",
+      "status": "Justificada",
+      "protocolo": "100.7455.J000406609",
+      "dataLimiteDefesa": "2025-02-26",
+      "prazoDefesaExpirado": true
+    },
+    {
+      "idAutoInfracao": 66660296,
+      "numeroAuto": "Z000013601",
+      "descricao": "ESTAC EM DESACOR C/ REGULAMENTAÇÃO - ESTACIONAMENTO ROTATIVO",
+      "dataHoraAutuacao": "2025-03-13T09:15:21",
+      "localInfracao": "AV. MARCOLINO M. CABRAL NUMERO 849 - TUBARAO/SC",
+      "complemento": "                                                                                ",
+      "valor": 195.23,
+      "situacao": "Penalidade notificada",
+      "status": "Paga",
+      "senha": "84DA8A14",
+      "protocolo": "8072.5541.Z000013601",
+      "dataLimiteDefesa": "2025-06-16",
+      "prazoDefesaExpirado": true
+    }
+  ],
+  "dividaAtiva": [],
+  "dataAtualizacao": "2026-06-28T21:18:07",
+  "dataAquisicao": "2026-06-26",
+  "pendente": false,
+  "tipo": "Automovel",
+  "categoria": "Particular",
+  "carroceria": "Nao Aplicavel",
+  "especie": "Passageiro",
+  "placaAnterior": "FHG0173/SP",
+  "lugares": 5,
+  "combustivel": "Gasol-Alc-GNV",
+  "restricaoVenda": "Alienação Fiduciária em favor de B**** V********* S***",
+  "informacoesPendentesSng": [],
+  "processos": [
+    {
+      "numeroProcesso": "768559/2026",
+      "interessadoDocumento": "179*******7",
+      "dataHoraInicio": "2026-06-26T16:22:00",
+      "dataHoraFim": "2026-06-26T17:06:00",
+      "situacao": "Encerrado",
+      "servicos": [
+        {
+          "servico": "Transferência de Propriedade",
+          "dataHoraExecucao": "2026-06-26T16:22:39.533"
+        },
+        {
+          "servico": "Alienação Fiduciária",
+          "dataHoraExecucao": "2026-06-26T16:22:39.533"
+        },
+        {
+          "servico": "Geração de guia de pagamento",
+          "dataHoraExecucao": "2026-06-26T16:22:39.6"
+        },
+        {
+          "servico": "Auditoria",
+          "dataHoraExecucao": "2026-06-26T17:06:47.67"
+        },
+        {
+          "servico": "Emissão de CRV/CRLVe",
+          "dataHoraExecucao": "2026-06-26T17:08:03.016"
+        }
+      ]
+    },
+    {
+      "numeroProcesso": "1280520/2024",
+      "interessadoDocumento": "021*******3",
+      "dataHoraInicio": "2024-10-25T13:33:00",
+      "dataHoraFim": "2024-10-29T15:26:00",
+      "situacao": "Encerrado",
+      "servicos": [
+        {
+          "servico": "Transferência de Domicílio",
+          "dataHoraExecucao": "2024-10-25T13:33:44.32"
+        },
+        {
+          "servico": "Transferência de Propriedade",
+          "dataHoraExecucao": "2024-10-25T13:33:44.32"
+        },
+        {
+          "servico": "Geração de guia de pagamento",
+          "dataHoraExecucao": "2024-10-25T13:33:44.37"
+        },
+        {
+          "servico": "Auditoria",
+          "dataHoraExecucao": "2024-10-29T15:26:31.59"
+        },
+        {
+          "servico": "Emissão de CRV/CRLVe",
+          "dataHoraExecucao": "2024-10-29T15:29:39.39"
+        }
+      ]
+    },
+    {
+      "numeroProcesso": "1159357/2020",
+      "interessadoDocumento": "053*******2",
+      "dataHoraInicio": "2020-11-18T15:03:00",
+      "dataHoraFim": "2020-11-24T15:31:00",
+      "situacao": "Encerrado",
+      "servicos": [
+        {
+          "servico": "Transferência de Domicílio",
+          "dataHoraExecucao": "2020-11-18T15:03:53.943"
+        },
+        {
+          "servico": "Transferência de Propriedade",
+          "dataHoraExecucao": "2020-11-18T15:03:53.943"
+        },
+        {
+          "servico": "Geração de guia de pagamento",
+          "dataHoraExecucao": "2020-11-18T15:03:53.973"
+        },
+        {
+          "servico": "Conversão Nova PIV",
+          "dataHoraExecucao": "2020-11-18T15:03:53.943"
+        },
+        {
+          "servico": "Auditoria",
+          "dataHoraExecucao": "2020-11-24T15:31:53.663"
+        },
+        {
+          "servico": "Autorização Nova PIV",
+          "dataHoraExecucao": "2020-11-24T15:31:53.663"
+        },
+        {
+          "servico": "Emissão CRV(1ª via)",
+          "dataHoraExecucao": "2020-11-26T10:24:42.986"
+        }
+      ]
+    },
+    {
+      "numeroProcesso": "361305/2019",
+      "interessadoDocumento": "732*******8",
+      "dataHoraInicio": "2019-04-16T11:16:00",
+      "dataHoraFim": "2019-04-16T15:14:00",
+      "situacao": "Encerrado",
+      "servicos": [
+        {
+          "servico": "Mudança de Característica",
+          "dataHoraExecucao": "2019-04-16T11:16:16.453"
+        },
+        {
+          "servico": "Geração de guia de pagamento",
+          "dataHoraExecucao": "2019-04-16T11:16:16.56"
+        },
+        {
+          "servico": "Auditoria",
+          "dataHoraExecucao": "2019-04-16T15:14:32.223"
+        },
+        {
+          "servico": "Emissão CRV(1ª via)",
+          "dataHoraExecucao": "2019-04-16T15:15:15.203"
+        }
+      ]
+    },
+    {
+      "numeroProcesso": "308017/2019",
+      "interessadoDocumento": "732*******8",
+      "dataHoraInicio": "2019-04-02T15:47:00",
+      "dataHoraFim": "2019-04-03T11:51:00",
+      "situacao": "Encerrado",
+      "servicos": [
+        {
+          "servico": "Trânsferência outra UF",
+          "dataHoraExecucao": "2019-04-02T15:47:15.956"
+        },
+        {
+          "servico": "Transferência de Propriedade",
+          "dataHoraExecucao": "2019-04-02T15:47:15.956"
+        },
+        {
+          "servico": "Geração de guia de pagamento",
+          "dataHoraExecucao": "2019-04-02T15:47:16.003"
+        },
+        {
+          "servico": "Auditoria",
+          "dataHoraExecucao": "2019-04-03T11:51:52.036"
+        },
+        {
+          "servico": "Emissão CRV(1ª via)",
+          "dataHoraExecucao": "2019-04-03T11:52:28.45"
+        }
+      ]
+    }
+  ],
+  "editaisCedo": [],
+  "ipvasNotificados": [],
+  "recursosInfracao": [
+    {
+      "numeroProcesso": 206,
+      "anoProcesso": 2025,
+      "dataDefesa": "2025-05-22",
+      "codigoInstancia": 9,
+      "instancia": "Indicação Condutor",
+      "numeroAuto": "00013601",
+      "tipoAuto": "Z0",
+      "orgaoAuto": 8072,
+      "descricaoAuto": "TUBARAO-008072-Z000013601-5541-2",
+      "descricaoInfracao": "ESTAC EM DESACOR C/ REGULAMENTAÇÃO - ESTACIONAMENTO ROTATIVO",
+      "cidadeAuto": "TUBARAO",
+      "dataHoraAuto": "2025-03-13T09:15:21",
+      "nomeLocal": "AV. MARCOLINO M. CABRAL NUMERO 849",
+      "complemento": "",
+      "resultadoRecurso": "",
+      "resultadoIndicacao": "DEFERIDO em 26/05/2025",
+      "motivoResultadoInfracao": "",
+      "motivoResultadoIndicacao": "",
+      "informacaoRequerente": "Proprietário"
+    },
+    {
+      "numeroProcesso": 4089,
+      "anoProcesso": 2025,
+      "dataDefesa": "2025-01-23",
+      "codigoInstancia": 9,
+      "instancia": "Indicação Condutor",
+      "numeroAuto": "00406609",
+      "tipoAuto": "J0",
+      "orgaoAuto": 100,
+      "descricaoAuto": "UF:RD-000100-J000406609-7455-0",
+      "descricaoInfracao": "TRANSITAR EM VEL SUPERIOR À MÁXIMA PERMITIDA EM ATÉ 20%",
+      "cidadeAuto": "IMBITUBA",
+      "dataHoraAuto": "2024-12-10T19:44:00",
+      "nomeLocal": "SC - BR 101 - KM 277.30 - D",
+      "resultadoRecurso": "",
+      "resultadoIndicacao": "DEFERIDO em 23/01/2025",
+      "motivoResultadoInfracao": "",
+      "motivoResultadoIndicacao": "",
+      "informacaoRequerente": "Proprietário"
+    },
+    {
+      "numeroProcesso": 15078,
+      "anoProcesso": 2019,
+      "dataDefesa": "2019-10-31",
+      "codigoInstancia": 9,
+      "instancia": "Indicação Condutor",
+      "numeroAuto": "700169G",
+      "tipoAuto": "54",
+      "orgaoAuto": 8001,
+      "descricaoAuto": "FLORIANOPOLIS-008001-54700169G-6050-1",
+      "descricaoInfracao": "AVANÇAR O SINAL VERMELHO DO SEMAFORO",
+      "cidadeAuto": "FLORIANOPOLIS",
+      "dataHoraAuto": "2019-09-26T07:55:00",
+      "nomeLocal": "AV PAULO FONTES, 1101",
+      "complemento": "",
+      "resultadoRecurso": "",
+      "resultadoIndicacao": "DEFERIDO em 18/03/2020",
+      "motivoResultadoInfracao": "",
+      "motivoResultadoIndicacao": "",
+      "informacaoRequerente": "Proprietário"
+    }
+  ],
+  "avisos": [],
+  "csvGnvVencido": false,
+  "origemDados": "Cadastro",
+  "hash": "1660d98579be658d18629e1a4896c4cd",
+  "token": "3c33e388-33b4-4175-92e3-2c8e24cef063"
+}

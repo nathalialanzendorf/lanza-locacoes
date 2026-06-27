@@ -5,23 +5,25 @@
 import fs from "node:fs";
 import path from "node:path";
 
+import { listarMarcas, resolverFipeVeiculo } from "../fipe/index.js";
 import { compactPlaca, formatPlacaHyphen, placasIguais } from "../placa.js";
 import { REPO_ROOT } from "../repoRoot.js";
 import {
+  aplicarFipeVeiculo,
   editarVeiculo,
   isSyncRastreameEligible,
   isVeiculoAtivo,
   loadVeiculosDb,
   marcarVeiculoRastreameSyncOk,
+  precisaFipe,
+  type UpsertRastreavelInput,
   type VeiculoRegistro,
   upsertVeiculoFromRastreame,
 } from "../veiculosDb.js";
-import { extrairPlacaDeRastreavel, refKey } from "./placaRastreavel.js";
+import { extrairPlacaDeRastreavel, rastreavelTexto, refKey } from "./placaRastreavel.js";
 import {
   fetchAllRastreaveis,
   fetchRastreavelByKey,
-  inativarRastreavel,
-  postRastreavel,
   putRastreavel,
   type Rastreavel,
 } from "./rastreavel.js";
@@ -31,11 +33,14 @@ export type SyncRastreaveisOpts = {
   pull?: boolean;
   push?: boolean;
   forcePull?: boolean;
+  /** Resolver FIPE dos veículos novos/sem FIPE após o pull (default: true). */
+  fipe?: boolean;
 };
 
 export type SyncRastreaveisResult = {
   pull: { novos: number; atualizados: number; inativados: number; ignorados: number; erros: string[] };
   push: { criados: number; atualizados: number; inativados: number; ignorados: number; erros: string[] };
+  fipe: { atualizados: number; ignorados: number; erros: string[] };
 };
 
 type Parceiro = { id: string; nome: string };
@@ -102,7 +107,7 @@ export function buildRastreavelLabel(
 function rastreavelToUpsertInput(r: Rastreavel): Parameters<typeof upsertVeiculoFromRastreame>[0] | null {
   const key = refKey(r);
   if (!key) return null;
-  const value = String(r.value ?? "").trim();
+  const value = rastreavelTexto(r);
   const parsed = parseRastreavelValue(value);
   if (!parsed) return null;
   return {
@@ -112,6 +117,64 @@ function rastreavelToUpsertInput(r: Rastreavel): Parameters<typeof upsertVeiculo
     anoModelo: parsed.anoModelo,
     rastreameLabel: value,
     ativo: r.ativo !== false,
+  };
+}
+
+/** Extrai texto de um campo que pode ser string ou referência `{ value }`. */
+function valorRef(x: unknown): string | undefined {
+  if (x == null) return undefined;
+  if (typeof x === "object") {
+    const v = (x as { value?: unknown }).value;
+    return v != null && String(v).trim() ? String(v).trim() : undefined;
+  }
+  const s = String(x).trim();
+  return s || undefined;
+}
+
+function numeroOpt(x: unknown): number | undefined {
+  if (x == null || x === "") return undefined;
+  const n = Number(x);
+  return Number.isFinite(n) ? n : undefined;
+}
+
+/**
+ * Mapeia o **detalhe** do rastreável (GET /rastreavel/{id}) para os campos do
+ * CRV-e em veiculos.json. O detalhe traz marca/modelo/ano/chassi/renavam/cor,
+ * que não existem na listagem.
+ */
+function rastreavelDetalheToInput(d: Rastreavel): UpsertRastreavelInput | null {
+  const key = refKey(d);
+  if (!key) return null;
+  const ident = String(d.identificador ?? "").trim();
+  const placa = extrairPlacaDeRastreavel(ident) ?? (ident ? formatPlacaHyphen(ident) : null);
+  if (!placa) return null;
+
+  const descricao = String(d.descricao ?? "").trim();
+  const marca = valorRef(d.marca);
+  const modelo = valorRef(d.modelo);
+  const ano = numeroOpt(d.ano);
+  const marcaModelo = [marca, modelo].filter(Boolean).join("/") || undefined;
+  const anoModelo = ano ? `${ano}/${ano}` : undefined;
+  const label = descricao ? `${placa} - ${descricao}` : placa;
+
+  return {
+    rastreameRastreavelKey: key,
+    placa,
+    marcaModelo,
+    anoModelo,
+    rastreameLabel: label,
+    ativo: d.ativo !== false,
+    chassi: valorRef(d.chassis),
+    renavam: valorRef(d.renavam),
+    cor: valorRef(d.cor),
+    marca,
+    modelo,
+    ano,
+    combustivel: valorRef(d.combustivel),
+    categoria: valorRef(d.categoria),
+    tipo: valorRef(d.tipo),
+    licencaIma: valorRef(d.licencaIma),
+    vencimentoDocumento: valorRef(d.vencimentoDocumento),
   };
 }
 
@@ -126,15 +189,25 @@ export async function pullRastreaveisFromRastreame(
     const key = refKey(r);
     if (!key) continue;
 
-    const input = rastreavelToUpsertInput(r);
+    // O detalhe (GET /rastreavel/{id}) traz os campos do CRV-e; a listagem não.
+    let input: UpsertRastreavelInput | null = null;
+    try {
+      const detalhe = await fetchRastreavelByKey(key);
+      input = rastreavelDetalheToInput(detalhe);
+    } catch (e) {
+      result.erros.push(
+        `rastreável ${key}: falha ao obter detalhe (${e instanceof Error ? e.message : String(e)}) — usando listagem`,
+      );
+    }
+    if (!input) input = rastreavelToUpsertInput(r);
     if (!input) {
-      result.erros.push(`rastreável ${key}: placa não identificada em "${String(r.value ?? "")}"`);
+      result.erros.push(`rastreável ${key}: placa não identificada em "${rastreavelTexto(r)}"`);
       continue;
     }
 
     if (opts.dryRun) {
       console.log(
-        `[pull dry-run] key=${key} | ${input.placa} | ativo=${input.ativo} | ${input.rastreameLabel?.slice(0, 60)}`,
+        `[pull dry-run] key=${key} | ${input.placa} | ativo=${input.ativo} | ${input.marca ?? "?"}/${input.modelo ?? "?"} ${input.ano ?? ""} | chassi=${input.chassi ?? "-"} renavam=${input.renavam ?? "-"} cor=${input.cor ?? "-"}`,
       );
       result.novos++;
       continue;
@@ -171,31 +244,28 @@ export async function pullRastreaveisFromRastreame(
   return result;
 }
 
+type PushAcao =
+  | "criado"
+  | "atualizado"
+  | "inativado"
+  | "ignorado"
+  | "novo_remoto_ausente"
+  | "erro";
+
 async function pushOneVeiculo(
   v: VeiculoRegistro,
   ctx: { parceiros: Map<string, string>; rastreaveis: Rastreavel[]; dryRun: boolean },
-): Promise<"criado" | "atualizado" | "inativado" | "ignorado" | "erro"> {
+): Promise<PushAcao> {
   const parceiro = parceirosNome(ctx.parceiros, v.id);
   const label = buildRastreavelLabel(v, parceiro);
 
-  if (v.ativo === false) {
-    if (!v.rastreameRastreavelKey) return "ignorado";
-    if (ctx.dryRun) {
-      console.log(`[push dry-run] inativar Rastreame key=${v.rastreameRastreavelKey} (${v.placa})`);
-      return "inativado";
-    }
-    try {
-      await inativarRastreavel(v.rastreameRastreavelKey);
-      marcarVeiculoRastreameSyncOk(v.id, v.rastreameRastreavelKey, label);
-      return "inativado";
-    } catch {
-      return "erro";
-    }
-  }
+  // Nunca enviamos inativação ao Rastreame: veículo inativo no database local
+  // não recebe push (ver regra "Inativação só local" em .cursor/rules/lanza-tools.mdc).
+  if (v.ativo === false) return "ignorado";
 
   if (!v.rastreameRastreavelKey) {
     const existente = ctx.rastreaveis.find((r) => {
-      const p = extrairPlacaDeRastreavel(String(r.value ?? ""));
+      const p = extrairPlacaDeRastreavel(rastreavelTexto(r));
       return p != null && placasIguais(p, v.placa);
     });
     if (existente) {
@@ -209,15 +279,12 @@ async function pushOneVeiculo(
         return "criado";
       }
     }
-    if (ctx.dryRun) {
-      console.log(`[push dry-run] POST ${v.placa} | ${label.slice(0, 70)}`);
-      return "criado";
-    }
-    const created = await postRastreavel({ value: label, ativo: true });
-    const key = refKey(created);
-    if (!key) throw new Error("POST rastreável sem key na resposta");
-    marcarVeiculoRastreameSyncOk(v.id, key, label);
-    return "criado";
+    // Não existe no Rastreame: criar um rastreável exige associação de dispositivo
+    // e dados completos (chassi, renavam, etc.) — fazer manualmente na UI.
+    console.log(
+      `[push] ${v.placa} não existe no Rastreame — cadastrar manualmente (rastreável precisa de dispositivo). Ignorado.`,
+    );
+    return "novo_remoto_ausente";
   }
 
   const needsPush =
@@ -260,10 +327,10 @@ export async function pushRastreaveisToRastreame(
   const db = loadVeiculosDb();
   const parceiros = loadParceiroPorVeiculo();
   const rastreaveis = await fetchAllRastreaveis();
-  const candidatos = db.veiculos.filter((v) => isSyncRastreameEligible(v) || v.ativo === false);
+  // Só veículos ativos entram no push; inativos nunca são enviados ao Rastreame.
+  const candidatos = db.veiculos.filter((v) => v.ativo !== false && isSyncRastreameEligible(v));
 
   for (const v of candidatos) {
-    if (!isSyncRastreameEligible(v) && v.ativo !== false) continue;
     try {
       const acao = await pushOneVeiculo(v, {
         parceiros,
@@ -272,12 +339,62 @@ export async function pushRastreaveisToRastreame(
       });
       if (acao === "criado") result.criados++;
       else if (acao === "atualizado") result.atualizados++;
-      else if (acao === "inativado") result.inativados++;
       else if (acao === "ignorado") result.ignorados++;
-      else if (acao === "erro") {
-        result.erros.push(`${v.placa}: falha ao inativar no Rastreame`);
+      else if (acao === "novo_remoto_ausente") {
+        result.ignorados++;
+        result.erros.push(`${v.placa}: não existe no Rastreame — cadastrar manualmente (precisa de dispositivo)`);
       }
     } catch (e) {
+      result.erros.push(`${v.placa}: ${e instanceof Error ? e.message : String(e)}`);
+    }
+  }
+
+  return result;
+}
+
+/**
+ * Resolve FIPE (tool `src/lib/fipe`) para veículos sem dados FIPE — tipicamente
+ * os recém-importados do Rastreame. Idempotente: uma vez preenchido, é ignorado.
+ */
+export async function preencherFipeFaltante(
+  opts: SyncRastreaveisOpts = {},
+): Promise<SyncRastreaveisResult["fipe"]> {
+  const result = { atualizados: 0, ignorados: 0, erros: [] as string[] };
+  const db = loadVeiculosDb();
+  // Veículos inativos não recebem consultas externas (FIPE) — ver regra em
+  // .cursor/rules/lanza-tools.mdc ("Veículos inativos").
+  const pendentes = db.veiculos.filter((v) => isVeiculoAtivo(v) && precisaFipe(v));
+  if (pendentes.length === 0) return result;
+
+  if (opts.dryRun) {
+    for (const v of pendentes) {
+      console.log(`[fipe dry-run] resolveria ${v.placa} (${v.marca ?? v.marcaModelo ?? "?"})`);
+    }
+    result.atualizados = pendentes.length;
+    return result;
+  }
+
+  let brands: Awaited<ReturnType<typeof listarMarcas>>;
+  try {
+    brands = await listarMarcas();
+  } catch (e) {
+    result.erros.push(`FIPE indisponível: ${e instanceof Error ? e.message : String(e)}`);
+    return result;
+  }
+
+  for (const v of pendentes) {
+    try {
+      const r = await resolverFipeVeiculo(v, brands);
+      aplicarFipeVeiculo(v.id, {
+        fipe: r.fipe,
+        fipeCodigo: r.fipeCodigo,
+        fipeModelo: r.fipeModelo,
+        fipeValor: r.fipeValor,
+        fipeReferencia: r.fipeReferencia,
+      });
+      result.atualizados++;
+    } catch (e) {
+      result.ignorados++;
       result.erros.push(`${v.placa}: ${e instanceof Error ? e.message : String(e)}`);
     }
   }
@@ -290,13 +407,17 @@ export async function syncRastreaveis(
 ): Promise<SyncRastreaveisResult> {
   const pull = opts.pull !== false;
   const push = opts.push !== false;
+  const fipe = opts.fipe !== false;
   const out: SyncRastreaveisResult = {
     pull: { novos: 0, atualizados: 0, inativados: 0, ignorados: 0, erros: [] },
     push: { criados: 0, atualizados: 0, inativados: 0, ignorados: 0, erros: [] },
+    fipe: { atualizados: 0, ignorados: 0, erros: [] },
   };
 
   if (push) out.push = await pushRastreaveisToRastreame(opts);
   if (pull) out.pull = await pullRastreaveisFromRastreame(opts);
+  // FIPE só faz sentido depois do pull (precisa dos veículos importados).
+  if (fipe && pull) out.fipe = await preencherFipeFaltante(opts);
   return out;
 }
 
@@ -306,7 +427,8 @@ export async function replicarVeiculoNoRastreame(
 ): Promise<void> {
   if (!isSyncRastreameEligible(v) && v.ativo !== false) return;
   const parceiros = loadParceiroPorVeiculo();
-  const acao = await pushOneVeiculo(v, { parceiros, dryRun: opts?.dryRun ?? false });
+  const rastreaveis = await fetchAllRastreaveis();
+  const acao = await pushOneVeiculo(v, { parceiros, rastreaveis, dryRun: opts?.dryRun ?? false });
   if (acao === "erro") {
     throw new Error(`Falha ao replicar ${v.placa} no Rastreame`);
   }

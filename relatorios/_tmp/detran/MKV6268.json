@@ -1,0 +1,532 @@
+{
+  "placa": "MKV6268",
+  "renavam": 503292486,
+  "proprietarioAtual": "R****** L*********",
+  "proprietarioAnterior": "J****** A****** C*****",
+  "principalCondutor": "A**** E****** P****** R********",
+  "cor": "Cinza",
+  "marcaModelo": "HYUNDAI/HB20 1.0M 1.0 M",
+  "anoFabricacao": 2012,
+  "anoModelo": 2013,
+  "motivoBaixa": "Em circulação",
+  "exercicioLicenciamento": 2025,
+  "licenciado": "2025 em 07/11/2025 através do Registro de Veículo (CRV)",
+  "municipio": "TUBARAO",
+  "uf": "SC",
+  "debitos": [
+    {
+      "idDebito": 639983991,
+      "descricaoClasse": "UF:RD-000100-J000973494-7455",
+      "dataVencimentoOriginal": "2025-12-01",
+      "valorAtualizado": 138.66,
+      "linhaDigitavel": "00190.00009  03644.643169  39983.991173  9  14930000013866",
+      "emiteGuia": 1,
+      "exercicio": 2025,
+      "dareSat": 0,
+      "vencido": true
+    },
+    {
+      "idDebito": 640138544,
+      "descricaoClasse": "UF:RD-000100-J001031460-7455",
+      "dataVencimentoOriginal": "2025-12-08",
+      "valorAtualizado": 138.66,
+      "linhaDigitavel": "00190.00009  03644.643169  40138.544172  6  14930000013866",
+      "emiteGuia": 1,
+      "exercicio": 2025,
+      "dareSat": 0,
+      "vencido": true
+    },
+    {
+      "idDebito": 640873691,
+      "descricaoClasse": "UF:RD-000100-J001367949-7455",
+      "dataVencimentoOriginal": "2026-01-14",
+      "valorAtualizado": 137.15,
+      "linhaDigitavel": "00190.00009  03644.643169  40873.691170  1  14930000013715",
+      "emiteGuia": 1,
+      "exercicio": 2025,
+      "dareSat": 0,
+      "vencido": true
+    },
+    {
+      "idDebito": 642618826,
+      "descricaoClasse": "UF:DN-000300-S046265908-7455",
+      "dataVencimentoOriginal": "2026-01-20",
+      "valorAtualizado": 137.15,
+      "linhaDigitavel": "00190.00009  03644.643169  42618.826178  7  14930000013715",
+      "emiteGuia": 1,
+      "exercicio": 2025,
+      "dareSat": 0,
+      "vencido": true
+    },
+    {
+      "idDebito": 641091514,
+      "descricaoClasse": "UF:RD-000100-J001435693-7455",
+      "dataVencimentoOriginal": "2026-01-23",
+      "valorAtualizado": 137.15,
+      "linhaDigitavel": "00190.00009  03644.643169  41091.514178  2  14930000013715",
+      "emiteGuia": 1,
+      "exercicio": 2025,
+      "dareSat": 0,
+      "vencido": true
+    },
+    {
+      "idDebito": 674722513,
+      "descricaoClasse": "CRICIUM-008788-CRC0828221-7455",
+      "dataVencimentoOriginal": "2026-06-26",
+      "valorAtualizado": 131.46,
+      "linhaDigitavel": "00190.00009  03462.137161  74722.513178  1  15240000013146",
+      "emiteGuia": 1,
+      "exercicio": 2026,
+      "dareSat": 0,
+      "vencido": true
+    },
+    {
+      "idDebito": 656474055,
+      "descricaoClasse": "IPVA (Cota Unica) 2026",
+      "dataVencimentoOriginal": "2026-08-31",
+      "valorAtualizado": 577.6,
+      "linhaDigitavel": "85660000005-8  77600024836-4  74026000503-9  29248618053-5",
+      "emiteGuia": 1,
+      "exercicio": 2026,
+      "dareSat": 1,
+      "vencido": false
+    },
+    {
+      "idDebito": 656474056,
+      "descricaoClasse": "IPVA (1a. Cota) 2026",
+      "dataVencimentoOriginal": "2026-08-10",
+      "valorAtualizado": 192.53,
+      "linhaDigitavel": "85690000001-4  92530024836-4  74126000503-7  29248618053-5",
+      "emiteGuia": 1,
+      "exercicio": 2026,
+      "dareSat": 1,
+      "vencido": false
+    },
+    {
+      "idDebito": 656474057,
+      "descricaoClasse": "IPVA (2a. Cota) 2026",
+      "dataVencimentoOriginal": "2026-09-10",
+      "valorAtualizado": 192.53,
+      "linhaDigitavel": "85680000001-5  92530024836-4  74226000503-5  29248618053-5",
+      "emiteGuia": 3,
+      "motivoNaoEmissaoGuia": "1ª Cota não quitada",
+      "exercicio": 2026,
+      "dareSat": 0,
+      "vencido": false
+    },
+    {
+      "idDebito": 656474058,
+      "descricaoClasse": "IPVA (3a. Cota) 2026",
+      "dataVencimentoOriginal": "2026-10-10",
+      "valorAtualizado": 192.54,
+      "linhaDigitavel": "85660000001-7  92540024836-3  74326000503-3  29248618053-5",
+      "emiteGuia": 3,
+      "motivoNaoEmissaoGuia": "2ª Cota não quitada",
+      "exercicio": 2026,
+      "dareSat": 0,
+      "vencido": false
+    },
+    {
+      "idDebito": 656474054,
+      "descricaoClasse": "Licenciamento Anual 2026",
+      "dataVencimentoOriginal": "2026-10-31",
+      "valorAtualizado": 149.37,
+      "linhaDigitavel": "85620000001-1  49370024700-7  06564740540-9  00260021353-8",
+      "emiteGuia": 1,
+      "exercicio": 2026,
+      "dareSat": 1,
+      "vencido": false
+    }
+  ],
+  "infracoes": [
+    {
+      "idAutoInfracao": 66312042,
+      "numeroAuto": "J001031460",
+      "descricao": "TRANSITAR EM VEL SUPERIOR À MÁXIMA PERMITIDA EM ATÉ 20%",
+      "dataHoraAutuacao": "2025-02-26T13:49:00",
+      "localInfracao": "SC - BR 101 - KM 304.00 - D - LAGUNA/SC",
+      "valor": 130.16,
+      "situacao": "Penalidade notificada",
+      "status": "Em aberto",
+      "protocolo": "100.7455.J001031460",
+      "dataLimiteDefesa": "2025-05-07",
+      "prazoDefesaExpirado": true
+    },
+    {
+      "idAutoInfracao": 66197486,
+      "numeroAuto": "J000973494",
+      "descricao": "TRANSITAR EM VEL SUPERIOR À MÁXIMA PERMITIDA EM ATÉ 20%",
+      "dataHoraAutuacao": "2025-02-26T15:03:00",
+      "localInfracao": "SC - BR 101 - KM 328.90 - C - TUBARAO/SC",
+      "valor": 130.16,
+      "situacao": "Penalidade notificada",
+      "status": "Em aberto",
+      "protocolo": "100.7455.J000973494",
+      "dataLimiteDefesa": "2025-04-30",
+      "prazoDefesaExpirado": true
+    },
+    {
+      "idAutoInfracao": 66883102,
+      "numeroAuto": "J001367949",
+      "descricao": "TRANSITAR EM VEL SUPERIOR À MÁXIMA PERMITIDA EM ATÉ 20%",
+      "dataHoraAutuacao": "2025-04-04T23:15:00",
+      "localInfracao": "PR - BR 376 - KM 665.76 - D - GUARATUBA/PR",
+      "valor": 130.16,
+      "situacao": "Penalidade notificada",
+      "status": "Em aberto",
+      "protocolo": "100.7455.J001367949",
+      "dataLimiteDefesa": "2025-06-13",
+      "prazoDefesaExpirado": true
+    },
+    {
+      "idAutoInfracao": 67028870,
+      "numeroAuto": "J001435693",
+      "descricao": "TRANSITAR EM VEL SUPERIOR À MÁXIMA PERMITIDA EM ATÉ 20%",
+      "dataHoraAutuacao": "2025-04-14T00:20:00",
+      "localInfracao": "PR - BR 277 - KM 249.47 - C - IRATI/PR",
+      "valor": 130.16,
+      "situacao": "Penalidade notificada",
+      "status": "Em aberto",
+      "protocolo": "100.7455.J001435693",
+      "dataLimiteDefesa": "2025-06-23",
+      "prazoDefesaExpirado": true
+    },
+    {
+      "idAutoInfracao": 68276088,
+      "numeroAuto": "S046265908",
+      "descricao": "TRANSITAR EM VEL SUPERIOR À MÁXIMA PERMITIDA EM ATÉ 20%",
+      "dataHoraAutuacao": "2025-07-15T23:17:00",
+      "localInfracao": "BR163 KM 313,900 - TERRA ROXA/PR",
+      "valor": 130.16,
+      "situacao": "Penalidade notificada",
+      "status": "Em aberto",
+      "protocolo": "300.7455.S046265908",
+      "dataLimiteDefesa": "2025-09-09",
+      "prazoDefesaExpirado": true
+    },
+    {
+      "idAutoInfracao": 73612181,
+      "numeroAuto": "CRC0828221",
+      "descricao": "TRANSITAR EM VEL SUPERIOR À MÁXIMA PERMITIDA EM ATÉ 20%",
+      "dataHoraAutuacao": "2026-02-08T13:09:02",
+      "localInfracao": "AV. ASSEMBLEIA DE DEUS PROX. A RUA ARCANGELO MELLER,  CRICIUMA - SC - CRICIUMA/SC",
+      "valor": 130.16,
+      "situacao": "Penalidade notificada",
+      "status": "Em aberto",
+      "protocolo": "8788.7455.CRC0828221",
+      "dataLimiteDefesa": "2026-04-09",
+      "prazoDefesaExpirado": true
+    },
+    {
+      "idAutoInfracao": 74753525,
+      "numeroAuto": "P0drp000er",
+      "descricao": "EM MOVIMENTO, DEIXAR DE MANTER ACESA A LUZ BAIXA A NOITE",
+      "dataHoraAutuacao": "2026-04-22T20:14:27",
+      "localInfracao": "RUA JOAQUIM NABUCO, MICHEL - CRICIUMA - SANTA CATARINA, 88802-080, BRASIL - CRICIUMA/SC",
+      "complemento": "Próximo ao Bill Lanches",
+      "valor": 130.16,
+      "situacao": "Penalidade notificada",
+      "status": "Em aberto",
+      "protocolo": "8787.7234.P0drp000er",
+      "dataLimiteDefesa": "2026-06-11",
+      "prazoDefesaExpirado": true
+    }
+  ],
+  "historicoInfracoes": [
+    {
+      "idAutoInfracao": 32700276,
+      "numeroAuto": "E030828427",
+      "descricao": "TRANSITAR EM VEL SUPERIOR À MÁXIMA PERMITIDA EM ATÉ 20%",
+      "dataHoraAutuacao": "2016-12-06T06:47:00",
+      "localInfracao": "BR-101 KM 256.365 - PAULO LOPES/SC",
+      "valor": 130.16,
+      "situacao": "Penalidade notificada",
+      "status": "Paga",
+      "protocolo": "300.7455.E030828427",
+      "dataLimiteDefesa": "2017-02-06",
+      "prazoDefesaExpirado": true
+    },
+    {
+      "idAutoInfracao": 32701894,
+      "numeroAuto": "E030831339",
+      "descricao": "TRANSITAR EM VEL SUPERIOR À MÁXIMA PERMITIDA EM ATÉ 20%",
+      "dataHoraAutuacao": "2016-12-06T18:53:00",
+      "localInfracao": "BR-101 KM 252.500 - PAULO LOPES/SC",
+      "valor": 130.16,
+      "situacao": "Penalidade notificada",
+      "status": "Paga",
+      "protocolo": "300.7455.E030831339",
+      "dataLimiteDefesa": "2017-02-06",
+      "prazoDefesaExpirado": true
+    },
+    {
+      "idAutoInfracao": 32705084,
+      "numeroAuto": "E030832351",
+      "descricao": "TRANSITAR EM VEL SUPERIOR À MÁXIMA PERMITIDA EM ATÉ 20%",
+      "dataHoraAutuacao": "2016-12-06T19:13:00",
+      "localInfracao": "BR-101 KM 291.200 - IMBITUBA/SC",
+      "valor": 130.16,
+      "situacao": "Penalidade notificada",
+      "status": "Paga",
+      "protocolo": "300.7455.E030832351",
+      "dataLimiteDefesa": "2017-02-06",
+      "prazoDefesaExpirado": true
+    },
+    {
+      "idAutoInfracao": 64091372,
+      "numeroAuto": "R845574914",
+      "descricao": "TRANSITAR EM VEL SUPERIOR À MÁXIMA PERMITIDA EM ATÉ 20%",
+      "dataHoraAutuacao": "2024-10-06T06:58:00",
+      "localInfracao": "BR-101 KM-318 UF-SC - PESCARIA BRAVA/SC",
+      "valor": 130.16,
+      "situacao": "Penalidade notificada",
+      "status": "Justificada",
+      "protocolo": "100.7455.R845574914",
+      "dataLimiteDefesa": "2024-12-17",
+      "prazoDefesaExpirado": true
+    },
+    {
+      "idAutoInfracao": 66745303,
+      "numeroAuto": "S044577920",
+      "descricao": "TRANS EM VELOC SUP À MÁX PERMITIDA EM MAIS DE 20% ATE 50%   ",
+      "dataHoraAutuacao": "2025-04-05T14:33:00",
+      "localInfracao": "BR487 KM 137,9 - TUNEIRAS DO OESTE/PR",
+      "valor": 195.23,
+      "situacao": "Penalidade notificada",
+      "status": "Paga",
+      "protocolo": "300.7463.S044577920",
+      "dataLimiteDefesa": "2025-05-27",
+      "prazoDefesaExpirado": true
+    },
+    {
+      "idAutoInfracao": 66749765,
+      "numeroAuto": "S044592603",
+      "descricao": "TRANS EM VELOC SUP À MÁX PERMITIDA EM MAIS DE 20% ATE 50%   ",
+      "dataHoraAutuacao": "2025-04-06T10:42:00",
+      "localInfracao": "BR463 KM 107,15 - PONTA PORA/MS",
+      "valor": 195.23,
+      "situacao": "Penalidade notificada",
+      "status": "Paga",
+      "protocolo": "300.7463.S044592603",
+      "dataLimiteDefesa": "2025-05-27",
+      "prazoDefesaExpirado": true
+    },
+    {
+      "idAutoInfracao": 66808573,
+      "numeroAuto": "S044630644",
+      "descricao": "TRANSITAR EM VEL SUPERIOR À MÁXIMA PERMITIDA EM ATÉ 20%",
+      "dataHoraAutuacao": "2025-04-08T12:44:00",
+      "localInfracao": "BR376 KM 490,900 - PONTA GROSSA/PR",
+      "valor": 130.16,
+      "situacao": "Penalidade notificada",
+      "status": "Paga",
+      "protocolo": "300.7455.S044630644",
+      "dataLimiteDefesa": "2025-06-03",
+      "prazoDefesaExpirado": true
+    }
+  ],
+  "dividaAtiva": [],
+  "dataAtualizacao": "2026-06-28T21:17:21",
+  "dataAquisicao": "2024-11-06",
+  "pendente": false,
+  "tipo": "Automovel",
+  "categoria": "Particular",
+  "carroceria": "Nao Aplicavel",
+  "especie": "Passageiro",
+  "placaAnterior": "MKV6268",
+  "lugares": 5,
+  "combustivel": "Alcool-Gasol",
+  "restricaoVenda": "Alienação Fiduciária em favor de B**** V********* S***",
+  "informacoesPendentesSng": [
+    "Registro de Baixa de Alienação Fiduciária informado por B**** V********* S** em 12/11/2025 às 08h16min para R****** L*********",
+    "Registro de Alienação Fiduciária informado por B**** V********* S** em 12/11/2025 às 17h41min para R****** L*********"
+  ],
+  "processos": [
+    {
+      "numeroProcesso": "1295975/2025",
+      "interessadoDocumento": "477*******0",
+      "dataHoraInicio": "2025-10-24T15:12:00",
+      "dataHoraFim": "2025-11-07T15:35:00",
+      "situacao": "Encerrado",
+      "servicos": [
+        {
+          "servico": "Alienação Fiduciária",
+          "dataHoraExecucao": "2025-10-24T15:12:36.746"
+        },
+        {
+          "servico": "Geração de guia de pagamento",
+          "dataHoraExecucao": "2025-10-24T15:12:36.796"
+        },
+        {
+          "servico": "Auditoria",
+          "dataHoraExecucao": "2025-11-07T15:35:42.26"
+        },
+        {
+          "servico": "Emissão de CRV/CRLVe",
+          "dataHoraExecucao": "2025-11-07T15:37:13.563"
+        }
+      ]
+    },
+    {
+      "numeroProcesso": "1378449/2024",
+      "interessadoDocumento": "477*******0",
+      "dataHoraInicio": "2024-11-14T17:20:00",
+      "dataHoraFim": "2024-11-22T16:27:00",
+      "situacao": "Encerrado",
+      "servicos": [
+        {
+          "servico": "Baixa de Alienação Fiduciária",
+          "dataHoraExecucao": "2024-11-14T17:20:19.663"
+        },
+        {
+          "servico": "Transferência de Propriedade",
+          "dataHoraExecucao": "2024-11-14T17:20:19.663"
+        },
+        {
+          "servico": "Geração de guia de pagamento",
+          "dataHoraExecucao": "2024-11-14T17:20:19.71"
+        },
+        {
+          "servico": "Auditoria",
+          "dataHoraExecucao": "2024-11-22T16:27:06.63"
+        },
+        {
+          "servico": "Emissão de CRV/CRLVe",
+          "dataHoraExecucao": "2024-11-22T16:27:15.643"
+        }
+      ]
+    },
+    {
+      "numeroProcesso": "937232/2018",
+      "interessadoDocumento": "088*******3",
+      "dataHoraInicio": "2018-09-18T17:36:00",
+      "dataHoraFim": "2018-09-21T16:15:00",
+      "situacao": "Encerrado",
+      "servicos": [
+        {
+          "servico": "Baixa de Alienação Fiduciária",
+          "dataHoraExecucao": "2018-09-18T17:36:37.833"
+        },
+        {
+          "servico": "Transferência de Propriedade",
+          "dataHoraExecucao": "2018-09-18T17:36:37.833"
+        },
+        {
+          "servico": "Alienação Fiduciária",
+          "dataHoraExecucao": "2018-09-18T17:36:37.833"
+        },
+        {
+          "servico": "Geração de guia de pagamento",
+          "dataHoraExecucao": "2018-09-18T17:36:38.41"
+        },
+        {
+          "servico": "Auditoria",
+          "dataHoraExecucao": "2018-09-21T16:15:16.146"
+        },
+        {
+          "servico": "Emissão CRV(1ª via)",
+          "dataHoraExecucao": "2018-09-21T16:48:22.336"
+        }
+      ]
+    },
+    {
+      "numeroProcesso": "813357/2015",
+      "interessadoDocumento": "035*******8",
+      "dataHoraInicio": "2015-09-16T11:26:00",
+      "dataHoraFim": "2015-09-17T11:06:00",
+      "situacao": "Encerrado",
+      "servicos": [
+        {
+          "servico": "Transferência de Domicílio",
+          "dataHoraExecucao": "2015-09-16T11:26:36.15"
+        },
+        {
+          "servico": "Baixa de Alienação Fiduciária",
+          "dataHoraExecucao": "2015-09-16T11:26:36.136"
+        },
+        {
+          "servico": "Transferência de Propriedade",
+          "dataHoraExecucao": "2015-09-16T11:26:36.15"
+        },
+        {
+          "servico": "Alienação Fiduciária",
+          "dataHoraExecucao": "2015-09-16T11:26:36.136"
+        },
+        {
+          "servico": "Geração de guia de pagamento",
+          "dataHoraExecucao": "2015-09-16T11:26:36.15"
+        },
+        {
+          "servico": "Auditoria",
+          "dataHoraExecucao": "2015-09-17T11:06:00.91"
+        },
+        {
+          "servico": "Emissão CRV(1ª via)",
+          "dataHoraExecucao": "2015-09-17T13:02:47.73"
+        }
+      ]
+    },
+    {
+      "numeroProcesso": "1136746/2012",
+      "interessadoDocumento": "155*******0",
+      "dataHoraInicio": "2012-12-27T17:30:00",
+      "dataHoraFim": "2012-12-28T13:15:00",
+      "situacao": "Encerrado",
+      "servicos": [
+        {
+          "servico": "Primeiro Emplacamento",
+          "dataHoraExecucao": "2012-12-27T17:30:43.496",
+          "emitenteNFNome": "A**** V******* L***",
+          "emitenteNFDocumento": "133**********0",
+          "dataEmissaoNF": "2012-12-27",
+          "valorNF": 35000
+        },
+        {
+          "servico": "Geração de guia de pagamento",
+          "dataHoraExecucao": "2012-12-27T17:30:43.51"
+        },
+        {
+          "servico": "Alienação Fiduciária",
+          "dataHoraExecucao": "2012-12-28T13:15:12.023"
+        },
+        {
+          "servico": "Auditoria",
+          "dataHoraExecucao": "2012-12-28T13:15:39.866"
+        },
+        {
+          "servico": "Emissão CRV(1ª via)",
+          "dataHoraExecucao": "2012-12-28T13:20:26.42"
+        }
+      ]
+    }
+  ],
+  "editaisCedo": [],
+  "ipvasNotificados": [],
+  "recursosInfracao": [
+    {
+      "numeroProcesso": 47495,
+      "anoProcesso": 2024,
+      "dataDefesa": "2024-12-04",
+      "codigoInstancia": 9,
+      "instancia": "Indicação Condutor",
+      "numeroAuto": "45574914",
+      "tipoAuto": "R8",
+      "orgaoAuto": 100,
+      "descricaoAuto": "UF:RD-000100-R845574914-7455-0",
+      "descricaoInfracao": "TRANSITAR EM VEL SUPERIOR À MÁXIMA PERMITIDA EM ATÉ 20%",
+      "cidadeAuto": "PESCARIA BRAVA",
+      "dataHoraAuto": "2024-10-06T06:58:00",
+      "nomeLocal": "BR-101 KM-318 UF-SC",
+      "resultadoRecurso": "",
+      "resultadoIndicacao": "DEFERIDO em 04/12/2024",
+      "motivoResultadoInfracao": "",
+      "motivoResultadoIndicacao": "",
+      "informacaoRequerente": "Proprietário"
+    }
+  ],
+  "avisos": [],
+  "csvGnvVencido": false,
+  "origemDados": "Cadastro",
+  "hash": "ab33d13e272bf10a7c357aeb08628e4c",
+  "token": "e7506092-c7d6-4db4-9670-ce049a128432"
+}

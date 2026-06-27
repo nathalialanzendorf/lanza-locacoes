@@ -15,6 +15,15 @@ export type VeiculoRegistro = {
   chassi?: string;
   renavam?: string;
   cor?: string;
+  /** Campos do CRV-e espelhados do Rastreame (rastreável). */
+  marca?: string;
+  modelo?: string;
+  ano?: number;
+  combustivel?: string;
+  categoria?: string;
+  tipo?: string;
+  licencaIma?: string;
+  vencimentoDocumento?: string;
   fipe?: string;
   fipeModelo?: string;
   fipeCodigo?: string;
@@ -29,6 +38,12 @@ export type VeiculoRegistro = {
   atualizadoEm?: string | null;
   /** false = excluído da frota ativa */
   ativo?: boolean;
+  /**
+   * true = veículo PARTICULAR do proprietário (ex.: carro da Ana), não é de
+   * locação. Entra nos syncs DETRAN (infrações/IPVA/licenciamento) mas NÃO no
+   * rastreador fixo nem no Rastreame (não é rastreável de locação).
+   */
+  particular?: boolean;
   origem?: string;
   [key: string]: unknown;
 };
@@ -134,7 +149,47 @@ export type UpsertRastreavelInput = {
   rastreameLabel?: string;
   ativo?: boolean;
   force?: boolean;
+  /** Campos do CRV-e vindos do detalhe do rastreável (fonte: Rastreame). */
+  chassi?: string;
+  renavam?: string;
+  cor?: string;
+  marca?: string;
+  modelo?: string;
+  ano?: number;
+  combustivel?: string;
+  categoria?: string;
+  tipo?: string;
+  licencaIma?: string;
+  vencimentoDocumento?: string;
 };
+
+/** Campos factuais do CRV-e — Rastreame é a base, então sobrescrevem o local. */
+const CRV_FIELDS = [
+  "chassi",
+  "renavam",
+  "cor",
+  "marca",
+  "modelo",
+  "ano",
+  "combustivel",
+  "categoria",
+  "tipo",
+  "licencaIma",
+  "vencimentoDocumento",
+] as const;
+
+function aplicarCamposCrv(v: VeiculoRegistro, input: UpsertRastreavelInput): boolean {
+  let changed = false;
+  for (const f of CRV_FIELDS) {
+    const novo = input[f];
+    if (novo == null || novo === "") continue;
+    if (v[f] !== novo) {
+      v[f] = novo;
+      changed = true;
+    }
+  }
+  return changed;
+}
 
 export type UpsertVeiculoResult = {
   registro: VeiculoRegistro;
@@ -168,9 +223,10 @@ export function upsertVeiculoFromRastreame(input: UpsertRastreavelInput): Upsert
       origem: "rastreame",
       atualizadoEm: ts,
     };
+    aplicarCamposCrv(registro, input);
     db.veiculos.push(registro);
     saveVeiculosDb(db);
-    return { registro, acao: "novo", aviso: "cadastro mínimo — completar CRLV/FIPE" };
+    return { registro, acao: "novo", aviso: "cadastro a partir do Rastreame (CRV-e)" };
   }
 
   const v = db.veiculos[idx]!;
@@ -183,22 +239,22 @@ export function upsertVeiculoFromRastreame(input: UpsertRastreavelInput): Upsert
     return { registro: v, acao: "sem_alteracao", aviso: "local mais recente — pull ignorado" };
   }
 
+  const crvChanged = aplicarCamposCrv(v, input);
+
   const changed =
+    crvChanged ||
     !placasIguais(v.placa, placa) ||
-    (input.marcaModelo && v.marcaModelo !== input.marcaModelo) ||
-    (input.anoModelo && v.anoModelo !== input.anoModelo) ||
+    (input.marcaModelo && !v.marcaModelo) ||
+    (input.anoModelo && !v.anoModelo) ||
     v.rastreameLabel !== (input.rastreameLabel ?? v.rastreameLabel) ||
     (input.ativo === false && v.ativo !== false) ||
     (input.ativo !== false && v.ativo === false);
 
   v.rastreameRastreavelKey = input.rastreameRastreavelKey;
   if (input.rastreameLabel) v.rastreameLabel = input.rastreameLabel;
-  if (input.marcaModelo && (!v.marcaModelo || v.origem === "rastreame")) {
-    v.marcaModelo = input.marcaModelo;
-  }
-  if (input.anoModelo && (!v.anoModelo || v.origem === "rastreame")) {
-    v.anoModelo = input.anoModelo;
-  }
+  // marcaModelo/anoModelo são compostos (usados em contrato/FIPE): preencher só se faltar.
+  if (input.marcaModelo && !v.marcaModelo) v.marcaModelo = input.marcaModelo;
+  if (input.anoModelo && !v.anoModelo) v.anoModelo = input.anoModelo;
   if (input.ativo === false) v.ativo = false;
   else if (input.ativo !== false && v.ativo === false && input.force) v.ativo = true;
   else if (input.ativo !== false) v.ativo = true;
@@ -212,6 +268,37 @@ export function upsertVeiculoFromRastreame(input: UpsertRastreavelInput): Upsert
     acao: changed ? "atualizado" : "sem_alteracao",
     aviso: null,
   };
+}
+
+export type FipeFields = Pick<
+  VeiculoRegistro,
+  "fipe" | "fipeModelo" | "fipeCodigo" | "fipeValor" | "fipeReferencia"
+>;
+
+/** Veículo sem dados FIPE (precisa de resolução). */
+export function precisaFipe(v: VeiculoRegistro): boolean {
+  return !String(v.fipeCodigo ?? "").trim() || !String(v.fipeValor ?? "").trim();
+}
+
+/**
+ * Grava os campos FIPE de um veículo. Enriquecimento local (não vai ao
+ * Rastreame): `atualizadoEm` e `rastreameSyncEm` ficam iguais para não acionar
+ * o guard "local mais recente" no próximo pull.
+ */
+export function aplicarFipeVeiculo(id: string, fipe: FipeFields): VeiculoRegistro | null {
+  const db = loadVeiculosDb();
+  const idx = db.veiculos.findIndex((v) => v.id === id);
+  if (idx < 0) return null;
+  const v = db.veiculos[idx]!;
+  for (const [k, val] of Object.entries(fipe)) {
+    if (val != null) (v as Record<string, unknown>)[k] = val;
+  }
+  const ts = nowIso();
+  v.atualizadoEm = ts;
+  v.rastreameSyncEm = ts;
+  db.veiculos[idx] = v;
+  saveVeiculosDb(db);
+  return v;
 }
 
 export function marcarVeiculoRastreameSyncOk(
@@ -239,6 +326,10 @@ export function marcarVeiculoRastreameSyncOk(
 
 /** Veículo espelhado ou elegível para o Rastreame. */
 export function isSyncRastreameEligible(v: VeiculoRegistro): boolean {
+  // Particular (não-locação) nunca vira rastreável novo no Rastreame.
+  if (v.particular === true && (v.rastreameRastreavelKey == null || v.rastreameRastreavelKey === "")) {
+    return false;
+  }
   if (v.rastreameRastreavelKey != null && v.rastreameRastreavelKey !== "") return true;
   return isVeiculoAtivo(v) && Boolean(String(v.placa ?? "").trim());
 }

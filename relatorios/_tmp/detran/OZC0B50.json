@@ -1,0 +1,374 @@
+{
+  "placa": "OZC0B50",
+  "renavam": 1004031448,
+  "proprietarioAtual": "O**** D* S**** R******",
+  "proprietarioAnterior": "H***** C**** D* R***",
+  "principalCondutor": "",
+  "cor": "Preta",
+  "marcaModelo": "I/FORD FOCUS SE 1.6 S",
+  "anoFabricacao": 2013,
+  "anoModelo": 2014,
+  "motivoBaixa": "Em circulação",
+  "exercicioLicenciamento": 2025,
+  "licenciado": "2025 CRLV Digital",
+  "municipio": "TUBARAO",
+  "uf": "SC",
+  "debitos": [
+    {
+      "idDebito": 673082587,
+      "descricaoClasse": "TUBARAO-008072-P0c6o000fi-5550",
+      "dataVencimentoOriginal": "2026-04-06",
+      "valorAtualizado": 132.85,
+      "linhaDigitavel": "00190.00009  02838.969166  73082.587178  6  14930000013285",
+      "emiteGuia": 1,
+      "exercicio": 2025,
+      "dareSat": 0,
+      "vencido": true
+    },
+    {
+      "idDebito": 673144797,
+      "descricaoClasse": "TUBARAO-008072-Z000019946-5541",
+      "dataVencimentoOriginal": "2026-04-10",
+      "valorAtualizado": 199.27,
+      "linhaDigitavel": "00190.00009  02838.969166  73144.797179  1  14930000019927",
+      "emiteGuia": 1,
+      "exercicio": 2025,
+      "dareSat": 0,
+      "vencido": true
+    },
+    {
+      "idDebito": 673228450,
+      "descricaoClasse": "TUBARAO-008072-Z000019845-5541",
+      "dataVencimentoOriginal": "2026-04-13",
+      "valorAtualizado": 199.27,
+      "linhaDigitavel": "00190.00009  02838.969166  73228.450174  1  14930000019927",
+      "emiteGuia": 1,
+      "exercicio": 2025,
+      "dareSat": 0,
+      "vencido": true
+    },
+    {
+      "idDebito": 654621165,
+      "descricaoClasse": "IPVA (Cota Unica) 2026",
+      "dataVencimentoOriginal": "2026-10-31",
+      "valorAtualizado": 733.94,
+      "linhaDigitavel": "85680000007-2  33940024836-7  74026001004-7  03144818053-4",
+      "emiteGuia": 1,
+      "exercicio": 2026,
+      "dareSat": 1,
+      "vencido": false
+    },
+    {
+      "idDebito": 654621166,
+      "descricaoClasse": "IPVA (1a. Cota) 2026",
+      "dataVencimentoOriginal": "2026-10-10",
+      "valorAtualizado": 244.65,
+      "linhaDigitavel": "85640000002-7  44650024836-9  74126001004-5  03144818053-4",
+      "emiteGuia": 1,
+      "exercicio": 2026,
+      "dareSat": 1,
+      "vencido": false
+    },
+    {
+      "idDebito": 654621167,
+      "descricaoClasse": "IPVA (2a. Cota) 2026",
+      "dataVencimentoOriginal": "2026-11-10",
+      "valorAtualizado": 244.65,
+      "linhaDigitavel": "85630000002-8  44650024836-9  74226001004-3  03144818053-4",
+      "emiteGuia": 3,
+      "motivoNaoEmissaoGuia": "1ª Cota não quitada",
+      "exercicio": 2026,
+      "dareSat": 0,
+      "vencido": false
+    },
+    {
+      "idDebito": 654621168,
+      "descricaoClasse": "IPVA (3a. Cota) 2026",
+      "dataVencimentoOriginal": "2026-12-10",
+      "valorAtualizado": 244.64,
+      "linhaDigitavel": "85630000002-8  44640024836-0  74326001004-1  03144818053-4",
+      "emiteGuia": 3,
+      "motivoNaoEmissaoGuia": "2ª Cota não quitada",
+      "exercicio": 2026,
+      "dareSat": 0,
+      "vencido": false
+    },
+    {
+      "idDebito": 654621164,
+      "descricaoClasse": "Licenciamento Anual 2026",
+      "dataVencimentoOriginal": "2026-12-30",
+      "valorAtualizado": 149.37,
+      "linhaDigitavel": "85660000001-7  49370024700-7  06546211640-4  00260021353-8",
+      "emiteGuia": 1,
+      "exercicio": 2026,
+      "dareSat": 1,
+      "vencido": false
+    }
+  ],
+  "infracoes": [
+    {
+      "idAutoInfracao": 70118500,
+      "numeroAuto": "Z000019845",
+      "descricao": "ESTAC EM DESACOR C/ REGULAMENTAÇÃO - ESTACIONAMENTO ROTATIVO",
+      "dataHoraAutuacao": "2025-10-31T10:10:54",
+      "localInfracao": "RUA SAO MANOEL, NUMERO 25 - TUBARAO/SC",
+      "valor": 195.23,
+      "situacao": "Penalidade notificada",
+      "status": "Em aberto",
+      "protocolo": "8072.5541.Z000019845",
+      "dataLimiteDefesa": "2026-01-19",
+      "prazoDefesaExpirado": true
+    },
+    {
+      "idAutoInfracao": 70018571,
+      "numeroAuto": "Z000019946",
+      "descricao": "ESTAC EM DESACOR C/ REGULAMENTAÇÃO - ESTACIONAMENTO ROTATIVO",
+      "dataHoraAutuacao": "2025-11-03T09:29:46",
+      "localInfracao": "RUA DR RODOVALHO, NUMERO 56 - TUBARAO/SC",
+      "valor": 195.23,
+      "situacao": "Penalidade notificada",
+      "status": "Em aberto",
+      "protocolo": "8072.5541.Z000019946",
+      "dataLimiteDefesa": "2026-01-13",
+      "prazoDefesaExpirado": true
+    },
+    {
+      "idAutoInfracao": 69874901,
+      "numeroAuto": "P0c6o000fi",
+      "descricao": "ESTAC EM LOCAL/HORÁRIO PROIBIDO ESPECIFICAMENTE PELA SINALIZ",
+      "dataHoraAutuacao": "2025-11-06T11:19:03",
+      "localInfracao": "AVENIDA MARCOLINO MARTINS CABRAL, CENTRO - TUBARAO - SANTA CATARINA, 88701-000, - TUBARAO/SC",
+      "valor": 130.16,
+      "situacao": "Penalidade notificada",
+      "status": "Em aberto",
+      "protocolo": "8072.5550.P0c6o000fi",
+      "dataLimiteDefesa": "2026-01-09",
+      "prazoDefesaExpirado": true
+    },
+    {
+      "idAutoInfracao": 74231558,
+      "numeroAuto": "J007356743",
+      "descricao": "TRANSITAR EM VEL SUPERIOR À MÁXIMA PERMITIDA EM ATÉ 20%",
+      "dataHoraAutuacao": "2026-03-02T20:54:00",
+      "localInfracao": "SC - BR 101 - KM 363.40 - C - SANGAO/SC",
+      "valor": 130.16,
+      "situacao": "Autuação notificada",
+      "status": "Em aberto",
+      "protocolo": "100.7455.J007356743",
+      "dataLimiteDefesa": "2026-05-11",
+      "prazoDefesaExpirado": true
+    },
+    {
+      "idAutoInfracao": 75363283,
+      "numeroAuto": "J008779003",
+      "descricao": "TRANSITAR EM VEL SUPERIOR À MÁXIMA PERMITIDA EM ATÉ 20%",
+      "dataHoraAutuacao": "2026-05-09T23:33:00",
+      "localInfracao": "SC - BR 101 - KM 269.03 - D - IMBITUBA/SC",
+      "valor": 130.16,
+      "situacao": "Autuação notificada",
+      "status": "Em aberto",
+      "protocolo": "100.7455.J008779003",
+      "dataLimiteDefesa": "2026-07-17",
+      "prazoDefesaExpirado": false
+    },
+    {
+      "idAutoInfracao": 75363301,
+      "numeroAuto": "J008779092",
+      "descricao": "TRANSITAR EM VEL SUPERIOR À MÁXIMA PERMITIDA EM ATÉ 20%",
+      "dataHoraAutuacao": "2026-05-09T23:43:00",
+      "localInfracao": "SC - BR 101 - KM 264.60 - D - GAROPABA/SC",
+      "valor": 130.16,
+      "situacao": "Autuação notificada",
+      "status": "Em aberto",
+      "protocolo": "100.7455.J008779092",
+      "dataLimiteDefesa": "2026-07-17",
+      "prazoDefesaExpirado": false
+    },
+    {
+      "idAutoInfracao": 75363297,
+      "numeroAuto": "J008779127",
+      "descricao": "TRANS EM VELOC SUP À MÁX PERMITIDA EM MAIS DE 20% ATE 50%   ",
+      "dataHoraAutuacao": "2026-05-09T23:47:00",
+      "localInfracao": "SC - BR 101 - KM 255.60 - D - PAULO LOPES/SC",
+      "valor": 195.23,
+      "situacao": "Autuação notificada",
+      "status": "Em aberto",
+      "protocolo": "100.7463.J008779127",
+      "dataLimiteDefesa": "2026-07-17",
+      "prazoDefesaExpirado": false
+    }
+  ],
+  "historicoInfracoes": [
+    {
+      "idAutoInfracao": 52778113,
+      "numeroAuto": "JV00004741",
+      "descricao": "TRANS. VEIC. FAIXA OU VIA EXCL. VEIC. TRANSP. COLETIVO PASS.",
+      "dataHoraAutuacao": "2022-04-07T15:06:00",
+      "localInfracao": "JOSE VIEIRA 315 - JOINVILLE/SC",
+      "complemento": "                                                                                ",
+      "valor": 293.47,
+      "situacao": "Penalidade notificada",
+      "status": "Paga",
+      "protocolo": "8806.7587.JV00004741",
+      "dataLimiteDefesa": "2022-07-14",
+      "prazoDefesaExpirado": true
+    },
+    {
+      "idAutoInfracao": 60405390,
+      "numeroAuto": "R710688164",
+      "descricao": "TRANSITAR EM VEL SUPERIOR À MÁXIMA PERMITIDA EM ATÉ 20%",
+      "dataHoraAutuacao": "2023-12-27T08:56:00",
+      "localInfracao": "BR-386 KM-305 UF-RS - POUSO NOVO/RS",
+      "valor": 130.16,
+      "situacao": "Penalidade notificada",
+      "status": "Justificada",
+      "protocolo": "100.7455.R710688164",
+      "dataLimiteDefesa": "2024-03-15",
+      "prazoDefesaExpirado": true
+    },
+    {
+      "idAutoInfracao": 67621970,
+      "numeroAuto": "Z000015953",
+      "descricao": "ESTAC EM DESACOR C/ REGULAMENTAÇÃO - ESTACIONAMENTO ROTATIVO",
+      "dataHoraAutuacao": "2025-05-29T09:59:54",
+      "localInfracao": "AV. MARCOLINO M. CABRAL NUMERO 1351 - TUBARAO/SC",
+      "complemento": "                                                                                ",
+      "valor": 195.23,
+      "situacao": "Penalidade notificada",
+      "status": "Paga",
+      "protocolo": "8072.5541.Z000015953",
+      "dataLimiteDefesa": "2025-08-12",
+      "prazoDefesaExpirado": true
+    }
+  ],
+  "dividaAtiva": [],
+  "dataAtualizacao": "2026-06-28T21:18:12",
+  "dataAquisicao": "2023-12-04",
+  "pendente": false,
+  "tipo": "Automovel",
+  "categoria": "Particular",
+  "carroceria": "Nao Aplicavel",
+  "especie": "Passageiro",
+  "placaAnterior": "OZC0150/BA",
+  "lugares": 5,
+  "combustivel": "Alcool-Gasol",
+  "restricaoVenda": "Alienação Fiduciária em favor de B**** D******* S**",
+  "informacoesPendentesSng": [],
+  "processos": [
+    {
+      "numeroProcesso": "1383799/2023",
+      "interessadoDocumento": "563*******4",
+      "dataHoraInicio": "2023-12-13T18:17:00",
+      "dataHoraFim": "2023-12-14T10:00:00",
+      "situacao": "Encerrado",
+      "servicos": [
+        {
+          "servico": "Transferência de Domicílio",
+          "dataHoraExecucao": "2023-12-13T18:17:56.85"
+        },
+        {
+          "servico": "Baixa de Alienação Fiduciária",
+          "dataHoraExecucao": "2023-12-13T18:17:56.85"
+        },
+        {
+          "servico": "Transferência de Propriedade",
+          "dataHoraExecucao": "2023-12-13T18:17:56.85"
+        },
+        {
+          "servico": "Alienação Fiduciária",
+          "dataHoraExecucao": "2023-12-13T18:17:56.85"
+        },
+        {
+          "servico": "Geração de guia de pagamento",
+          "dataHoraExecucao": "2023-12-13T18:17:56.916"
+        },
+        {
+          "servico": "Conversão Nova PIV",
+          "dataHoraExecucao": "2023-12-13T18:17:56.85"
+        },
+        {
+          "servico": "Auditoria",
+          "dataHoraExecucao": "2023-12-14T10:00:50.57"
+        },
+        {
+          "servico": "Autorização Nova PIV",
+          "dataHoraExecucao": "2023-12-14T10:00:50.57"
+        },
+        {
+          "servico": "Emissão de CRV/CRLVe",
+          "dataHoraExecucao": "2023-12-14T10:31:43.743"
+        }
+      ]
+    },
+    {
+      "numeroProcesso": "1327316/2019",
+      "interessadoDocumento": "085*******1",
+      "dataHoraInicio": "2019-12-12T16:10:00",
+      "dataHoraFim": "2019-12-13T09:36:00",
+      "situacao": "Encerrado",
+      "servicos": [
+        {
+          "servico": "Transferência de Propriedade",
+          "dataHoraExecucao": "2019-12-12T16:10:59.91"
+        },
+        {
+          "servico": "Alienação Fiduciária",
+          "dataHoraExecucao": "2019-12-12T16:10:59.91"
+        },
+        {
+          "servico": "Geração de guia de pagamento",
+          "dataHoraExecucao": "2019-12-12T16:10:59.923"
+        },
+        {
+          "servico": "Auditoria",
+          "dataHoraExecucao": "2019-12-13T09:36:43.813"
+        },
+        {
+          "servico": "Emissão CRV(1ª via)",
+          "dataHoraExecucao": "2019-12-13T10:45:19.433"
+        }
+      ]
+    },
+    {
+      "numeroProcesso": "654268/2015",
+      "interessadoDocumento": "224*******5",
+      "dataHoraInicio": "2015-07-29T09:52:00",
+      "dataHoraFim": "2015-07-30T14:26:00",
+      "situacao": "Encerrado",
+      "servicos": [
+        {
+          "servico": "Trânsferência outra UF",
+          "dataHoraExecucao": "2015-07-29T09:52:46.876"
+        },
+        {
+          "servico": "Transferência de Propriedade",
+          "dataHoraExecucao": "2015-07-29T09:52:46.876"
+        },
+        {
+          "servico": "Geração de guia de pagamento",
+          "dataHoraExecucao": "2015-07-29T09:52:46.923"
+        },
+        {
+          "servico": "Vistoria",
+          "dataHoraExecucao": "2015-07-30T14:26:07.62"
+        },
+        {
+          "servico": "Auditoria",
+          "dataHoraExecucao": "2015-07-30T14:26:57.84"
+        },
+        {
+          "servico": "Emissão CRV(1ª via)",
+          "dataHoraExecucao": "2015-07-30T15:00:55.976"
+        }
+      ]
+    }
+  ],
+  "editaisCedo": [],
+  "ipvasNotificados": [],
+  "recursosInfracao": [],
+  "avisos": [],
+  "csvGnvVencido": false,
+  "origemDados": "Cadastro",
+  "hash": "52347bf63b9c8d195c594547e0f1ed46",
+  "token": "653548fc-4e3d-491f-9bdf-d91954bb4e09"
+}

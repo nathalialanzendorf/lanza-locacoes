@@ -4,6 +4,7 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
+    "lanza": "tsx src/run.ts",
     "run": "tsx src/run.ts",
     "typecheck": "tsc --noEmit",
     "sync:main": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/sync-to-main.ps1",
@@ -11,8 +12,11 @@
   },
   "devDependencies": {
     "@types/node": "^22.10.0",
+    "@types/ws": "^8.18.1",
+    "playwright-core": "^1.61.1",
     "tsx": "^4.19.2",
-    "typescript": "^5.7.2"
+    "typescript": "^5.7.2",
+    "ws": "^8.21.0"
   },
   "dependencies": {
     "@xmldom/xmldom": "^0.8.10",
