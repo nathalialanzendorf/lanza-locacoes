@@ -72,7 +72,7 @@
     }
   ],
   "dividaAtiva": [],
-  "dataAtualizacao": "2026-06-28T21:18:33",
+  "dataAtualizacao": "2026-06-29T07:25:30",
   "dataAquisicao": "2025-08-30",
   "pendente": false,
   "tipo": "Automovel",
@@ -233,5 +233,5 @@
   "csvGnvVencido": false,
   "origemDados": "Cadastro",
   "hash": "81a4e742d8da6be5c485b7110620b579",
-  "token": "642c661f-7a36-4eea-ba59-5f1f47977a22"
+  "token": "293c0516-de8d-4811-968a-3d64b4419f51"
 }

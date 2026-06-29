@@ -89,11 +89,10 @@ export async function consultarPfSinic(
   try {
     sid = await browser.novaAba(PORTAL);
   } catch (e) {
-    return {
-      ...base,
-      status: "erro",
-      observacao: `Não consegui abrir o portal da PF: ${e instanceof Error ? e.message : String(e)}`,
-    };
+    const msg = `Não consegui abrir o portal da PF: ${e instanceof Error ? e.message : String(e)}`;
+    log("");
+    log(`== PF — Antecedentes Criminais (SINIC) ==\n${msg}`);
+    return { ...base, status: "erro", observacao: msg };
   }
 
   // Fecha a aba da PF assim que o PDF é capturado (ou em erro/tempo esgotado) —

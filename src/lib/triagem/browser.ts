@@ -409,15 +409,29 @@ export class TriagemBrowser {
 
   /** Abre uma nova aba no URL e devolve o sessionId quando ela anexar. */
   async novaAba(url: string): Promise<string> {
-    const { targetId } = await this.cdp.send("Target.createTarget", { url });
-    const deadline = Date.now() + 15000;
-    while (Date.now() < deadline) {
-      for (const [sid, s] of this.sessions) {
-        if (s.targetId === targetId) return sid;
+    let ultimoErro: unknown;
+    // Até 2 tentativas: criar target logo após fechar outra aba pode falhar de
+    // forma transitória (corrida no autoAttach).
+    for (let tentativa = 0; tentativa < 2; tentativa++) {
+      try {
+        const { targetId } = await this.cdp.send("Target.createTarget", { url });
+        const deadline = Date.now() + 15000;
+        while (Date.now() < deadline) {
+          for (const [sid, s] of this.sessions) {
+            if (s.targetId === targetId) return sid;
+          }
+          if (!(await this.vivo())) break;
+          await sleep(200);
+        }
+        ultimoErro = new Error("attach não chegou em 15s");
+      } catch (e) {
+        ultimoErro = e;
       }
-      await sleep(200);
+      await sleep(800);
     }
-    throw new Error("Não consegui anexar à nova aba.");
+    throw new Error(
+      `Não consegui anexar à nova aba: ${ultimoErro instanceof Error ? ultimoErro.message : String(ultimoErro)}`,
+    );
   }
 
   async navegar(sessionId: string, url: string): Promise<void> {
