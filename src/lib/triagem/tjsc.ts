@@ -18,9 +18,11 @@ import type { DadosLocatario, ResultadoFonte } from "./tipos.js";
 
 const PORTAL = "https://certidoes.tjsc.jus.br/";
 
-// Logado quando a aba está num host *.tjsc.jus.br que NÃO é o SSO nem o gov.br,
-// e a página já tem conteúdo (passou do login).
-const LOGADO = String.raw`(/\.tjsc\.jus\.br$/.test(location.host) && !/^sso\./.test(location.host) && !/acesso\.gov\.br/.test(location.host) && document.body && document.body.innerText.replace(/\s/g,'').length > 50)`;
+// Logado quando a aba está estável num host de APP do TJSC (certidoes/app), não
+// no SSO/gov.br, e a página já tem conteúdo. Exigimos ESTABILIDADE (várias
+// leituras seguidas) porque o login gov.br passa transitoriamente por
+// certidoes.tjsc.jus.br durante os redirecionamentos OAuth (falso positivo).
+const LOGADO = String.raw`(/(certidoes|app)\.tjsc\.jus\.br$/.test(location.host) && !/^sso\./.test(location.host) && document.body && document.body.innerText.replace(/\s/g,'').length > 80)`;
 
 const agora = (): string => new Date().toISOString();
 
@@ -68,7 +70,20 @@ export async function consultarTjsc(
   log("   Não precisa preencher nada — eu cuido da requisição depois que você logar.");
   log(`(aguardando o login até ${Math.round(timeoutMs / 60000)} min)`);
 
-  const logou = await browser.esperarCondicao(sid, LOGADO, timeoutMs, 2500);
+  // Espera login ESTÁVEL: a condição precisa valer em 3 leituras seguidas (~6s)
+  // para não disparar no host transitório durante o redirect do gov.br.
+  let estavel = 0;
+  const deadline = Date.now() + timeoutMs;
+  while (Date.now() < deadline) {
+    const ok = await browser
+      .avaliar<boolean>(`!!(${LOGADO})`, sid)
+      .catch(() => false);
+    estavel = ok ? estavel + 1 : 0;
+    if (estavel >= 3) break;
+    if (!(await browser.vivo())) break;
+    await sleep(2000);
+  }
+  const logou = estavel >= 3;
   if (!logou) {
     return {
       ...base,

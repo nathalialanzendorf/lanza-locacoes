@@ -168,6 +168,32 @@ function aguardarFimTjsc(timeoutMin: number): Promise<void> {
   });
 }
 
+/**
+ * Mescla as fontes recém-consultadas com as do relatório do MESMO dia (se houver):
+ * fontes novas substituem as de mesmo `id`; as não reexecutadas são preservadas.
+ * Permite rodar só `--pf`/`--tjsc` depois sem perder o BNMP já capturado.
+ */
+function mesclarFontes(base: string, novas: ResultadoFonte[]): ResultadoFonte[] {
+  let anteriores: ResultadoFonte[] = [];
+  const arq = `${base}.json`;
+  try {
+    if (fs.existsSync(arq)) {
+      const r = JSON.parse(fs.readFileSync(arq, "utf8")) as { fontes?: ResultadoFonte[] };
+      if (Array.isArray(r.fontes)) anteriores = r.fontes;
+    }
+  } catch {
+    /* relatório anterior ilegível — ignora e usa só as novas */
+  }
+  const porId = new Map<string, ResultadoFonte>();
+  for (const f of anteriores) porId.set(f.id, f);
+  for (const f of novas) porId.set(f.id, f);
+  const ordem = ["bnmp", "pf-sinic", "tjsc"];
+  return [...porId.values()].sort(
+    (a, b) =>
+      (ordem.indexOf(a.id) + 1 || 99) - (ordem.indexOf(b.id) + 1 || 99),
+  );
+}
+
 /** Esqueleto: fontes como "pendente" (modo --sem-browser). */
 function fontesPendentes(): ResultadoFonte[] {
   const agora = new Date().toISOString();
@@ -301,6 +327,9 @@ export async function main(argv: string[]): Promise<void> {
       emailTjsc: opt(argv, "--email-resposta")?.trim() || null,
       finalidadeTjsc: opt(argv, "--finalidade")?.trim() || null,
     });
+    // Preserva fontes do mesmo dia não reexecutadas (ex.: rodar só --pf depois
+    // mantém o BNMP capturado antes).
+    fontes = mesclarFontes(caminhoBase(locatario.cpf, opt(argv, "--out")), fontes);
   }
 
   const relatorio = montarRelatorio({ locatario, lgpd, fontes });

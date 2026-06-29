@@ -18,5 +18,59 @@
     "cadastradoEm": "ISO 8601",
     "atualizadoEm": "ISO 8601"
   },
-  "triagens": []
+  "triagens": [
+    {
+      "id": "bd86a7ee-2d11-49cf-a7ba-774300219091",
+      "cadastradoEm": "2026-06-29T10:38:19.557Z",
+      "clienteId": null,
+      "cpf": "04179174901",
+      "cpfFormatado": "041.791.749-01",
+      "nome": "ANDERSON CAETANO DE SOUZA",
+      "nascimento": "08/07/1979",
+      "dataConsulta": "2026-06-29",
+      "lgpd": {
+        "baseLegal": "legitimo interesse (avaliacao de risco da locacao)",
+        "titularConsentimento": "Anderson Caetano de Souza",
+        "solicitante": "Operador Lanza",
+        "finalidade": "Triagem de locatário (antecedentes criminais / processos) para análise de risco de locação."
+      },
+      "alertaGeral": false,
+      "resumo": "Sem alertas nas fontes concluídas. Pendente (assistido/e-mail): tjsc.",
+      "fontes": [
+        {
+          "id": "bnmp",
+          "nome": "CNJ BNMP — mandados de prisão / procurados",
+          "status": "ok",
+          "alerta": false,
+          "observacao": "Nenhuma peça encontrada para \"ANDERSON CAETANO DE SOUZA\" no BNMP.",
+          "qtdAchados": 0,
+          "evidencia": null,
+          "consultadoEm": "2026-06-29T10:29:15.508Z"
+        },
+        {
+          "id": "pf-sinic",
+          "nome": "PF SINIC — certidão de antecedentes criminais (nacional)",
+          "status": "ok",
+          "alerta": false,
+          "observacao": "NADA CONSTA (sem condenação com trânsito em julgado).",
+          "qtdAchados": 0,
+          "evidencia": "relatorios\\_tmp\\triagem\\downloads\\pf-cac-04179174901-2026-06-29.pdf",
+          "consultadoEm": "2026-06-29T10:34:42.240Z"
+        },
+        {
+          "id": "tjsc",
+          "nome": "TJSC — certidão criminal estadual (eproc)",
+          "status": "assistido",
+          "alerta": false,
+          "observacao": "Login detectado, mas não consegui preencher/enviar automaticamente. Conclua a requisição da certidão Criminal na janela (Nome, CPF, e-mail e Finalidade).",
+          "qtdAchados": 0,
+          "evidencia": null,
+          "consultadoEm": "2026-06-29T10:35:30.205Z"
+        }
+      ],
+      "relatorioJson": "relatorios/triagem/04179174901-2026-06-29.json",
+      "relatorioMd": "relatorios/triagem/04179174901-2026-06-29.md",
+      "atualizadoEm": "2026-06-29T10:40:55.969Z"
+    }
+  ]
 }

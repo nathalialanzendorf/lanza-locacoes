@@ -176,12 +176,18 @@ async function esperarDevtools(): Promise<string> {
 }
 
 async function chromeVivoPort(): Promise<boolean> {
-  try {
-    const r = await fetch(`http://127.0.0.1:${PORT}/json/version`);
-    return r.ok;
-  } catch {
-    return false;
+  // Até 3 tentativas: uma falha pontual no /json/version (ex.: outra conexão CDP
+  // momentânea) não deve ser interpretada como "Chrome fechado".
+  for (let i = 0; i < 3; i++) {
+    try {
+      const r = await fetch(`http://127.0.0.1:${PORT}/json/version`);
+      if (r.ok) return true;
+    } catch {
+      /* tenta de novo */
+    }
+    if (i < 2) await sleep(400);
   }
+  return false;
 }
 
 export class TriagemBrowser {
@@ -473,10 +479,49 @@ export class TriagemBrowser {
     return (await this.avaliar<boolean>(expr, sessionId).catch(() => false)) === true;
   }
 
-  /** Digita tecla-a-tecla — bom p/ campos com máscara (CPF) ou date picker. */
+  /** Digita tecla-a-tecla (eventos sintéticos) — bom p/ máscaras simples (CPF). */
   async digitar(sessionId: string, seletor: string, texto: string): Promise<boolean> {
     const expr = `window.__triagemDigitar(${JSON.stringify(seletor)}, ${JSON.stringify(texto)})`;
     return (await this.avaliar<boolean>(expr, sessionId).catch(() => false)) === true;
+  }
+
+  /**
+   * Digita com eventos de TECLADO REAIS (CDP `Input.dispatchKeyEvent`) — único
+   * jeito de preencher componentes (date pickers Angular/PrimeNG) que ignoram o
+   * `value` setado por JS. Foca o elemento e emite keyDown/keyUp por caractere.
+   */
+  async digitarTeclado(sessionId: string, seletor: string, texto: string): Promise<boolean> {
+    const focou = await this.avaliar<boolean>(
+      `(() => { const el = document.querySelector(${JSON.stringify(seletor)}); if (!el) return false; el.scrollIntoView({ block: "center" }); el.focus(); el.click(); return true; })()`,
+      sessionId,
+    ).catch(() => false);
+    if (!focou) return false;
+    for (const ch of texto) {
+      const code = /[0-9]/.test(ch)
+        ? `Digit${ch}`
+        : ch === "/"
+          ? "Slash"
+          : /[a-zA-Z]/.test(ch)
+            ? `Key${ch.toUpperCase()}`
+            : "";
+      const vk = ch.toUpperCase().charCodeAt(0);
+      await this.cdp
+        .send(
+          "Input.dispatchKeyEvent",
+          { type: "keyDown", key: ch, code, text: ch, windowsVirtualKeyCode: vk, nativeVirtualKeyCode: vk },
+          sessionId,
+        )
+        .catch(() => {});
+      await this.cdp
+        .send(
+          "Input.dispatchKeyEvent",
+          { type: "keyUp", key: ch, code, windowsVirtualKeyCode: vk, nativeVirtualKeyCode: vk },
+          sessionId,
+        )
+        .catch(() => {});
+      await sleep(40);
+    }
+    return true;
   }
 
   /** Clica no 1º elemento cujo texto bata algum dos padrões (regex). */

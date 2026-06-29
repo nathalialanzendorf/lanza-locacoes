@@ -1,0 +1,52 @@
+{
+  "schema": "triagem-locatario/v2",
+  "geradoEm": "2026-06-29T10:40:55.960Z",
+  "locatario": {
+    "cpf": "04179174901",
+    "cpfFormatado": "041.791.749-01",
+    "nome": "ANDERSON CAETANO DE SOUZA",
+    "nascimento": "08/07/1979",
+    "maeNome": "MARIA DE FATIMA CAETANO",
+    "paiNome": "HARLEY CARLOS DE SOUZA",
+    "ufNascimento": "SC",
+    "municipioNascimento": "Imbituba"
+  },
+  "lgpd": {
+    "baseLegal": "legitimo interesse (avaliacao de risco da locacao)",
+    "titularConsentimento": "Anderson Caetano de Souza",
+    "solicitante": "Operador Lanza",
+    "finalidade": "Triagem de locatário (antecedentes criminais / processos) para análise de risco de locação."
+  },
+  "fontes": [
+    {
+      "id": "bnmp",
+      "nome": "CNJ BNMP — mandados de prisão / procurados",
+      "status": "ok",
+      "alerta": false,
+      "observacao": "Nenhuma peça encontrada para \"ANDERSON CAETANO DE SOUZA\" no BNMP.",
+      "achados": [],
+      "consultadoEm": "2026-06-29T10:29:15.508Z"
+    },
+    {
+      "id": "pf-sinic",
+      "nome": "PF SINIC — certidão de antecedentes criminais (nacional)",
+      "status": "ok",
+      "alerta": false,
+      "observacao": "NADA CONSTA (sem condenação com trânsito em julgado).",
+      "achados": [],
+      "evidencia": "relatorios\\_tmp\\triagem\\downloads\\pf-cac-04179174901-2026-06-29.pdf",
+      "consultadoEm": "2026-06-29T10:34:42.240Z"
+    },
+    {
+      "id": "tjsc",
+      "nome": "TJSC — certidão criminal estadual (eproc)",
+      "status": "assistido",
+      "alerta": false,
+      "observacao": "Login detectado, mas não consegui preencher/enviar automaticamente. Conclua a requisição da certidão Criminal na janela (Nome, CPF, e-mail e Finalidade).",
+      "achados": [],
+      "consultadoEm": "2026-06-29T10:35:30.205Z"
+    }
+  ],
+  "alertaGeral": false,
+  "resumo": "Sem alertas nas fontes concluídas. Pendente (assistido/e-mail): tjsc."
+}

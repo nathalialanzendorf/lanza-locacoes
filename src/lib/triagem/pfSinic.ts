@@ -43,8 +43,10 @@ export function classificarCac(texto: string): {
   resumo: string;
 } {
   const t = norm(texto);
-  if (/nada\s+consta/.test(t)) {
-    return { alerta: false, resumo: "NADA CONSTA (sem condenação transitada em julgado)." };
+  // Certidão limpa: "NADA CONSTA" ou "NÃO CONSTA condenação com trânsito em
+  // julgado" (após norm: "nao consta..."). Ambas significam sem condenação.
+  if (/nada\s+consta/.test(t) || /n[ãa]o\s+consta\s+condena/.test(t) || /nao\s+consta\s+condena/.test(t)) {
+    return { alerta: false, resumo: "NADA CONSTA (sem condenação com trânsito em julgado)." };
   }
   // PF não emite "consta" online: gera protocolo p/ atendimento presencial.
   if (/(protocolo|compare[cç]a|unidade da pol[ií]cia|presencial)/.test(t)) {
@@ -109,7 +111,9 @@ export async function consultarPfSinic(
     log("Preenchendo os dados do locatário na PF...");
     await browser.digitar(sid, SEL.cpf, locatario.cpf); // máscara formata os dígitos
     await browser.preencher(sid, SEL.nome, locatario.nome);
-    await browser.digitar(sid, SEL.nascimento, locatario.nascimento);
+    // O pf-calendar ignora value setado por JS — precisa de teclado real (CDP),
+    // só dígitos (o componente formata para DD/MM/AAAA).
+    await browser.digitarTeclado(sid, SEL.nascimento, locatario.nascimento.replace(/\D/g, ""));
     if (locatario.maeNome) await browser.preencher(sid, SEL.mae, locatario.maeNome);
     if (locatario.paiNome) await browser.preencher(sid, SEL.pai, locatario.paiNome);
 
