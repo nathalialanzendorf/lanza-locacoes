@@ -23,6 +23,9 @@ export interface OpcoesTriagem {
   prompt?: (msg: string) => void;
   /** Chamado antes de fechar o Chrome (ex.: aguardar Enter do operador). */
   aguardarFim?: () => Promise<void>;
+  /** TJSC: e-mail de resposta e finalidade da requisição da certidão. */
+  emailTjsc?: string | null;
+  finalidadeTjsc?: string | null;
 }
 
 export async function executarTriagem(
@@ -45,7 +48,14 @@ export async function executarTriagem(
       resultados.push(await consultarPfSinic(browser, locatario, { timeoutMs, prompt: log }));
     }
     if (opts.fontes.includes("tjsc")) {
-      resultados.push(await consultarTjsc(browser, locatario, { prompt: log }));
+      resultados.push(
+        await consultarTjsc(browser, locatario, {
+          prompt: log,
+          timeoutMs,
+          emailResposta: opts.emailTjsc,
+          finalidade: opts.finalidadeTjsc,
+        }),
+      );
     }
   } finally {
     if (opts.aguardarFim) {

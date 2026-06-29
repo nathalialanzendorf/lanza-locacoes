@@ -1,25 +1,45 @@
 /**
- * Fonte TJSC — Certidão Criminal estadual (eproc). PASSO ASSISTIDO.
+ * Fonte TJSC — Certidão Criminal estadual (eproc). Padrão gov.br (igual DETRAN).
  *
- * Exige login gov.br (prata) + credencial PJSC e a certidão volta por e-mail em
- * até 5 dias úteis — não há resultado em tempo real para capturar. Aqui apenas
- * abrimos o portal e orientamos o operador; a fonte fica como `assistido`.
+ * O ÚNICO passo manual é o **login gov.br (prata) + credencial PJSC** na janela
+ * (como no solver do DETRAN SC/RS). Depois do login, o harness:
+ *   1. detecta o retorno ao domínio `*.tjsc.jus.br`;
+ *   2. navega até Certidões → Requisição → modelo Criminal (heurístico);
+ *   3. preenche nome, CPF, e-mail de resposta e finalidade (por rótulo);
+ *   4. envia a requisição.
+ * A certidão volta por **e-mail** (até 5 dias úteis) — anexar ao caso depois.
  *
- * Ver `.cursor/tools/tjsc-certidoes/`.
+ * A sessão gov.br fica salva no perfil dedicado do Chrome (USER_DATA_DIR), então
+ * execuções seguintes reaproveitam o login. Ver `.cursor/tools/tjsc-certidoes/`.
  */
 import type { TriagemBrowser } from "./browser.js";
+import { sleep } from "./browser.js";
 import type { DadosLocatario, ResultadoFonte } from "./tipos.js";
 
 const PORTAL = "https://certidoes.tjsc.jus.br/";
 
+// Logado quando a aba está num host *.tjsc.jus.br que NÃO é o SSO nem o gov.br,
+// e a página já tem conteúdo (passou do login).
+const LOGADO = String.raw`(/\.tjsc\.jus\.br$/.test(location.host) && !/^sso\./.test(location.host) && !/acesso\.gov\.br/.test(location.host) && document.body && document.body.innerText.replace(/\s/g,'').length > 50)`;
+
 const agora = (): string => new Date().toISOString();
+
+export interface OpcoesTjsc {
+  prompt?: (msg: string) => void;
+  timeoutMs?: number;
+  emailResposta?: string | null;
+  finalidade?: string | null;
+}
 
 export async function consultarTjsc(
   browser: TriagemBrowser,
   locatario: DadosLocatario,
-  opts: { prompt?: (msg: string) => void } = {},
+  opts: OpcoesTjsc = {},
 ): Promise<ResultadoFonte> {
   const log = opts.prompt ?? ((m: string) => console.log(m));
+  const timeoutMs = opts.timeoutMs ?? 10 * 60 * 1000;
+  const email = (opts.emailResposta ?? "").trim();
+  const finalidade = (opts.finalidade ?? "Análise para locação de veículo").trim();
 
   const base: ResultadoFonte = {
     id: "tjsc",
@@ -31,8 +51,9 @@ export async function consultarTjsc(
     consultadoEm: agora(),
   };
 
+  let sid: string;
   try {
-    await browser.novaAba(PORTAL);
+    sid = await browser.novaAba(PORTAL);
   } catch (e) {
     return {
       ...base,
@@ -42,20 +63,76 @@ export async function consultarTjsc(
   }
 
   log("");
-  log("== TJSC — Certidão Criminal (eproc) — PASSO ASSISTIDO ==");
-  log("Na aba do TJSC que abriu:");
-  log("  1) entre com GOV.BR (nível prata) + credencial PJSC;");
-  log("  2) Certidões → Requisição → modelo CRIMINAL;");
-  log(`     • Nome: ${locatario.nome}`);
-  log(`     • CPF (refina/homônimos): ${locatario.cpfFormatado}`);
-  log("     • E-mail de resposta + Finalidade.");
-  log("  3) A certidão chega por E-MAIL (até 5 dias úteis). Anexe ao caso depois.");
+  log("== TJSC — Certidão Criminal (eproc) ==");
+  log(">> Na aba do TJSC, faça APENAS o LOGIN gov.br (nível prata) + credencial PJSC.");
+  log("   Não precisa preencher nada — eu cuido da requisição depois que você logar.");
+  log(`(aguardando o login até ${Math.round(timeoutMs / 60000)} min)`);
+
+  const logou = await browser.esperarCondicao(sid, LOGADO, timeoutMs, 2500);
+  if (!logou) {
+    return {
+      ...base,
+      status: "assistido",
+      consultadoEm: agora(),
+      observacao:
+        "Login gov.br não concluído no tempo de espera — conclua a requisição da certidão Criminal manualmente no portal do TJSC.",
+    };
+  }
+
+  await browser.reinjetarHook(sid);
+  await sleep(2500);
+  log("Login detectado. Mapeando a tela do TJSC...");
+  log(`[tjsc snapshot] ${await browser.snapshot(sid)}`);
+
+  // Navegação heurística até a requisição da certidão Criminal.
+  const passos: string[][] = [
+    ["Certid", "Requisi", "Antecedentes"],
+    ["Requisi", "Solicit", "Nova", "Emitir certid"],
+    ["Criminal"],
+  ];
+  for (const padroes of passos) {
+    const clk = await browser.clicarTexto(sid, padroes);
+    if (clk) log(`TJSC → naveguei para: "${clk}"`);
+    await sleep(2500);
+    await browser.reinjetarHook(sid);
+  }
+  log(`[tjsc snapshot form] ${await browser.snapshot(sid)}`);
+
+  // Preenche os campos da requisição por rótulo.
+  const fNome = await browser.preencherPorRotulo(sid, "nome", locatario.nome);
+  const fCpf = await browser.preencherPorRotulo(sid, "cpf|c\\.p\\.f", locatario.cpf);
+  const fEmail = email
+    ? await browser.preencherPorRotulo(sid, "e-?mail", email)
+    : { ok: false as const };
+  const fFinal = await browser.preencherPorRotulo(sid, "finalidad|motiv", finalidade);
+  log(
+    `TJSC preenchi → nome:${fNome.ok} cpf:${fCpf.ok} email:${fEmail.ok} finalidade:${fFinal.ok}`,
+  );
+
+  // Só envia se preencheu ao menos o nome (obrigatório) e o e-mail (quando exigido).
+  let enviado = false;
+  if (fNome.ok && (fEmail.ok || !email)) {
+    await sleep(600);
+    const btn = await browser.clicarTexto(sid, [
+      "Requisitar",
+      "Solicitar",
+      "Gerar certid",
+      "Emitir certid",
+      "Enviar",
+      "Confirmar",
+    ]);
+    if (btn) {
+      enviado = true;
+      log(`TJSC → enviei a requisição: "${btn}".`);
+    }
+  }
 
   return {
     ...base,
     status: "assistido",
     consultadoEm: agora(),
-    observacao:
-      "Solicitação manual no portal TJSC (gov.br). Resultado por e-mail em até 5 dias úteis — anexar o PDF ao caso quando chegar.",
+    observacao: enviado
+      ? `Requisição da certidão Criminal ENVIADA ao TJSC — resposta por e-mail (${email || "e-mail informado"}) em até 5 dias úteis. Conferir a caixa de entrada e anexar o PDF ao caso.`
+      : "Login detectado, mas não consegui preencher/enviar automaticamente. Conclua a requisição da certidão Criminal na janela (Nome, CPF, e-mail e Finalidade).",
   };
 }

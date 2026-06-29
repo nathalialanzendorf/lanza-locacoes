@@ -486,6 +486,29 @@ export class TriagemBrowser {
     return (await this.avaliar<string | null>(expr, sessionId).catch(() => null)) ?? null;
   }
 
+  /** Preenche o campo cujo rótulo casa o regex (forms sem id estável). */
+  async preencherPorRotulo(
+    sessionId: string,
+    rotuloRegex: string,
+    valor: string,
+  ): Promise<{ ok: boolean; rotulo?: string; valor?: string }> {
+    const expr = `window.__triagemPreencherPorRotulo(${JSON.stringify(rotuloRegex)}, ${JSON.stringify(valor)})`;
+    return (
+      (await this.avaliar<{ ok: boolean; rotulo?: string; valor?: string }>(expr, sessionId).catch(
+        () => ({ ok: false }),
+      )) ?? { ok: false }
+    );
+  }
+
+  /** Snapshot leve da tela (textos clicáveis + campos) para diagnóstico. */
+  async snapshot(sessionId: string): Promise<string> {
+    return (
+      (await this.avaliar<string>("window.__triagemSnapshot()", sessionId).catch(
+        () => "{}",
+      )) ?? "{}"
+    );
+  }
+
   /** Espera até a condição (expr JS booleana) ser verdadeira, ou timeout. */
   async esperarCondicao(
     sessionId: string,

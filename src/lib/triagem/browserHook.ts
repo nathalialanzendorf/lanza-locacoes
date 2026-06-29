@@ -132,6 +132,84 @@ export const TRIAGEM_BROWSER_HOOK = String.raw`
     } catch (e) { return null; }
   };
 
+  // Preenche o input cujo RÓTULO (label/placeholder/aria/formcontrolname/texto
+  // do container) casa com um regex — robusto p/ forms sem id estável (TJSC).
+  window.__triagemPreencherPorRotulo = function (rotuloRe, valor) {
+    try {
+      var re = new RegExp(rotuloRe, "i");
+      var visivel = function (el) { return !!(el.offsetParent || el.getClientRects().length); };
+      var inputs = Array.prototype.slice
+        .call(document.querySelectorAll("input,textarea"))
+        .filter(function (i) {
+          var t = (i.type || "text").toLowerCase();
+          return t !== "hidden" && t !== "checkbox" && t !== "radio" && visivel(i);
+        });
+      for (var i = 0; i < inputs.length; i++) {
+        var el = inputs[i];
+        var rotulo = "";
+        if (el.id) {
+          var lbl = document.querySelector('label[for="' + el.id + '"]');
+          if (lbl) rotulo += " " + (lbl.innerText || "");
+        }
+        var cont = el.closest("div,span,p-field,mat-form-field,.field,.form-group");
+        if (cont) {
+          var l2 = cont.querySelector("label");
+          if (l2) rotulo += " " + (l2.innerText || "");
+        }
+        rotulo += " " + (el.getAttribute("placeholder") || "") +
+          " " + (el.getAttribute("aria-label") || "") +
+          " " + (el.getAttribute("formcontrolname") || "") +
+          " " + (el.name || "");
+        if (re.test(rotulo)) {
+          el.focus();
+          setNativeValue(el, valor);
+          el.dispatchEvent(new Event("input", { bubbles: true }));
+          el.dispatchEvent(new Event("change", { bubbles: true }));
+          el.dispatchEvent(new Event("blur", { bubbles: true }));
+          return { ok: true, rotulo: rotulo.trim().slice(0, 60), valor: el.value };
+        }
+      }
+      return { ok: false };
+    } catch (e) { return { ok: false, erro: String(e) }; }
+  };
+
+  // Snapshot leve da tela (diagnóstico): textos clicáveis + campos visíveis.
+  window.__triagemSnapshot = function () {
+    try {
+      var visivel = function (el) { return !!(el.offsetParent || el.getClientRects().length); };
+      var seen = {};
+      var links = [];
+      Array.prototype.slice
+        .call(document.querySelectorAll("a,button,[role=button],[role=menuitem],[role=tab],li"))
+        .forEach(function (e) {
+          if (!visivel(e)) return;
+          var t = (e.innerText || e.textContent || "").trim().replace(/\s+/g, " ");
+          if (t && t.length <= 45 && !seen[t]) { seen[t] = 1; links.push(t); }
+        });
+      var inputs = Array.prototype.slice
+        .call(document.querySelectorAll("input,textarea,select,mat-select,p-dropdown,p-calendar,pf-calendar"))
+        .filter(visivel)
+        .map(function (i) {
+          return {
+            tag: i.tagName,
+            type: i.getAttribute("type"),
+            id: i.id || null,
+            name: i.getAttribute("name"),
+            fcn: i.getAttribute("formcontrolname"),
+            ph: i.getAttribute("placeholder"),
+            aria: i.getAttribute("aria-label"),
+          };
+        });
+      return JSON.stringify({
+        host: location.host,
+        href: location.href,
+        title: document.title,
+        links: links.slice(0, 70),
+        inputs: inputs.slice(0, 45),
+      });
+    } catch (e) { return JSON.stringify({ erro: String(e) }); }
+  };
+
   window.__triagemHost = function () { return location.host; };
 })();
 `;

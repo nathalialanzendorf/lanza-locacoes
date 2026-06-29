@@ -43,6 +43,8 @@ const HELP = `triagem-locatario --cpf CPF --nome "NOME" --nascimento DD/MM/AAAA 
     --pai "NOME"               Nome do pai (filiação)
     --uf-nascimento UF         UF de nascimento (ex.: SC)
     --municipio-nascimento M   Município de nascimento (ex.: Imbituba)
+    --email-resposta EMAIL     TJSC: e-mail que recebe a certidão (requisição)
+    --finalidade "TEXTO"       TJSC: finalidade da requisição (default locação)
     --titular "NOME"           Quem consentiu (default: o próprio locatário)
     --solicitante "NOME"       Operador que faz a triagem
     --timeout-min N            Minutos de espera por fonte (default 6)
@@ -296,6 +298,8 @@ export async function main(argv: string[]): Promise<void> {
       timeoutMin,
       prompt: (m) => console.log(m),
       aguardarFim: precisaEnter ? () => aguardarFimTjsc(timeoutMin) : undefined,
+      emailTjsc: opt(argv, "--email-resposta")?.trim() || null,
+      finalidadeTjsc: opt(argv, "--finalidade")?.trim() || null,
     });
   }
 
