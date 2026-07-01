@@ -1,0 +1,7 @@
+Manutenção em aberto — {PLACA}
+
+Olá, {NOME}! Há pendência de *manutenção* (responsabilidade do locatário) referente ao veículo locado.
+
+Valor total pendente: *R$ {VALOR}*
+
+Regularize para evitar acúmulo no acerto. Responda neste canal se precisar de detalhes.

@@ -1,0 +1,7 @@
+Renegociação em aberto — {PLACA}
+
+Olá, {NOME}! Identificamos parcela(s) de *renegociação de débitos* em aberto referente ao veículo locado.
+
+Valor total pendente: *R$ {VALOR}*
+
+Regularize o pagamento conforme combinado. Em caso de dúvida, responda neste canal.

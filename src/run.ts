@@ -36,7 +36,7 @@ Comandos:
   cadastro-contrato gerar | sincronizar | encerrar | excluir  (ver --help)
   importar-contratos [RAIZ] [--dry-run]   (varre pastas DD.MM.AAAA - Nome)
   relatorio-encerramento-contrato <pasta> --encerramento DD/MM/AAAA | <entrada.json>
-  relatorio-cobrancas <semanal|estacionamento|pedagio|multa> --placa PLACA [--dia N] [--auto AUTO]
+  relatorio-cobrancas [tipo-lote|tipo-placa] [--placa PLACA] [--tipo TIPO] [--listar] …
   gravar-cliente-despesa <lote.json> | gravar-cliente-despesa confirmar <autoInfracao> [condutorId]
   atribuir-condutores [--placa PLACA] [--dry-run] [--prazo-dias N] [--incluir-pedagios]  (concilia condutor por vigência; sem contrato → Não identificado)
   sync-detran-sc [--placa PLACA] [--dry-run] [--ticket UUID] [--json resposta.json]  (Infrações, IPVA e Licenciamento DETRAN SC, ufRegistro="SC")

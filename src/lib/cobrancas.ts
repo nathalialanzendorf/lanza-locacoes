@@ -19,7 +19,13 @@ export const TEMPLATES_DIR = path.join(REPO_ROOT, "templates", "cobrancas");
 /** Onde os textos gerados são salvos (`relatorios/_tmp/cobrancas/`). */
 export const COBRANCAS_OUT_DIR = RELATORIOS_COBRANCAS_DIR;
 
-export type TipoCobranca = "semanal" | "estacionamento" | "pedagio" | "multa";
+export type TipoCobranca =
+  | "semanal"
+  | "estacionamento"
+  | "pedagio"
+  | "multa"
+  | "renegociacao"
+  | "manutencao";
 
 /** Dia do escalonamento semanal → arquivo de template. */
 export const TEMPLATE_SEMANAL: Record<number, string> = {
@@ -32,6 +38,8 @@ export const TEMPLATE_SEMANAL: Record<number, string> = {
 const TEMPLATE_ESTACIONAMENTO = "estacionamento-rotativo.txt";
 const TEMPLATE_PEDAGIO = "pedagio.txt";
 const TEMPLATE_MULTA = "multa.txt";
+const TEMPLATE_RENEGOCIACAO = "renegociacao.txt";
+const TEMPLATE_MANUTENCAO = "manutencao.txt";
 
 /** Dados estruturados da cobrança (alimenta o JSON sidecar e o canvas). */
 export type CobrancaDados = {
@@ -54,6 +62,8 @@ export type CobrancaDados = {
   valor?: number;
   /** multa: descrição da infração. */
   descricao?: string;
+  /** renegociacao / manutencao: valor total pendente. */
+  valorTotal?: number;
 };
 
 export type ResultadoCobranca = {
@@ -277,6 +287,68 @@ export function gerarPedagio(
     nomeArquivo: `cobranca-pedagio-${slug(placa)}-${dataArquivo()}.txt`,
     dados: { tipo: "pedagio", placa, marcaModelo: marcaModeloDe(v), nome },
   };
+}
+
+function gerarCobrancaValorTotal(
+  placaRaw: string,
+  tipo: "renegociacao" | "manutencao",
+  template: string,
+  prefixoArquivo: string,
+  valorTotal: number,
+  opts?: { nome?: string },
+): ResultadoCobranca {
+  const placa = formatPlacaHyphen(placaRaw);
+  const v = buscarVeiculo(placa);
+  assertVeiculoLocacao(placa, v);
+  const nome = opts?.nome ? primeiroNome(opts.nome) : nomePorPlaca(placa);
+  const tpl = lerTemplate(template);
+  const texto = montarTexto(tpl, {
+    PLACA: placa,
+    NOME: nome,
+    VALOR: brl(valorTotal),
+  });
+  return {
+    titulo: texto.split("\n")[0] ?? "",
+    texto,
+    nomeArquivo: `cobranca-${prefixoArquivo}-${slug(placa)}-${dataArquivo()}.txt`,
+    dados: {
+      tipo,
+      placa,
+      marcaModelo: marcaModeloDe(v),
+      nome,
+      valorTotal,
+    },
+  };
+}
+
+export function gerarRenegociacao(
+  placaRaw: string,
+  valorTotal: number,
+  opts?: { nome?: string },
+): ResultadoCobranca {
+  return gerarCobrancaValorTotal(
+    placaRaw,
+    "renegociacao",
+    TEMPLATE_RENEGOCIACAO,
+    "renegociacao",
+    valorTotal,
+    opts,
+  );
+}
+
+export function gerarManutencao(
+  placaRaw: string,
+  valorTotal: number,
+  opts?: { nome?: string },
+): ResultadoCobranca {
+  return gerarCobrancaValorTotal(
+    placaRaw,
+    "manutencao",
+    TEMPLATE_MANUTENCAO,
+    "manutencao",
+    valorTotal,
+    opts,
+  );
 }
 
 function infracoesEmAberto(

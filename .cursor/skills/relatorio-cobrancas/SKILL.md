@@ -1,12 +1,11 @@
 ---
 name: relatorio-cobrancas
 description: >-
-  Gera mensagens de cobrança prontas para WhatsApp (com ícones e formatação) a
-  partir de templates em templates/cobrancas/ e dados de database/cliente-despesas.json
-  e database/veiculos.json. Cobre multa (infração de trânsito), pedágio, estacionamento
-  rotativo e pagamento semanal (escalonamento dia 1 lembrete, dia 2 atraso/bloqueio,
-  dia 3 bloqueio programado, dia 4 regularizado). Use para cobrança WhatsApp, cobrar
-  multa/pedágio/rotativo, lembrete/atraso/bloqueio de pagamento semanal.
+  Gera mensagens de cobrança prontas para WhatsApp a partir de templates e
+  database/cliente-despesas.json. Action /relatorio-cobrancas com parâmetros
+  tipo e escopo (cliente, veículo/placa ou todos). Tipos: pagamento-semanal,
+  renegociacao, infracoes, pedagio, estacionamento-rotativo, manutencao.
+  Use para cobrança WhatsApp, multa, pedágio, rotativo e pagamento semanal.
 ---
 
 # Relatório de cobranças (WhatsApp)
@@ -25,6 +24,55 @@ Cada mensagem tem um **modelo próprio** em `templates/cobrancas/`. O CLI lê o 
 | 🅿️ **estacionamento** | `estacionamento-rotativo.txt` | placa (texto fixo SigaPay Área Azul) |
 | 🛣️ **pedagio** | `pedagio.txt` | placa (texto fixo CCR Via Costeira) |
 | 🚦 **multa** | `multa.txt` | infrações em aberto (`cliente-despesas.json`) |
+| 🤝 **renegociacao** | `renegociacao.txt` | soma das parcelas em aberto |
+| 🔧 **manutencao** | `manutencao.txt` | soma das manutenções em aberto |
+
+## Action `/relatorio-cobrancas`
+
+Command em `.cursor/commands/relatorio-cobrancas.md`. Três parâmetros na invocação:
+
+### Parâmetros (0 a 3 — omitir = **todos**)
+
+| Parâmetro | Omitir significa |
+|---|---|
+| **tipo-despesa** | todos os tipos |
+| **cliente** | todos os clientes |
+| **veículo** | todos os veículos |
+
+Pode informar **1, 2, 3 ou nenhum** parâmetro. Cliente e veículo são mutuamente exclusivos.
+
+Exemplos:
+
+```
+/relatorio-cobrancas
+/relatorio-cobrancas pagamento-semanal
+/relatorio-cobrancas infracoes Daniel Damasceno
+/relatorio-cobrancas pedagio RAH-4F54
+/relatorio-cobrancas Daniel Damasceno
+```
+
+CLI: tipo → arg/`--tipo`; cliente → `--cliente`; veículo → `--placa`.
+
+| Tipo | Alvos elegíveis |
+|---|---|
+| **pagamento-semanal** | `Locação semanal` + `ATRASADO` + em aberto (frota/cliente ativos) |
+| **renegociacao** | categoria `Renegociação` em aberto |
+| **infracoes** | infrações em aberto (não pagas, não quitadas DETRAN) |
+| **pedagio** | categoria `Pedágio` em aberto |
+| **estacionamento-rotativo** | categoria `Estacionamento` em aberto |
+| **manutencao** | categoria `Manutenção` em aberto (valor > 0) |
+
+Implementação: `src/lib/cobrancasAlvos.ts` (filtros) + `src/lib/cobrancasLote.ts` (geração).
+
+```bash
+npx tsx src/run.ts relatorio-cobrancas --listar
+npx tsx src/run.ts relatorio-cobrancas pagamento-semanal --cliente "Daniel Damasceno"
+npx tsx src/run.ts relatorio-cobrancas --placa RAH-4F54
+```
+
+**pagamento-semanal** gera, por alvo: tabela **semanal-atraso** (padrão obrigatório) + WhatsApp (`--dia` padrão **3**). Demais tipos: uma mensagem por placa (infrações: uma por multa).
+
+Grava `.txt`, sidecars JSON e `dados-lote-{tipo}-{data}.json` em `relatorios/_tmp/cobrancas/`.
 
 ## Escalonamento do pagamento semanal
 
@@ -119,7 +167,8 @@ Além dos `.txt`, cada execução grava um **JSON consolidado** `dados-{tipo}-{p
 
 **Saudação com nome:** os textos usam "Olá, {NOME}!". O nome (primeiro nome) é resolvido automaticamente — multa pelo `condutorId` da despesa (ou inferido pela data via contrato); semanal/estacionamento/pedágio pelo **contrato ativo hoje** da placa. Sem contrato/condutor, vira "Olá!". Use `--nome` para forçar.
 
-- **multa:** gera **uma mensagem por infração em aberto** da placa (categoria `Infração`, não paga, não quitada no DETRAN). Ignora lançamentos espelhados do Rastreame (`origem: rastreame` / auto `RAST-…`). Use `--auto` para uma multa específica.
+- **multa / infracoes:** gera **uma mensagem por infração em aberto** da placa (categoria `Infração`, não paga, não quitada no DETRAN). Ignora lançamentos espelhados do Rastreame (`origem: rastreame` / auto `RAST-…`). Use `--auto` para uma multa específica (modo por placa).
+- **renegociacao / manutencao:** valor total = soma de `valorMulta` das despesas em aberto da placa.
 - **estacionamento / pedagio:** valor/pontos no texto são **fixos** (aviso do CTB), não vêm do banco — só precisam da placa.
 
 ## Ao perguntar o veículo
