@@ -101,6 +101,14 @@ export type ContratoRegistro = {
   contratoAssinadoStorageKey?: string | null;
   /** Nome original do ficheiro do contrato assinado. */
   contratoAssinadoNome?: string | null;
+  /** Blob pathname — última versão Word gerada. */
+  documentoDocxStorageKey?: string | null;
+  /** Blob pathname — última versão PDF gerada. */
+  documentoPdfStorageKey?: string | null;
+  /** ISO — quando Word/PDF foram gerados pela última vez. */
+  documentoGeradoEm?: string | null;
+  /** Nome base do documento gerado (sem extensão). */
+  documentoGeradoNome?: string | null;
   /**
    * Acordo operacional: vencimentos com data ≤ este valor não entram em juros/multa
    * nem na base de bloqueio do veículo (DD/MM/AAAA). Só vencimentos **após** esta data.
@@ -824,6 +832,10 @@ export type AtualizarContratoDbPatch = Partial<
     | "valorCaucao"
     | "contratoAssinadoStorageKey"
     | "contratoAssinadoNome"
+    | "documentoDocxStorageKey"
+    | "documentoPdfStorageKey"
+    | "documentoGeradoEm"
+    | "documentoGeradoNome"
   >
 >;
 

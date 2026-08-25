@@ -94,6 +94,7 @@ export {
   deleteContratoFromSql,
   queryContratosFromSql,
   hasContratoAssinadoColumns,
+  hasDocumentoGeradoColumns,
   type ContratosSqlFilter,
   loadLocacoesFromSql,
   saveLocacoesToSql,

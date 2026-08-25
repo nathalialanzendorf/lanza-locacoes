@@ -372,6 +372,10 @@ function buildClienteRowFromSql(
       telefone: row.telefone ?? undefined,
       email: row.email ?? undefined,
       cnhArquivo: row.cnh_arquivo ?? undefined,
+      cnhStorageKey: row.cnh_storage_key ?? undefined,
+      cnhDocumentoNome: row.cnh_documento_nome ?? undefined,
+      comprovanteStorageKey: row.comprovante_storage_key ?? undefined,
+      comprovanteDocumentoNome: row.comprovante_documento_nome ?? undefined,
       pastaContratoOrigem: row.pasta_contrato_origem ?? undefined,
       origemImportacao: row.origem_importacao ?? undefined,
       rastreameMotoristaKey: row.rastreame_motorista_key ?? undefined,
@@ -782,5 +786,28 @@ export async function upsertClienteToSql(c: Record<string, unknown>): Promise<vo
         end.uf ?? null,
       ],
     );
+  }
+
+  if (c.cnhStorageKey != null || c.cnhDocumentoNome != null || c.comprovanteStorageKey != null || c.comprovanteDocumentoNome != null) {
+    try {
+      await pgWriteQuery(
+        `UPDATE lanza.clientes SET
+          cnh_storage_key = COALESCE($2, cnh_storage_key),
+          cnh_documento_nome = COALESCE($3, cnh_documento_nome),
+          comprovante_storage_key = COALESCE($4, comprovante_storage_key),
+          comprovante_documento_nome = COALESCE($5, comprovante_documento_nome),
+          atualizado_em = now()
+        WHERE id = $1`,
+        [
+          id,
+          c.cnhStorageKey != null ? String(c.cnhStorageKey) : null,
+          c.cnhDocumentoNome != null ? String(c.cnhDocumentoNome) : null,
+          c.comprovanteStorageKey != null ? String(c.comprovanteStorageKey) : null,
+          c.comprovanteDocumentoNome != null ? String(c.comprovanteDocumentoNome) : null,
+        ],
+      );
+    } catch {
+      /* migration 027 opcional */
+    }
   }
 }

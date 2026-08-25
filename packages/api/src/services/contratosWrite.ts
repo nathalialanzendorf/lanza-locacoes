@@ -21,7 +21,7 @@ import {
   type MontarContratoDbInput,
   type MotivoEncerramento,
 } from "../lib-imports.js";
-import { hasContratoAssinadoColumns } from "@lanza/db";
+import { hasContratoAssinadoColumns, hasDocumentoGeradoColumns } from "@lanza/db";
 import { HttpError } from "../http.js";
 import * as contratosService from "./contratos.js";
 import * as documentos from "./documentos.js";
@@ -283,7 +283,62 @@ export type GerarDocumentoContratoResult = {
   pdf: string | null;
   cnh: string | null;
   clienteNome: string;
+  documentoDocxStorageKey?: string | null;
+  documentoPdfStorageKey?: string | null;
+  documentoGeradoEm?: string | null;
 };
+
+async function persistDocumentoGeradoContrato(
+  contratoId: string,
+  gerado: Omit<GerarDocumentoContratoResult, "documentoDocxStorageKey" | "documentoPdfStorageKey" | "documentoGeradoEm">,
+): Promise<Pick<GerarDocumentoContratoResult, "documentoDocxStorageKey" | "documentoPdfStorageKey" | "documentoGeradoEm">> {
+  if (!(await hasDocumentoGeradoColumns())) {
+    throw new HttpError(
+      503,
+      "Armazenamento de documento gerado indisponível — execute a migration 027_cliente_contrato_documentos_storage.sql.",
+    );
+  }
+  if (!fs.existsSync(gerado.docx)) {
+    throw new HttpError(500, "Falha ao gerar Word do contrato.");
+  }
+
+  const docxBuf = fs.readFileSync(gerado.docx);
+  const docxStored = await documentos.enviarDocumentoBinario({
+    pathname: `contratos/${contratoId.trim()}/gerado.docx`,
+    conteudo: docxBuf,
+    contentType: "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+    tipo: "contrato-gerado-docx",
+  });
+
+  let pdfStored: { pathname: string } | null = null;
+  if (gerado.pdf && fs.existsSync(gerado.pdf)) {
+    pdfStored = await documentos.enviarDocumentoBinario({
+      pathname: `contratos/${contratoId.trim()}/gerado.pdf`,
+      conteudo: fs.readFileSync(gerado.pdf),
+      contentType: "application/pdf",
+      tipo: "contrato-gerado-pdf",
+    });
+  }
+
+  const geradoEm = new Date().toISOString();
+  const geradoNome = nomeArquivoContratoComExtensao(
+    gerado.clienteNome || "Cliente",
+    "docx",
+  ).replace(/\.docx$/i, "");
+
+  await atualizarContratoDbAsync(contratoId, {
+    documentoDocxStorageKey: docxStored.pathname,
+    documentoPdfStorageKey: pdfStored?.pathname ?? null,
+    documentoGeradoEm: geradoEm,
+    documentoGeradoNome: geradoNome,
+  });
+
+  return {
+    documentoDocxStorageKey: docxStored.pathname,
+    documentoPdfStorageKey: pdfStored?.pathname ?? null,
+    documentoGeradoEm: geradoEm,
+  };
+}
 
 /** Gera Word/PDF a partir do registro já gravado no banco. */
 export async function gerarDocumentoContrato(contratoId: string): Promise<GerarDocumentoContratoResult> {
@@ -298,7 +353,7 @@ export async function gerarDocumentoContrato(contratoId: string): Promise<GerarD
       gerado.pdf = pdfPath;
     }
   }
-  return {
+  const base: GerarDocumentoContratoResult = {
     contratoId: reg.id,
     pasta: gerado.pasta,
     docx: gerado.docx,
@@ -306,6 +361,48 @@ export async function gerarDocumentoContrato(contratoId: string): Promise<GerarD
     cnh: gerado.cnh,
     clienteNome: reg.clienteNome?.trim() || dados.cliente?.nome?.trim() || "",
   };
+  const stored = await persistDocumentoGeradoContrato(reg.id, base);
+  return { ...base, ...stored };
+}
+
+export async function downloadDocumentoGeradoContrato(
+  contratoId: string,
+  formato: "docx" | "pdf",
+): Promise<DocumentoDownload> {
+  const contrato = await contratosService.obterContratoAsync(contratoId.trim());
+  if (!contrato) throw new HttpError(404, "Contrato não encontrado");
+
+  const key =
+    formato === "pdf"
+      ? contrato.documentoPdfStorageKey?.trim()
+      : contrato.documentoDocxStorageKey?.trim();
+  if (!key) {
+    throw new HttpError(
+      404,
+      formato === "pdf"
+        ? "PDF ainda não gerado — use «Gerar nova versão» primeiro."
+        : "Word ainda não gerado — use «Gerar nova versão» primeiro.",
+    );
+  }
+
+  const buf = await documentos.lerDocumentoBytes(key);
+  if (!buf?.length) {
+    throw new HttpError(404, "Arquivo do contrato não encontrado no armazenamento.");
+  }
+
+  const blob = await documentos.obterDocumento(key);
+  const nomeBase =
+    contrato.documentoGeradoNome?.trim() ||
+    contrato.clienteNome?.trim() ||
+    "Contrato";
+  const filename = nomeArquivoContratoComExtensao(nomeBase.replace(/^Contrato\s*-\s*/i, ""), formato);
+  const contentType =
+    formato === "pdf"
+      ? "application/pdf"
+      : blob?.contentType ??
+        "application/vnd.openxmlformats-officedocument.wordprocessingml.document";
+
+  return { buffer: buf, filename, contentType };
 }
 
 export type DocumentoDownload = {

@@ -109,6 +109,8 @@ export async function enviarDocumentoBinario(input: {
   conteudo: Buffer;
   contentType?: string;
   tipo?: string;
+  clienteId?: string;
+  placa?: string;
 }): Promise<StoredBlob> {
   if (!isStorageActive()) {
     throw new HttpError(
@@ -131,6 +133,8 @@ export async function enviarDocumentoBinario(input: {
     nome: path.basename(stored.pathname),
     mime: stored.contentType,
     bytes: stored.size,
+    clienteId: input.clienteId,
+    placa: input.placa,
   });
   return stored;
 }

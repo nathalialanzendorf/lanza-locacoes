@@ -2,15 +2,19 @@ import type { ClienteImportado, ClientePatch } from "../lib-imports.js";
 import {
   badRequest,
   compileRoute,
+  contentDispositionAttachment,
   handleServiceError,
+  HttpError,
   json,
   notFound,
   parseAtivoQuery,
+  readBodyBuffer,
   readJsonBody,
   routeAsync,
   type RouteDef,
 } from "../http.js";
 import * as clientesService from "../services/clientes.js";
+import * as clienteDocumentos from "../services/clienteDocumentos.js";
 
 type AtualizarClienteBody = ClientePatch;
 
@@ -77,6 +81,53 @@ export function registerClientesRoutes(routes: RouteDef[]): void {
       try {
         const data = await clientesService.removerClienteAsync(ctx.params.id);
         json(ctx.res, 200, { data });
+      } catch (err) {
+        handleServiceError(ctx, err);
+      }
+    }),
+  });
+
+  const docUpload = compileRoute("/api/clientes/:id/documentos/:tipo");
+  routes.push({
+    method: "PUT",
+    pattern: docUpload.regex,
+    paramNames: docUpload.paramNames,
+    handler: routeAsync(async (ctx) => {
+      const filename =
+        ctx.query.get("filename")?.trim() ||
+        String(ctx.req.headers["x-filename"] ?? "").trim() ||
+        "documento.pdf";
+      const contentType = String(ctx.req.headers["content-type"] ?? "").trim() || undefined;
+      const buffer = await readBodyBuffer(ctx.req);
+      if (!buffer.length) throw new HttpError(400, "Corpo do arquivo vazio");
+      try {
+        const data = await clienteDocumentos.uploadClienteDocumento(
+          ctx.params.id,
+          ctx.params.tipo,
+          buffer,
+          { nomeArquivo: filename, contentType },
+        );
+        json(ctx.res, 200, { data });
+      } catch (err) {
+        handleServiceError(ctx, err);
+      }
+    }),
+  });
+
+  routes.push({
+    method: "GET",
+    pattern: docUpload.regex,
+    paramNames: docUpload.paramNames,
+    handler: routeAsync(async (ctx) => {
+      try {
+        const file = await clienteDocumentos.downloadClienteDocumento(
+          ctx.params.id,
+          ctx.params.tipo,
+        );
+        ctx.res.statusCode = 200;
+        ctx.res.setHeader("Content-Type", file.contentType);
+        ctx.res.setHeader("Content-Disposition", contentDispositionAttachment(file.filename));
+        ctx.res.end(file.buffer);
       } catch (err) {
         handleServiceError(ctx, err);
       }

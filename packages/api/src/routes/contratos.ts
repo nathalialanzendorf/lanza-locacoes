@@ -146,8 +146,8 @@ export function registerContratosRoutes(routes: RouteDef[]): void {
         const gerado = await contratosWrite.gerarDocumentoContrato(ctx.params.id);
         const download = ctx.query.get("download")?.trim().toLowerCase();
         if (download === "docx" || download === "pdf") {
-          const file = contratosWrite.resolverDownloadDocumentoContrato(
-            gerado,
+          const file = await contratosWrite.downloadDocumentoGeradoContrato(
+            ctx.params.id,
             download,
           );
           ctx.res.statusCode = 200;
@@ -157,6 +157,31 @@ export function registerContratosRoutes(routes: RouteDef[]): void {
           return;
         }
         json(ctx.res, 200, { data: gerado });
+      } catch (err) {
+        handleServiceError(ctx, err);
+      }
+    }),
+  });
+
+  const documentoGerado = compileRoute("/api/contratos/:id/documento-gerado");
+  routes.push({
+    method: "GET",
+    pattern: documentoGerado.regex,
+    paramNames: documentoGerado.paramNames,
+    handler: routeAsync(async (ctx) => {
+      try {
+        const formatoRaw = ctx.query.get("formato")?.trim().toLowerCase();
+        if (formatoRaw !== "docx" && formatoRaw !== "pdf") {
+          return badRequest(ctx, 'Query "formato" inválida — use docx ou pdf');
+        }
+        const file = await contratosWrite.downloadDocumentoGeradoContrato(
+          ctx.params.id,
+          formatoRaw,
+        );
+        ctx.res.statusCode = 200;
+        ctx.res.setHeader("Content-Type", file.contentType);
+        ctx.res.setHeader("Content-Disposition", contentDispositionAttachment(file.filename));
+        ctx.res.end(file.buffer);
       } catch (err) {
         handleServiceError(ctx, err);
       }

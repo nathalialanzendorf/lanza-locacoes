@@ -40,6 +40,37 @@ const PLACA_MAP_TTL_MS = 5 * 60 * 1000;
 
 let contratoAssinadoColumnsCache: boolean | null = null;
 let horaInicioColumnCache: boolean | null = null;
+let documentoGeradoColumnsCache: boolean | null = null;
+let clienteDocumentoColumnsCache: boolean | null = null;
+
+/** Colunas documento gerado (migration 027) — opcionais até a migration rodar. */
+export async function hasDocumentoGeradoColumns(): Promise<boolean> {
+  if (documentoGeradoColumnsCache === true) return true;
+  const r = await pgQuery<{ exists: boolean }>(
+    `SELECT EXISTS (
+       SELECT 1 FROM information_schema.columns
+       WHERE table_schema = 'lanza' AND table_name = 'contratos'
+         AND column_name = 'documento_docx_storage_key'
+     ) AS exists`,
+  );
+  const exists = r.rows[0]?.exists === true;
+  if (exists) documentoGeradoColumnsCache = true;
+  return exists;
+}
+
+export async function hasClienteDocumentoColumns(): Promise<boolean> {
+  if (clienteDocumentoColumnsCache === true) return true;
+  const r = await pgQuery<{ exists: boolean }>(
+    `SELECT EXISTS (
+       SELECT 1 FROM information_schema.columns
+       WHERE table_schema = 'lanza' AND table_name = 'clientes'
+         AND column_name = 'cnh_storage_key'
+     ) AS exists`,
+  );
+  const exists = r.rows[0]?.exists === true;
+  if (exists) clienteDocumentoColumnsCache = true;
+  return exists;
+}
 
 /** Colunas de upload de contrato assinado (migration 017) — opcionais até a migration rodar. */
 export async function hasContratoAssinadoColumns(): Promise<boolean> {
@@ -134,6 +165,10 @@ function mapContratoRow(
     valorCaucao: Number(row.valor_caucao ?? 0),
     contratoAssinadoStorageKey: asText(row.contrato_assinado_storage_key),
     contratoAssinadoNome: asText(row.contrato_assinado_nome),
+    documentoDocxStorageKey: asText(row.documento_docx_storage_key),
+    documentoPdfStorageKey: asText(row.documento_pdf_storage_key),
+    documentoGeradoEm: rowIso(row.documento_gerado_em),
+    documentoGeradoNome: asText(row.documento_gerado_nome),
     cadastradoEm: rowIso(row.cadastrado_em),
     atualizadoEm: rowIso(row.atualizado_em),
     cliente: cs
@@ -466,6 +501,25 @@ async function upsertContratoRowToSql(
         vei ? asText(vei.fipeValor) : null,
       ],
     );
+
+    if (await hasDocumentoGeradoColumns()) {
+      const docxKey = asText(c.documentoDocxStorageKey);
+      const pdfKey = asText(c.documentoPdfStorageKey);
+      const geradoEm = parseIso(asText(c.documentoGeradoEm));
+      const geradoNome = asText(c.documentoGeradoNome);
+      if (docxKey || pdfKey || geradoEm || geradoNome) {
+        await pgQuery(
+          `UPDATE lanza.contratos SET
+            documento_docx_storage_key = COALESCE($2, documento_docx_storage_key),
+            documento_pdf_storage_key = COALESCE($3, documento_pdf_storage_key),
+            documento_gerado_em = COALESCE($4::timestamptz, documento_gerado_em),
+            documento_gerado_nome = COALESCE($5, documento_gerado_nome),
+            atualizado_em = now()
+          WHERE id = $1`,
+          [id, docxKey, pdfKey, geradoEm, geradoNome],
+        );
+      }
+    }
 }
 
 /** Grava ou atualiza um único contrato no Postgres (sem reescrever toda a tabela). */

@@ -275,6 +275,10 @@ export type ClientePatch = Partial<
     | "ativo"
     | "origemImportacao"
     | "analiseCadastro"
+    | "cnhStorageKey"
+    | "cnhDocumentoNome"
+    | "comprovanteStorageKey"
+    | "comprovanteDocumentoNome"
   >
 >;
 
