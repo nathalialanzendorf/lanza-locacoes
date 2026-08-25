@@ -3,7 +3,7 @@ import {
   cepValido,
   consultarViaCep,
   formatarCep,
-} from "../../../src/lib/viaCep.js";
+} from "../lib-imports.js";
 
 export async function consultarCep(cep: string) {
   if (!cepValido(cep)) {

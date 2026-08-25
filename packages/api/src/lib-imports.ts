@@ -732,3 +732,11 @@ export {
   type LancarSemanalRastreameOpts,
   type LancarSemanalRastreameResult,
 } from "../../../src/cli/rastreameLancarSemanal.js";
+
+export {
+  cepDigitos,
+  cepValido,
+  consultarViaCep,
+  formatarCep,
+  type ViaCepResult,
+} from "../../../src/lib/viaCep.js";

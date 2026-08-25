@@ -5,8 +5,11 @@ import path from "node:path";
 
 import pdfParse from "pdf-parse";
 
-import { escolherMaiorImagemEmbutida, extrairJpegsEmbutidosPdf } from "./cnhPdfImagem.js";
-import { ocrDocumentoImagem } from "./documentoOcr.js";
+import {
+  escolherMaiorImagemEmbutida,
+  extrairImagensEmbutidasPdf,
+} from "./cnhPdfImagem.js";
+import { ocrDocumentoImagem, ocrDocumentoImagemDigitos } from "./documentoOcr.js";
 import { compactPlaca, formatPlacaHyphen } from "./placa.js";
 
 export type DocTipoUpload = "cnh" | "comprovante-residencia" | "crlv";
@@ -75,15 +78,37 @@ function cpfFormatado(cpf: string): string {
     : cpf;
 }
 
-/** Junta dígitos separados por espaço/quebra (comum em PDFs de CNH-e), sem colar após hífen/ponto. */
+/** Junta dígitos separados por espaço/quebra (comum em OCR de CNH-e). */
 function compactarDigitosEspacados(text: string): string {
-  return text.replace(/(?<![.\-/])(\d)\s+(?=\d)/g, "$1");
+  let t = text.replace(/(?<![.\-/])(\d)\s+(?=\d)/g, "$1");
+  t = t.replace(/(\d)[\s\u00a0·•]+(?=\d)/g, "$1");
+  return t;
+}
+
+function normalizarConfusoesOcrEmDigitos(fragmento: string): string {
+  return fragmento
+    .replace(/[OoQ]/g, "0")
+    .replace(/[Il|!]/g, "1")
+    .replace(/[Zz]/g, "2")
+    .replace(/[Ss]/g, "5")
+    .replace(/[Bb]/g, "8");
 }
 
 function extrairOnzeDigitos(text: string): string[] {
   const compact = compactarDigitosEspacados(text);
   const found = compact.match(/\b(\d{11})\b/g) ?? [];
-  return [...new Set(found)];
+  if (found.length) return [...new Set(found)];
+
+  const runs = compact.match(/[\dOoQIl|!ZzSsBb\s.\-/]{11,40}/g) ?? [];
+  const out = new Set<string>();
+  for (const run of runs) {
+    const d = normalizarConfusoesOcrEmDigitos(run).replace(/\D/g, "");
+    if (d.length === 11) out.add(d);
+    else if (d.length > 11) {
+      for (let i = 0; i <= d.length - 11; i++) out.add(d.slice(i, i + 11));
+    }
+  }
+  return [...out];
 }
 
 function extrairDigitosRotulo(text: string, rotulo: RegExp): string | null {
@@ -398,7 +423,13 @@ async function extrairTextoComOcr(
 
   async function ocr(bufferImagem: Buffer, msg: string): Promise<{ text: string; viaOcr: boolean }> {
     try {
-      const text = await ocrDocumentoImagem(bufferImagem);
+      let text = await ocrDocumentoImagem(bufferImagem);
+      if (!extrairOnzeDigitos(text).length) {
+        const digitos = await ocrDocumentoImagemDigitos(bufferImagem);
+        if (digitos.trim()) {
+          text = text.trim() ? `${text}\n${digitos}` : digitos;
+        }
+      }
       avisos.push(msg);
       return { text, viaOcr: true };
     } catch {
@@ -423,8 +454,8 @@ async function extrairTextoComOcr(
     return { text: pdf.text, avisos, viaOcr: false };
   }
 
-  const jpegs = extrairJpegsEmbutidosPdf(buffer);
-  const imagem = escolherMaiorImagemEmbutida(jpegs);
+  const imagens = extrairImagensEmbutidasPdf(buffer);
+  const imagem = escolherMaiorImagemEmbutida(imagens);
   if (!imagem) {
     avisos.push(opts.avisoSemImagem);
     return { text: pdf.text, avisos, viaOcr: false };
@@ -711,12 +742,22 @@ export function parseCnhText(text: string): CnhParseResult {
 
   if (!out.cpf && !out.cnh?.numeroRegistro) {
     const seqs2 = extrairOnzeDigitos(text);
+    const temOutrosDados = Boolean(
+      (out.nome && isNomeCnhValido(out.nome)) ||
+        out.cnh?.categoria ||
+        out.cnh?.validade ||
+        out.dataNascimento,
+    );
     if (seqs2.length === 0) {
-      avisos.push(
-        "CPF e registro não encontrados — a CNH-e costuma ser PDF só com imagem (sem texto). Preencha manualmente ou use exportação com campos legíveis.",
-      );
+      if (temOutrosDados) {
+        avisos.push("CPF e número de registro não lidos — confira e preencha manualmente.");
+      } else {
+        avisos.push(
+          "CPF e registro não encontrados — envie foto nítida da CNH ou exportação com campos legíveis do Gov.br.",
+        );
+      }
     } else {
-      avisos.push("CPF ou número de registro CNH não encontrados no texto.");
+      avisos.push("CPF ou número de registro CNH não identificados — confira os dígitos manualmente.");
     }
   }
 
@@ -1588,16 +1629,17 @@ export async function extrairImagemDocumento(
       avisos: [`Formato ${ext || "(sem extensão)"} não suportado.`],
     };
   }
-  const jpegs = extrairJpegsEmbutidosPdf(buffer);
-  const img = escolherMaiorImagemEmbutida(jpegs);
+  const imagens = extrairImagensEmbutidasPdf(buffer);
+  const img = escolherMaiorImagemEmbutida(imagens);
   if (!img) {
     return {
       imagemBase64: null,
       mime: "",
-      avisos: ["Nenhuma imagem JPEG encontrada no PDF."],
+      avisos: ["Nenhuma imagem encontrada no PDF (JPEG/PNG)."],
     };
   }
-  return { imagemBase64: img.toString("base64"), mime: "image/jpeg", avisos: [] };
+  const mime = img[0] === 0x89 && img[1] === 0x50 ? "image/png" : "image/jpeg";
+  return { imagemBase64: img.toString("base64"), mime, avisos: [] };
 }
 
 export function parseDocumentoTexto(

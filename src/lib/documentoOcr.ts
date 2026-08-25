@@ -42,7 +42,7 @@ async function workerPor(): Promise<Worker> {
       const { createWorker, OEM, PSM } = await loadTesseract();
       const worker = await createWorker("por", OEM.LSTM_ONLY, ocrWorkerOptions());
       await worker.setParameters({
-        tessedit_pageseg_mode: PSM.SINGLE_BLOCK,
+        tessedit_pageseg_mode: PSM.AUTO,
         user_defined_dpi: "300",
       });
       return worker;
@@ -73,19 +73,44 @@ async function prepararImagemOcr(buffer: Buffer): Promise<Buffer> {
   }
 }
 
+async function recognizeComTimeout(worker: Worker, prep: Buffer): Promise<string> {
+  const recognizePromise = worker.recognize(prep);
+  const timeoutPromise = new Promise<never>((_, reject) => {
+    setTimeout(() => reject(new Error("OCR excedeu o tempo limite")), OCR_TIMEOUT_MS);
+  });
+  const { data } = await Promise.race([recognizePromise, timeoutPromise]);
+  return (data.text ?? "").trim();
+}
+
 /** OCR em português — documentos escaneados (CNH, comprovante, etc.). */
 export async function ocrDocumentoImagem(buffer: Buffer): Promise<string> {
   try {
     const prep = await prepararImagemOcr(buffer);
     const worker = await workerPor();
+    return await recognizeComTimeout(worker, prep);
+  } catch {
+    return "";
+  }
+}
 
-    const recognizePromise = worker.recognize(prep);
-    const timeoutPromise = new Promise<never>((_, reject) => {
-      setTimeout(() => reject(new Error("OCR excedeu o tempo limite")), OCR_TIMEOUT_MS);
+/** Segunda passagem focada em números (CPF, registro CNH) — comum em CNH-e só imagem. */
+export async function ocrDocumentoImagemDigitos(buffer: Buffer): Promise<string> {
+  try {
+    const prep = await prepararImagemOcr(buffer);
+    const worker = await workerPor();
+    const { PSM } = await loadTesseract();
+    await worker.setParameters({
+      tessedit_pageseg_mode: PSM.SINGLE_BLOCK,
+      tessedit_char_whitelist: "0123456789.-/ ",
+      user_defined_dpi: "300",
     });
-
-    const { data } = await Promise.race([recognizePromise, timeoutPromise]);
-    return (data.text ?? "").trim();
+    const text = await recognizeComTimeout(worker, prep);
+    await worker.setParameters({
+      tessedit_pageseg_mode: PSM.AUTO,
+      tessedit_char_whitelist: "",
+      user_defined_dpi: "300",
+    });
+    return text;
   } catch {
     return "";
   }

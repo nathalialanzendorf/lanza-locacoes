@@ -24,6 +24,29 @@ export function extrairJpegsEmbutidosPdf(buffer: Buffer): Buffer[] {
   return out;
 }
 
+/** PNG embutido (alguns PDFs gov.br usam FlateDecode/PNG em vez de JPEG). */
+export function extrairPngsEmbutidosPdf(buffer: Buffer): Buffer[] {
+  const out: Buffer[] = [];
+  const sig = Buffer.from([0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a]);
+  let i = 0;
+  while (i < buffer.length - 12) {
+    const idx = buffer.indexOf(sig, i);
+    if (idx === -1) break;
+    const iend = buffer.indexOf(Buffer.from("IEND"), idx + 8);
+    if (iend === -1) break;
+    const end = Math.min(iend + 8, buffer.length);
+    const slice = buffer.subarray(idx, end);
+    if (slice.length >= MIN_JPEG_BYTES) out.push(Buffer.from(slice));
+    i = idx + 1;
+  }
+  return out;
+}
+
+/** JPEG + PNG embutidos no PDF. */
+export function extrairImagensEmbutidasPdf(buffer: Buffer): Buffer[] {
+  return [...extrairJpegsEmbutidosPdf(buffer), ...extrairPngsEmbutidosPdf(buffer)];
+}
+
 /** O JPEG maior costuma ser a página principal (CNH, fatura, etc.). */
 export function escolherMaiorImagemEmbutida(buffers: Buffer[]): Buffer | null {
   if (!buffers.length) return null;
