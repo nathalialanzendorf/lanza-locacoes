@@ -49,9 +49,9 @@ export function rastreameEspelhoGlobal(): boolean {
   return false;
 }
 
-/** @deprecated Integração Rastreame descontinuada — não replica clientes/contratos. */
+/** Replica clientes/contratos quando o espelho global está ativo. */
 export function rastreameClienteContratoObrigatorio(): boolean {
-  return false;
+  return rastreameEspelhoGlobal();
 }
 
 function runtimeReadOnly(): boolean {

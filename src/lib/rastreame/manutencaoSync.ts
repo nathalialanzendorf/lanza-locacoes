@@ -15,6 +15,7 @@ import crypto from "node:crypto";
 
 import { CategoriaDespesaCliente } from "../domain/categoriaDespesaCliente.js";
 import { compactPlaca } from "../placa.js";
+import { rastreameEspelhoGlobal } from "../rastreameEspelhoConfig.js";
 import {
   loadParceiroDespesasDb,
   marcarBaixaParceiroDespesa,
@@ -25,6 +26,7 @@ import {
 import {
   fetchAllManutencoes,
   fetchManutencaoById,
+  inativarManutencao,
   manutencaoPaga,
   montarCorpoManutencao,
   postManutencao,
@@ -204,6 +206,49 @@ async function pushOne(
   return { acao: "criados" };
 }
 
+/** Replica uma despesa de parceiro no Rastreame (cadastro/edição/exclusão). */
+export async function replicarParceiroDespesaNoRastreame(
+  reg: ParceiroDespesaRegistro,
+  opts?: { dryRun?: boolean; excluir?: boolean },
+): Promise<void> {
+  if (!rastreameEspelhoGlobal()) return;
+
+  if (opts?.excluir) {
+    if (!reg.rastreameManutencaoId) return;
+    if (opts.dryRun) {
+      console.log(`[push dry-run] inativar manutencao ${reg.rastreameManutencaoId} (${reg.placa})`);
+      return;
+    }
+    try {
+      await inativarManutencao(reg.rastreameManutencaoId);
+    } catch (e) {
+      throw new Error(
+        `Falha ao inativar manutenção ${reg.rastreameManutencaoId} no Rastreame: ${e instanceof Error ? e.message : String(e)}`,
+      );
+    }
+    return;
+  }
+
+  const veiculos = loadVeiculosRastreavel();
+  let manutencoes: ManutencaoRecord[] = [];
+  try {
+    manutencoes = await fetchAllManutencoes(100);
+  } catch (e) {
+    console.warn(
+      `[manutencao] listagem indisponível (${e instanceof Error ? e.message : String(e)}); dedupe via rastreameManutencaoId local.`,
+    );
+  }
+
+  const { acao, msg } = await pushOne(reg, {
+    veiculos,
+    manutencoes,
+    dryRun: opts?.dryRun ?? false,
+  });
+  if (acao === "ignorados" && msg) {
+    console.warn(`[aviso] parceiro-despesa ${reg.placa}: ${msg}`);
+  }
+}
+
 export async function pushManutencoesToRastreame(
   opts: SyncManutencaoOpts = {},
 ): Promise<SyncManutencaoResult> {
@@ -215,6 +260,11 @@ export async function pushManutencoesToRastreame(
     baixados: 0,
     erros: [],
   };
+
+  if (!rastreameEspelhoGlobal()) {
+    result.erros.push("Espelho Rastreame desativado (LANZA_RASTREAME_ESPELHO / lanza_paths.json)");
+    return result;
+  }
 
   const db = loadParceiroDespesasDb();
   const veiculos = loadVeiculosRastreavel();

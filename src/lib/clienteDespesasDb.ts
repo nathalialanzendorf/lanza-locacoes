@@ -635,7 +635,7 @@ export type ClienteDespesaPersistOpts = {
   prazoDias?: number;
   skipInferir?: boolean;
   fonteDetran?: string;
-  /** Default false — integração Rastreame descontinuada. */
+  /** Default true na API — segue LANZA_RASTREAME_ESPELHO / lanza_paths.json. */
   syncRastreame?: boolean;
   /** UUID do veículo já resolvido (ex.: criação de contrato). */
   veiculoId?: string;
@@ -651,9 +651,12 @@ export type ClienteDespesaPersistOpts = {
 
 async function pushAposPersistir(
   regs: ClienteDespesaRegistro[],
-  _opts?: ClienteDespesaPersistOpts,
+  opts?: ClienteDespesaPersistOpts,
 ): Promise<ClienteDespesaRegistro[]> {
-  return regs;
+  const { pushClienteDespesaRegistrosNoRastreame } = await import(
+    "./clienteDespesaRastreamePush.js"
+  );
+  return pushClienteDespesaRegistrosNoRastreame(regs, opts);
 }
 
 function resolvePlacaVeiculoCadastro(

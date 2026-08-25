@@ -10,6 +10,7 @@ import {
   loadParceiroDespesasDbAsync,
   loadVeiculosDbAsync,
   marcarBaixaParceiroDespesaAsync,
+  replicarParceiroDespesaNoRastreame,
   resolveVeiculoIdListagem,
   saveParceiroDespesasDbAsync,
   sincronizarParceiroDespesaAsync,
@@ -37,6 +38,21 @@ export type ListarParceiroDespesasOpts = {
 
 function emAberto(d: ParceiroDespesaRegistro): boolean {
   return !String(d.baixa ?? "").trim();
+}
+
+async function espelharParceiroDespesaRastreame(
+  reg: ParceiroDespesaRegistro,
+  opts?: { excluir?: boolean },
+): Promise<ParceiroDespesaRegistro> {
+  try {
+    await replicarParceiroDespesaNoRastreame(reg, { excluir: opts?.excluir });
+  } catch (err) {
+    console.error(
+      `[parceiro-despesas] falha ao replicar no Rastreame (${reg.placa} / ${reg.categoria}):`,
+      err instanceof Error ? err.message : String(err),
+    );
+  }
+  return (await obterParceiroDespesa(reg.id)) ?? reg;
 }
 
 function veiculoDaDespesa(d: ParceiroDespesaRegistro, veiculos: VeiculoRegistro[]) {
@@ -203,10 +219,12 @@ export async function criarParceiroDespesa(input: ParceiroDespesaInput) {
   }
   if (!input.categoria?.trim()) throw new HttpError(400, 'Campo "categoria" é obrigatório');
   const origem = input.origem?.trim();
-  if (origem && origem !== "manual") {
-    return sincronizarParceiroDespesaAsync(input);
-  }
-  return gravarParceiroDespesaManualAsync(input);
+  const r =
+    origem && origem !== "manual"
+      ? await sincronizarParceiroDespesaAsync(input)
+      : await gravarParceiroDespesaManualAsync(input);
+  const synced = await espelharParceiroDespesaRastreame(r.registro);
+  return { ...r, registro: synced };
 }
 
 export async function atualizarParceiroDespesa(
@@ -224,7 +242,7 @@ export async function atualizarParceiroDespesa(
   } else {
     await saveParceiroDespesasDbAsync(db);
   }
-  return reg;
+  return espelharParceiroDespesaRastreame(reg);
 }
 
 export async function baixarParceiroDespesa(
@@ -235,7 +253,8 @@ export async function baixarParceiroDespesa(
   if (!r.atualizados.length && !r.semAlteracao.length) {
     throw new HttpError(404, "Nenhuma despesa encontrada para o seletor");
   }
-  return r;
+  const synced = await Promise.all(r.atualizados.map((d) => espelharParceiroDespesaRastreame(d)));
+  return { ...r, atualizados: synced };
 }
 
 export async function removerParceiroDespesa(id: string): Promise<ParceiroDespesaRegistro> {
@@ -244,10 +263,12 @@ export async function removerParceiroDespesa(id: string): Promise<ParceiroDespes
   if (idx < 0) throw new HttpError(404, "Despesa parceiro não encontrada");
   const [removido] = db.parceiroDespesas.splice(idx, 1);
   if (await useRelationalStore()) {
+    await espelharParceiroDespesaRastreame(removido!, { excluir: true });
     const ok = await deleteParceiroDespesaFromSql(id);
     if (!ok) throw new HttpError(500, "Falha ao remover despesa no banco de dados");
     return removido!;
   }
+  await espelharParceiroDespesaRastreame(removido!, { excluir: true });
   await saveParceiroDespesasDbAsync(db);
   return removido!;
 }

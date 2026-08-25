@@ -244,12 +244,16 @@ export { vencimentoClienteDespesaBr } from "../../../src/lib/clienteDespesaVenci
 export { formatVeiculoLabel } from "../../../src/lib/veiculoLabel.js";
 
 export { syncMotoristas, replicarClienteNoRastreame } from "../../../src/lib/rastreame/motoristasSync.js";
-export { syncRastreaveis, preencherFipeFaltante } from "../../../src/lib/rastreame/rastreaveisSync.js";
+export { syncRastreaveis, preencherFipeFaltante, replicarVeiculoNoRastreame } from "../../../src/lib/rastreame/rastreaveisSync.js";
 export {
   syncRecebimentos,
   pushRecebimentosToRastreame,
+  replicarClienteDespesaNoRastreame,
 } from "../../../src/lib/rastreame/recebimentosSync.js";
-export { pushManutencoesToRastreame } from "../../../src/lib/rastreame/manutencaoSync.js";
+export {
+  pushManutencoesToRastreame,
+  replicarParceiroDespesaNoRastreame,
+} from "../../../src/lib/rastreame/manutencaoSync.js";
 
 export {
   sincronizarPedagiosFrota,

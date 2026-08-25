@@ -22,6 +22,8 @@ import {
 
   isEntityUuid,
 
+  replicarVeiculoNoRastreame,
+
   saveVeiculosDbAsync,
 
   type VeiculoPatch,
@@ -186,6 +188,19 @@ function filtrarVeiculos(
 
 
 
+async function espelharVeiculoRastreame(v: VeiculoRegistro): Promise<void> {
+  try {
+    await replicarVeiculoNoRastreame(v);
+  } catch (err) {
+    console.error(
+      `[veiculos] falha ao replicar no Rastreame (${v.placa}):`,
+      err instanceof Error ? err.message : String(err),
+    );
+  }
+}
+
+
+
 export async function obterVeiculoAsync(idOuPlaca: string): Promise<VeiculoRegistro | null> {
   const key = idOuPlaca.trim();
   const db = await loadVeiculosDbAsync(isEntityUuid(key) ? { veiculoId: key } : { placa: key });
@@ -210,7 +225,9 @@ export async function atualizarVeiculoAsync(
 
   }
 
-  return item;
+  await espelharVeiculoRastreame(item);
+
+  return (await obterVeiculoAsync(item.id)) ?? item;
 
 }
 
@@ -226,7 +243,9 @@ export async function removerVeiculoAsync(idOuPlaca: string): Promise<VeiculoReg
 
   }
 
-  return item;
+  await espelharVeiculoRastreame(item);
+
+  return (await obterVeiculoAsync(item.id)) ?? item;
 
 }
 
@@ -391,6 +410,12 @@ export async function criarVeiculo(input: CriarVeiculoInput): Promise<{
     }
 
   }
+
+
+
+  await espelharVeiculoRastreame(registro);
+
+  registro = (await obterVeiculoAsync(registro.id)) ?? registro;
 
 
 

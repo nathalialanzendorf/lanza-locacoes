@@ -202,7 +202,7 @@ export async function pushMotoristasToRastreame(
   };
 
   if (!rastreameClienteContratoObrigatorio()) {
-    result.erros.push("Replicação de clientes no Rastreame desativada");
+    result.erros.push("Espelho Rastreame desativado (LANZA_RASTREAME_ESPELHO / lanza_paths.json)");
     return result;
   }
 
