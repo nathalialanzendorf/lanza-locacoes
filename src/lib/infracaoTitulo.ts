@@ -81,6 +81,71 @@ export function pareceTituloMulta(s: string): boolean {
   return pareceDescricaoInfracaoCobranca(s);
 }
 
+/** Cobrança legada no campo `titulo` e texto DETRAN em `descricao`. */
+export function camposInfracaoInvertidos(titulo?: string | null, descricao?: string | null): boolean {
+  const t = String(titulo ?? "").trim();
+  const d = String(descricao ?? "").trim();
+  if (!t || !d) return false;
+  return pareceDescricaoInfracaoCobranca(t) && !pareceDescricaoInfracaoCobranca(d);
+}
+
+/**
+ * Repara titulo (DETRAN) + descricao (cobrança) em registos legados ou invertidos.
+ * Retorna null se já estiver coerente.
+ */
+export function repararCamposInfracaoCliente(args: {
+  titulo?: string | null;
+  descricao?: string | null;
+  dataAutuacao?: string | null;
+  numeroAuto?: string | null;
+  /** Texto DETRAN vindo do sync (preferido). */
+  textoDetranSync?: string | null;
+}): { titulo: string; descricao: string; corrigiu: boolean } | null {
+  const titulo = String(args.titulo ?? "").trim();
+  const descricao = String(args.descricao ?? "").trim();
+  const sync = String(args.textoDetranSync ?? "").trim();
+  const data = String(args.dataAutuacao ?? "").trim();
+  const auto = args.numeroAuto?.trim();
+
+  const descricaoCobrancaLegada = pareceDescricaoInfracaoCobranca(descricao)
+    ? descricao
+    : pareceDescricaoInfracaoCobranca(titulo)
+      ? titulo
+      : null;
+
+  if (sync && !pareceDescricaoInfracaoCobranca(sync)) {
+    const invertido = camposInfracaoInvertidos(titulo, descricao);
+    const campos = normalizarCamposInfracaoCliente({
+      textoDetran: sync,
+      dataAutuacao: data,
+      numeroAuto: auto,
+      descricaoRastreame: invertido ? null : descricaoCobrancaLegada,
+    });
+    if (titulo === campos.titulo && descricao === campos.descricao) return null;
+    return { ...campos, corrigiu: true };
+  }
+
+  if (camposInfracaoInvertidos(titulo, descricao)) {
+    const campos = normalizarCamposInfracaoCliente({
+      textoDetran: descricao,
+      dataAutuacao: data,
+      numeroAuto: auto,
+    });
+    return { ...campos, corrigiu: true };
+  }
+
+  if (!titulo && descricao && !pareceDescricaoInfracaoCobranca(descricao)) {
+    const campos = normalizarCamposInfracaoCliente({
+      textoDetran: descricao,
+      dataAutuacao: data,
+      numeroAuto: auto,
+    });
+    return { ...campos, corrigiu: true };
+  }
+
+  return null;
+}
+
 /** Normaliza titulo (DETRAN) + descricao (padrão Lanza) ao gravar infração. */
 export function normalizarCamposInfracaoCliente(args: {
   textoDetran: string;

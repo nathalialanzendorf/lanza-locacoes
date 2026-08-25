@@ -12,6 +12,7 @@ import {
   stripAtrasado,
   normalizarCamposInfracaoCliente,
   descricaoInfracaoCliente,
+  repararCamposInfracaoCliente,
 } from "./infracaoTitulo.js";
 import {
   dataVencimentoSemanalBr,
@@ -1097,25 +1098,43 @@ export async function sincronizarClienteDespesa(
 
   // Infração: titulo = DETRAN; descricao = Pagamento infração {tipo} {data}.
   const descricaoDetran = String(input.descricao ?? "").trim();
+  const textoDetranSync =
+    isCategoriaInfracao(categoria) && descricaoDetran && !pareceDescricaoInfracaoCobranca(descricaoDetran)
+      ? descricaoDetran
+      : null;
+  const reparoInfracao = isCategoriaInfracao(categoria)
+    ? repararCamposInfracaoCliente({
+        titulo: m.titulo,
+        descricao: m.descricao,
+        dataAutuacao: dataFinal,
+        numeroAuto: input.numeroAuto ?? input.autoInfracao ?? m.numeroAuto ?? m.autoInfracao,
+        textoDetranSync,
+      })
+    : null;
   const manterDescricaoCobranca =
-    isCategoriaInfracao(categoria) &&
-    (m.rastreameId != null ||
-      isClienteDespesaEmAberto(m) ||
-      pareceDescricaoInfracaoCobranca(m.descricao ?? ""));
-  const tituloDetran = isCategoriaInfracao(categoria) ? descricaoDetran : "";
+    isCategoriaInfracao(categoria) && pareceDescricaoInfracaoCobranca(m.descricao ?? "");
+  const tituloDetran =
+    isCategoriaInfracao(categoria)
+      ? reparoInfracao?.titulo ??
+        (textoDetranSync ??
+          (descricaoDetran && !pareceDescricaoInfracaoCobranca(descricaoDetran) ? descricaoDetran : ""))
+      : "";
   const tituloMudou = isCategoriaInfracao(categoria) && tituloDetran && (m.titulo ?? "") !== tituloDetran;
   const descricaoPadrao =
-    isCategoriaInfracao(categoria) && tituloDetran && !manterDescricaoCobranca
+    reparoInfracao?.descricao ??
+    (isCategoriaInfracao(categoria) && tituloDetran && !manterDescricaoCobranca
       ? descricaoInfracaoCliente(tituloDetran, dataFinal, input.numeroAuto ?? input.autoInfracao ?? m.numeroAuto ?? m.autoInfracao)
-      : null;
+      : null);
   const descricaoMudou = descricaoPadrao !== null && (m.descricao ?? "") !== descricaoPadrao;
+  const reparoMudou = reparoInfracao?.corrigiu === true;
 
   if (
     !registroChanged(m, { ...input, categoria }) &&
     !flagRevisarMudou &&
     !desejaConfirmar &&
     !tituloMudou &&
-    !descricaoMudou
+    !descricaoMudou &&
+    !reparoMudou
   ) {
     return { registro: m, aviso: null, acao: "sem_alteracao" };
   }
@@ -1147,9 +1166,13 @@ export async function sincronizarClienteDespesa(
   if (!manterDescricaoCobranca) {
     if (isCategoriaInfracao(categoria) && descricaoPadrao) {
       m.descricao = descricaoPadrao;
-    } else if (descricaoDetran && descricaoDetran !== "(sem descrição)") {
+    } else if (
+      !isCategoriaInfracao(categoria) &&
+      descricaoDetran &&
+      descricaoDetran !== "(sem descrição)"
+    ) {
       m.descricao = descricaoDetran;
-    } else if (!quitadaFinal) {
+    } else if (!isCategoriaInfracao(categoria) && !quitadaFinal) {
       m.descricao = descricaoDetran;
     }
   }
@@ -2447,10 +2470,49 @@ export function upsertRecebimentoFromRastreame(
   }
 
   // Infração: `titulo` = DETRAN; `descricao` = padrão de cobrança (Pagamento infração …).
-  const tituloInput = isInfra ? input.titulo?.trim() || stripAtrasado(input.descricao) : undefined;
+  const reparoRastreame = isInfra
+    ? repararCamposInfracaoCliente({
+        titulo: input.titulo ?? m.titulo,
+        descricao: input.descricao ?? m.descricao,
+        dataAutuacao: input.dataAutuacao || m.dataAutuacao,
+        numeroAuto: autoKey,
+        textoDetranSync:
+          input.descricao?.trim() && !pareceDescricaoInfracaoCobranca(input.descricao)
+            ? input.descricao
+            : m.descricao?.trim() && !pareceDescricaoInfracaoCobranca(m.descricao)
+              ? m.descricao
+              : input.titulo?.trim() && !pareceDescricaoInfracaoCobranca(input.titulo)
+                ? input.titulo
+                : null,
+      })
+    : null;
+  const camposRastreameInfra =
+    isInfra && reparoRastreame
+      ? reparoRastreame
+      : isInfra
+        ? normalizarCamposInfracaoCliente({
+            textoDetran:
+              (input.titulo?.trim() && !pareceDescricaoInfracaoCobranca(input.titulo)
+                ? input.titulo
+                : m.titulo?.trim() && !pareceDescricaoInfracaoCobranca(m.titulo)
+                  ? m.titulo
+                  : m.descricao?.trim() && !pareceDescricaoInfracaoCobranca(m.descricao)
+                    ? m.descricao
+                    : stripAtrasado(input.descricao)) ?? "",
+            dataAutuacao: input.dataAutuacao || m.dataAutuacao,
+            numeroAuto: autoKey,
+            descricaoRastreame: pareceDescricaoInfracaoCobranca(input.descricao)
+              ? input.descricao
+              : pareceDescricaoInfracaoCobranca(input.titulo)
+                ? input.titulo
+                : null,
+          })
+        : null;
   const changed =
-    (isInfra ? (m.titulo ?? "") !== (tituloInput ?? "") : m.descricao !== input.descricao) ||
-    (isInfra && m.descricao !== input.descricao) ||
+    (isInfra
+      ? (m.titulo ?? "") !== (camposRastreameInfra?.titulo ?? "") ||
+        (m.descricao ?? "") !== (camposRastreameInfra?.descricao ?? "")
+      : m.descricao !== input.descricao) ||
     m.valorMulta !== input.valorMulta ||
     m.situacao !== input.situacao ||
     m.dataAutuacao !== input.dataAutuacao ||
@@ -2460,8 +2522,10 @@ export function upsertRecebimentoFromRastreame(
 
   m.categoria = input.categoria;
   m.veiculoId = veiculoId;
-  if (isInfra) {
-    if (tituloInput) m.titulo = tituloInput;
+  if (isInfra && camposRastreameInfra) {
+    m.titulo = camposRastreameInfra.titulo;
+    m.descricao = camposRastreameInfra.descricao;
+  } else if (isInfra) {
     if (input.descricao?.trim()) m.descricao = input.descricao.trim();
   } else {
     m.descricao = input.descricao;
@@ -2492,6 +2556,81 @@ export function upsertRecebimentoFromRastreame(
     aviso: null,
     acao: changed ? "atualizado" : "sem_alteracao",
   };
+}
+
+/** Corrige infrações com titulo/descricao invertidos (legado Rastreame). */
+export function repararCamposInfracaoInvertidosNoDb(opts?: {
+  dryRun?: boolean;
+}): { atualizados: number; exemplos: string[] } {
+  const db = loadClienteDespesasDb();
+  let atualizados = 0;
+  const exemplos: string[] = [];
+  const changed: ClienteDespesaRegistro[] = [];
+
+  for (const m of db.clienteDespesas) {
+    if (m.ativo === false || !isCategoriaInfracao(m.categoria)) continue;
+    const reparo = repararCamposInfracaoCliente({
+      titulo: m.titulo,
+      descricao: m.descricao,
+      dataAutuacao: m.dataAutuacao,
+      numeroAuto: m.numeroAuto ?? m.autoInfracao,
+    });
+    if (!reparo?.corrigiu) continue;
+    if (exemplos.length < 3) {
+      exemplos.push(
+        `${m.autoInfracao}: titulo «${m.titulo ?? ""}» → «${reparo.titulo}»; descricao → «${reparo.descricao}»`,
+      );
+    }
+    if (!opts?.dryRun) {
+      m.titulo = reparo.titulo;
+      m.descricao = reparo.descricao;
+      m.atualizadoEm = nowIso();
+      changed.push(m);
+    }
+    atualizados++;
+  }
+
+  if (!opts?.dryRun && changed.length > 0) {
+    saveClienteDespesasDb(db);
+  }
+  return { atualizados, exemplos };
+}
+
+export async function repararCamposInfracaoInvertidosNoDbAsync(opts?: {
+  dryRun?: boolean;
+}): Promise<{ atualizados: number; exemplos: string[] }> {
+  const db = await loadClienteDespesasDbAsync();
+  let atualizados = 0;
+  const exemplos: string[] = [];
+  const changed: ClienteDespesaRegistro[] = [];
+
+  for (const m of db.clienteDespesas) {
+    if (m.ativo === false || !isCategoriaInfracao(m.categoria)) continue;
+    const reparo = repararCamposInfracaoCliente({
+      titulo: m.titulo,
+      descricao: m.descricao,
+      dataAutuacao: m.dataAutuacao,
+      numeroAuto: m.numeroAuto ?? m.autoInfracao,
+    });
+    if (!reparo?.corrigiu) continue;
+    if (exemplos.length < 3) {
+      exemplos.push(
+        `${m.autoInfracao}: titulo «${m.titulo ?? ""}» → «${reparo.titulo}»; descricao → «${reparo.descricao}»`,
+      );
+    }
+    if (!opts?.dryRun) {
+      m.titulo = reparo.titulo;
+      m.descricao = reparo.descricao;
+      m.atualizadoEm = nowIso();
+      changed.push(m);
+    }
+    atualizados++;
+  }
+
+  if (!opts?.dryRun && changed.length > 0) {
+    await saveDespesasMut(db, changed);
+  }
+  return { atualizados, exemplos };
 }
 
 export function marcarRastreameSyncOk(

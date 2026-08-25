@@ -7,6 +7,7 @@ import { registerAdminRoutes } from "./routes/admin.js";
 import { registerAuthRoutes } from "./routes/auth.js";
 import { registerAnaliseCadastroRoutes } from "./routes/analise-cadastro.js";
 import { registerClienteAnaliseRoutes } from "./routes/cliente-analise.js";
+import { registerCepRoutes } from "./routes/cep.js";
 import { registerClientesRoutes } from "./routes/clientes.js";
 import { registerConfigRoutes } from "./routes/config.js";
 import { registerCronRoutes } from "./routes/cron.js";
@@ -83,6 +84,7 @@ function collectRoutes(): RouteDef[] {
   registerMetaRoutes(routes);
   registerConfigRoutes(routes);
   registerClientesRoutes(routes);
+  registerCepRoutes(routes);
   registerVeiculosRoutes(routes);
   registerVendasRoutes(routes);
   registerInicioLocacoesRoutes(routes);

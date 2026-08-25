@@ -154,7 +154,7 @@ function extrairNomeCnh(
   return null;
 }
 
-function extrairCategoriaCnh(flat: string): string | null {
+function extrairCategoriaCnh(flat: string, lines: string[] = []): string | null {
   let m = flat.match(/\d{3}\.\d{3}\.\d{3}-\d{2}\s+\d{11}\s+([ABCDE]{1,2})\b/);
   if (m) return m[1]!.toUpperCase();
   m = flat.match(/\d{11}\s+([ABCDE]{1,2})\b/);
@@ -163,9 +163,177 @@ function extrairCategoriaCnh(flat: string): string | null {
   if (m) return m[1]!.toUpperCase();
   m = flat.match(/\bCategoria\s*[:\s]*([ABCDE]{1,2})\b/i);
   if (m) return m[1]!.toUpperCase();
+  m = flat.match(/\bCAT\.?\s*HAB\.?\s*[:\s]*([ABCDE]{1,2})\b/i);
+  if (m) return m[1]!.toUpperCase();
   m = flat.match(/\bCAT(?:EGORIA)?\.?\s*[:\s]*([ABCDE]{1,2})\b/i);
   if (m) return m[1]!.toUpperCase();
+  for (let i = 0; i < lines.length; i++) {
+    if (/^CAT\.?\s*HAB\.?$/i.test(lines[i]!.trim())) {
+      const prox = lines[i + 1]?.trim();
+      if (prox && /^[ABCDE]{1,2}$/i.test(prox)) return prox.toUpperCase();
+    }
+  }
   return null;
+}
+
+type CnhLabelKey =
+  | "nome"
+  | "primeiraHabilitacao"
+  | "dataNascimento"
+  | "docIdentidade"
+  | "cpf"
+  | "registro"
+  | "validade"
+  | "categoria"
+  | "skip";
+
+const CNH_LABEL_PATTERNS: { key: CnhLabelKey; patterns: string[]; exact?: boolean }[] = [
+  { key: "nome", patterns: ["NOME E SOBRENOME", "NOME COMPLETO"] },
+  {
+    key: "primeiraHabilitacao",
+    patterns: ["1ª HABILITAÇÃO", "1a HABILITACAO", "1ª HABILITACAO", "PRIMEIRA HABILITACAO"],
+  },
+  {
+    key: "dataNascimento",
+    patterns: ["DATA, LOCAL E UF DE NASCIMENTO", "DATA NASCIMENTO", "DATA DE NASCIMENTO"],
+  },
+  {
+    key: "docIdentidade",
+    patterns: [
+      "DOC. IDENTIDADE / ÓRG EMISSOR / UF",
+      "DOC IDENTIDADE / ORG EMISSOR / UF",
+      "DOC. IDENTIDADE",
+    ],
+  },
+  { key: "cpf", patterns: ["CPF"], exact: true },
+  {
+    key: "registro",
+    patterns: ["Nº REGISTRO", "N° REGISTRO", "NO REGISTRO", "N REGISTRO", "NUMERO REGISTRO", "NÚMERO REGISTRO"],
+  },
+  { key: "validade", patterns: ["VALIDADE"], exact: true },
+  { key: "categoria", patterns: ["CAT. HAB.", "CAT HAB.", "CAT HAB", "CAT. HAB", "CATEGORIA"] },
+  {
+    key: "skip",
+    patterns: [
+      "PERMISSÃO",
+      "PERMISSAO",
+      "ACC",
+      "OBSERVAÇÕES",
+      "OBSERVACOES",
+      "ASSINATURA DO PORTADOR",
+      "ASSINATURA",
+      "LOCAL",
+      "EMISSÃO",
+      "EMISSAO",
+    ],
+  },
+];
+
+function normalizeCnhToken(s: string): string {
+  return s
+    .normalize("NFD")
+    .replace(/\p{M}/gu, "")
+    .replace(/\s+/g, " ")
+    .trim()
+    .toUpperCase();
+}
+
+function matchCnhLabelLine(line: string): CnhLabelKey | null {
+  const u = normalizeCnhToken(line);
+  for (const { key, patterns, exact } of CNH_LABEL_PATTERNS) {
+    for (const p of patterns) {
+      const pu = normalizeCnhToken(p);
+      if (exact) {
+        if (u === pu || u === `${pu}:`) return key;
+      } else if (u === pu || u.startsWith(`${pu}:`)) {
+        return key;
+      }
+    }
+  }
+  return null;
+}
+
+function parseDataCnhToken(val: string): string | null {
+  return val.match(/\b(\d{2}\/\d{2}\/\d{4})\b/)?.[1] ?? null;
+}
+
+function assignCnhColumnField(out: Partial<CnhParseResult>, key: CnhLabelKey, val: string): void {
+  const v = val.replace(/\s+/g, " ").trim();
+  if (!v || key === "skip") return;
+  if (!out.cnh) out.cnh = {};
+
+  switch (key) {
+    case "nome":
+      if (isNomeCnhValido(v)) out.nome = v;
+      break;
+    case "primeiraHabilitacao": {
+      const d = parseDataCnhToken(v);
+      if (d) out.cnh!.primeiraHabilitacao = d;
+      break;
+    }
+    case "dataNascimento": {
+      const d = parseDataCnhToken(v);
+      if (d) out.dataNascimento = d;
+      break;
+    }
+    case "docIdentidade":
+      if (v.length >= 5 && cpfDigits(v).length !== 11) out.rg = v;
+      break;
+    case "cpf": {
+      const d = cpfDigits(v);
+      if (d.length === 11) out.cpf = cpfFormatado(d);
+      break;
+    }
+    case "registro": {
+      const d = cpfDigits(v);
+      if (d.length === 11) out.cnh!.numeroRegistro = d;
+      break;
+    }
+    case "validade": {
+      const d = parseDataCnhToken(v);
+      if (d) out.cnh!.validade = d;
+      break;
+    }
+    case "categoria": {
+      const cm = v.match(/\b([ABCDE]{1,2})\b/i);
+      if (cm) out.cnh!.categoria = cm[1]!.toUpperCase();
+      break;
+    }
+    default:
+      break;
+  }
+}
+
+function parseCnhColumnLayout(lines: string[]): Partial<CnhParseResult> {
+  const out: Partial<CnhParseResult> = { cnh: {} };
+
+  for (let start = 0; start < lines.length; start++) {
+    const keys: CnhLabelKey[] = [];
+    let i = start;
+    while (i < lines.length) {
+      const key = matchCnhLabelLine(lines[i]!);
+      if (!key) break;
+      if (key === "skip") {
+        i++;
+        continue;
+      }
+      const labelPatterns = CNH_LABEL_PATTERNS.find((p) => p.key === key)?.patterns ?? [];
+      const pureLabel = labelPatterns.some((p) => normalizeCnhToken(lines[i]!) === normalizeCnhToken(p));
+      if (!pureLabel) break;
+      keys.push(key);
+      i++;
+    }
+    if (keys.length < 4) continue;
+
+    const values = lines.slice(i).map((l) => l.trim()).filter(Boolean);
+    if (values.length < keys.length) continue;
+
+    for (let k = 0; k < keys.length; k++) {
+      assignCnhColumnField(out, keys[k]!, values[k]!);
+    }
+    if (out.nome || out.cpf || out.cnh?.numeroRegistro) return out;
+  }
+  return out;
 }
 
 function extrairValidadeCnh(flat: string, out: CnhParseResult): string | null {
@@ -362,7 +530,14 @@ export function parseCnhText(text: string): CnhParseResult {
   const flat = text.replace(/\s+/g, " ");
   const digitsFlat = compactarDigitosEspacados(flat);
 
-  const cpfFormatadoM = flat.match(/\b(\d{3}\.\d{3}\.\d{3}-\d{2})\b/);
+  const col = parseCnhColumnLayout(lines);
+  if (col.nome) out.nome = col.nome;
+  if (col.cpf) out.cpf = col.cpf;
+  if (col.dataNascimento) out.dataNascimento = col.dataNascimento;
+  if (col.rg) out.rg = col.rg;
+  if (col.cnh) Object.assign(out.cnh!, col.cnh);
+
+  const cpfFormatadoM = !out.cpf ? flat.match(/\b(\d{3}\.\d{3}\.\d{3}-\d{2})\b/) : null;
   if (cpfFormatadoM) out.cpf = cpfFormatadoM[1];
 
   if (!out.cpf) {
@@ -420,10 +595,16 @@ export function parseCnhText(text: string): CnhParseResult {
 
   const catM = text.match(/\bCategoria\s*[:\s]*([ABCDE]{1,2})\b/i);
   if (catM) out.cnh!.categoria = catM[1]!.toUpperCase();
+  if (!out.cnh!.categoria) {
+    const catHab = flat.match(/\bCAT\.?\s*HAB\.?\s*[:\s]*([ABCDE]{1,2})\b/i);
+    if (catHab) out.cnh!.categoria = catHab[1]!.toUpperCase();
+  }
 
-  const parEmVal = flat.match(
-    /(?:EMISS[AÃ]O|VALIDADE)[^\d]{0,40}(\d{2}\/\d{2}\/\d{4})[^\d]{0,25}(\d{2}\/\d{2}\/\d{4})/i,
-  );
+  const parEmVal = !out.cnh!.validade
+    ? flat.match(
+        /(?:EMISS[AÃ]O|VALIDADE)[^\d]{0,40}(\d{2}\/\d{2}\/\d{4})[^\d]{0,25}(\d{2}\/\d{2}\/\d{4})/i,
+      )
+    : null;
   if (parEmVal) {
     out.cnh!.dataEmissao = parEmVal[1];
     out.cnh!.validade = parEmVal[2];
@@ -502,7 +683,7 @@ export function parseCnhText(text: string): CnhParseResult {
     if (nomeExtraido.primeiraHabilitacao) out.cnh!.primeiraHabilitacao = nomeExtraido.primeiraHabilitacao;
   } else if (out.nome && !isNomeCnhValido(out.nome)) delete out.nome;
 
-  const catExtraida = extrairCategoriaCnh(flat);
+  const catExtraida = extrairCategoriaCnh(flat, lines);
   if (catExtraida) out.cnh!.categoria = catExtraida;
 
   const valExtraida = extrairValidadeCnh(flat, out);
