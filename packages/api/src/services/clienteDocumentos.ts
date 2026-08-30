@@ -1,6 +1,8 @@
 import fs from "node:fs";
 import path from "node:path";
 
+import { hasClienteDocumentoColumns } from "@lanza/db";
+
 import { editarClienteAsync } from "../lib-imports.js";
 import { HttpError } from "../http.js";
 import * as clientesService from "./clientes.js";
@@ -72,16 +74,35 @@ export async function uploadClienteDocumento(
   const cliente = await clientesService.obterClienteAsync(id);
   if (!cliente) throw new HttpError(404, "Cliente não encontrado");
   if (!buffer.length) throw new HttpError(400, "Arquivo vazio");
+  if (!(await hasClienteDocumentoColumns())) {
+    throw new HttpError(
+      503,
+      "Armazenamento de documentos do cliente indisponível — execute a migration 027_cliente_contrato_documentos_storage.sql.",
+    );
+  }
 
   const nome = opts.nomeArquivo?.trim() || (tipo === "cnh" ? "cnh.pdf" : "comprovante.pdf");
   const ext = extensaoDocumento(nome);
-  const stored = await documentos.enviarDocumentoBinario({
-    pathname: `clientes/${id}/${tipo}${ext}`,
-    conteudo: buffer,
-    contentType: opts.contentType?.trim() || mimeFromFilename(nome),
-    tipo: TIPO_BLOB[tipo],
-    clienteId: id,
-  });
+  let stored;
+  try {
+    stored = await documentos.enviarDocumentoBinario({
+      pathname: `clientes/${id}/${tipo}${ext}`,
+      conteudo: buffer,
+      contentType: opts.contentType?.trim() || mimeFromFilename(nome),
+      tipo: TIPO_BLOB[tipo],
+      clienteId: id,
+    });
+  } catch (err) {
+    if (err instanceof HttpError) throw err;
+    const msg = err instanceof Error ? err.message : String(err);
+    if (/already exists|BlobAlreadyExists|allowOverwrite/i.test(msg)) {
+      throw new HttpError(
+        409,
+        "Documento já existe no armazenamento — atualize o deploy da API (allowOverwrite no Blob) ou contacte o suporte.",
+      );
+    }
+    throw new HttpError(503, msg);
+  }
 
   const patch = storageFields(tipo, stored.pathname, nome);
   const atualizado = await editarClienteAsync(id, patch);

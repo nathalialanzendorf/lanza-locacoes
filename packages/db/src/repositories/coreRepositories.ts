@@ -806,8 +806,13 @@ export async function upsertClienteToSql(c: Record<string, unknown>): Promise<vo
           c.comprovanteDocumentoNome != null ? String(c.comprovanteDocumentoNome) : null,
         ],
       );
-    } catch {
-      /* migration 027 opcional */
+    } catch (err) {
+      const msg = err instanceof Error ? err.message : String(err);
+      if (/cnh_storage_key|comprovante_storage_key|does not exist/i.test(msg)) {
+        /* migration 027 opcional */
+      } else {
+        throw err;
+      }
     }
   }
 }

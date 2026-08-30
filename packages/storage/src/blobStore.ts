@@ -45,6 +45,7 @@ export async function putBytes(
       access: blobAccess(),
       contentType,
       addRandomSuffix: false,
+      allowOverwrite: opts?.allowOverwrite === true,
     }));
     return {
       pathname: result.pathname,

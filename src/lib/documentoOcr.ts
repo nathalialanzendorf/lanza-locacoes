@@ -1,9 +1,8 @@
 import path from "node:path";
-import { fileURLToPath } from "node:url";
 
 import type { Worker } from "tesseract.js";
 
-const REPO_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..", "..");
+import { REPO_ROOT } from "./repoRoot.js";
 const WORKER_PATH = path.join(REPO_ROOT, "node_modules/tesseract.js/src/worker-script/node/index.js");
 const LANG_PATH = path.join(REPO_ROOT, "node_modules/@tesseract.js-data/por/4.0.0_best_int");
 const CACHE_PATH =
@@ -51,9 +50,8 @@ async function workerPor(): Promise<Worker> {
   return workerPromise;
 }
 
-/** Pré-carrega WASM + idioma (evita timeout na 1.ª leitura na Vercel). */
+/** Pré-carrega WASM + idioma (evita timeout na 1.ª leitura). */
 export function warmupOcrWorker(): void {
-  if (process.env.VERCEL) return;
   void workerPor().catch((err) => {
     console.warn("[lanza] OCR warmup falhou:", err);
   });

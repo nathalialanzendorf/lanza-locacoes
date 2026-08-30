@@ -23,7 +23,6 @@ async function bootstrapPostgres(): Promise<void> {
 }
 
 function warmupOcrLocal(): void {
-  if (process.env.VERCEL) return;
   void import("../../../src/lib/documentoOcr.js")
     .then((m) => m.warmupOcrWorker())
     .catch((err) => {
