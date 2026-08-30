@@ -109,6 +109,8 @@ export type ContratoRegistro = {
   documentoGeradoEm?: string | null;
   /** Nome base do documento gerado (sem extensão). */
   documentoGeradoNome?: string | null;
+  /** Número da última versão Word/PDF gerada (1, 2, 3 …). */
+  documentoGeradoVersao?: number | null;
   /**
    * Acordo operacional: vencimentos com data ≤ este valor não entram em juros/multa
    * nem na base de bloqueio do veículo (DD/MM/AAAA). Só vencimentos **após** esta data.
@@ -836,6 +838,7 @@ export type AtualizarContratoDbPatch = Partial<
     | "documentoPdfStorageKey"
     | "documentoGeradoEm"
     | "documentoGeradoNome"
+    | "documentoGeradoVersao"
   >
 >;
 

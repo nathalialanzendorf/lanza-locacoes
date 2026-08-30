@@ -41,6 +41,7 @@ const PLACA_MAP_TTL_MS = 5 * 60 * 1000;
 let contratoAssinadoColumnsCache: boolean | null = null;
 let horaInicioColumnCache: boolean | null = null;
 let documentoGeradoColumnsCache: boolean | null = null;
+let documentoGeradoVersaoColumnCache: boolean | null = null;
 let clienteDocumentoColumnsCache: boolean | null = null;
 
 /** Colunas documento gerado (migration 027) — opcionais até a migration rodar. */
@@ -55,6 +56,21 @@ export async function hasDocumentoGeradoColumns(): Promise<boolean> {
   );
   const exists = r.rows[0]?.exists === true;
   if (exists) documentoGeradoColumnsCache = true;
+  return exists;
+}
+
+/** Coluna documento_gerado_versao (migration 028) — opcional até a migration rodar. */
+export async function hasDocumentoGeradoVersaoColumn(): Promise<boolean> {
+  if (documentoGeradoVersaoColumnCache === true) return true;
+  const r = await pgQuery<{ exists: boolean }>(
+    `SELECT EXISTS (
+       SELECT 1 FROM information_schema.columns
+       WHERE table_schema = 'lanza' AND table_name = 'contratos'
+         AND column_name = 'documento_gerado_versao'
+     ) AS exists`,
+  );
+  const exists = r.rows[0]?.exists === true;
+  if (exists) documentoGeradoVersaoColumnCache = true;
   return exists;
 }
 
@@ -169,6 +185,8 @@ function mapContratoRow(
     documentoPdfStorageKey: asText(row.documento_pdf_storage_key),
     documentoGeradoEm: rowIso(row.documento_gerado_em),
     documentoGeradoNome: asText(row.documento_gerado_nome),
+    documentoGeradoVersao:
+      row.documento_gerado_versao != null ? Number(row.documento_gerado_versao) : null,
     cadastradoEm: rowIso(row.cadastrado_em),
     atualizadoEm: rowIso(row.atualizado_em),
     cliente: cs
@@ -507,17 +525,35 @@ async function upsertContratoRowToSql(
       const pdfKey = asText(c.documentoPdfStorageKey);
       const geradoEm = parseIso(asText(c.documentoGeradoEm));
       const geradoNome = asText(c.documentoGeradoNome);
-      if (docxKey || pdfKey || geradoEm || geradoNome) {
-        await pgQuery(
-          `UPDATE lanza.contratos SET
-            documento_docx_storage_key = COALESCE($2, documento_docx_storage_key),
-            documento_pdf_storage_key = COALESCE($3, documento_pdf_storage_key),
-            documento_gerado_em = COALESCE($4::timestamptz, documento_gerado_em),
-            documento_gerado_nome = COALESCE($5, documento_gerado_nome),
-            atualizado_em = now()
-          WHERE id = $1`,
-          [id, docxKey, pdfKey, geradoEm, geradoNome],
-        );
+      const geradoVersao =
+        c.documentoGeradoVersao != null && Number.isFinite(Number(c.documentoGeradoVersao))
+          ? Number(c.documentoGeradoVersao)
+          : null;
+      if (docxKey || pdfKey || geradoEm || geradoNome || geradoVersao != null) {
+        if (await hasDocumentoGeradoVersaoColumn()) {
+          await pgQuery(
+            `UPDATE lanza.contratos SET
+              documento_docx_storage_key = COALESCE($2, documento_docx_storage_key),
+              documento_pdf_storage_key = COALESCE($3, documento_pdf_storage_key),
+              documento_gerado_em = COALESCE($4::timestamptz, documento_gerado_em),
+              documento_gerado_nome = COALESCE($5, documento_gerado_nome),
+              documento_gerado_versao = COALESCE($6::int, documento_gerado_versao),
+              atualizado_em = now()
+            WHERE id = $1`,
+            [id, docxKey, pdfKey, geradoEm, geradoNome, geradoVersao],
+          );
+        } else {
+          await pgQuery(
+            `UPDATE lanza.contratos SET
+              documento_docx_storage_key = COALESCE($2, documento_docx_storage_key),
+              documento_pdf_storage_key = COALESCE($3, documento_pdf_storage_key),
+              documento_gerado_em = COALESCE($4::timestamptz, documento_gerado_em),
+              documento_gerado_nome = COALESCE($5, documento_gerado_nome),
+              atualizado_em = now()
+            WHERE id = $1`,
+            [id, docxKey, pdfKey, geradoEm, geradoNome],
+          );
+        }
       }
     }
 }

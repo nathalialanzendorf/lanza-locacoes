@@ -95,6 +95,7 @@ export {
   queryContratosFromSql,
   hasContratoAssinadoColumns,
   hasDocumentoGeradoColumns,
+  hasDocumentoGeradoVersaoColumn,
   hasClienteDocumentoColumns,
   type ContratosSqlFilter,
   loadLocacoesFromSql,

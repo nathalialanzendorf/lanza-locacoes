@@ -21,7 +21,7 @@ import {
   type MontarContratoDbInput,
   type MotivoEncerramento,
 } from "../lib-imports.js";
-import { hasContratoAssinadoColumns, hasDocumentoGeradoColumns } from "@lanza/db";
+import { hasContratoAssinadoColumns, hasDocumentoGeradoColumns, hasDocumentoGeradoVersaoColumn } from "@lanza/db";
 import { HttpError } from "../http.js";
 import * as contratosService from "./contratos.js";
 import * as documentos from "./documentos.js";
@@ -286,12 +286,23 @@ export type GerarDocumentoContratoResult = {
   documentoDocxStorageKey?: string | null;
   documentoPdfStorageKey?: string | null;
   documentoGeradoEm?: string | null;
+  documentoGeradoVersao?: number | null;
 };
 
 async function persistDocumentoGeradoContrato(
-  contratoId: string,
-  gerado: Omit<GerarDocumentoContratoResult, "documentoDocxStorageKey" | "documentoPdfStorageKey" | "documentoGeradoEm">,
-): Promise<Pick<GerarDocumentoContratoResult, "documentoDocxStorageKey" | "documentoPdfStorageKey" | "documentoGeradoEm">> {
+  contrato: ContratoRegistro,
+  gerado: Omit<
+    GerarDocumentoContratoResult,
+    "documentoDocxStorageKey" | "documentoPdfStorageKey" | "documentoGeradoEm" | "documentoGeradoVersao"
+  >,
+  opts: { incrementarVersao: boolean },
+): Promise<
+  Pick<
+    GerarDocumentoContratoResult,
+    "documentoDocxStorageKey" | "documentoPdfStorageKey" | "documentoGeradoEm" | "documentoGeradoVersao"
+  >
+> {
+  const contratoId = contrato.id.trim();
   if (!(await hasDocumentoGeradoColumns())) {
     throw new HttpError(
       503,
@@ -325,18 +336,30 @@ async function persistDocumentoGeradoContrato(
     gerado.clienteNome || "Cliente",
     "docx",
   ).replace(/\.docx$/i, "");
+  const versaoAtual = contrato.documentoGeradoVersao ?? 0;
+  const documentoGeradoVersao = opts.incrementarVersao
+    ? versaoAtual + 1
+    : versaoAtual > 0
+      ? versaoAtual
+      : 1;
 
-  await atualizarContratoDbAsync(contratoId, {
+  const patch: Parameters<typeof atualizarContratoDbAsync>[1] = {
     documentoDocxStorageKey: docxStored.pathname,
     documentoPdfStorageKey: pdfStored?.pathname ?? null,
     documentoGeradoEm: geradoEm,
     documentoGeradoNome: geradoNome,
-  });
+  };
+  if (await hasDocumentoGeradoVersaoColumn()) {
+    patch.documentoGeradoVersao = documentoGeradoVersao;
+  }
+
+  await atualizarContratoDbAsync(contratoId, patch);
 
   return {
     documentoDocxStorageKey: docxStored.pathname,
     documentoPdfStorageKey: pdfStored?.pathname ?? null,
     documentoGeradoEm: geradoEm,
+    documentoGeradoVersao,
   };
 }
 
@@ -345,7 +368,7 @@ export async function gerarDocumentoContrato(contratoId: string): Promise<GerarD
   const reg = await contratosService.obterContratoAsync(contratoId);
   if (!reg) throw new HttpError(404, "Contrato não encontrado");
   const base = await gerarDocumentoContratoLocal(reg);
-  const stored = await persistDocumentoGeradoContrato(reg.id, base);
+  const stored = await persistDocumentoGeradoContrato(reg, base, { incrementarVersao: true });
   return { ...base, ...stored };
 }
 
@@ -407,7 +430,9 @@ export async function downloadDocumentoGeradoContrato(
   const local = await gerarDocumentoContratoLocal(contrato);
   if (await hasDocumentoGeradoColumns()) {
     try {
-      const stored = await persistDocumentoGeradoContrato(contrato.id, local);
+      const stored = await persistDocumentoGeradoContrato(contrato, local, {
+        incrementarVersao: !(contrato.documentoGeradoVersao != null && contrato.documentoGeradoVersao > 0),
+      });
       void stored;
     } catch (err) {
       console.warn(
