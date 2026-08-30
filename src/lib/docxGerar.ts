@@ -233,6 +233,49 @@ function appendRun(
   p.appendChild(r);
 }
 
+function ensureParagraphPr(doc: Document, p: Element): Element {
+  for (let i = 0; i < p.childNodes.length; i++) {
+    const n = p.childNodes[i]!;
+    if (n.nodeType === 1 && (n as Element).localName === "pPr") return n as Element;
+  }
+  const pPr = doc.createElementNS(W, "w:pPr");
+  if (p.firstChild) p.insertBefore(pPr, p.firstChild);
+  else p.appendChild(pPr);
+  return pPr;
+}
+
+/** Espaçamento de parágrafo Word (twips: 20 = 1pt). */
+function setParagraphSpacing(
+  doc: Document,
+  p: Element,
+  opts: { before?: number; after?: number },
+): void {
+  const pPr = ensureParagraphPr(doc, p);
+  let spacing: Element | null = null;
+  for (let i = 0; i < pPr.childNodes.length; i++) {
+    const n = pPr.childNodes[i]!;
+    if (n.nodeType === 1 && (n as Element).localName === "spacing") {
+      spacing = n as Element;
+      break;
+    }
+  }
+  if (!spacing) {
+    spacing = doc.createElementNS(W, "w:spacing");
+    pPr.appendChild(spacing);
+  }
+  if (opts.before != null) spacing.setAttributeNS(W, "before", String(opts.before));
+  if (opts.after != null) spacing.setAttributeNS(W, "after", String(opts.after));
+}
+
+function insertParagraphAfter(doc: Document, body: Element, ref: Element): Element {
+  const p = doc.createElementNS(W, "w:p");
+  const refPPr = ref.getElementsByTagNameNS(W, "pPr")[0];
+  if (refPPr) p.appendChild(refPPr.cloneNode(true));
+  if (ref.nextSibling) body.insertBefore(p, ref.nextSibling);
+  else body.appendChild(p);
+  return p;
+}
+
 function setParagraphRich(
   doc: Document,
   p: Element,
@@ -420,32 +463,75 @@ function formatNomeLocatarioContrato(nome: string): string {
 const ASSINATURA_LOCATARIO_TEMPLATE = "RAFAEL MOREIRA PONTEL";
 const ASSINATURA_LOCADOR_TEMPLATE = "JOSE FELIPE BARRETO RODRIGUES";
 
+/** Espaço vertical entre blocos de assinatura (locatário / locador). 720 twips ≈ 36pt. */
+const ASSINATURA_SPACING_TWIPS = 720;
+
 function aplicarNomesAssinaturaFinal(
   dom: Document,
   body: Element,
   nomeCliente: string,
 ): void {
   const locNome = formatNomeLocatarioContrato(nomeCliente);
-  for (const p of bodyParagraphs(body)) {
-    const full = getPText(p);
-    const up = full.toUpperCase();
-    if (
-      !up.includes(ASSINATURA_LOCATARIO_TEMPLATE) ||
-      !up.includes(ASSINATURA_LOCADOR_TEMPLATE)
-    ) {
-      continue;
-    }
-    const idxLoc = up.indexOf(ASSINATURA_LOCATARIO_TEMPLATE);
-    const idxLand = up.indexOf(ASSINATURA_LOCADOR_TEMPLATE);
-    if (idxLoc < 0 || idxLand < idxLoc) continue;
+  const paragraphs = bodyParagraphs(body);
 
-    const mid = full.slice(idxLoc + ASSINATURA_LOCATARIO_TEMPLATE.length, idxLand);
-    setParagraphRich(dom, p, [
-      B(locNome),
-      N(mid),
-      B(ASSINATURA_LOCADOR_TEMPLATE),
-    ]);
+  let idxLocatario = -1;
+  let idxLocador = -1;
+  for (let i = paragraphs.length - 1; i >= 0; i--) {
+    const up = getPText(paragraphs[i]!).toUpperCase();
+    if (idxLocador < 0 && up.includes(ASSINATURA_LOCADOR_TEMPLATE)) idxLocador = i;
+    if (idxLocatario < 0 && up.includes(ASSINATURA_LOCATARIO_TEMPLATE)) idxLocatario = i;
+    if (idxLocatario >= 0 && idxLocador >= 0) break;
+  }
+  if (idxLocatario < 0) return;
+
+  const pLoc = paragraphs[idxLocatario]!;
+  const fullLoc = getPText(pLoc);
+  const upLoc = fullLoc.toUpperCase();
+
+  if (idxLocador === idxLocatario) {
+    const idxLoc = upLoc.indexOf(ASSINATURA_LOCATARIO_TEMPLATE);
+    const idxLand = upLoc.indexOf(ASSINATURA_LOCADOR_TEMPLATE);
+    if (idxLand < 0 || idxLand <= idxLoc) {
+      setParagraphRich(dom, pLoc, [B(locNome)]);
+      return;
+    }
+
+    const mid = fullLoc
+      .slice(idxLoc + ASSINATURA_LOCATARIO_TEMPLATE.length, idxLand)
+      .replace(/\s+/g, " ")
+      .trim();
+
+    setParagraphRich(dom, pLoc, [B(locNome)]);
+    setParagraphSpacing(dom, pLoc, { after: ASSINATURA_SPACING_TWIPS / 2 });
+
+    const pSpacer = insertParagraphAfter(dom, body, pLoc);
+    setParagraphSpacing(dom, pSpacer, {
+      before: ASSINATURA_SPACING_TWIPS / 2,
+      after: ASSINATURA_SPACING_TWIPS / 2,
+    });
+
+    const pLand = insertParagraphAfter(dom, body, pSpacer);
+    const landSegs: [string, boolean][] = mid ? [N(`${mid} `)] : [];
+    landSegs.push(B(ASSINATURA_LOCADOR_TEMPLATE));
+    setParagraphRich(dom, pLand, landSegs);
+    setParagraphSpacing(dom, pLand, { before: ASSINATURA_SPACING_TWIPS / 2 });
     return;
+  }
+
+  setParagraphRich(dom, pLoc, [B(locNome)]);
+  setParagraphSpacing(dom, pLoc, { after: ASSINATURA_SPACING_TWIPS / 2 });
+
+  if (idxLocador >= 0) {
+    const pLand = paragraphs[idxLocador]!;
+    if (idxLocador === idxLocatario + 1) {
+      const pSpacer = insertParagraphAfter(dom, body, pLoc);
+      setParagraphSpacing(dom, pSpacer, {
+        before: ASSINATURA_SPACING_TWIPS / 2,
+        after: ASSINATURA_SPACING_TWIPS / 2,
+      });
+    } else {
+      setParagraphSpacing(dom, pLand, { before: ASSINATURA_SPACING_TWIPS / 2 });
+    }
   }
 }
 
