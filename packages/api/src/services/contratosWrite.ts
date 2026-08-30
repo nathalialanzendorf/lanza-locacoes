@@ -344,6 +344,14 @@ async function persistDocumentoGeradoContrato(
 export async function gerarDocumentoContrato(contratoId: string): Promise<GerarDocumentoContratoResult> {
   const reg = await contratosService.obterContratoAsync(contratoId);
   if (!reg) throw new HttpError(404, "Contrato não encontrado");
+  const base = await gerarDocumentoContratoLocal(reg);
+  const stored = await persistDocumentoGeradoContrato(reg.id, base);
+  return { ...base, ...stored };
+}
+
+async function gerarDocumentoContratoLocal(
+  reg: ContratoRegistro,
+): Promise<Omit<GerarDocumentoContratoResult, "documentoDocxStorageKey" | "documentoPdfStorageKey" | "documentoGeradoEm">> {
   const dados = await montarDadosContratoFromRegistroAsync(reg);
   normalizePaths(dados);
   const gerado = gerar(dados);
@@ -353,7 +361,7 @@ export async function gerarDocumentoContrato(contratoId: string): Promise<GerarD
       gerado.pdf = pdfPath;
     }
   }
-  const base: GerarDocumentoContratoResult = {
+  return {
     contratoId: reg.id,
     pasta: gerado.pasta,
     docx: gerado.docx,
@@ -361,8 +369,6 @@ export async function gerarDocumentoContrato(contratoId: string): Promise<GerarD
     cnh: gerado.cnh,
     clienteNome: reg.clienteNome?.trim() || dados.cliente?.nome?.trim() || "",
   };
-  const stored = await persistDocumentoGeradoContrato(reg.id, base);
-  return { ...base, ...stored };
 }
 
 export async function downloadDocumentoGeradoContrato(
@@ -376,33 +382,44 @@ export async function downloadDocumentoGeradoContrato(
     formato === "pdf"
       ? contrato.documentoPdfStorageKey?.trim()
       : contrato.documentoDocxStorageKey?.trim();
-  if (!key) {
-    throw new HttpError(
-      404,
-      formato === "pdf"
-        ? "PDF ainda não gerado — use «Gerar nova versão» primeiro."
-        : "Word ainda não gerado — use «Gerar nova versão» primeiro.",
-    );
+
+  if (key) {
+    const buf = await documentos.lerDocumentoBytes(key);
+    if (buf?.length) {
+      const blob = await documentos.obterDocumento(key);
+      const nomeBase =
+        contrato.documentoGeradoNome?.trim() ||
+        contrato.clienteNome?.trim() ||
+        "Contrato";
+      const filename = nomeArquivoContratoComExtensao(
+        nomeBase.replace(/^Contrato\s*-\s*/i, ""),
+        formato,
+      );
+      const contentType =
+        formato === "pdf"
+          ? "application/pdf"
+          : blob?.contentType ??
+            "application/vnd.openxmlformats-officedocument.wordprocessingml.document";
+      return { buffer: buf, filename, contentType };
+    }
   }
 
-  const buf = await documentos.lerDocumentoBytes(key);
-  if (!buf?.length) {
-    throw new HttpError(404, "Arquivo do contrato não encontrado no armazenamento.");
+  const local = await gerarDocumentoContratoLocal(contrato);
+  if (await hasDocumentoGeradoColumns()) {
+    try {
+      const stored = await persistDocumentoGeradoContrato(contrato.id, local);
+      void stored;
+    } catch (err) {
+      console.warn(
+        "[lanza] Falha ao persistir documento gerado no download:",
+        err instanceof Error ? err.message : err,
+      );
+    }
   }
-
-  const blob = await documentos.obterDocumento(key);
-  const nomeBase =
-    contrato.documentoGeradoNome?.trim() ||
-    contrato.clienteNome?.trim() ||
-    "Contrato";
-  const filename = nomeArquivoContratoComExtensao(nomeBase.replace(/^Contrato\s*-\s*/i, ""), formato);
-  const contentType =
-    formato === "pdf"
-      ? "application/pdf"
-      : blob?.contentType ??
-        "application/vnd.openxmlformats-officedocument.wordprocessingml.document";
-
-  return { buffer: buf, filename, contentType };
+  return resolverDownloadDocumentoContrato(
+    { ...local, contratoId: contrato.id },
+    formato,
+  );
 }
 
 export type DocumentoDownload = {

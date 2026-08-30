@@ -56,6 +56,7 @@ function applyCors(req: IncomingMessage, res: ServerResponse): void {
     "Access-Control-Allow-Headers",
     "Content-Type, X-API-Key, Authorization, X-Filename",
   );
+  res.setHeader("Access-Control-Expose-Headers", "Content-Disposition, Content-Type, Content-Length");
   res.setHeader("Access-Control-Allow-Methods", "GET, POST, PATCH, PUT, DELETE, OPTIONS");
 }
 
